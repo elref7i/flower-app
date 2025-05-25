@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sarabun } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import Providers from "@/components/providers";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -21,12 +22,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={sarabun.variable}
-    >
+    <html lang="en" className={sarabun.variable} suppressHydrationWarning>
       <body>
-        {children}
+        <Providers>{children}</Providers>
         <Toaster />
       </body>
     </html>

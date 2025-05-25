@@ -14,9 +14,9 @@ const buttonVariants = cva(
         secondary:
           "bg-maroon-50 text-maroon-600 hover:bg-maroon-100 disabled:bg-zinc-300 disabled:text-zinc-500",
         outline:
-          "border border-marron-600 bg-maroon-50 text-marron-600 hover:bg-maroon-100 disabled:border-zinc-300 disabled:bg-zinc-100 disabled:text-zinc-400",
+          "border-[1px] border-maroon-600 bg-maroon-50 text-marron-600 hover:bg-maroon-100 disabled:border-zinc-300 disabled:bg-zinc-100 disabled:text-zinc-400",
         subtle:
-          "border border-zinc-400 bg-zinc-50 hover:bg-zinc-100 disabled:bg-zinc-100 disabled:text-zinc-400",
+          "border-[1px] border-zinc-400 bg-zinc-50 hover:bg-zinc-100 disabled:bg-zinc-100 disabled:text-zinc-400",
         destructive:
           "bg-red-600 text-destructive-foreground hover:bg-red-700 disabled:bg-zinc-300 disabled:text-zinc-500",
         ghost:
@@ -24,8 +24,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default:
-          "line- font-bold h-10 leading-[150%] w-[181px] px-4 py-[10px] gap-[10px]",
+        default: "line- font-bold h-10 leading-[150%] w-[181px] px-4 py-[10px] gap-[10px]",
         sm: "h-9 w-[160px] rounded-md px-3",
         lg: "h-10 rounded-md px-8",
         icon: "h-10 w-10",
@@ -35,7 +34,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 export interface ButtonProps
@@ -48,13 +47,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
     );
-  }
+  },
 );
 Button.displayName = "Button";
 
