@@ -1,6 +1,8 @@
 import { ModeToggle } from "@/components/common/theme-toggle";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function Home() {
@@ -10,10 +12,11 @@ export default function Home() {
         <Button variant={"secondary"} className="">
           Refai
         </Button>
-
         <Input type="text" placeholder="Email" />
         <Textarea placeholder="input text" />
+        <Label>Input</Label>
         <ModeToggle />
+        <Badge variant={"subtle"}>Badge</Badge>
       </main>
     </div>
   );
