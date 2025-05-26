@@ -1,5 +1,7 @@
 import { ModeToggle } from "@/components/common/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function Home() {
   return (
@@ -8,6 +10,9 @@ export default function Home() {
         <Button variant={"secondary"} className="">
           Refai
         </Button>
+
+        <Input type="text" placeholder="Email" />
+        <Textarea placeholder="input text" />
         <ModeToggle />
       </main>
     </div>

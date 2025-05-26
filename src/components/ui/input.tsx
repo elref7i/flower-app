@@ -1,22 +1,27 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils/tailwind-merge"
+import { cn } from "@/lib/utils/tailwind-merge";
+interface InputProps extends React.ComponentProps<"input"> {
+  error?: boolean;
+}
 
-const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, type, ...props }, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, error, ...props }, ref) => {
     return (
       <input
         type={type}
         className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-          className
+          "flex  h-12 w-[327px] rounded-md border-[1px] border-zinc-300 bg-white p-4 text-sm text-zinc-800 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-zinc-400 focus-visible:outline-none focus:border-maroon-600 disabled:cursor-not-allowed  disabled:bg-zinc-100 disabled:border-transparent md:text-sm",
+          "dark:bg-zinc-800 dark:text-zinc-200 dark:border-zinc-600 dark:placeholder:text-zinc-400 dark:focus:border-softpink-400 dark:disabled:border-zinc-700 dark:disabled:placeholder:text-zinc-600",
+          className,
+          error && "border-red-600 dark:border-red-500",
         )}
         ref={ref}
         {...props}
       />
-    )
-  }
-)
-Input.displayName = "Input"
+    );
+  },
+);
+Input.displayName = "Input";
 
-export { Input }
+export { Input };
