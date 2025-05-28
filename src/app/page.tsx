@@ -1,3 +1,4 @@
+"use client";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,6 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 export default function Home() {
   return (
@@ -52,6 +54,20 @@ export default function Home() {
           <Label error={true}>Input</Label>
           <Badge variant={"subtle"}>Badge</Badge>
         </div>
+
+        <Button
+          variant="outline"
+          onClick={() =>
+            toast("Event has been created", {
+              action: {
+                label: "",
+                onClick: () => console.log("Undo"),
+              },
+            })
+          }
+        >
+          Show Toast
+        </Button>
 
         <Pagination>
           <PaginationContent>
