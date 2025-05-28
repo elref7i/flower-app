@@ -12,21 +12,46 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Button variant={"default"} className="">
+    <div className="p-20">
+      <main className="space-y-4">
+        <Button variant={"outline"} className="">
           Refai
         </Button>
-        <Input type="file" placeholder="Email" />
+        <Input type="email" placeholder="Email" />
         <Textarea placeholder="input text" />
-
-        <Label error={true}>Input</Label>
+        <Select>
+          <SelectTrigger className="">
+            <SelectValue placeholder="Select a fruit" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Fruits</SelectLabel>
+              <SelectItem value="apple">Apple</SelectItem>
+              <SelectItem value="banana">Banana</SelectItem>
+              <SelectItem value="blueberry">Blueberry</SelectItem>
+              <SelectItem value="grapes">Grapes</SelectItem>
+              <SelectItem value="pineapple">Pineapple</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
         <ModeToggle />
-        <Badge variant={"subtle"}>Badge</Badge>
+        <div className="space-x-2">
+          <Label error={true}>Input</Label>
+          <Badge variant={"subtle"}>Badge</Badge>
+        </div>
 
         <Pagination>
           <PaginationContent>

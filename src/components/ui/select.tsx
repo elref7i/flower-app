@@ -12,14 +12,20 @@ const SelectGroup = SelectPrimitive.Group;
 
 const SelectValue = SelectPrimitive.Value;
 
+interface SelectProps extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {
+  error?: boolean;
+}
+
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+  SelectProps
+>(({ className, children, error, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      "flex h-12 w-[327px] items-center justify-between rounded-md border border-input border-zinc-300 bg-white p-4 text-zinc-800 px-3 py-2 text-sm data-[placeholder]:text-zinc-400 focus:outline-none focus:border-maroon-600 disabled:cursor-not-allowed disabled:border-transparent disabled:bg-zinc-100 disabled:text-zinc-400 [&>span]:line-clamp-1",
+      "dark:bg-zinc-800 d dark:text-zinc-200 dark:border-zinc-600 dark:data-[placeholder]:text-zinc-400 dark:focus:border-softpink-400 dark:disabled:border-zinc-700 dark:disabled:data-[placeholder]:text-zinc-600 dark:disabled:text-zinc-600",
+      error && "border-red-600 dark:border-red-500",
       className,
     )}
     {...props}
@@ -98,7 +104,10 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn("py-1.5 pl-8 pr-2 text-sm font-semibold", className)}
+    className={cn(
+      "py-1.5 pl-8 pr-2 text-maroon-400 dark:text-softpink-400 text-sm font-semibold",
+      className,
+    )}
     {...props}
   />
 ));
