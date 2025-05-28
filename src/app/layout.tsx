@@ -3,6 +3,7 @@ import { Sarabun } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import Providers from "@/components/providers";
+import Header from "@/components/layout/header";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -24,7 +25,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={sarabun.variable} suppressHydrationWarning>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {/* Header  */}
+          <Header />
+
+          {/* Content */}
+          {children}
+        </Providers>
+
+        {/* Sonner */}
         <Toaster />
       </body>
     </html>
