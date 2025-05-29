@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import Providers from "@/components/providers";
 import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -32,6 +33,9 @@ export default function RootLayout({
           {/* Content */}
           {children}
         </Providers>
+
+        {/* Footer */}
+        <Footer />
 
         {/* Sonner */}
         <Toaster />
