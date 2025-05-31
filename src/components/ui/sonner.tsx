@@ -1,6 +1,7 @@
+"use client";
 import { cn } from "@/lib/utils/tailwind-merge";
 import { useTheme } from "next-themes";
-import { Toaster as Sonner } from "sonner"; // من ShadCN برضو
+import { Toaster as Sonner } from "sonner";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
