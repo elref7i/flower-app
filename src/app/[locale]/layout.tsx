@@ -6,6 +6,8 @@ import { Sarabun, Zain } from "next/font/google";
 
 import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/components/providers";
+import MainHeader from "@/components/layout/header/components/main-header";
+import NavigationHeader from "@/components/layout/header/components/navigation-header";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -46,7 +48,11 @@ export default async function LocaleLayout({
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <MainHeader />
+          <NavigationHeader />
+          {children}
+        </Providers>
         <Toaster />
       </body>
     </html>

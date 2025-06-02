@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import LoginDialog from "@/components/features/auth/auth-dialog";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,7 @@ import { ModeToggle } from "@/components/common/theme-toggle";
 export default function HomePage() {
   const { data: session } = useSession();
   const t = useTranslations();
-
+  const format = useFormatter();
   return (
     <div>
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -21,7 +21,6 @@ export default function HomePage() {
             Flower App
           </h1>
           <LoginDialog />
-
           <Button
             onClick={async () => {
               await signOut();
@@ -34,6 +33,8 @@ export default function HomePage() {
           <Link href="/about">{t("HomePage.about")}</Link>
           <ModeToggle />
           <LanguageToggle />
+          <p>{format.number(250, "currency")}</p>
+          <p>{format.number(0.3, "percentage")}</p>
         </main>
       </div>
     </div>

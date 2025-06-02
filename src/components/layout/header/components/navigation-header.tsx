@@ -19,7 +19,6 @@ import { cn } from "@/lib/utils/tailwind-merge";
 
 export default function NavigationHeader() {
   const path = usePathname();
-  console.log(path);
 
   return (
     <ul className="flex gap-4 text-white dark:text-maroon-800 justify-center bg-maroon-700 dark:bg-softpink-200">

@@ -6,6 +6,13 @@ import { Check } from "lucide-react";
 
 import { cn } from "@/lib/utils/tailwind-merge";
 
+/**
+ * @file DropdownMenuCustomRadioItem.tsx
+ * @description it instance of a radio item component for shad cn  UI dropdown menus.
+ * A custom radio item component for shad cn UI dropdown menus, styled using Tailwind CSS and extended to show a check icon when selected.
+ * This component is designed to be used within a dropdown menu, allowing you to customize radio options and styles with a visual indicator.
+ */
+
 const DropdownMenuCustomRadioItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>

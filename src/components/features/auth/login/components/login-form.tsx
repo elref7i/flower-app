@@ -123,3 +123,4 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
     </>
   );
 }
+// feat/next-intl: setup next-intl and update folder structure, add zain font, add language menu
