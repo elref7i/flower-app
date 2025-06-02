@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils/tailwind-merge";
+import { cn } from "@/lib/utils/cn";
 interface TextareaProps extends React.ComponentProps<"textarea"> {
   error?: boolean;
 }
