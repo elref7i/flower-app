@@ -1,4 +1,4 @@
-import { TListRegisterFormFields, TSetAuthForm } from "@/lib/types/auth-forms";
+import { TListRegisterFormFields, TSetAuthForm } from "@/lib/types/auth";
 import useRegister from "../hooks/use-register";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,19 +17,24 @@ import {
 import { Input } from "@/components/ui/input";
 import { registerSchema, TRegisterFormFields } from "@/lib/schema/auth.schema";
 import { DialogTitle } from "@/components/ui/dialog";
-
-// list for register form fields
-const formFields: TListRegisterFormFields = [
-  { name: "firstName", type: "text", placeholder: "first name" },
-  { name: "lastName", type: "text", placeholder: "last name" },
-  { name: "phone", type: "text", placeholder: "phone number" },
-  { name: "email", type: "email", placeholder: "email" },
-  { name: "password", type: "password", placeholder: "password" },
-  { name: "rePassword", type: "password", placeholder: "Re-password" },
-];
+import { useLocale, useTranslations } from "next-intl";
 
 // Register form component
 export default function RegisterForm({ setForm }: TSetAuthForm) {
+  // Hook for translations
+  const t = useTranslations();
+  const locale = useLocale();
+
+  // list for register form fields
+  const formFields: TListRegisterFormFields = [
+    { name: "firstName", type: "text", placeholder: t("first-name") },
+    { name: "lastName", type: "text", placeholder: t("last-name") },
+    { name: "phone", type: "text", placeholder: t("phone-number") },
+    { name: "email", type: "email", placeholder: t("email") },
+    { name: "password", type: "password", placeholder: t("password") },
+    { name: "rePassword", type: "password", placeholder: t("re-password") },
+  ];
+
   // Hook for register mutation
   const { isPending, error, registerNewAccount } = useRegister();
 
@@ -54,7 +59,7 @@ export default function RegisterForm({ setForm }: TSetAuthForm) {
   return (
     <>
       {/* Form title */}
-      <DialogTitle>Register </DialogTitle>
+      <DialogTitle>{t("register")} </DialogTitle>
       {isPending ? (
         <p>Loading...</p>
       ) : (
@@ -70,7 +75,7 @@ export default function RegisterForm({ setForm }: TSetAuthForm) {
                 name={input.name}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>input</FormLabel>
+                    <FormLabel className="capitalize">{input.placeholder}</FormLabel>
                     <FormControl>
                       <Input placeholder={input.placeholder} type={input.type} {...field} />
                     </FormControl>
@@ -87,9 +92,10 @@ export default function RegisterForm({ setForm }: TSetAuthForm) {
               name="gender"
               render={({ field }) => (
                 <FormItem className="space-y-3">
-                  <FormLabel>Gender</FormLabel>
+                  <FormLabel>{t("gender")}</FormLabel>
                   <FormControl>
                     <RadioGroup
+                      dir={locale === "ar" ? "rtl" : "ltr"}
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                       className="flex flex-col space-y-1"
@@ -98,13 +104,13 @@ export default function RegisterForm({ setForm }: TSetAuthForm) {
                         <FormControl>
                           <RadioGroupItem value="male" />
                         </FormControl>
-                        <FormLabel className="font-normal">male</FormLabel>
+                        <FormLabel className="font-normal">{t("male")}</FormLabel>
                       </FormItem>
                       <FormItem className="flex items-center space-x-3 space-y-0">
                         <FormControl>
                           <RadioGroupItem value="female" />
                         </FormControl>
-                        <FormLabel className="font-normal">female</FormLabel>
+                        <FormLabel className="font-normal">{t("female")}</FormLabel>
                       </FormItem>
                     </RadioGroup>
                   </FormControl>
@@ -115,14 +121,17 @@ export default function RegisterForm({ setForm }: TSetAuthForm) {
 
             {/* Button to display login form */}
             <p>
-              Already have an account?
-              <span className="cursor-pointer" onClick={() => setForm("login")}>
-                Login
-              </span>
+              {t.rich("have-account", {
+                span: (value) => (
+                  <span className="cursor-pointer text-blue-500" onClick={() => setForm("login")}>
+                    {value}
+                  </span>
+                ),
+              })}
             </p>
 
             {/* Button to submit form */}
-            <Button type="submit">Create Account</Button>
+            <Button type="submit">{t("create-account")}</Button>
           </form>
         </Form>
       )}

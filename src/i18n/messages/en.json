@@ -1,0 +1,28 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "NotFoundPage": {
+    "title": "Not found page",
+    "Action": "Go to homepage"
+  },
+  "choose-language": "Choose website language",
+  "logout": "Logout",
+  "login": "Login",
+  "email": "Email",
+  "password": "password",
+  "remind-me": "Remind me",
+  "forgot-password": "forgot Password",
+  "first-name": "first name",
+  "last-name": "last name",
+  "phone-number": "phone",
+  "re-password": "re-password",
+  "gender": "Gender",
+  "male": "male",
+  "female": "female",
+  "have-account": "Already have an account?<span>Login</span>",
+  "no-account": "No account?<span>Create one here</span>",
+  "create-account": "Create Accountt",
+  "register": "Register"
+}

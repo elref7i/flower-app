@@ -1,0 +1,28 @@
+{
+  "HomePage": {
+    "title": "مرحبا",
+    "about": "اذهب الي صفحة عنا"
+  },
+  "NotFoundPage": {
+    "title": "الصفحة غير متوفرة\n",
+    "Action": "اذهب إلى الصفحة الرئيسية"
+  },
+  "choose-language": "اختر لغة الموقع",
+  "logout": "تسجيل خروج",
+  "login": "تسجيل الدخول",
+  "email": "بريد إلكتروني",
+  "password": "كلمة المرور",
+  "remind-me": "تذكرني",
+  "forgot-password": "نسيت كلمة المرور",
+  "first-name": "الاسم الأول",
+  "last-name": "اسم العائلة",
+  "phone-number": "رقم الهاتف",
+  "re-password": "تأكيد كلمة السر",
+  "gender": "الجنس",
+  "male": "ذكر",
+  "female": "أنثى",
+  "have-account": "لديك حساب؟<span>تسجيل دخول</span>",
+  "no-account": "ليس لديك حساب؟<span>انشئ حساب </span>",
+  "create-account": "إنشاء حساب",
+  "register": "حساب جديد"
+}

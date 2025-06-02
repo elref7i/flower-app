@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import useLogin from "../hooks/use-login";
 import { loginSchema, TLoginFormFields } from "@/lib/schema/auth.schema";
-import { TSetAuthForm } from "@/lib/types/auth-forms";
+import { TSetAuthForm } from "@/lib/types/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 // Import shad cn ui components
@@ -17,9 +17,13 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { DialogTitle } from "@/components/ui/dialog";
+import { useTranslations } from "next-intl";
 
 // Login Form component
 export default function LoginForm({ setForm }: TSetAuthForm) {
+  // Hook for translations
+  const t = useTranslations();
+
   // Hook to make login mutation
   const { isPending, error, login } = useLogin();
 
@@ -37,7 +41,7 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
   return (
     <>
       {/* Form title */}
-      <DialogTitle>Login</DialogTitle>
+      <DialogTitle>{t("login")}</DialogTitle>
       <Form {...form}>
         {/* Show error if it is exist */}
         {error && <p>{error.message}</p>}
@@ -55,9 +59,9 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>{t("email")}</FormLabel>
                     <FormControl>
-                      <Input placeholder="email" type="text" {...field} />
+                      <Input placeholder={t("email")} type="text" {...field} />
                     </FormControl>
 
                     <FormMessage />
@@ -71,9 +75,9 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>{t("password")}</FormLabel>
                     <FormControl>
-                      <Input placeholder="password" type="password" {...field} />
+                      <Input placeholder={t("password")} type="password" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -87,26 +91,32 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
             {/* Remind me box */}
             <div>
               <Checkbox />
-              <span className="ms-3">Remind me</span>
+              <span className="ms-3">{t("remind-me")}</span>
             </div>
 
             {/*Button to show forgot password form */}
-            <button>forgot Password</button>
+            <button>{t("forgot-password")}</button>
           </div>
 
           {/*Show register Form */}
           <div>
             <p>
-              No account?
-              <span className="cursor-pointer" onClick={() => setForm("register")}>
-                Create one here
-              </span>
+              {t.rich("no-account", {
+                span: (value) => (
+                  <span
+                    className="cursor-pointer text-blue-500"
+                    onClick={() => setForm("register")}
+                  >
+                    {value}
+                  </span>
+                ),
+              })}
             </p>
           </div>
 
           {/* Submit Button */}
           <Button type="submit" disabled={isPending}>
-            Submit
+            {t("login")}
           </Button>
         </form>
       </Form>
