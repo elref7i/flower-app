@@ -1,0 +1,30 @@
+import { ShoppingCart, Star } from "lucide-react";
+import React from "react";
+
+export default function Item({ image, title, rate, price, priceAfterDiscount, label }: CardProps) {
+  return (
+    <div className=" ">
+      
+      {image && <img src={image} alt={title} className="w-[302px] h-[272px] rounded-[12px] " />}
+      <h2 className="mt-[14px] font-semibold text-maroon-700 dark:text-softpink-200 text-lg">{title.slice(1, 25)}...</h2>
+
+      <div className="flex justify-between">
+        <div>
+          <div className="flex mt-1 space-x-1 text-[#FBA707]">
+            {Array.from({ length: 4 }, (_, i) => (
+              <Star key={i} size={14.38} className={i < rate ? "fill-[#FBA707]  " : " "} />
+            ))}
+          </div>
+
+          <div className="flex  font-medium mt-1">
+            <p className="text-[16px] text-maroon-700 dark:text-softpink-200 me-2">{price.toFixed(2)} EGP</p>
+            <p className="text-zinc-400 dark:text-zinc-500 line-through ">{priceAfterDiscount.toFixed(2)}</p>
+          </div>
+        </div>
+        <div className="w-[42px] h-[42px] bg-maroon-600 dark:bg-maroon-500 flex justify-center items-center rounded-[999px]">
+          <ShoppingCart className="text-white" />
+        </div>
+      </div>
+    </div>
+  );
+}

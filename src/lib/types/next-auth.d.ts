@@ -5,7 +5,8 @@ declare type DatabaseProperties = {
 
 declare type SuccessfulResponse<T> = {
   message: "success";
-} & T;
+ 
+} & T
 
 declare type ErrorResponse = {
   error: string;
