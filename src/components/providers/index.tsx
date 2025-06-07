@@ -6,8 +6,8 @@ type ProvidersProps = {
 };
 export default function Providers({ children }: ProvidersProps) {
   return (
-    // Add Next auth and next intel provider and delete this comment eng Ehab
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    // TODO: Add NextAuth and NextIntl providers here.
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <ReactQueryProvider>{children}</ReactQueryProvider>
     </ThemeProvider>
   );
