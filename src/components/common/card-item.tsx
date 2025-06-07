@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Item({ image, title, rate, price, priceAfterDiscount, label }: CardProps) {
   return (
-    <div className=" ">
+    <div className=" w-[302px] h-[364px] ">
       
       {image && <img src={image} alt={title} className="w-[302px] h-[272px] rounded-[12px] " />}
       <h2 className="mt-[14px] font-semibold text-maroon-700 dark:text-softpink-200 text-lg">{title.slice(1, 25)}...</h2>
@@ -21,6 +21,7 @@ export default function Item({ image, title, rate, price, priceAfterDiscount, la
             <p className="text-zinc-400 dark:text-zinc-500 line-through ">{priceAfterDiscount.toFixed(2)}</p>
           </div>
         </div>
+        
         <div className="w-[42px] h-[42px] bg-maroon-600 dark:bg-maroon-500 flex justify-center items-center rounded-[999px]">
           <ShoppingCart className="text-white" />
         </div>

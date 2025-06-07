@@ -8,7 +8,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ModeToggle } from "@/components/common/theme-toggle";
 
 export default function CarouselPage() {
   const { payload, isLoading } = useGetProducts();
@@ -22,7 +21,7 @@ export default function CarouselPage() {
             {payload?.map((product: product) => (
               <CarouselItem key={product._id} className="basis-[302px] shrink-0">
                 <Item
-                  image={product.images[0]}
+                  image={product.imgCover}
                   title={product.title}
                   label="h"
                   rate={product.rateCount}
