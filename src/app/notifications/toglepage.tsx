@@ -7,6 +7,7 @@ import NotificationHeader from "../features/notifications/component/notification
 import { Bell } from "lucide-react"
 
 export default function ToggleExample() {
+  // state of toggeld or no
   const [isToggled, setIsToggled] = useState(false)
 
   return (
@@ -21,6 +22,7 @@ export default function ToggleExample() {
       {isToggled && (
         <Card className="mt-4">
           <CardContent>
+            {/* because seperate client component && server component */}
          <NotificationHeader />
           </CardContent>
         </Card>
