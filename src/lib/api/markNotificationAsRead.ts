@@ -1,7 +1,7 @@
 'use server';
 
-import { NotificationResponse } from './types';
-import { BASE_URL, JWT_TOKEN } from './config';
+import { NotificationResponse } from '../types/type-notification';
+import { BASE_URL, JWT_TOKEN } from '../constans/notification-constant';
 export async function markNotificationAsRead(notification_id: string) {
   try {
     const response = await fetch(`${BASE_URL}/notifications/${notification_id}/mark-read`, {

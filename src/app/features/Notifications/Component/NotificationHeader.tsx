@@ -7,10 +7,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { Bell, Check, MoreHorizontal, BrushCleaning, Trash2 } from 'lucide-react';
-import { useNotificationHeader } from '../hooks/useNotificationHeader';
-import { type Notification } from '../actions/notifications/types';
-import { clearAllNotifications } from '../actions/notifications/clearAllNotifications';
-
+import { useNotificationHeader } from '../../../../lib/actions/action-header';
+import { type Notification } from '../../../../lib/types/type-notification';
+import { clearAllNotifications } from '../../../../lib/api/clearAllNotifications';
+import {NotificationSkeleton, skelton} from "./skelton"
 // Notification Item Component
 interface NotificationItemProps {
   notification: Notification;
@@ -127,19 +127,7 @@ const NotificationItem: React.FC<NotificationItemProps> = ({
 };
 
 // Skeleton
-const NotificationSkeleton: React.FC = () => (
-  <div className="p-4 border-b border-gray-100">
-    <div className="flex items-start justify-between gap-3">
-      <div className="flex-1">
-        <div className="h-4 bg-gray-200 rounded w-3/4 mb-2 animate-pulse"></div>
-        <div className="h-3 bg-gray-200 rounded w-full mb-1 animate-pulse"></div>
-        <div className="h-3 bg-gray-200 rounded w-5/6 mb-2 animate-pulse"></div>
-        <div className="h-3 bg-gray-200 rounded w-1/4 animate-pulse"></div>
-      </div>
-      <div className="w-8 h-8 bg-gray-200 rounded animate-pulse flex-shrink-0"></div>
-    </div>
-  </div>
-);
+<NotificationSkeleton/>
 
 // Main Component
 const NotificationHeader: React.FC = () => {
@@ -193,11 +181,13 @@ const NotificationHeader: React.FC = () => {
   };
 
   return (
+    // card of notification
     <Card className="max-w-md mx-auto shadow-lg 0">
       <div className="p-4 border-b bg-[#741C21] dark:bg-[so#FFC2D0] rounded-t-lg">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 dark:bg-[Zinc/zinc-700]">
             <h2 className="text-lg font-semibold text-white">Notifications</h2>
+            {/* badge of unreadcount */}
             {unreadCount > 0 && (
               <Badge variant="destructive" className="bg-red-600 text-white text-xs px-2 py-1">
                 ({unreadCount})
@@ -212,6 +202,7 @@ const NotificationHeader: React.FC = () => {
           {isClearingAll ? (
             <div className="w-4 h-4 border border-gray-300 border-t-transparent rounded-full animate-spin ml-1 mt-1" />
           ) : (
+            // icon of delete
             <BrushCleaning 
               onClick={handleDeleteAllNotifications} 
               className="mt-1 ml-1 cursor-pointer text-gray-700 hover:text-red-600" 
@@ -222,6 +213,7 @@ const NotificationHeader: React.FC = () => {
             Clear all notifications
           </button>
         </div>
+        {/* buttun to mark all notification read */}
         <Button
           variant="ghost"
           size="sm"
@@ -237,7 +229,7 @@ const NotificationHeader: React.FC = () => {
           Mark all as read
         </Button>
       </div>
-
+{/* scrollarea of notification */}
       <ScrollArea 
         className="h-[500px]" 
         ref={scrollAreaRef}

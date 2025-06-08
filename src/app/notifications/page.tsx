@@ -1,7 +1,7 @@
 // app/notifications/page.tsx
 
 import React from 'react';
-import NotificationHeader from '../features/Notifications/Component/NotificationHeader';
+import NotificationHeader from '../features/notifications/component/notificationheader';
 import { Italic } from "lucide-react"
 
 import { Toggle } from "@/components/ui/toggle"

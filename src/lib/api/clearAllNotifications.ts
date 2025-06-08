@@ -1,6 +1,6 @@
 "use server"
-import { NotificationResponse } from './types';
-import { BASE_URL, JWT_TOKEN } from './config';
+import { NotificationResponse } from '../types/type-notification';
+import { BASE_URL, JWT_TOKEN } from '../constans/notification-constant';
 export async function clearAllNotifications(id: any) {
   try {
     const response = await fetch(`${BASE_URL}/notifications/clear-all`, {

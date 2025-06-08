@@ -2,34 +2,16 @@
 // hooks/useNotificationHeader.ts
 import { useCallback } from 'react';
 import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/react-query';
-import { type Notification } from "../actions/notifications/types";
-import { getUnreadCount } from '../actions/notifications/getUnreadCount';
-import { deleteNotification } from '../actions/notifications/deleteUsernotifications';
-import { markAllNotificationsAsRead } from '../actions/notifications/markAllNotificationsAsRead';
-import { markNotificationAsRead } from '../actions/notifications/markNotificationAsRead';
-import NotificationsPage from '../../../notifications/page';
+import { NotificationPage, UseInfiniteNotificationsReturn, type Notification } from "../types/type-notification";
+import { getUnreadCount } from '../api/getUnreadCount';
+import { deleteNotification } from '../api/deleteUsernotifications';
+import { markAllNotificationsAsRead } from '../api/markAllNotificationsAsRead';
+import { markNotificationAsRead } from '../api/markNotificationAsRead';
+import NotificationsPage from '../../app/notifications/page';
 
-// Query keys for React Query
-const NOTIFICATIONS_QUERY_KEY = 'notifications';
-const UNREAD_COUNT_QUERY_KEY = 'unreadCount';
 
-interface NotificationPage {
-  data: Notification[];
-  nextPage?: number;
-}
 
-interface UseInfiniteNotificationsReturn {
-  data: Notification[];
-  isLoading: boolean;
-  isInitialLoading: boolean;
-  hasNextPage: boolean;
-  error: string | null;
-  fetchNextPage: () => Promise<void>;
-  removeNotification: (id: string) => Promise<void>;
-  markAllNotificationsAsRead: () => Promise<void>;
-  markAsRead: (id: string) => Promise<void>;
-  refetch: () => Promise<void>;
-}
+
 
 export const useInfiniteNotifications = (): UseInfiniteNotificationsReturn => {
   const queryClient = useQueryClient();
@@ -43,7 +25,7 @@ export const useInfiniteNotifications = (): UseInfiniteNotificationsReturn => {
     fetchNextPage: queryFetchNextPage,
     refetch: queryRefetch
   } = useInfiniteQuery<NotificationPage>({
-    queryKey: [NOTIFICATIONS_QUERY_KEY],
+    queryKey: ['notifications'],
     queryFn: async ({ pageParam = 0 }) => {
       const result = await NotificationsPage(pageParam, 10);
       return {
@@ -67,7 +49,7 @@ export const useInfiniteNotifications = (): UseInfiniteNotificationsReturn => {
     try {
       await deleteNotification(id);
       // Update the cache by removing the deleted notification
-      queryClient.setQueryData<{ pages: NotificationPage[] }>([NOTIFICATIONS_QUERY_KEY], (oldData) => {
+      queryClient.setQueryData<{ pages: NotificationPage[] }>(['notifications'], (oldData) => {
         if (!oldData) return oldData;
         return {
           pages: oldData.pages.map((page) => ({
@@ -85,7 +67,7 @@ export const useInfiniteNotifications = (): UseInfiniteNotificationsReturn => {
     try {
       await markAllNotificationsAsRead();
       // Update the cache by marking all notifications as read
-      queryClient.setQueryData<{ pages: NotificationPage[] }>([NOTIFICATIONS_QUERY_KEY], (oldData) => {
+      queryClient.setQueryData<{ pages: NotificationPage[] }>(['notifications'], (oldData) => {
         if (!oldData) return oldData;
         return {
           pages: oldData.pages.map((page) => ({
@@ -103,7 +85,7 @@ export const useInfiniteNotifications = (): UseInfiniteNotificationsReturn => {
     try {
       await markNotificationAsRead(id);
       // Update the cache by marking the specific notification as read
-      queryClient.setQueryData<{ pages: NotificationPage[] }>([NOTIFICATIONS_QUERY_KEY], (oldData) => {
+      queryClient.setQueryData<{ pages: NotificationPage[] }>(['notifications'], (oldData) => {
         if (!oldData) return oldData;
         return {
           pages: oldData.pages.map((page) => ({
@@ -147,7 +129,7 @@ export const useUnreadCount = (): UseUnreadCountReturn => {
     error,
     refetch: queryRefetch
   } = useQuery<number>({
-    queryKey: [UNREAD_COUNT_QUERY_KEY],
+    queryKey: ['unreadCount'],
     queryFn: getUnreadCount,
   });
 

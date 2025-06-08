@@ -1,7 +1,5 @@
-
-
-import { NotificationResponse } from './types';
-import { BASE_URL, JWT_TOKEN } from './config';
+import { NotificationResponse } from '../types/type-notification';
+import { BASE_URL, JWT_TOKEN } from '../constans/notification-constant';
 
 export async function getUserNotifications(page: number = 0, limit: number = 10): Promise<NotificationResponse> {
   try {

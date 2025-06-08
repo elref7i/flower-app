@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Toggle } from "@/components/ui/toggle"
 import { Card, CardContent } from "@/components/ui/card"
-import NotificationHeader from "../features/Notifications/Component/NotificationHeader"
+import NotificationHeader from "../features/notifications/component/notificationheader"
 import { Bell } from "lucide-react"
 
 export default function ToggleExample() {
