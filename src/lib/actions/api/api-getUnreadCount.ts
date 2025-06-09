@@ -1,6 +1,6 @@
-'use server';
 
-import { BASE_URL, JWT_TOKEN } from '../constans/notification-constant';
+
+import { BASE_URL, JWT_TOKEN } from '../../constans/notification-constant';
 
 export async function getUnreadCount(): Promise<number> {
   try {

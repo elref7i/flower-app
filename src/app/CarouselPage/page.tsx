@@ -4,7 +4,7 @@
 import img1 from "../../../public/assets/Images/Vector (1).png"
 import img2 from "../../../public/assets/Images/Vector (2).png"
 import img3 from "../../../public/assets/Images/Vector.png"
-import TestimonialsCarousel from "../../components/Carousel/TestimonialsCarousel";
+import TestimonialsCarousel from "../features/carousel/component/testimonialscarousel";
 
 const testimonials = [
   {

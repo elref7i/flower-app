@@ -3,10 +3,10 @@
 import { useCallback } from 'react';
 import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/react-query';
 import { NotificationPage, UseInfiniteNotificationsReturn, type Notification } from "../types/type-notification";
-import { getUnreadCount } from '../api/getUnreadCount';
-import { deleteNotification } from '../api/deleteUsernotifications';
-import { markAllNotificationsAsRead } from '../api/markAllNotificationsAsRead';
-import { markNotificationAsRead } from '../api/markNotificationAsRead';
+import { getUnreadCount } from '../actions/api/api-getUnreadCount';
+import { deleteNotification } from '../actions/api-deleteUsernotifications';
+import { markAllNotificationsAsRead } from '../actions/api-markAllNotificationsAsRead';
+import { markNotificationAsRead } from '../actions/api-markNotificationAsRead';
 import NotificationsPage from '../../app/notifications/page';
 
 

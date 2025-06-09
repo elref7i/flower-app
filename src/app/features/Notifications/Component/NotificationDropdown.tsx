@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/popover';
 import { Badge } from '@/components/ui/badge';
 import NotificationHeader from './notificationheader';
-import { useUnreadCount } from '../../../../lib/actions/action-header';
+import { useUnreadCount } from '../../../../lib/hook/action-header';
 
 export default function NotificationDropdown() {
   // state of open or close dropdown

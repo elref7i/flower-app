@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
-import AutoPlayIndicator from "./AutoPlayIndicator";
+import AutoPlayIndicator from "./autoplayIndicator";
 import Image from 'next/image';
 
 export default function TestimonialsCarousel({ testimonials }) {

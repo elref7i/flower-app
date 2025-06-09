@@ -7,10 +7,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { Bell, Check, MoreHorizontal, BrushCleaning, Trash2 } from 'lucide-react';
-import { useNotificationHeader } from '../../../../lib/actions/action-header';
+import { useNotificationHeader } from '../../../../lib/hook/action-header';
 import { type Notification } from '../../../../lib/types/type-notification';
-import { clearAllNotifications } from '../../../../lib/api/clearAllNotifications';
-import {NotificationSkeleton, skelton} from "./skelton"
+// import { clearAllNotifications } from '../../../../lib/actions/api-clearAllNotifications';
+import {NotificationSkeleton} from "./skelton"
 // Notification Item Component
 interface NotificationItemProps {
   notification: Notification;
