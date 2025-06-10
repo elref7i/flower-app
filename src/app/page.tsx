@@ -1,3 +1,4 @@
+import FileUploadInput from "@/components/common/file-input";
 import { Input } from "@/components/ui/input";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
         <h1 className="text-7xl font-bold text-center text-maroon-500 dark:text-softpink-500">
           Flower App
         </h1>
+        <FileUploadInput label="file" selectedFileName="Upload File Name" />
       </main>
     </div>
   );
