@@ -24,5 +24,18 @@
   "have-account": "Already have an account?<span>Login</span>",
   "no-account": "No account?<span>Create one here</span>",
   "create-account": "Create Accountt",
-  "register": "Register"
+  "register": "Register",
+    "gallery-title": "Gallery",
+  "gallery-headline": "Check Out our Wonderful Gallery",
+  "companies-section-headline": "Trusted by over <highlight>4.5k+</highlight> Companies",
+  "about-title": "About",
+  "about-content": "Make every moment memorable with our premium gift boxes. Carefully curated and beautifully packaged, each box is filled with handpicked items designed to impress. Whether it's for a birthday, wedding, or a simple “thank you,” our gift boxes are crafted to leave a lasting impression — because thoughtful gifting starts here.",
+  "competitive_prices": "Competitive Prices & Easy Shopping",
+  "premium_quality": "Premium Quality & Elegant Packaging",
+  "every_occasion": "Perfect for Every Occasion",
+  "fast_delivery": "Fast & Reliable Delivery",
+  "about-button": "Discover",
+  "about-section-headline": "Delivering the <highlight>Finest</highlight> Gift Boxes for Your <highlight>Special</highlight> Moments"
+
+
 }

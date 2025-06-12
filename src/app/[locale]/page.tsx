@@ -7,6 +7,9 @@ import logOut from "@/lib/api/logout.api";
 import { signOut, useSession } from "next-auth/react";
 import LanguageToggle from "@/components/common/language-toggle";
 import { ModeToggle } from "@/components/common/theme-toggle";
+import CompaniesSection from "./(homepage)/_components/CompaniesSection";
+import GallerySection from "./(homepage)/_components/GallerySection";
+import AboutSection from "./(homepage)/_components/AboutSection";
 
 export default function HomePage() {
   const { data: session } = useSession();
@@ -20,6 +23,10 @@ export default function HomePage() {
           <h1 className="text-7xl font-bold text-center text-maroon-500 dark:text-softpink-500">
             Flower App
           </h1>
+          <AboutSection />
+          <GallerySection />
+          <CompaniesSection />
+
           <LoginDialog />
           <Button
             onClick={async () => {
