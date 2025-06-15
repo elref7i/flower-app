@@ -29,8 +29,8 @@ export default function HomePage() {
           >
             {t("logout")}
           </Button>
-          <h1 className="text-red-700">{t("HomePage.title")}</h1>
-          <Link href="/about">{t("HomePage.about")}</Link>
+          <h1 className="text-red-700">{t("hello")}</h1>
+          <Link href="/about">{t("about-us")}</Link>
           <ModeToggle />
           <LanguageToggle />
           <p>{format.number(250, "currency")}</p>

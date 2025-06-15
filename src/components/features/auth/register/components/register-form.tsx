@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { registerSchema, TRegisterFormFields } from "@/lib/schema/auth.schema";
+import { TRegisterFormFields, useRegisterSchema } from "@/lib/schema/auth.schema";
 import { DialogTitle } from "@/components/ui/dialog";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -37,6 +37,9 @@ export default function RegisterForm({ setForm }: TSetAuthForm) {
 
   // Hook for register mutation
   const { isPending, error, registerNewAccount } = useRegister();
+
+  // Register hook schema
+  const registerSchema = useRegisterSchema();
 
   // Form object use hook from react hook form
   const form = useForm<TRegisterFormFields>({

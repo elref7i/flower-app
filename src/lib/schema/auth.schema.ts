@@ -1,86 +1,114 @@
+import { useTranslations } from "next-intl";
 import { z } from "zod";
 
 // Password Role
-const passwordRole = {
-  regex: /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
-  message:
-    "Your password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character.",
-};
+const passwordRole = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
 
-// Login form schema
-const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, { message: "Email Shouldn't Be Empty" })
-    .email({ message: "Invalid Email" }),
-  password: z
-    .string()
-    .min(1, { message: "Password Shouldn't Be Empty" })
-    .regex(passwordRole.regex, { message: "Wrong password" }),
-});
+// Login hook schema
+function useLoginSchema() {
+  // Translation hook
+  const t = useTranslations();
 
-// Register Schema
-const registerSchema = z
-  .object({
-    firstName: z.string().min(1, { message: "First name Shouldn't Be Empty" }),
-    lastName: z.string().min(1, { message: "Last name Shouldn't Be Empty" }),
+  return z.object({
     email: z
       .string()
-      .min(1, { message: "Email Shouldn't Be Empty" })
-      .email({ message: "Invalid Email" }),
+      .min(1, { message: t("empty-email-error") })
+      .email({ message: t("invalid-email-error") }),
     password: z
       .string()
-      .min(1, { message: "Password Shouldn't Be Empty" })
-      .regex(passwordRole.regex, { message: passwordRole.message }),
-    rePassword: z.string().min(1, { message: "Email Shouldn't Be Empty" }),
-    phone: z
-      .string()
-      .min(1, { message: "Email Shouldn't Be Empty" })
-      .min(10, { message: "Your phone number should be at least 10 numbers" }),
-    gender: z.enum(["male", "female"], { message: "You should specify gender" }),
-  })
-  .refine((value) => value.password === value.rePassword, {
-    path: ["rePassword"],
-    message: "Confirm password field doesn't match with password field",
+      .min(1, { message: t("empty-password-error") })
+      .regex(passwordRole, { message: t("wrong-password-error") }),
   });
+}
+
+// Register hook Schema
+function useRegisterSchema() {
+  // Translation hook
+  const t = useTranslations();
+
+  return z
+    .object({
+      firstName: z.string().min(1, { message: t("empty-first-name-error") }),
+      lastName: z.string().min(1, { message: t("empty-last-name-error") }),
+      email: z
+        .string()
+        .min(1, { message: t("empty-email-error") })
+        .email({ message: t("invalid-email-error") }),
+      password: z
+        .string()
+        .min(1, { message: t("empty-password-error") })
+        .regex(passwordRole, { message: t("password-role") }),
+      rePassword: z.string().min(1, { message: t("empty-re-password-empty") }),
+      phone: z
+        .string()
+        .min(1, { message: t("empty-phone-error") })
+        .min(10, { message: t("invalid-phone-error") }),
+      gender: z.enum(["male", "female"], { message: t("empty-gender-error") }),
+    })
+    .refine((value) => value.password === value.rePassword, {
+      path: ["rePassword"],
+      message: t("confirm-password-error"),
+    });
+}
 
 // Forgot password schema
-const forgotPasswordSchema = z.object({
-  email: z
-    .string()
-    .min(1, { message: "Email Shouldn't Be Empty" })
-    .email({ message: "Invalid Email" }),
-});
+function useForgotPasswordSchema() {
+  // Translation hook
+  const t = useTranslations();
+
+  return z.object({
+    email: z
+      .string()
+      .min(1, { message: t("empty-email-error") })
+      .email({ message: t("invalid-email-error") }),
+  });
+}
 
 // Verify code Schema
-const verifyCodeSchema = z.object({
-  resetCode: z
-    .string()
-    .min(1, { message: "You Should Enter Verification Code" })
-    .length(6, { message: "The Code must Be 6 digits" }),
-});
+function useVerifyCodeSchema() {
+  // Translation hook
+  const t = useTranslations();
+
+  return z.object({
+    resetCode: z
+      .string()
+      .min(1, { message: t("empty-verification-code-error") })
+      .length(6, { message: t("invalid-verification-code") }),
+  });
+}
 
 // Set password schema
-const setPasswordSchema = z.object({
-  email: z
-    .string()
-    .min(1, { message: "Email Shouldn't Be Empty" })
-    .email({ message: "Invalid Email" }),
-  newPassword: z
-    .string()
-    .min(1, { message: "New Password Shouldn't Be Empty" })
-    .regex(passwordRole.regex, { message: passwordRole.message }),
-});
+function useSetPasswordSchema() {
+  // Translation hook
+  const t = useTranslations();
+
+  return z.object({
+    email: z
+      .string()
+      .min(1, { message: t("empty-email-error") })
+      .email({ message: t("invalid-email-error") }),
+    newPassword: z
+      .string()
+      .min(1, { message: t("empty-new-password-error") })
+      .regex(passwordRole, { message: t("password-role") }),
+  });
+}
 
 // Declare form types
-type TLoginFormFields = z.infer<typeof loginSchema>;
-type TRegisterFormFields = z.infer<typeof registerSchema>;
-type TForgotPasswordFormFields = z.infer<typeof forgotPasswordSchema>;
-type TVerifyCodeFields = z.infer<typeof verifyCodeSchema>;
-type TSetPasswordFields = z.infer<typeof setPasswordSchema>;
+type TLoginFormFields = z.infer<ReturnType<typeof useLoginSchema>>;
+type TRegisterFormFields = z.infer<ReturnType<typeof useRegisterSchema>>;
+type TForgotPasswordFormFields = z.infer<ReturnType<typeof useForgotPasswordSchema>>;
+type TVerifyCodeFields = z.infer<ReturnType<typeof useVerifyCodeSchema>>;
+type TSetPasswordFields = z.infer<ReturnType<typeof useSetPasswordSchema>>;
 
 // Export schemas
-export { loginSchema, forgotPasswordSchema, verifyCodeSchema, setPasswordSchema, registerSchema };
+export {
+  useLoginSchema,
+  useForgotPasswordSchema,
+  useVerifyCodeSchema,
+  useSetPasswordSchema,
+  useRegisterSchema,
+};
 
 // Export Forms field types
 export {

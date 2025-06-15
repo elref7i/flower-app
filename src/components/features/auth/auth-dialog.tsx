@@ -28,7 +28,9 @@ export default function AuthDialog() {
       <DialogTrigger>{t("login")}</DialogTrigger>
 
       {/* Dialog content*/}
-      <DialogContent>{forms[form as keyof typeof forms]}</DialogContent>
+      <DialogContent className="max-h-screen overflow-y-scroll">
+        {forms[form as keyof typeof forms]}
+      </DialogContent>
     </Dialog>
   );
 }

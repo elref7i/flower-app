@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import useLogin from "../hooks/use-login";
-import { loginSchema, TLoginFormFields } from "@/lib/schema/auth.schema";
+import { TLoginFormFields, useLoginSchema } from "@/lib/schema/auth.schema";
 import { TSetAuthForm } from "@/lib/types/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -23,6 +23,9 @@ import { useTranslations } from "next-intl";
 export default function LoginForm({ setForm }: TSetAuthForm) {
   // Hook for translations
   const t = useTranslations();
+
+  // login schema hook
+  const loginSchema = useLoginSchema();
 
   // Hook to make login mutation
   const { isPending, error, login } = useLogin();
@@ -123,4 +126,3 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
     </>
   );
 }
-// feat/next-intl: setup next-intl and update folder structure, add zain font, add language menu
