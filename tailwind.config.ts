@@ -103,6 +103,7 @@ const config: Config = {
     },
     fontFamily: {
       sarabun: ["var(--font-sarabun)"],
+      zain: ["var(--font-zain)"],
     },
   },
   plugins: [tailwindAnimate],
