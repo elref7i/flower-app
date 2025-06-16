@@ -4,31 +4,31 @@ export const links = [
   {
     name: "Home",
     icon: <House size={20} />,
-    path: "home",
+    path: "/home",
   },
   {
     name: "Products",
     icon: <Gift size={20} />,
-    path: "products",
+    path: "/products",
   },
   {
     name: "Categories",
     icon: <ClipboardList size={20} />,
-    path: "categories",
+    path: "/categories",
   },
   {
     name: "Occasions",
     icon: <PartyPopper size={20} />,
-    path: "occasions",
+    path: "/occasions",
   },
   {
     name: "Contact",
     icon: <Headset size={20} />,
-    path: "contact",
+    path: "/contact",
   },
   {
     name: "About",
     icon: <Info size={20} />,
-    path: "about",
+    path: "/about",
   },
 ];

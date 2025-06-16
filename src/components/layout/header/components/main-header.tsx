@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import IconNotificarion from "./icon-notificarion";
+import LanguageToggle from "@/components/common/language-toggle";
 
 /**
  * MainHeader Component
@@ -50,7 +51,7 @@ export default function MainHeader() {
         <IconNotificarion />
 
         {/* Toggle Transelation */}
-        <p className="cursor-pointer">العربية</p>
+        <LanguageToggle />
 
         {/* Mode Toggle  */}
         <ModeToggle />

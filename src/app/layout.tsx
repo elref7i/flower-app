@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Sarabun } from "next/font/google";
-import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import Providers from "@/components/providers";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import { Sarabun } from "next/font/google";
+import { Metadata } from "next";
+import { Toaster } from "sonner";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
