@@ -5,6 +5,7 @@ import { User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import IconNotificarion from "./icon-notificarion";
 import SearchInput from "@/components/common/search-input";
+import LanguageToggle from "@/components/common/language-toggle";
 
 export default function MainHeader() {
   return (
