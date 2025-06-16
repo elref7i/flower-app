@@ -31,7 +31,7 @@ export default function MainHeader() {
         <IconNotificarion />
 
         {/* Toggle Transelation */}
-        <p className="cursor-pointer">العربية</p>
+        <LanguageToggle />
 
         {/* Mode Toggle  */}
         <ModeToggle />
