@@ -1,12 +1,8 @@
 {
-  "HomePage": {
-    "title": "مرحبا",
-    "about": "اذهب الي صفحة عنا"
-  },
-  "NotFoundPage": {
-    "title": "الصفحة غير متوفرة\n",
-    "Action": "اذهب إلى الصفحة الرئيسية"
-  },
+  "hello": "مرحبا",
+  "about-us": "اذهب الي صفحة عنا",
+  "not-found-page": "الصفحة غير متوفرة\n",
+  "go-to-homepage": "اذهب إلى الصفحة الرئيسية",
   "choose-language": "اختر لغة الموقع",
   "logout": "تسجيل خروج",
   "login": "تسجيل الدخول",
@@ -25,7 +21,7 @@
   "no-account": "ليس لديك حساب؟<span>انشئ حساب </span>",
   "create-account": "إنشاء حساب",
   "register": "حساب جديد",
-    "gallery-title": "المعرض",
+  "gallery-title": "المعرض",
   "gallery-headline": "اكتشف عالمًا من الأناقة والجمال في معرضنا المميز",
   "companies-section-headline": "موثوق به من قبل أكثر من <highlight>٤.٥ آلاف+</highlight> شركة",
   "about-title": "من نحن",
@@ -35,7 +31,20 @@
   "every_occasion": "مثالي لكل مناسبة",
   "fast_delivery": "توصيل سريع وموثوق",
   "about-button": "أكتشفنا",
-  "about-section-headline": "نُقدِّم <highlight>أفخم</highlight> صناديق الهدايا لأجل لحظاتك <highlight>الخاصة</highlight>"
-
-
+  "about-section-headline": "نُقدِّم <highlight>أفخم</highlight> صناديق الهدايا لأجل لحظاتك <highlight>الخاصة</highlight>",
+  "password-role": "يجب أن تكون كلمة مرورك مكونة من 8 أحرف على الأقل وتتضمن حرفًا كبيرًا على الأقل ورقمًا واحدً وا حرفاً خاصًا واحد.",
+  "empty-email-error": " يجب إدخال بريدك الإلكتروني",
+  "invalid-email-error": "بريد إلكتروني غير صالح",
+  "empty-password-error": "يجب إدخال كلمة المرور",
+  "wrong-password-error": "كلمة المرور غير صحيحة",
+  "empty-first-name-error": "يجب إدخال إسمك الأول",
+  "empty-last-name-error": "يجب إدخال إسمك الأخير",
+  "empty-re-password-empty": "يجب تأكيد كلمة المرور",
+  "empty-phone-error": "يجب إدخال رقم الهاتف",
+  "invalid-phone-error": "يجب أن يكون رقم هاتفك 10 أرقام على الأقل",
+  "empty-gender-error": "يجب عليك اختيار الجنس",
+  "confirm-password-error": "كلمات المرور التي تم إدخالها غير متطابقة",
+  "empty-verification-code-error": "يجب عليك إدخال رمز التحقق",
+  "invalid-verification-code": "يجب أن يكون رمز التحقق من 6 أرقام",
+  "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة"
 }

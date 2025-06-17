@@ -46,7 +46,7 @@ export default function LanguageToggle() {
     <DropdownMenu dir={`${locale === "ar" ? "rtl" : "ltr"}`}>
       {/* Trigger button for the dropdown menu */}
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="w-18 h-12 text-center text-lg text-zinc-700 font-[400]">
+        <Button variant="ghost" className="w-18 h-12 text-center text-lg text-zinc-700 font-normal">
           {languages[language as keyof typeof languages]}
         </Button>
       </DropdownMenuTrigger>
@@ -58,13 +58,11 @@ export default function LanguageToggle() {
         <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
           {/* Render a radio button for each language */}
           {routing.locales.map((lang) => (
-            <Link
-              href={`/?${searchParams}`}
-              key={lang}
-              locale={lang}
-              className={`text-lg text-zinc-700`}
-            >
-              <DropdownMenuCustomRadioItem value={lang}>
+            <Link href={`/?${searchParams}`} key={lang} locale={lang}>
+              <DropdownMenuCustomRadioItem
+                value={lang}
+                className={`text-lg text-zinc-700 cursor-pointer`}
+              >
                 {languages[lang]}
               </DropdownMenuCustomRadioItem>
             </Link>

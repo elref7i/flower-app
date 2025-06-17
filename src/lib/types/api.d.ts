@@ -1,3 +1,8 @@
+declare type DatabaseProperties = {
+  _id: string;
+  createdAt: string;
+};
+
 declare type SuccessfulResponse<T> = {
   message: "success";
 } & T;

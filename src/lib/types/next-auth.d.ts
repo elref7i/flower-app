@@ -2,11 +2,6 @@
 import NextAuth, { User } from "next-auth";
 import { JWT } from "next-auth/jwt";
 
-declare type DatabaseProperties = {
-  _id: string;
-  createdAt: string;
-};
-
 declare module "next-auth" {
   /**
    * The shape of the user object returned in the OAuth providers' `profile` callback,
