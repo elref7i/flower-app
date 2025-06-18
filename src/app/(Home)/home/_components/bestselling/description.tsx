@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import React, { useTransition } from 'react'
+import React from 'react'
 
 export default function Description() {
   const t=useTranslations();
