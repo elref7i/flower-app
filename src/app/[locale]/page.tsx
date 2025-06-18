@@ -8,9 +8,15 @@ import { signOut, useSession } from "next-auth/react";
 import LanguageToggle from "@/components/common/language-toggle";
 import { ModeToggle } from "@/components/common/theme-toggle";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import Description from "../(Home)/home/_components/description";
 import { Carousel } from "@/components/ui/carousel";
 import CarouselPage from "../(Home)/home/_components/carousel";
+=======
+import Occasion from "../(Home)/home/_components/mostpopular/occation";
+import Description from "../(Home)/home/_components/bestselling/description";
+import CarouselPage from "../(Home)/home/_components/bestselling/carousel";
+>>>>>>> Stashed changes
 =======
 import Occasion from "../(Home)/home/_components/mostpopular/occation";
 import Description from "../(Home)/home/_components/bestselling/description";
@@ -22,6 +28,7 @@ export default function HomePage() {
   const t = useTranslations();
   const format = useFormatter();
   return (
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   <>
     {/* <div className="flex container   mt-20"> */}
@@ -35,6 +42,8 @@ export default function HomePage() {
   </>
     // <div>
 =======
+=======
+>>>>>>> Stashed changes
     //  <Occasion/>
     <>
       {/* <div className="flex container mt-10">
@@ -43,6 +52,9 @@ export default function HomePage() {
       </div> */}
       <Occasion/>
     </>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     //   <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
     //     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">

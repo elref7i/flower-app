@@ -37,6 +37,7 @@
   "invalid-verification-code": "The Code must Be 6 digits",
   "empty-new-password-error": "New Password Shouldn't Be Empty",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "bestSelling": "Best Selling",
   "checkOut": "<span >Check Out</span>",
   "whatEveryone": "What Everyone’s",
@@ -45,6 +46,8 @@
   "paragraph": "<br>Not sure what to choose? </br>     Start with our best sellers, these are the gifts our customers keep coming back for.     Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed     to leave a lasting impression.",
   "exploreGifts": "Explore gifts <span>→</span>"
 =======
+=======
+>>>>>>> Stashed changes
   "Best Selling": "Best selling",
   "check out": "<span >Check Out</span>",
   "buying": "<span>Buying</span>",
@@ -53,5 +56,8 @@
   "gifts": "  Explore gifts",
   "paragraph": "<br> Not sure what to choose? </br>     Start with our best sellers, these are the gifts our customers keep coming back for.     Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed     to leave a lasting impression.",
   "arrow": "<span>→</span>"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
