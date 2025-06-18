@@ -36,18 +36,7 @@
   "empty-verification-code-error": "يجب عليك إدخال رمز التحقق",
   "invalid-verification-code": "يجب أن يكون رمز التحقق من 6 أرقام",
   "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  "bestSelling": "الاكثر مبيعا ",
-  "checkOut": "<span> اكتشف </span>",
-  "whatEveryone": "الجميع",
-  "buying": " <span >ما يشتريه</span>",
-  "rightNow": "الان ",
-  "exploreGifts": "استكشف الهدايا <span> → </span>",
-  "paragraph": "<br> لست متأكدًا مما يجب اختياره؟ \n</br> ابدأ مع أفضل مبيعاتنا ، فهذه هي الهدايا التي يواصل عملائنا العودة إليها.     \nسواء كنت تحتفل بعيد ميلاد أو ذكرى أو حفل زفاف ، فإن أفضل اختياراتنا مضمونة لترك انطباع دائم."
-=======
-=======
->>>>>>> Stashed changes
+
   "Best Selling": "الاكثر مبيعا ",
   "check out": "<span>اكتشف </span>",
   "buying": "<span> الجميع</span>",
@@ -56,8 +45,5 @@
   "gifts": "استكشف الهدايا",
   "paragraph": "<br> مش متأكد تختار إيه؟ \n</br>ابدأ مع المنتجات الأكثر مبيعًا لدينا، فهذه هي الهدايا التي يحرص عملاؤنا على شرائها مرارًا وتكرارًا.",
   "arrow": "<span>←</span>"
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 }
