@@ -12,20 +12,11 @@ import {
   type FieldValues,
 } from "react-hook-form";
 
-<<<<<<< Updated upstream
+
 import { cn } from "@/lib/utils/cn";
 import { Label } from "@/components/ui/label";
-=======
 
-<<<<<<< Updated upstream
-import { Label } from "@/components/ui/label"
-import { cn } from "@/lib/utils/cn"
->>>>>>> Stashed changes
-=======
 
-import { Label } from "@/components/ui/label"
-import { cn } from "@/lib/utils/cn"
->>>>>>> Stashed changes
 
 const Form = FormProvider;
 

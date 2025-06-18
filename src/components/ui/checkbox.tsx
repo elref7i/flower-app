@@ -1,24 +1,10 @@
 "use client";
 
-<<<<<<< Updated upstream
-import * as React from "react";
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
-
-import { cn } from "@/lib/utils/cn";
-=======
 import * as React from "react"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { Check } from "lucide-react"
 import { cn } from "@/lib/utils/cn"
-<<<<<<< Updated upstream
 
-
->>>>>>> Stashed changes
-=======
-
-
->>>>>>> Stashed changes
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
