@@ -35,5 +35,12 @@
   "confirm-password-error": "كلمات المرور التي تم إدخالها غير متطابقة",
   "empty-verification-code-error": "يجب عليك إدخال رمز التحقق",
   "invalid-verification-code": "يجب أن يكون رمز التحقق من 6 أرقام",
-  "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة"
+  "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة",
+  "bestSelling": "الاكثر مبيعا ",
+  "checkOut": "<span> اكتشف </span>",
+  "whatEveryone": "الجميع",
+  "buying": " <span >ما يشتريه</span>",
+  "rightNow": "الان ",
+  "exploreGifts": "استكشف الهدايا <span> → </span>",
+  "paragraph": "<br> لست متأكدًا مما يجب اختياره؟ \n</br> ابدأ مع أفضل مبيعاتنا ، فهذه هي الهدايا التي يواصل عملائنا العودة إليها.     \nسواء كنت تحتفل بعيد ميلاد أو ذكرى أو حفل زفاف ، فإن أفضل اختياراتنا مضمونة لترك انطباع دائم."
 }

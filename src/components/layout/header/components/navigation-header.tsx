@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { links } from "../constants/links";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils/tailwind-merge";
+import { cn } from "@/lib/utils/cn";
 
 /**
  * NavigationHeader Component
