@@ -3,6 +3,10 @@ import Link from "next/link";
 import { links } from "../constants/links";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils/cn";
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 /**
  * NavigationHeader Component

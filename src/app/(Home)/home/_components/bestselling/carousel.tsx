@@ -1,6 +1,6 @@
 "use client";
 import Item from "@/components/common/card-item";
-import useGetProducts from "../_hooks/best-selling-hook";
+import useGetProducts from "../../_hooks/best-selling-hook";
 import {
   Carousel,
   CarouselContent,
@@ -15,7 +15,6 @@ export default function CarouselPage() {
   return (
     <>
       <div className="w-[954px] ms-20">
-  
         <Carousel>
           <CarouselContent className="flex gap-[24px] ">
             {payload?.map((product: product) => (

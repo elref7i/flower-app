@@ -3,8 +3,14 @@ import * as React from "react";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
+<<<<<<< Updated upstream
 import { cn } from "@/lib/utils/cn";
 import { Button } from "@/components/ui/button";
+=======
+
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils/cn"
+>>>>>>> Stashed changes
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;

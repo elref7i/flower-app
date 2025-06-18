@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import useOccasions from "../_hooks/occations";
+import useOccasions from "../../_hooks/occations";
 import Link from "next/link";
 import { toast } from "sonner";
 import Item from "@/components/common/card-item";
@@ -45,7 +45,7 @@ export default function Occasion() {
   }, [selectedId]);
 
   return (
-    <section className="w-full  ">
+    <section className="w-full container  ">
       <div className="flex justify-between items-center w-full  ">
         <p className="font-bold text-4xl text-maroon-700   ">
           <span className="border-b-[2px] border-pink-600">Mos</span>
