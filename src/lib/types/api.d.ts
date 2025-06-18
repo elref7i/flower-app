@@ -46,19 +46,35 @@ declare type occasion = {
   productsCount: number;
 };
 
+declare type metadata = {
+  currentPage: number;
+  limit: number;
+  totalPages: number;
+  totalItems: number;
+};
+declare type occasions = {
+  metadata: metadata;
+  occasions: occasion[];
+};
 
-declare type metadata={
-   currentPage: number,
-        limit: number,
-        totalPages: number,
-        totalItems: number
-}
-declare type occasions={
+declare type productByOccasion = {
+  metadata: metadata;
+  products: product[];
+};
+declare type DatabaseProperties = {
+  _id: string;
+  createdAt: string;
+};
 
-  metadata:metadata,
-  occasions:occasion[]
+declare type SuccessfulResponse<T> = {
+  message: "success";
+} & T;
 
-}
+declare type ErrorResponse = {
+  error: string;
+};
+
+declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 
 declare type productByOccasion={
   metadata:metadata,
