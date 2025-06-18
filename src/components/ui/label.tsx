@@ -4,7 +4,7 @@ import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/lib/utils/tailwind-merge";
 
 const labelVariants = cva(
   "text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
@@ -23,7 +23,7 @@ const labelVariants = cva(
 
 interface LabelProps
   extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>,
-    VariantProps<typeof labelVariants> {
+  VariantProps<typeof labelVariants> {
   error?: boolean;
 }
 

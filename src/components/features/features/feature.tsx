@@ -3,33 +3,35 @@ import {
   RotateCcw,
   ShieldCheck,
   Headphones,
-} from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+} from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import { getTranslations} from 'next-intl/server';
 
-const features = [
-  {
-    icon: <Truck className="text-white size-10 dark:text-black" />,
-    title: "Free Delivery",
-    description: "For orders above 120 EGP",
-  },
-  {
-    icon: <RotateCcw className="text-white size-10 dark:text-black" />,
-    title: "Get Refund",
-    description: "Refunds within 30 days",
-  },
-  {
-    icon: <ShieldCheck className="text-white size-10 dark:text-black" />,
-    title: "Safe Payment",
-    description: "100% Secure Payment",
-  },
-  {
-    icon: <Headphones className="text-white size-10 dark:text-black" />,
-    title: "24/7 Support",
-    description: "Contact us at any time",
-  },
-];
+export default async function ServiceFeatures() {
+  const t = await getTranslations('features');
+  const features = [
+    {
+      icon: <Truck className="text-white size-10 dark:text-black" />,
+      title: t('title-one'),
+      description: t('description-one')
+    },
+    {
+      icon: <RotateCcw className="text-white size-10 dark:text-black" />,
+      title: t('title-two'),
+      description: t('description-two')
+    },
+    {
+      icon: <ShieldCheck className="text-white size-10 dark:text-black" />,
+      title: t('title-three'),
+      description: t('description-three')
+    },
+    {
+      icon: <Headphones className="text-white size-10 dark:text-black" />,
+      title: t('title-four'),
+      description: t('description-four')
+    },
+  ];
 
-export default function ServiceFeatures() {
   return (
     <Card className="bg-maroon-50 p-10 rounded-2xl dark:bg-zinc-700">
       <CardContent className="flex justify-between items-center flex-wrap">
