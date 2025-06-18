@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import useGetProductsByOccasion from "../_hooks/oroducts-by-occastion";
+import useGetProductsByOccasion from "../../_hooks/oroducts-by-occastion";
 
 export default function ProductByOccasion(id: any) {
   const { payload, isLoading } = useGetProductsByOccasion(id);
