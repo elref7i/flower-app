@@ -46,5 +46,31 @@
   "confirm-password-error": "كلمات المرور التي تم إدخالها غير متطابقة",
   "empty-verification-code-error": "يجب عليك إدخال رمز التحقق",
   "invalid-verification-code": "يجب أن يكون رمز التحقق من 6 أرقام",
-  "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة"
+  "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة",
+  "banner": {
+    "budge": "الأسعار تبدأ من 10.99 جنيه ",
+    "special-gifts-title": "اختر هدية مميزة لأحبائك",
+    "shop-button": "تسوق الآن",
+    "title": "عبّر عن مشاعرك بالزهور",
+    "description": "هدايا أنيقة لكل لحظة مميزة",
+    "buying-button": "سأشتري الآن!"
+  },
+  "occasions": {
+    "budge-one": "الزفاف",
+    "description-one": "اجعل احتفالك بها خالدًا بهدية لا تُنسى",
+    "budge-two": "الخطوبة",
+    "description-two": "احتفلوا ببداية رحلة جميلة تجمعكما",
+    "budge-three": "الذكرى السنوية",
+    "description-three": "فاجئ من تحب بهدية مميزة "
+  },
+  "features": {
+    "title-one": "توصيل مجاني",
+    "description-one": "للطلبات فوق 120 جنيه",
+    "title-two": "استرجاع المبلغ",
+    "description-two": "استرداد خلال 30 يومًا",
+    "title-three": "دفع آمن",
+    "description-three": "دفع آمن 100٪",
+    "title-four": "دعم متواصل 24/7",
+    "description-four": "نحن هنا دائمًا من أجلك"
+  }
 }
