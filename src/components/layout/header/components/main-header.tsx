@@ -1,26 +1,11 @@
 import Link from "next/link";
 import { User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
-import IconNotificarion from "./icon-notificarion";
+import IconNotification from "./icon-notification";
 import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import Image from "next/image";
 import Logo from "../../../../../public/assets/imgs/logo 1.png";
-
-/**
- * MainHeader Component
- * This component renders the main header of the website.
- * It includes the following elements:
- * - Logo that links to the homepage
- * - Search input for finding gifts
- * - Login button with user icon
- * - Notifications icon
- * - Language switch (currently "العربية")
- * - Theme mode toggle (light/dark)
- *
- * @component
- * @returns JSX.Element The main header JSX layout
- */
 
 export default function MainHeader() {
   return (
@@ -44,7 +29,7 @@ export default function MainHeader() {
         </Link>
 
         {/* Icon notifiactions */}
-        <IconNotificarion />
+        <IconNotification />
 
         {/* Toggle Transelation */}
         <LanguageToggle />

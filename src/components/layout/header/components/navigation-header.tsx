@@ -16,7 +16,7 @@ export default function NavigationHeader() {
           className={cn(
             "relative p-3",
             link.path === path
-              ? "before:absolute before:w-full border-b-2 border-softpink-200 dark:border-maroon-800 text-softpink-200 dark:text-maroon-800"
+              ? "border-b-2 border-softpink-200 dark:border-maroon-800 text-softpink-200 dark:text-maroon-800"
               : "",
           )}
         >
