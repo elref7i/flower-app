@@ -23,23 +23,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" className={sarabun.variable} suppressHydrationWarning>
-      <body>
-        <Providers>
-          {/* Header  */}
-          <Header />
-
-          {/* Content */}
-          {children}
-        </Providers>
-
-        {/* Footer */}
-        <Footer />
-
-        {/* Sonner */}
-        <Toaster />
-      </body>
-    </html>
-  );
+  return children;
 }
