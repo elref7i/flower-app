@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PurblePresent from "../../../../../public/Assets/imgs/purple present.png";
+import PurblePresent from "../../../../../public/Assets/imgs/purplepresent.png";
 import BallonPresent from "../../../../../public/Assets/imgs/ballonpresent.png";
 import OrangePresent from "../../../../../public/Assets/imgs/orangepresent.png";
 import { Button } from "@/components/ui/button";
