@@ -1,8 +1,8 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { User } from "next-auth";
-import { LoginResponse } from "./lib/types/auth-api";
 import { JSON_HEADER } from "./lib/constants/api.constants";
+import { LoginResponse } from "./lib/types/auth";
 
 // Auth options
 const authOptions: NextAuthOptions = {

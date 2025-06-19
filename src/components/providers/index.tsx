@@ -13,8 +13,7 @@ export default function Providers({ children }: ProvidersProps) {
   const messages = useMessages();
 
   return (
-    // TODO: Add NextAuth and NextIntl providers here.
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <ReactQueryProvider>
         <NextIntlClientProvider locale={locale} now={now} timeZone={timeZone} messages={messages}>
           <NextAuthProvider>{children}</NextAuthProvider>

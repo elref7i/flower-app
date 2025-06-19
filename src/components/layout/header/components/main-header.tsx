@@ -3,8 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
-import IconNotificarion from "./icon-notificarion";
+import IconNotification from "./icon-notification";
 import SearchInput from "@/components/common/search-input";
+import LanguageToggle from "@/components/common/language-toggle";
 
 export default function MainHeader() {
   return (
@@ -28,7 +29,7 @@ export default function MainHeader() {
         </Link>
 
         {/* Icon notifiactions */}
-        <IconNotificarion />
+        <IconNotification />
 
         {/* Toggle Transelation */}
         <LanguageToggle />
