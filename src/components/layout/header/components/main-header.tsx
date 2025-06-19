@@ -1,11 +1,11 @@
-import imageLogo from "../../../../../public/assets/imgs/logo 1.png";
-import Image from "next/image";
 import Link from "next/link";
 import { User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import IconNotificarion from "./icon-notificarion";
 import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
+import Image from "next/image";
+import Logo from "../../../../../public/assets/imgs/logo 1.png";
 
 /**
  * MainHeader Component
@@ -27,7 +27,7 @@ export default function MainHeader() {
     <div className="py-[18px] px-9 flex gap-4">
       {/* Logo */}
       <Link href={"/"}>
-        <Image src={imageLogo} width={85} height={80} alt={"Flower Logo"} />
+        <Image src={Logo} width={85} height={80} alt={"Flower Logo"} />
       </Link>
 
       {/* Left Header */}
