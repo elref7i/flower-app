@@ -35,5 +35,31 @@
   "confirm-password-error": "Confirm password field doesn't match with password field",
   "empty-verification-code-error": "You Should Enter Verification Code",
   "invalid-verification-code": "The Code must Be 6 digits",
-  "empty-new-password-error": "New Password Shouldn't Be Empty"
+  "empty-new-password-error": "New Password Shouldn't Be Empty",
+  "banner": {
+    "budge": "Staring from 10.99 EGP",
+    "special-gifts-title": "Special Gifts For The People You Love",
+    "shop-button": "Shop Now",
+    "title": "Say It with Flowers",
+    "description": "Elegant gifts for every special moment.",
+    "buying-button": "I'm buying!"
+  },
+  "occasions": {
+    "budge-one": "Wedding",
+    "description-one": "Celebrate Her Forever with a Gift She’ll Always Remember",
+    "budge-two": "Engagement",
+    "description-two": "Honor the Beginning of a Beautiful Journey Together",
+    "budge-three": "Anniversary",
+    "description-three": "Mark Every Year of Love with a Meaningful Surprise"
+  },
+  "features": {
+    "title-one": "Free Delivery",
+    "description-one": "For orders above 120 EGP",
+    "title-two": "Get Refund",
+    "description-two": "Refunds within 30 days",
+    "title-three": "Safe Payment",
+    "description-three": "100% Secure Payment",
+    "title-four": "24/7 Support",
+    "description-four": "Contact us at any time"
+  }
 }

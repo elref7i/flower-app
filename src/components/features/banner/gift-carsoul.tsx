@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { useRef, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import type { CarouselApi } from '@/components/ui/carousel'
 import img1 from '@/../public/assets/imgs/image 3.png'
 import img2 from '@/../public/assets/imgs/image 4.png'
@@ -13,45 +13,40 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
+import { useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 
 export default function GiftCarousol() {
   const slides = [
     {
       src: img1,
-      title: "Say It with Flowers",
-      description: "Elegant gifts for every special moment.",
-      button: "I'm buying!"
+      title: 'special gifts'
     },
     {
       src: img2,
-      title: "Say It with Flowers",
-      description: "Elegant gifts for every special moment.",
-      button: "I'm buying!"
+      title: 'special gifts'
     },
     {
       src: img3,
-      title: "Say It with Flowers",
-      description: "Elegant gifts for every special moment.",
-      button: "I'm buying!"
+      title: 'special gifts'
     },
     {
       src: img4,
-      title: "Say It with Flowers",
-      description: "Elegant gifts for every special moment.",
-      button: "I'm buying!"
+      title: 'special gifts'
     }
-  ]
+  ];
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [current, setCurrent] = useState(0);
+  const t = useTranslations('banner');
 
-  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null)
-  const [current, setCurrent] = useState(0)
 
   useEffect(() => {
     if (!carouselApi) return
     setCurrent(carouselApi.selectedScrollSnap())
 
     const onSelect = () => setCurrent(carouselApi.selectedScrollSnap())
-    carouselApi.on('select', onSelect)
+    carouselApi.on('select', onSelect);
 
     return () => {
       carouselApi?.off('select', onSelect)
@@ -60,7 +55,7 @@ export default function GiftCarousol() {
 
   return (
     <div className='rounded-2xl'>
-      <Carousel opts={{ align: "start", loop: false }} className="relative rounded-2xl overflow-hidden" setApi={setCarouselApi}>
+      <Carousel opts={{ align: "start", loop: false }} dir='ltr' className="relative rounded-2xl overflow-hidden" setApi={setCarouselApi}>
         {/*content*/}
         <CarouselContent>
           {slides.map((slide, i) => (
@@ -71,12 +66,12 @@ export default function GiftCarousol() {
               <div className='absolute inset-0 z-10 bg-gradient-to-r from-black/80 to-transparent rounded-2xl'></div>
               <div className='absolute bottom-1 z-20 p-4'>
                 {/*title*/}
-                <h3 className="text-white text-4xl font-semibold my-2">{slide.title}</h3>
+                <h3 className="text-white text-4xl font-semibold my-2">{t('title')}</h3>
                 {/*description*/}
-                <h5 className="text-white text-base font-normal mb-3">{slide.description}</h5>
+                <h5 className="text-white text-base font-normal mb-3">{t('description')}</h5>
                 {/*button*/}
                 <Button variant='secondary' className='rounded-[10px] py-2.5 px-4 my-3 gap-1.5 text-maroon-700 font-base font-normal' >
-                  {slide.button}
+                  {t('buying-button')}
                 </Button>
               </div>
             </CarouselItem>
@@ -94,7 +89,7 @@ export default function GiftCarousol() {
             : " text-zinc-500 cursor-not-allowed"
             }`} onClick={() => carouselApi?.scrollNext()} />
         </div>
-
+        
         {/* Custom Dots */}
         <div className="absolute top-6 right-6 z-10 flex gap-2">
           {slides.map((_, index) => (
