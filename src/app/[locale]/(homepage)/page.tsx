@@ -1,4 +1,4 @@
-import Banner from "@/components/features/banner/banner";
+import GiftsSection from "@/components/features/banner/gifts-section";
 import AboutSection from "./_components/about-section";
 import CompaniesSection from "./_components/companies-section";
 import GallerySection from "./_components/gallery-section";
@@ -8,8 +8,8 @@ import Occasions from "@/components/features/occasions/occasions";
 export default function page() {
   return (
     <div className="container">
-      {/* Carousel */}
-      <Banner />
+      {/* Gifts Section */}
+      <GiftsSection />
 
       {/* Service Features */}
       <ServiceFeatures />

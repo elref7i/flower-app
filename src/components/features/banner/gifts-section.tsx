@@ -2,7 +2,7 @@ import React from "react";
 import GiftCard from "./gift-card";
 import GiftCarousol from "./gift-carsoul";
 
-export default function Banner() {
+export default function GiftsSection() {
   return (
     <div className="grid grid-cols-4 gap-5 my-10">
       <div className="col-span-1">

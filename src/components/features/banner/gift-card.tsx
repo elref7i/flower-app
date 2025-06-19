@@ -8,11 +8,13 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 export default function GiftCard() {
+  // Translations
   const t = useTranslations("banner");
 
   return (
     <>
       <div className="rounded-xl gap-1.5 relative overflow-hidden">
+        {/* Image */}
         <Image
           src={img}
           width={300}
