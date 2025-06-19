@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils/tailwind-merge";
+import { cn } from "@/lib/utils/cn";
 import { useTheme } from "next-themes";
 import { Toaster as Sonner } from "sonner";
 

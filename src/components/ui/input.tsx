@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils/tailwind-merge";
+import { cn } from "@/lib/utils/cn";
 interface InputProps extends React.ComponentProps<"input"> {
   error?: boolean;
 }
@@ -15,7 +15,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           "dark:bg-zinc-800 dark:text-zinc-200 dark:border-zinc-600 dark:placeholder:text-zinc-400 dark:focus:border-softpink-400 dark:disabled:border-zinc-700 dark:disabled:placeholder:text-zinc-600",
           className,
           type === "file" &&
-          "file:text-transparent file:w-0 file:h-0 file:overflow-hidden file:placeholder:hidden ",
+            "file:text-transparent file:w-0 file:h-0 file:overflow-hidden file:placeholder:hidden ",
           error && "border-red-600 dark:border-red-500",
         )}
         ref={ref}
