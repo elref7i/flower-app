@@ -1,12 +1,11 @@
-import CompaniesSection from "./_components/CompaniesSection"
-
+import CompaniesSection from "./_components/CompaniesSection";
 
 export default function page() {
   return (
     <div>
-        {/* <h1>HomePage</h1> */}
+      {/* <h1>HomePage</h1> */}
 
-        <CompaniesSection/>
+      <CompaniesSection />
     </div>
-  )
+  );
 }

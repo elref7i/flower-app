@@ -4,7 +4,7 @@ export const links = [
   {
     name: "Home",
     icon: <House size={20} />,
-    path: "/home",
+    path: "/",
   },
   {
     name: "Products",
