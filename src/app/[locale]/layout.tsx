@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/components/providers";
 import MainHeader from "@/components/layout/header/components/main-header";
 import NavigationHeader from "@/components/layout/header/components/navigation-header";
+import Footer from "@/components/layout/footer";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -49,11 +50,21 @@ export default async function LocaleLayout({
     >
       <body>
         <Providers>
+          {/* Main Header */}
           <MainHeader />
+
+          {/* Navigation Header */}
           <NavigationHeader />
+
+          {/* Main Content */}
           {children}
+
+          {/* Footer */}
+          <Footer />
+
+          {/* Toaster */}
+          <Toaster />
         </Providers>
-        <Toaster />
       </body>
     </html>
   );

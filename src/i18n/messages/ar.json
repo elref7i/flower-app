@@ -21,6 +21,17 @@
   "no-account": "ليس لديك حساب؟<span>انشئ حساب </span>",
   "create-account": "إنشاء حساب",
   "register": "حساب جديد",
+  "gallery-title": "المعرض",
+  "gallery-headline": "اكتشف عالمًا من الأناقة والجمال في معرضنا المميز",
+  "companies-section-headline": "موثوق به من قبل أكثر من <highlight>٤.٥ آلاف+</highlight> شركة",
+  "about-title": "من نحن",
+  "about-content": "اجعل كل لحظة لا تنسى مع صناديق الهدايا المتميزة لدينا. \nتم تنسيق كل صندوق برعاية وعناية معبأة بشكل جميل ، مع عناصر مختارة يدويًا مصممة لإقناعها. \nسواء كان ذلك لعيد ميلاد أو حفل زفاف أو \"شكرًا لك\" بسيطًا ، فإن صناديق الهدايا لدينا مصنوعة لترك انطباع دائم - لأن الهدايا المدروسة تبدأ هنا.",
+  "competitive_prices": "أسعار تنافسية وتسوّق سهل",
+  "premium_quality": "جودة فائقة وتغليف أنيق",
+  "every_occasion": "مثالي لكل مناسبة",
+  "fast_delivery": "توصيل سريع وموثوق",
+  "about-button": "أكتشفنا",
+  "about-section-headline": "نُقدِّم <highlight>أفخم</highlight> صناديق الهدايا لأجل لحظاتك <highlight>الخاصة</highlight>",
   "password-role": "يجب أن تكون كلمة مرورك مكونة من 8 أحرف على الأقل وتتضمن حرفًا كبيرًا على الأقل ورقمًا واحدً وا حرفاً خاصًا واحد.",
   "empty-email-error": " يجب إدخال بريدك الإلكتروني",
   "invalid-email-error": "بريد إلكتروني غير صالح",
@@ -36,7 +47,6 @@
   "empty-verification-code-error": "يجب عليك إدخال رمز التحقق",
   "invalid-verification-code": "يجب أن يكون رمز التحقق من 6 أرقام",
   "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة",
-
   "Best Selling": "الاكثر مبيعا ",
   "check out": "<span>اكتشف </span>",
   "buying": "<span> الجميع</span>",
@@ -44,6 +54,31 @@
   "right-now": "الآن",
   "gifts": "استكشف الهدايا",
   "paragraph": "<br> مش متأكد تختار إيه؟ \n</br>ابدأ مع المنتجات الأكثر مبيعًا لدينا، فهذه هي الهدايا التي يحرص عملاؤنا على شرائها مرارًا وتكرارًا.",
-  "arrow": "<span>←</span>"
-
+  "arrow": "<span>←</span>",
+  "banner": {
+    "budge": "الأسعار تبدأ من 10.99 جنيه ",
+    "special-gifts-title": "اختر هدية مميزة لأحبائك",
+    "shop-button": "تسوق الآن",
+    "title": "عبّر عن مشاعرك بالزهور",
+    "description": "هدايا أنيقة لكل لحظة مميزة",
+    "buying-button": "سأشتري الآن!"
+  },
+  "occasions": {
+    "budge-one": "الزفاف",
+    "description-one": "اجعل احتفالك بها خالدًا بهدية لا تُنسى",
+    "budge-two": "الخطوبة",
+    "description-two": "احتفلوا ببداية رحلة جميلة تجمعكما",
+    "budge-three": "الذكرى السنوية",
+    "description-three": "فاجئ من تحب بهدية مميزة "
+  },
+  "features": {
+    "title-one": "توصيل مجاني",
+    "description-one": "للطلبات فوق 120 جنيه",
+    "title-two": "استرجاع المبلغ",
+    "description-two": "استرداد خلال 30 يومًا",
+    "title-three": "دفع آمن",
+    "description-three": "دفع آمن 100٪",
+    "title-four": "دعم متواصل 24/7",
+    "description-four": "نحن هنا دائمًا من أجلك"
+  }
 }

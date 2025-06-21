@@ -21,6 +21,17 @@
   "no-account": "No account?<span>Create one here</span>",
   "create-account": "Create Accountt",
   "register": "Register",
+  "gallery-title": "Gallery",
+  "gallery-headline": "Check Out our Wonderful Gallery",
+  "companies-section-headline": "Trusted by over <highlight>4.5k+</highlight> Companies",
+  "about-title": "About",
+  "about-content": "Make every moment memorable with our premium gift boxes. Carefully curated and beautifully packaged, each box is filled with handpicked items designed to impress. Whether it's for a birthday, wedding, or a simple “thank you,” our gift boxes are crafted to leave a lasting impression — because thoughtful gifting starts here.",
+  "competitive_prices": "Competitive Prices & Easy Shopping",
+  "premium_quality": "Premium Quality & Elegant Packaging",
+  "every_occasion": "Perfect for Every Occasion",
+  "fast_delivery": "Fast & Reliable Delivery",
+  "about-button": "Discover",
+  "about-section-headline": "Delivering the <highlight>Finest</highlight> Gift Boxes for Your <highlight>Special</highlight> Moments",
   "password-role": "Your password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character.",
   "empty-email-error": "Email Shouldn't Be Empty",
   "invalid-email-error": "Invalid Email",
@@ -43,6 +54,31 @@
   "right-now": " Right Now",
   "gifts": "  Explore gifts",
   "paragraph": "<br> Not sure what to choose? </br>     Start with our best sellers, these are the gifts our customers keep coming back for.     Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed     to leave a lasting impression.",
-  "arrow": "<span>→</span>"
-
+  "arrow": "<span>→</span>",
+  "banner": {
+    "budge": "Staring from 10.99 EGP",
+    "special-gifts-title": "Special Gifts For The People You Love",
+    "shop-button": "Shop Now",
+    "title": "Say It with Flowers",
+    "description": "Elegant gifts for every special moment.",
+    "buying-button": "I'm buying!"
+  },
+  "occasions": {
+    "budge-one": "Wedding",
+    "description-one": "Celebrate Her Forever with a Gift She’ll Always Remember",
+    "budge-two": "Engagement",
+    "description-two": "Honor the Beginning of a Beautiful Journey Together",
+    "budge-three": "Anniversary",
+    "description-three": "Mark Every Year of Love with a Meaningful Surprise"
+  },
+  "features": {
+    "title-one": "Free Delivery",
+    "description-one": "For orders above 120 EGP",
+    "title-two": "Get Refund",
+    "description-two": "Refunds within 30 days",
+    "title-three": "Safe Payment",
+    "description-three": "100% Secure Payment",
+    "title-four": "24/7 Support",
+    "description-four": "Contact us at any time"
+  }
 }

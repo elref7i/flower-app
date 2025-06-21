@@ -1,6 +1,5 @@
 import { NextIntlClientProvider, useLocale, useMessages, useNow, useTimeZone } from "next-intl";
 import NextAuthProvider from "./components/next-auth-providers";
-import NextIntlProvider from "./components/next-intl-provider";
 import ReactQueryProvider from "./components/react-query-provider";
 import { ThemeProvider } from "./components/theme-provider";
 
