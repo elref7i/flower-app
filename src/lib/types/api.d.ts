@@ -3,6 +3,13 @@ declare type DatabaseProperties = {
   createdAt: string;
 };
 
+declare type MetaData = {
+  currentPage: number;
+  limit: number;
+  totalPages: number;
+  totalItems: number;
+};
+
 declare type SuccessfulResponse<T> = {
   message: "success";
 } & T;
