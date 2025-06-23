@@ -1,6 +1,7 @@
 declare type Categories = {
+  metadata: MetaData;
   categories: category[];
-} & MetaData;
+};
 
 declare type category = {
   name: string;

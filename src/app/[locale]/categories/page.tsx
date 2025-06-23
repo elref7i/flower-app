@@ -1,38 +1,15 @@
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+"use client";
+import PaginationComponent from "@/components/common/pagination-component";
+import { useCategories } from "./hooks/use-categories";
 
-export default function page() {
+export default function page(searchParams: SearchParams) {
+  const { payload, isLoading, isFetched } = useCategories(searchParams);
+
+  console.log("searchParams", searchParams);
+
   return (
     <div className="py-20">
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">2</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+      {/* <PaginationComponent metaData={payload && payload.metadata} /> */}
     </div>
   );
 }
