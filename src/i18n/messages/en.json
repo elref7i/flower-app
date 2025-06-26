@@ -81,5 +81,17 @@
     "title-four": "24/7 Support",
     "description-four": "Contact us at any time"
   },
-  "no-products": "No Products Found"
+  "no-products": "No Products Found",
+  "forget-password": "Forgot Password?",
+  "forget-password-note": "Worry not, we’ll send you instructions to help you reset it.",
+  "form-email": "Email",
+  "form-button-Continue": "Continue",
+  "forgot-pass-create-account": "<span>Create one now!</span>",
+  "forgot-pass-have-no-account": "Don’t have an account yet? ",
+  "need-help": "Need Help?",
+  "contact-us": "<span> Contact us </span>",
+  "create-password": "Create a new password",
+  "set-strong-password": "Set a strong password to secure your account.",
+  "password-felid": "Password",
+  "confirm-password-felid": "Confirm Password"
 }

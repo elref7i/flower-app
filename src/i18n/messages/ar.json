@@ -81,5 +81,17 @@
     "title-four": "دعم متواصل 24/7",
     "description-four": "نحن هنا دائمًا من أجلك"
   },
-  "no-products": "لم يتم العثور على منتجات"
+  "no-products": "لم يتم العثور على منتجات",
+  "forget-password": "هل نسيت كلمة المرور؟",
+  "forget-password-note": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة تعيينها.",
+  "form-email": "البريد الإلكتروني",
+  "form-button-Continue": "متابعة",
+  "forgot-pass-create-account": "<span>أنشئ حسابًا الآن!</span>",
+  "forgot-pass-have-no-account": "ليس لديك حساب بعد؟",
+  "need-help": "هل تحتاج إلى مساعدة؟",
+  "contact-us": "<span>تواصل معنا</span>",
+  "create-password": "أنشئ كلمة مرور جديدة",
+  "set-strong-password": "أنشئ كلمة مرور قوية لحماية حسابك",
+  "password-felid": " كلمة المرور",
+  "confirm-password-felid": "تأكيد كلمة المرور"
 }
