@@ -1,10 +1,11 @@
-declare type DatabaseProperties = {
+declare type DatabaseFields = {
   _id: string;
   createdAt: string;
+  updatedAt: string;
 };
 
-declare type SuccessfulResponse<T> = {
-  message: "success";
+declare type SuccessfullResponse<T> = {
+  message: string;
 } & T;
 
 declare type ErrorResponse = {
@@ -12,3 +13,7 @@ declare type ErrorResponse = {
 };
 
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
+
+declare type PaginatedResponse<T> = {
+  metadata: Metadata;
+} & T;
