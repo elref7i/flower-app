@@ -9,7 +9,7 @@
   "email": "بريد إلكتروني",
   "password": "كلمة المرور",
   "remind-me": "تذكرني",
-  "forgot-password": "نسيت كلمة المرور",
+  "forgot-password": "نسيت كلمة المرور؟",
   "first-name": "الاسم الأول",
   "last-name": "اسم العائلة",
   "phone-number": "رقم الهاتف",
@@ -18,7 +18,7 @@
   "male": "ذكر",
   "female": "أنثى",
   "have-account": "لديك حساب؟<span>تسجيل دخول</span>",
-  "no-account": "ليس لديك حساب؟<span>انشئ حساب </span>",
+  "no-account": "ليس لديك حساب؟<Link>انشاء حساب الآن!</Link>",
   "create-account": "إنشاء حساب",
   "register": "حساب جديد",
   "gallery-title": "المعرض",
@@ -72,5 +72,7 @@
     "description-three": "دفع آمن 100٪",
     "title-four": "دعم متواصل 24/7",
     "description-four": "نحن هنا دائمًا من أجلك"
-  }
+  },
+  "welcome-back": "مرحبًا بعودتك",
+  "welcome": "مرحبًا {name}"
 }

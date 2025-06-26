@@ -1,9 +1,11 @@
 import { withAuth } from "next-auth/middleware";
 import createMiddleware from "next-intl/middleware";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
+import { getToken } from "next-auth/jwt";
 
-const publicPages = ["/", "/login"];
+const authRouts = ["/auth/login"];
+const publicPages = ["/", ...authRouts];
 const handleI18nRouting = createMiddleware(routing);
 
 const authMiddleware = withAuth(
@@ -24,7 +26,7 @@ const authMiddleware = withAuth(
   },
 );
 
-export default function middleware(req: NextRequest) {
+export default async function middleware(req: NextRequest) {
   // Function to create a regex for matching paths
   function pathRegex(paths: string[]): RegExp {
     return RegExp(
@@ -36,7 +38,12 @@ export default function middleware(req: NextRequest) {
   }
 
   const isPublicPage = pathRegex(publicPages).test(req.nextUrl.pathname);
+  const isAuthpage = pathRegex(authRouts).test(req.nextUrl.pathname);
   if (isPublicPage || "/*") {
+    const token = await getToken({ req });
+    if (isAuthpage && token) {
+      return NextResponse.redirect(new URL("/", req.nextUrl.origin));
+    }
     return handleI18nRouting(req);
   } else {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

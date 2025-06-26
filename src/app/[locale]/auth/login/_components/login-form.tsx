@@ -1,8 +1,9 @@
+"use client";
 import { SubmitHandler, useForm } from "react-hook-form";
 import useLogin from "../hooks/use-login";
 import { TLoginFormFields, useLoginSchema } from "@/lib/schema/auth.schema";
-import { TSetAuthForm } from "@/lib/types/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader, LoaderCircle } from "lucide-react";
 
 // Import shad cn ui components
 import { Button } from "@/components/ui/button";
@@ -16,11 +17,12 @@ import {
 } from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { DialogTitle } from "@/components/ui/dialog";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { PasswordInput } from "@/components/common/password-input";
 
 // Login Form component
-export default function LoginForm({ setForm }: TSetAuthForm) {
+export default function LoginForm() {
   // Hook for translations
   const t = useTranslations();
 
@@ -43,16 +45,18 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
 
   return (
     <>
-      {/* Form title */}
-      <DialogTitle>{t("login")}</DialogTitle>
       <Form {...form}>
         {/* Show error if it is exist */}
-        {error && <p>{error.message}</p>}
+        {error && (
+          <p className="bg-red-100 text-red-600 mx-auto py-2 mb-2 rounded-md px-5">
+            {error.message}
+          </p>
+        )}
 
         {/* Login form */}
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className=" w-full">
           {isPending ? (
-            <p>Loading...</p>
+            <LoaderCircle className="animate-spin my-10 size-16 mx-auto text-maroon-700 dark:text-softpink-300" />
           ) : (
             // Form fields
             <div>
@@ -61,10 +65,17 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("email")}</FormLabel>
+                  <FormItem className="mb-4">
+                    <FormLabel className="text-sm font-medium text-zinc-800">
+                      {t("email")}
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder={t("email")} type="text" {...field} />
+                      <Input
+                        placeholder="user@example.com"
+                        type="text"
+                        className="w-full"
+                        {...field}
+                      />
                     </FormControl>
 
                     <FormMessage />
@@ -78,47 +89,29 @@ export default function LoginForm({ setForm }: TSetAuthForm) {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t("password")}</FormLabel>
+                    <FormLabel className="text-sm font-medium text-zinc-800 mt-4">
+                      {t("password")}
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder={t("password")} type="password" {...field} />
+                      <PasswordInput {...field} ref={field.ref} placeholder="********" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+              {/* forgot password button */}
+
+              <Link
+                href={"/auth/forget-password"}
+                className=" w-fit ms-auto block mt-2 text-maroon-700 dark:text-softpink-300"
+              >
+                {t("forgot-password")}
+              </Link>
             </div>
           )}
 
-          {/* Login option */}
-          <div className="flex justify-between">
-            {/* Remind me box */}
-            <div>
-              <Checkbox />
-              <span className="ms-3">{t("remind-me")}</span>
-            </div>
-
-            {/*Button to show forgot password form */}
-            <button>{t("forgot-password")}</button>
-          </div>
-
-          {/*Show register Form */}
-          <div>
-            <p>
-              {t.rich("no-account", {
-                span: (value) => (
-                  <span
-                    className="cursor-pointer text-blue-500"
-                    onClick={() => setForm("register")}
-                  >
-                    {value}
-                  </span>
-                ),
-              })}
-            </p>
-          </div>
-
           {/* Submit Button */}
-          <Button type="submit" disabled={isPending}>
+          <Button type="submit" disabled={isPending} className="w-full mt-9">
             {t("login")}
           </Button>
         </form>
