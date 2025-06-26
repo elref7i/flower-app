@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { Sarabun, Zain } from "next/font/google";
-
 import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/components/providers";
 import MainHeader from "@/components/layout/header/components/main-header";
