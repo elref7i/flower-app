@@ -93,5 +93,6 @@
   "create-password": "Create a new password",
   "set-strong-password": "Set a strong password to secure your account.",
   "password-felid": "Password",
-  "confirm-password-felid": "Confirm Password"
+  "confirm-password-felid": "Confirm Password",
+  "reset-password-feild": " Reset Password"
 }

@@ -5,29 +5,34 @@ import ForgetPasswordForm from "./_components/forget-password-form";
 import { useTranslations } from "next-intl";
 
 export default function ForgetPassword() {
+  // use translations
   const t = useTranslations();
   return (
     <div className="space-y-3 m-20  w-[406px] ">
+     
+     {/* forget password form title */}
       <h2 className="font-semibold text-2xl text-zinc-800 dark:text-zinc-50">
-        {t('forget-password')}
-
+        {t("forget-password")}
       </h2>
-      <p className="text-zinc-800 font-normal dark:text-zinc-50">
-        {t('forget-password-note')}
-      </p>
+      <p className="text-zinc-800 font-normal dark:text-zinc-50">{t("forget-password-note")}</p>
       <hr className="  w-full" />
 
       <div>
+        {/* forget password form */}
         <ForgetPasswordForm />
-        {/* <div className="h-8" /> */}
+
         <hr className="w-full border-t  mt-10" />
       </div>
 
-      <p className="text-zinc-800 font-medium dark:text-zinc-50 text-center">{t('forgot-pass-have-no-account')} 
-        {t.rich('forgot-pass-create-account',{
-          span:(value)=><span className="text-maroon-700 font-medium dark:text-softpink-300"> {value}</span>,
+    {/* Dont have account section */}
+      <p className="text-zinc-800 font-medium dark:text-zinc-50 text-center">
+        {t("forgot-pass-have-no-account")}
+        {t.rich("forgot-pass-create-account", {
+          span: (value) => (
+            <span className="text-maroon-700 font-medium dark:text-softpink-300"> {value}</span>
+          ),
         })}
-        </p>
+      </p>
     </div>
   );
 }

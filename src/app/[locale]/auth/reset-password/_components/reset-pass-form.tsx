@@ -9,9 +9,11 @@ import { useTranslations } from "next-intl";
 
 export default function SetPasswordForm() {
 
-  const t =useTranslations();
+  // use translations 
+  const t = useTranslations();
 
-    const {ResetPasswordHookFun} =useResetPassword()
+  // form felids
+  const { ResetPasswordHookFun } = useResetPassword();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       password: "",
@@ -21,22 +23,19 @@ export default function SetPasswordForm() {
 
   const onSubmit = async (values: any) => {
     const payload = {
+      // untill update context and schema validation 
       email: "emanelkaser@gmail.com",
       newPassword: values.newPassword,
     };
     console.log(payload);
     ResetPasswordHookFun(payload);
-   
   };
   return (
-
-       <div className=" ">
-       <form className="space-y-7" onSubmit={handleSubmit(onSubmit)}>
-       
- 
+    <div className=" ">
+      <form className="space-y-7" onSubmit={handleSubmit(onSubmit)}>
         {/* Password */}
         <div>
-            <Label className="text-[14px] font-medium dark:text-zinc-50">{t('password-felid')}</Label>
+          <Label className="text-[14px] font-medium dark:text-zinc-50">{t("password-felid")}</Label>
           <Input
             {...register("password")}
             type="password"
@@ -45,10 +44,12 @@ export default function SetPasswordForm() {
             className="h-12 rounded-xl w-full"
           />
         </div>
-        
-        {/*re-Password */}
+
+        {/*New-Password */}
         <div>
-          <Label className="text-[14px] font-medium dark:text-zinc-50">{t('confirm-password-felid')}</Label>
+          <Label className="text-[14px] font-medium dark:text-zinc-50">
+            {t("confirm-password-felid")}
+          </Label>
           <Input
             {...register("newPassword")}
             type="password"
@@ -59,12 +60,13 @@ export default function SetPasswordForm() {
         </div>
 
         {/* button */}
-         <Button type="submit" className=" bg-maroon-600 w-full mt-9 text-[14px] font-semibold  rounded-[10px] h-11  ">
-      Reset Password
+        <Button
+          type="submit"
+          className=" bg-maroon-600 w-full mt-9 text-[14px] font-semibold  rounded-[10px] h-11  "
+        > 
+         {t('reset-password-feild')}
         </Button>
-      
       </form>
-  </div>
-
+    </div>
   );
 }

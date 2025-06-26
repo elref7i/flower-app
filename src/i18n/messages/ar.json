@@ -93,5 +93,6 @@
   "create-password": "أنشئ كلمة مرور جديدة",
   "set-strong-password": "أنشئ كلمة مرور قوية لحماية حسابك",
   "password-felid": " كلمة المرور",
-  "confirm-password-felid": "تأكيد كلمة المرور"
+  "confirm-password-felid": "تأكيد كلمة المرور",
+  "reset-password-feild": "إعادة تعيين كلمة المرور"
 }
