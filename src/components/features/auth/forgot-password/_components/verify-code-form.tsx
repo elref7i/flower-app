@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { useVerifyCodeSchema, TVerifyCodeFields } from "@/lib/schema/auth.schema";
 import { verifyOTPCodeAction } from "../_actions/OTP-Code.action";
+// import { ForgotPasswordAction } from "../_actions/forgot-password.action";
 import { useState, useRef, useEffect } from "react";
 import { useAuthContext } from "@/lib/context/auth-context";
 import { useRouter } from "@/i18n/navigation";
@@ -27,6 +28,7 @@ export default function VerifyCodeForm() {
   const [isPending, setIsPending] = useState(false);
   const inputsRef = useRef<HTMLInputElement[]>([]);
   const [timer, setTimer] = useState(60);
+
   // Handle Timer
   useEffect(() => {
     if (timer === 0) return;
@@ -50,28 +52,31 @@ export default function VerifyCodeForm() {
   });
 
   // Functions
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, idx: number) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const value = e.target.value;
+    // handle each input accept one number
     if (!/^\d?$/.test(value)) return;
 
+    // catch numbers from inputs and make them (String)
     const currentCode = form.getValues("resetCode").split("");
-    currentCode[idx] = value;
+    currentCode[index] = value;
     const newCode = currentCode.join("");
     form.setValue("resetCode", newCode);
 
-    if (value && idx < 5) {
-      inputsRef.current[idx + 1]?.focus();
+    if (value && index < 5) {
+      inputsRef.current[index + 1]?.focus();
     }
   };
 
-  const handleBackspace = (e: React.KeyboardEvent<HTMLInputElement>, idx: number) => {
-    if (e.key === "Backspace" && !e.currentTarget.value && idx > 0) {
-      inputsRef.current[idx - 1]?.focus();
+  // Handle Backspace Button
+  const handleBackspace = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+    if (e.key === "Backspace" && !e.currentTarget.value && index > 0) {
+      inputsRef.current[index - 1]?.focus();
     }
   };
-
+  // Submition Function
   const onSubmit = async (values: TVerifyCodeFields) => {
-    console.log("Form Values:", values);
+    // console.log("Form Values:", values);
     setIsPending(true);
     setError(null);
 
@@ -87,6 +92,18 @@ export default function VerifyCodeForm() {
 
   //   Start Timer Func
   const startTimer = () => setTimer(60);
+
+  // Handle Resend Code Function
+  const resendCoade = async () => {
+    const response = await ForgotPasswordAction({ email });
+
+    if (response.succes) {
+      toast.success("{t('otp-toast')}");
+      startTimer();
+    } else {
+      toast.error("{t('resend-code-fail-message')}");
+    }
+  };
 
   return (
     <div className="w-96 mx-auto my-20 ">
@@ -120,35 +137,33 @@ export default function VerifyCodeForm() {
               name="resetCode"
               render={() => (
                 <FormItem>
+                  {/* OTP Inputs */}
                   <div className="flex justify-center gap-2">
                     {Array(6)
                       .fill(0)
-                      .map((_, idx) => (
+                      .map((_, index) => (
                         <input
-                          key={idx}
+                          key={index}
                           type="text"
                           inputMode="numeric"
                           maxLength={1}
                           className="w-11 h-11 text-center bg-white  border   rounded-md text-xl focus:outline-none focus:ring-2 focus:ring-primary dark:bg-zinc-600 "
                           ref={(el) => {
-                            inputsRef.current[idx] = el!;
+                            inputsRef.current[index] = el!;
                           }}
-                          onChange={(e) => handleChange(e, idx)}
-                          onKeyDown={(e) => handleBackspace(e, idx)}
+                          onChange={(e) => handleChange(e, index)}
+                          onKeyDown={(e) => handleBackspace(e, index)}
                         />
                       ))}
                   </div>
+
+                  {/* Resend Code Button */}
                   <div className="flex justify-end pt-2">
                     <Button
                       type="button"
                       variant="link"
                       className="text-zinc-800 dark:text-zinc-50"
-                      onClick={() => {
-                        // i didn't handle send new code yet
-
-                        startTimer();
-                        toast.success("{t('otp-toast')}");
-                      }}
+                      onClick={resendCoade}
                       disabled={timer > 0}
                     >
                       {timer > 0
@@ -162,8 +177,7 @@ export default function VerifyCodeForm() {
               )}
             />
 
-            {/* <SubmitFeedback>{error}</SubmitFeedback> */}
-
+            {/* Send Code Button */}
             <Button
               type="submit"
               className="w-full bg-maroon-600 text-white text-sm font-semibold dark:bg-softpink-300 dark:text-zinc-800"
