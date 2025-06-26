@@ -2,7 +2,7 @@
 
 import LanguageToggle from "@/components/common/language-toggle";
 import { ModeToggle } from "@/components/common/theme-toggle";
-import { AuthHeaderProps } from "@/lib/types/auth";
+
 import { cn } from "@/lib/utils/cn";
 import separator from "@assets/imgs/separator-1 1.png";
 import darkSeparator from "@assets/imgs/separator-1 dark.png";
@@ -23,7 +23,7 @@ import Image from "next/image";
  * @param {AuthHeaderProps} props
  * @returns {JSX.Element} AuthHeader component
  */
-export default function AuthHeader({ message }: AuthHeaderProps) {
+export default function AuthHeader() {
   // Hook to get currant theme
   const { theme } = useTheme();
 
@@ -49,17 +49,16 @@ export default function AuthHeader({ message }: AuthHeaderProps) {
           alt="separator"
         />
 
-        {/* Condition to render message if it is exist */}
-        {message && (
-          <h3
-            className={cn(
-              " text-maroon-700 text-center text-5xl font-edwiardian dark:text-softpink-300 pb-2",
-              locale === "ar" && ["font-diwany"],
-            )}
-          >
-            {t(message)}
-          </h3>
-        )}
+        {/*header message */}
+
+        <h3
+          className={cn(
+            " text-maroon-700 text-center text-5xl font-edwiardian dark:text-softpink-300 pb-2",
+            locale === "ar" && ["font-diwany"],
+          )}
+        >
+          {t("welcome-back")}
+        </h3>
       </div>
     </div>
   );

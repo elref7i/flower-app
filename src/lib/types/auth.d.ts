@@ -1,6 +1,6 @@
 import { SetStateAction } from "react";
 import { User } from "next-auth";
-import AuthHeader from "./../../app/[locale]/auth/_components/auth-header";
+import AuthHeader from "../../app/[locale]/auth/login/_components/auth-header";
 
 // type register form fields
 declare type TListRegisterFormFields = {
@@ -27,12 +27,3 @@ declare type SetPasswordResponse = {
 };
 
 declare type LogOutResponse = { message: "success" } | { error: string };
-
-declare type AuthHeaderProps = {
-  message: string;
-};
-
-declare type AuthFooterProps = {
-  message: string;
-  link: string;
-};
