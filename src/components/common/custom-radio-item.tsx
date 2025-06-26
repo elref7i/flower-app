@@ -5,13 +5,6 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 
-
-
-<<<<<<< HEAD
-=======
-import { cn } from "@/lib/utils/cn";
->>>>>>> origin/dev
-
 /**
  * @file DropdownMenuCustomRadioItem.tsx
  * @description it instance of a radio item component for shad cn  UI dropdown menus.

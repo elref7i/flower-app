@@ -1,10 +1,11 @@
-declare type DatabaseProperties = {
+declare type DatabaseFields = {
   _id: string;
   createdAt: string;
+  updatedAt: string;
 };
 
-declare type SuccessfulResponse<T> = {
-  message: "success";
+declare type SuccessfullResponse<T> = {
+  message: string;
 } & T;
 
 declare type ErrorResponse = {
@@ -13,70 +14,6 @@ declare type ErrorResponse = {
 
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 
-declare type product = {
-  rateAvg: number;
-  rateCount: number;
-  _id: string;
-  id: string;
-  title: string;
-  slug: string;
-  description: string;
-  imgCover: string;
-  images: string[];
-  price: number;
-  priceAfterDiscount: number;
-  quantity: number;
-  category: string;
-  occasion: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-  isSuperAdmin?: boolean;
-  sold: number;
-};
-
-declare type occasion = {
-  _id: string;
-  name: string;
-  slug: string;
-  image: string;
-  createdAt: string;
-  updatedAt: string;
-  isSuperAdmin: boolean;
-  productsCount: number;
-};
-
-declare type metadata = {
-  currentPage: number;
-  limit: number;
-  totalPages: number;
-  totalItems: number;
-};
-declare type occasions = {
-  metadata: metadata;
-  occasions: occasion[];
-};
-
-declare type productByOccasion = {
-  metadata: metadata;
-  products: product[];
-};
-declare type DatabaseProperties = {
-  _id: string;
-  createdAt: string;
-};
-
-declare type SuccessfulResponse<T> = {
-  message: "success";
+declare type PaginatedResponse<T> = {
+  metadata: Metadata;
 } & T;
-
-declare type ErrorResponse = {
-  error: string;
-};
-
-declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
-
-declare type productByOccasion={
-  metadata:metadata,
-  products:product[]
-}
