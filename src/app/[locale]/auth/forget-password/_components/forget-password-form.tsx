@@ -31,7 +31,7 @@ export default function ForgetPasswordForm() {
      
         {/* Email */}
 
-        <Label className="text-[14px] font-medium dark:text-zinc-50">{t('form-email')}</Label>
+        <Label className="text-[14px] font-medium dark:text-zinc-50">{t('forgetpassword.form-email')}</Label>
           <Input
             {...register("email")}
             type="email"
@@ -44,7 +44,7 @@ export default function ForgetPasswordForm() {
         {/* button */}
 
         <Button type="submit" className=" bg-maroon-600 w-full  text-[14px] font-semibold  rounded-[10px] h-11  ">
-         {t('form-button-Continue')}
+         {t('forgetpassword.form-button-Continue')}
         </Button>
       </form>
     </div>

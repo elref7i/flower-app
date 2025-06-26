@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { useVerifyCodeSchema, TVerifyCodeFields } from "@/lib/schema/auth.schema";
-import { verifyOTPCodeAction } from "../_actions/OTP-Code.action";
+import { verifyOTPCodeAction } from "../_action/otp-action";
 // import { ForgotPasswordAction } from "../_actions/forgot-password.action";
 import { useState, useRef, useEffect } from "react";
 import { useAuthContext } from "@/lib/context/auth-context";
@@ -94,16 +94,16 @@ export default function VerifyCodeForm() {
   const startTimer = () => setTimer(60);
 
   // Handle Resend Code Function
-  const resendCoade = async () => {
-    const response = await ForgotPasswordAction({ email });
+//   const resendCoade = async () => {
+//     const response = await ForgotPasswordAction({ email });
 
-    if (response.succes) {
-      toast.success("{t('otp-toast')}");
-      startTimer();
-    } else {
-      toast.error("{t('resend-code-fail-message')}");
-    }
-  };
+//     if (response.succes) {
+//       toast.success("{t('otp.otp-toast')}");
+//       startTimer();
+//     } else {
+//       toast.error("{t('otp.resend-code-fail-message')}");
+//     }
+//   };
 
   return (
     <div className="w-96 mx-auto my-20 ">
@@ -111,11 +111,11 @@ export default function VerifyCodeForm() {
       <div>
         {/* Title */}
         <h1 className="text-zinc-800  text-2xl font-semibold dark:text-zinc-50">
-          {t("otp-title")}
+          {t("otp.otp-title")}
         </h1>
         {/* message */}
         <p className="text-zinc-800 font-normal text-sm pt-1 dark:text-zinc-50">
-          {t("otp-headline")}
+          {t("otp.otp-headline")}
           {` ${email}`}{" "}
           <Button
             type="button"
@@ -123,7 +123,7 @@ export default function VerifyCodeForm() {
             className="p-0 h-auto ml-1 underline text-blue-700"
             onClick={() => setStep("1")}
           >
-            {t("edit-button")}
+            {t("otp.edit-button")}
           </Button>
         </p>
       </div>
@@ -163,12 +163,12 @@ export default function VerifyCodeForm() {
                       type="button"
                       variant="link"
                       className="text-zinc-800 dark:text-zinc-50"
-                      onClick={resendCoade}
+                    //   onClick={resendCoade}
                       disabled={timer > 0}
                     >
                       {timer > 0
-                        ? `${t("resend-otp-code")} (00:${String(timer).padStart(2, "0")})`
-                        : t("resend-otp-code")}
+                        ? `${t("otp.resend-otp-code")} (00:${String(timer).padStart(2, "0")})`
+                        : t("otp.resend-otp-code")}
                     </Button>
                   </div>
 
@@ -183,7 +183,7 @@ export default function VerifyCodeForm() {
               className="w-full bg-maroon-600 text-white text-sm font-semibold dark:bg-softpink-300 dark:text-zinc-800"
               disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
             >
-              {t("otp-button")}
+              {t("otp.otp-button")}
             </Button>
           </form>
         </Form>
@@ -192,14 +192,14 @@ export default function VerifyCodeForm() {
       {/* contact us */}
       <div className="text-center mt-5">
         <p className="text-sm font-bold text-zinc-800 dark:text-zinc-50">
-          {t("need-help")}{" "}
+          {t("otp.need-help")}{" "}
           <Button
             type="button"
             variant="link"
             className="text-maroon-700 text-sm font-bold p-0 h-auto align-baseline dark:text-softpink-300"
             onClick={() => router.push("/contact-us")}
           >
-            {t("contact-us")}
+            {t("otp.contact-us")}
           </Button>
         </p>
       </div>

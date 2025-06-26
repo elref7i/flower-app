@@ -81,6 +81,20 @@
     "title-four": "24/7 Support",
     "description-four": "Contact us at any time"
   },
+
+  "otp":{
+  "otp-title": "Enter the OTP Code",
+  "otp-headline": "We have sent a 6-digit code to",
+  "edit-button": "Edit",
+  "need-help": "Need help?",
+  "contact-us": "Contact us",
+  "otp-button": "Verify OTP",
+  "otp-toast": "A new OTP code has been sent to your email.",
+  "resend-otp-code": "Send a new code",
+  "resend-code-fail-message": "Failed to resend code"
+},
+
+  "forgetpassword":{
   "no-products": "No Products Found",
   "forget-password": "Forgot Password?",
   "forget-password-note": "Worry not, we’ll send you instructions to help you reset it.",
@@ -95,16 +109,5 @@
   "password-felid": "Password",
   "confirm-password-felid": "Confirm Password",
   "reset-password-feild": " Reset Password"
-}
-
-  },
-  "otp-title": "Enter the OTP Code",
-  "otp-headline": "We have sent a 6-digit code to",
-  "edit-button": "Edit",
-  "need-help": "Need help?",
-  "contact-us": "Contact us",
-  "otp-button": "Verify OTP",
-  "otp-toast": "A new OTP code has been sent to your email.",
-  "resend-otp-code": "Send a new code",
-  "resend-code-fail-message": "Failed to resend code"
+  }
 }

@@ -9,6 +9,7 @@ import Providers from "@/components/providers";
 import MainHeader from "@/components/layout/header/components/main-header";
 import NavigationHeader from "@/components/layout/header/components/navigation-header";
 import Footer from "@/components/layout/footer";
+import { AuthProvider } from "@/lib/context/auth-context";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -41,6 +42,13 @@ export default async function LocaleLayout({
     notFound();
   }
 
+
+//   import { AuthProvider } from "@/lib/context/auth-context";
+
+// export default function ForgotPasswordLayout({ chidren }: { chidren: React.ReactNode }) {
+//   return <AuthProvider>{chidren}</AuthProvider>;
+// }
+
   return (
     <html
       suppressHydrationWarning
@@ -50,6 +58,7 @@ export default async function LocaleLayout({
     >
       <body>
         <Providers>
+          <AuthProvider>
           {/* Main Header */}
           <MainHeader />
 
@@ -64,6 +73,7 @@ export default async function LocaleLayout({
 
           {/* Toaster */}
           <Toaster />
+          </AuthProvider>
         </Providers>
       </body>
     </html>

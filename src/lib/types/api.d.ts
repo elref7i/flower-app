@@ -6,10 +6,12 @@ declare type DatabaseFields = {
 
 declare type SuccessfullResponse<T> = {
   message: string;
-declare type SuccessfulResponse<T> = {
-  message: "success";
-  status: "Success";
-} & T;
+
+ } & T;
+// declare type SuccessfulResponse<T> = {
+//   message: "success";
+//   status: "Success";
+// } & T;
 
 declare type ErrorResponse = {
   error: string;

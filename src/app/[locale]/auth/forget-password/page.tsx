@@ -1,38 +1,33 @@
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+'use client';
+
 import React from "react";
-import ForgetPasswordForm from "./_components/forget-password-form";
+
+import { useAuthContext } from "@/lib/context/auth-context";
 import { useTranslations } from "next-intl";
+import ForgetPassword from "./_components/step1-page";
+import ResetPasswordPage from "./_components/step3-page";
+import OtpPage from "./_components/step2-page";
 
-export default function ForgetPassword() {
-  // use translations
+export default function page() {
+  const { step } = useAuthContext();
   const t = useTranslations();
+
+  const renderStep = () => {
+    switch (step) {
+      case '1':
+        return <ForgetPassword/> ;
+      case '2':
+        return <OtpPage />;
+      case '3':
+        return <ResetPasswordPage/>;
+      default:
+        return <p>Not found</p>; // optional fallback
+    }
+  };
+
   return (
-    <div className="space-y-3 m-20  w-[406px] ">
-     
-     {/* forget password form title */}
-      <h2 className="font-semibold text-2xl text-zinc-800 dark:text-zinc-50">
-        {t("forget-password")}
-      </h2>
-      <p className="text-zinc-800 font-normal dark:text-zinc-50">{t("forget-password-note")}</p>
-      <hr className="  w-full" />
-
-      <div>
-        {/* forget password form */}
-        <ForgetPasswordForm />
-
-        <hr className="w-full border-t  mt-10" />
-      </div>
-
-    {/* Dont have account section */}
-      <p className="text-zinc-800 font-medium dark:text-zinc-50 text-center">
-        {t("forgot-pass-have-no-account")}
-        {t.rich("forgot-pass-create-account", {
-          span: (value) => (
-            <span className="text-maroon-700 font-medium dark:text-softpink-300"> {value}</span>
-          ),
-        })}
-      </p>
+    <div className="">
+      {renderStep()}
     </div>
   );
 }

@@ -35,7 +35,7 @@ export default function SetPasswordForm() {
       <form className="space-y-7" onSubmit={handleSubmit(onSubmit)}>
         {/* Password */}
         <div>
-          <Label className="text-[14px] font-medium dark:text-zinc-50">{t("password-felid")}</Label>
+          <Label className="text-[14px] font-medium dark:text-zinc-50">{t("forgetpassword.password-felid")}</Label>
           <Input
             {...register("password")}
             type="password"
@@ -48,7 +48,7 @@ export default function SetPasswordForm() {
         {/*New-Password */}
         <div>
           <Label className="text-[14px] font-medium dark:text-zinc-50">
-            {t("confirm-password-felid")}
+            {t("forgetpassword.confirm-password-felid")}
           </Label>
           <Input
             {...register("newPassword")}
@@ -64,7 +64,7 @@ export default function SetPasswordForm() {
           type="submit"
           className=" bg-maroon-600 w-full mt-9 text-[14px] font-semibold  rounded-[10px] h-11  "
         > 
-         {t('reset-password-feild')}
+         {t('forgetpassword.reset-password-feild')}
         </Button>
       </form>
     </div>
