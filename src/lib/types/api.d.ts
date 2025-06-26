@@ -5,10 +5,13 @@ declare type DatabaseProperties = {
 
 declare type SuccessfulResponse<T> = {
   message: "success";
+  status: "Success";
 } & T;
 
 declare type ErrorResponse = {
   error: string;
+  status: string;
+  message: string;
 };
 
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;

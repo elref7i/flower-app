@@ -72,5 +72,14 @@
     "description-three": "100% Secure Payment",
     "title-four": "24/7 Support",
     "description-four": "Contact us at any time"
-  }
+  },
+  "otp-title": "Enter the OTP Code",
+  "otp-headline": "We have sent a 6-digit code to",
+  "edit-button": "Edit",
+  "need-help": "Need help?",
+  "contact-us": "Contact us",
+  "otp-button": "Verify OTP",
+  "otp-toast": "A new OTP code has been sent to your email.",
+  "resend-otp-code": "Send a new code",
+  "resend-code-fail-message": "Failed to resend code"
 }

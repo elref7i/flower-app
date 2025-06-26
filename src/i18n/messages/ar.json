@@ -72,5 +72,14 @@
     "description-three": "دفع آمن 100٪",
     "title-four": "دعم متواصل 24/7",
     "description-four": "نحن هنا دائمًا من أجلك"
-  }
+  },
+  "otp-title": "من فضلك أدخل رمز ال OTP",
+  "otp-headline": "لقد أرسلنا رمز مكون من 6 أرقام إلى",
+  "edit-button": "تعديل",
+  "need-help": "هل تحتاج إلى مساعدة؟",
+  "contact-us": "تواصل معنا",
+  "otp-button": "تحقق من OTP",
+  "otp-toast": "تم إرسال رمز OTP جديد إلى بريدك الإلكتروني.",
+  "resend-otp-code": "إرسال رمز جديد",
+  "resend-code-fail-message": "فشل إعادة ارسال الرمز"
 }
