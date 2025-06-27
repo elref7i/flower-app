@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { useVerifyCodeSchema, TVerifyCodeFields } from "@/lib/schema/auth.schema";
-import { verifyOTPCodeAction } from "../_action/otp-action";
+import { verifyOTPCodeAction } from "../../_action/otp-action";
 // import { ForgotPasswordAction } from "../_actions/forgot-password.action";
 import { useState, useRef, useEffect } from "react";
 import { useAuthContext } from "@/lib/context/auth-context";
@@ -94,16 +94,16 @@ export default function VerifyCodeForm() {
   const startTimer = () => setTimer(60);
 
   // Handle Resend Code Function
-//   const resendCoade = async () => {
-//     const response = await ForgotPasswordAction({ email });
+  //   const resendCoade = async () => {
+  //     const response = await ForgotPasswordAction({ email });
 
-//     if (response.succes) {
-//       toast.success("{t('otp.otp-toast')}");
-//       startTimer();
-//     } else {
-//       toast.error("{t('otp.resend-code-fail-message')}");
-//     }
-//   };
+  //     if (response.succes) {
+  //       toast.success("{t('otp.otp-toast')}");
+  //       startTimer();
+  //     } else {
+  //       toast.error("{t('otp.resend-code-fail-message')}");
+  //     }
+  //   };
 
   return (
     <div className="w-96 mx-auto my-20 ">
@@ -163,7 +163,7 @@ export default function VerifyCodeForm() {
                       type="button"
                       variant="link"
                       className="text-zinc-800 dark:text-zinc-50"
-                    //   onClick={resendCoade}
+                      //   onClick={resendCoade}
                       disabled={timer > 0}
                     >
                       {timer > 0

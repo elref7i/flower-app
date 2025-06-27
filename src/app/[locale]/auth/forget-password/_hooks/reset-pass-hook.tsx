@@ -1,15 +1,18 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { TSetPasswordFields } from "@/lib/schema/auth.schema";
+import { TSetPasswordFields, TSetPasswordFieldsApI } from "@/lib/schema/auth.schema";
 
 import { ResetPass } from "../_action/reset-pass-action";
+import { useAuthContext } from "@/lib/context/auth-context";
 
 export default function useResetPassword() {
+    const { step, setStep, email, setEmail } = useAuthContext();
   const handleSuccess = () => {
     toast.success("Password Updated success");
-     setTimeout(() => {
-      window.location.href = "/auth/login";
-    }, 1000);
+    setStep("4")
+    //  setTimeout(() => {
+    //   window.location.href = "/auth/login";
+    // }, 1000);
   };
   const handleError = (error: Error) => {
     toast.error(error.message);
@@ -17,13 +20,13 @@ export default function useResetPassword() {
   };
 
   const { isPending, error, mutate } = useMutation({
-    mutationFn: async (ResetPasswordInputs: TSetPasswordFields) =>
+    mutationFn: async (ResetPasswordInputs: TSetPasswordFieldsApI) =>
       await ResetPass(ResetPasswordInputs),
     onSuccess: handleSuccess,
     onError: handleError,
   });
 
-  const ResetPasswordHookFun = (Inputs: TSetPasswordFields) => {
+  const ResetPasswordHookFun = (Inputs: TSetPasswordFieldsApI) => {
     mutate(Inputs);
   };
   return { error, ResetPasswordHookFun, isPending };

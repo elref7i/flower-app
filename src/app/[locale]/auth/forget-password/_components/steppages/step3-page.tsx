@@ -1,17 +1,18 @@
 import React from "react";
-import SetPasswordForm from "./reset-pass-form";
+import SetPasswordForm from "../forms/reset-pass-form";
 import { useTranslations } from "next-intl";
 
 export default function ResetPasswordPage() {
   const t = useTranslations();
   return (
-
     <div className="space-y-3 m-24  w-[406px]">
       {/* reset password title  */}
       <h2 className="font-semibold text-2xl text-zinc-800 dark:text-zinc-50">
         {t("forgetpassword.create-password")}
       </h2>
-      <p className="text-zinc-800 font-normal dark:text-zinc-50">{t("forgetpassword.set-strong-password")}</p>
+      <p className="text-zinc-800 font-normal dark:text-zinc-50">
+        {t("forgetpassword.set-strong-password")}
+      </p>
       <hr className="  w-full" />
 
       <div>

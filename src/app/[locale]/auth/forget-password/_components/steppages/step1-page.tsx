@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
-import ForgetPasswordForm from "./forget-password-form";
+import ForgetPasswordForm from "../forms/forget-password-form";
 import { useTranslations } from "next-intl";
 import { useAuthContext } from "@/lib/context/auth-context";
 
