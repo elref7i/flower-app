@@ -15,8 +15,7 @@ export const verifyOTPCodeAction = async (verifyOTPcodeField: TVerifyCodeFields)
 
   const payload: APIResponse<VerifyRestResponse> = await respone.json();
 
-  // for debug
-  console.log("Verify OTP Code APIResponse", payload);
+  // console.log("Verify OTP Code APIResponse", payload);
   if (payload.status === "Success") {
     return { success: true };
   }
