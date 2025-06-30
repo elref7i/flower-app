@@ -11,11 +11,11 @@ export default function page() {
       {/* Gifts Section */}
       <GiftsSection />
 
-      {/* Service Features */}
-      <ServiceFeatures />
-
       {/* Occasions Section */}
       <Occasions />
+
+      {/* Service Features */}
+      <ServiceFeatures />
 
       {/* About Section */}
       <AboutSection />

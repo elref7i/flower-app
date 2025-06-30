@@ -47,6 +47,8 @@
   "empty-verification-code-error": "You Should Enter Verification Code",
   "invalid-verification-code": "The Code must Be 6 digits",
   "empty-new-password-error": "New Password Shouldn't Be Empty",
+  "back":"Back",
+  "search":"Search for a certain category...",
   "banner": {
     "budge": "Staring from 10.99 EGP",
     "special-gifts-title": "Special Gifts For The People You Love",
@@ -72,5 +74,10 @@
     "description-three": "100% Secure Payment",
     "title-four": "24/7 Support",
     "description-four": "Contact us at any time"
+  },
+  "categories-cover":{
+    "title":"PERFECT GIFT",
+    "des-part1":"Find the",
+    "des-part2":"from our handpicked collections."
   }
 }

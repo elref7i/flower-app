@@ -47,6 +47,8 @@
   "empty-verification-code-error": "يجب عليك إدخال رمز التحقق",
   "invalid-verification-code": "يجب أن يكون رمز التحقق من 6 أرقام",
   "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة",
+  "back":"تراجع",
+  "search":"ابحث عن فئة معينة ",
   "banner": {
     "budge": "الأسعار تبدأ من 10.99 جنيه ",
     "special-gifts-title": "اختر هدية مميزة لأحبائك",
@@ -72,5 +74,10 @@
     "description-three": "دفع آمن 100٪",
     "title-four": "دعم متواصل 24/7",
     "description-four": "نحن هنا دائمًا من أجلك"
+  },
+   "categories-cover":{
+    "title":"الهدية المثالية",
+    "des-part1":"اكتشف",
+    "des-part2":"من مجموعاتنا المختارة بعناية."
   }
 }

@@ -2,14 +2,14 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import { Sarabun, Zain } from "next/font/google";
-
+import { Sarabun, Zain,Seaweed_Script, Lateef,Great_Vibes } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/components/providers";
 import MainHeader from "@/components/layout/header/components/main-header";
 import NavigationHeader from "@/components/layout/header/components/navigation-header";
 import Footer from "@/components/layout/footer";
 
+{/*fonts*/ }
 const sarabun = Sarabun({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -22,6 +22,28 @@ const zain = Zain({
   weight: ["700", "400", "300"],
   variable: "--font-zain",
 });
+
+const seaweed = Seaweed_Script({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-seaweed",
+  display: "swap",
+});
+
+const lateef = Lateef({
+  subsets: ["arabic"],
+  weight: "400",
+  variable: "--font-lateef",
+  display: "swap",
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-great-vibes",
+  display: "swap",
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -45,7 +67,7 @@ export default async function LocaleLayout({
     <html
       suppressHydrationWarning
       lang={locale}
-      className={locale === "ar" ? zain.variable : sarabun.variable}
+      className={`${locale === "ar" ? zain.variable : sarabun.variable} ${seaweed.variable} ${lateef.variable} ${greatVibes.variable}`}
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <body>
