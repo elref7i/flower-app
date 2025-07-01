@@ -7,17 +7,6 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-/**
- * Renders the footer of an authentication screen, typically used below login/register forms.
- *
- * Features:
- * - A rich-translated message using `next-intl` with a clickable `Link`
- * - A decorative separator image that flips vertically and adapts to dark mode
- *
- * @component
- * @returns {JSX.Element} The rendered AuthFooter component.
- */
-
 export default function AuthFooter() {
   // Hook to get currant theme
   const { theme } = useTheme();

@@ -4,7 +4,6 @@ import useLogin from "../hooks/use-login";
 import { TLoginFormFields, useLoginSchema } from "@/lib/schema/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-// Import shad cn ui components
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,11 +13,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { PasswordInput } from "@/components/common/password-input";
 import { Loader2Icon } from "lucide-react";
 
 // Login Form component
@@ -91,7 +88,7 @@ export default function LoginForm() {
 
             <Link
               href={"/auth/forget-password"}
-              className=" w-fit ms-auto block mt-2 text-maroon-700 dark:text-softpink-300 mb-9"
+              className="w-fit ms-auto block mt-2 text-maroon-700 dark:text-softpink-300 mb-9"
             >
               {t("forgot-password")}
             </Link>

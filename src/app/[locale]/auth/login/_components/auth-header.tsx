@@ -10,19 +10,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-/**
- * Renders a header section commonly used on authentication pages.
- *
- * Includes:
- * - Language toggle
- * - Theme toggle (light/dark)
- * - A separator image that switches based on the active theme
- * - Props is optional message (the key that defines in translation files)
- *
- * @component
- * @param {AuthHeaderProps} props
- * @returns {JSX.Element} AuthHeader component
- */
 export default function AuthHeader() {
   // Hook to get currant theme
   const { theme } = useTheme();
@@ -34,18 +21,18 @@ export default function AuthHeader() {
   const locale = useLocale();
 
   return (
-    <div className="w-full mb-6 border border-l-0 border-r-0 border-t-0 border-zinc-200 dark:border-zinc-600 pb-4">
+    <div className="w-full mb-4 border border-l-0 border-r-0 border-t-0 border-zinc-200 dark:border-zinc-600 pb-4">
       {/* Mode and Language toggle buttons */}
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex justify-between items-center mb-5">
         <LanguageToggle />
         <ModeToggle />
       </div>
 
-      <div className="w-72 md:w-80 m-auto ">
+      <div className="w-72 mx-auto md:w-80">
         {/* Separator Image */}
         <Image
           src={theme === "dark" ? darkSeparator : separator}
-          className="w-full mb-10"
+          className="w-full mb-8"
           alt="separator"
         />
 
