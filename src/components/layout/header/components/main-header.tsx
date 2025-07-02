@@ -6,12 +6,12 @@ import IconNotification from "./icon-notification";
 import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
 import { getServerSession } from "next-auth";
 import authOptions from "@/auth-options";
+import { getTranslations } from "next-intl/server";
 
 export default async function MainHeader() {
-  const t = useTranslations();
+  const t = await getTranslations();
   const session = await getServerSession(authOptions);
 
   return (
