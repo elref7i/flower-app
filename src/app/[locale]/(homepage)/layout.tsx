@@ -4,7 +4,7 @@ import MainHeader from "@/components/layout/header/components/main-header";
 import NavigationHeader from "@/components/layout/header/components/navigation-header";
 import Footer from "@/components/layout/footer";
 
-export default async function LocaleLayout({ children }: { children: React.ReactNode }) {
+export default function LocaleLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/* Main Header */}
