@@ -13,6 +13,12 @@ const config: Config = {
       padding: "5rem",
       center: true,
     },
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "980px",
+      xl: "1200px",
+    },
     extend: {
       colors: {
         maroon: {
@@ -104,6 +110,8 @@ const config: Config = {
     fontFamily: {
       sarabun: ["var(--font-sarabun)"],
       zain: ["var(--font-zain)"],
+      diwany: ["var(--font-diwany)"],
+      edwiardian: ["var(--font-edwiardian)"],
     },
   },
   plugins: [tailwindAnimate],
