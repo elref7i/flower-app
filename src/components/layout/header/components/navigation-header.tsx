@@ -1,9 +1,8 @@
 "use client";
-import Link from "next/link";
-import { links } from "../constants/links";
 
+import { links } from "../constants/links";
 import { cn } from "@/lib/utils/cn";
-import { usePathname } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 
 export default function NavigationHeader() {
   // Navigation

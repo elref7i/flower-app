@@ -6,14 +6,14 @@ import IconNotification from "./icon-notification";
 import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import authOptions from "@/auth-options";
-import { getTranslations } from "next-intl/server";
 
 export default async function MainHeader() {
   const t = await getTranslations();
   const session = await getServerSession(authOptions);
-
+  let name = session?.user?.firstName;
   return (
     <div className="py-[18px] px-9 flex gap-4">
       {/* Logo */}
@@ -31,7 +31,7 @@ export default async function MainHeader() {
           <span>
             <User size={20} />
           </span>
-          {session?.user ? t("welcome", { name: session?.user.firstName }) : t("login")}
+          {name ? t("welcome", { name }) : t("login")}
         </Link>
 
         {/* Icon notifiactions */}

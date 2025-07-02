@@ -1,4 +1,4 @@
-import imageLogo from "../../../../public/assets/imgs/logo 1.png";
+import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
 import NavigationFooter from "./components/navigation-footer";
 import SubscribeFooter from "./components/subscribe-footer";

@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Sarabun, Zain } from "next/font/google";
 import localFont from "next/font/local";
 import Providers from "@/components/providers";
+import React from "react";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
