@@ -47,6 +47,14 @@
   "empty-verification-code-error": "You Should Enter Verification Code",
   "invalid-verification-code": "The Code must Be 6 digits",
   "empty-new-password-error": "New Password Shouldn't Be Empty",
+  "Best Selling": "Best selling",
+  "check out": "<span >Check Out</span>",
+  "buying": "<span>Buying</span>",
+  "every-one": " What Everyone’s",
+  "right-now": " Right Now",
+  "gifts": "  Explore gifts",
+  "paragraph": "<br> Not sure what to choose? </br>     Start with our best sellers, these are the gifts our customers keep coming back for.     Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed     to leave a lasting impression.",
+  "arrow": "<span>→</span>",
   "banner": {
     "budge": "Staring from 10.99 EGP",
     "special-gifts-title": "Special Gifts For The People You Love",
@@ -74,5 +82,6 @@
     "description-four": "Contact us at any time"
   },
   "welcome-back": "Welcome Back!",
-  "welcome": "Welcome {name}"
+  "welcome": "Welcome {name}",
+  "no-products": "No Products Found"
 }

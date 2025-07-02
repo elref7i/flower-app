@@ -47,6 +47,14 @@
   "empty-verification-code-error": "يجب عليك إدخال رمز التحقق",
   "invalid-verification-code": "يجب أن يكون رمز التحقق من 6 أرقام",
   "empty-new-password-error": "يجب عليك إدخال كلمة المرور الجديدة",
+  "Best Selling": "الاكثر مبيعا ",
+  "check out": "<span>اكتشف </span>",
+  "buying": "<span> الجميع</span>",
+  "every-one": "ما يشتريه",
+  "right-now": "الآن",
+  "gifts": "استكشف الهدايا",
+  "paragraph": "<br> مش متأكد تختار إيه؟ \n</br>ابدأ مع المنتجات الأكثر مبيعًا لدينا، فهذه هي الهدايا التي يحرص عملاؤنا على شرائها مرارًا وتكرارًا.",
+  "arrow": "<span>←</span>",
   "banner": {
     "budge": "الأسعار تبدأ من 10.99 جنيه ",
     "special-gifts-title": "اختر هدية مميزة لأحبائك",
@@ -74,5 +82,6 @@
     "description-four": "نحن هنا دائمًا من أجلك"
   },
   "welcome-back": "مرحبًا بعودتك",
-  "welcome": "مرحبًا {name}"
+  "welcome": "مرحبًا {name}",
+  "no-products": "لم يتم العثور على منتجات"
 }
