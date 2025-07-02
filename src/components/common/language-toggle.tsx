@@ -18,7 +18,7 @@ import { DropdownMenuCustomRadioItem } from "@/components/common/custom-radio-it
 import { useLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { useTranslations } from "use-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 
 /**
  * @file LanguageToggle.tsx
@@ -41,12 +41,16 @@ export default function LanguageToggle() {
 
   // Get the current search parameters to preserve them when changing languages
   const searchParams = useSearchParams().toString();
+  const pathname = usePathname().toString();
 
   return (
     <DropdownMenu dir={`${locale === "ar" ? "rtl" : "ltr"}`}>
       {/* Trigger button for the dropdown menu */}
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="w-18 h-12 text-center text-lg text-zinc-700 font-normal">
+        <Button
+          variant="ghost"
+          className="w-18 h-12 text-center text-lg text-zinc-700 font-normal dark:text-white"
+        >
           {languages[language as keyof typeof languages]}
         </Button>
       </DropdownMenuTrigger>
@@ -58,10 +62,10 @@ export default function LanguageToggle() {
         <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
           {/* Render a radio button for each language */}
           {routing.locales.map((lang) => (
-            <Link href={`/?${searchParams}`} key={lang} locale={lang}>
+            <Link href={`/${pathname}?${searchParams}`} key={lang} locale={lang}>
               <DropdownMenuCustomRadioItem
                 value={lang}
-                className={`text-lg text-zinc-700 cursor-pointer`}
+                className={`text-lg text-zinc-700 cursor-pointer dark:text-white`}
               >
                 {languages[lang]}
               </DropdownMenuCustomRadioItem>

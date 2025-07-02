@@ -4,6 +4,7 @@ import CompaniesSection from "./_components/companies-section";
 import GallerySection from "./_components/gallery-section";
 import ServiceFeatures from "@/components/features/features/feature";
 import Occasions from "@/components/features/occasions/occasions";
+import { getServerSession } from "next-auth";
 import MostPopular from "./_components/mostpopular/most-popular";
 import BestSelling from "./_components/bestselling";
 import { fetchOccasions } from "@/lib/api/occasions.api";

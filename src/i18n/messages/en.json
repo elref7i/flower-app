@@ -7,9 +7,9 @@
   "logout": "Logout",
   "login": "Login",
   "email": "Email",
-  "password": "password",
+  "password": "Password",
   "remind-me": "Remind me",
-  "forgot-password": "forgot Password",
+  "forgot-password": "Forgot Password?",
   "first-name": "first name",
   "last-name": "last name",
   "phone-number": "phone",
@@ -18,7 +18,7 @@
   "male": "male",
   "female": "female",
   "have-account": "Already have an account?<span>Login</span>",
-  "no-account": "No account?<span>Create one here</span>",
+  "no-account": "Don't have account yet?<Link>Create one now!</Link>",
   "create-account": "Create Accountt",
   "register": "Register",
   "gallery-title": "Gallery",
@@ -111,6 +111,8 @@
   "schema": {
     "empty-confirm-password-error": "Confirm password is required",
     "passwords-dont-match-error": " Passwords do not match"
-  }
-
+  },
+  "welcome-back": "Welcome Back!",
+  "welcome": "Welcome {name}",
+  "no-products": "No Products Found"
 }
