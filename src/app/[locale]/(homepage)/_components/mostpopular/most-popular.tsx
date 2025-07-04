@@ -1,0 +1,76 @@
+"use client";
+import React from "react";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
+import ProductItem from "@/components/common/card-item";
+import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils/cn";
+
+type MostPopularProps = {
+  occasions: Occasion[];
+  products: Product[];
+  currentSelectedOccasion: string | null;
+};
+
+export default function MostPopular({
+  occasions,
+  products,
+  currentSelectedOccasion,
+}: MostPopularProps) {
+  // Translation
+  const t = useTranslations();
+  // Navigation
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // functions
+  const handleClick = (occasionId: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("occasion", occasionId);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
+  return (
+    <section className="w-full container mb-4">
+      <div className="flex justify-between items-center w-full mb-4">
+        <p className="font-bold text-4xl text-maroon-700   ">
+          <span className="border-b-[2px] border-pink-600">Mos</span>
+          <span>t Popular</span>
+        </p>
+
+        <ul className="flex space-x-5 font-medium text-base">
+          {occasions.map((occasion: Occasion) => {
+            const isActive = currentSelectedOccasion
+              ? currentSelectedOccasion === occasion._id
+              : occasion.name === "Wedding";
+            return (
+              <li
+                key={occasion._id}
+                className={cn(
+                  "cursor-pointer hover:text-maroon-600 transition-colors",
+                  isActive ? "text-maroon-600 font-bold" : "text-zinc-700",
+                )}
+                onClick={() => handleClick(occasion._id)}
+              >
+                <p>{occasion.name}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      {products.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <ProductItem product={product} key={product.id} />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-6 rtl:text-right min-h-44 flex items-center justify-center">
+          {t("no-products")}
+        </div>
+      )}
+    </section>
+  );
+}

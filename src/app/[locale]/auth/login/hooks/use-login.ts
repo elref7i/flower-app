@@ -1,3 +1,4 @@
+"use client";
 import { TLoginFormFields } from "@/lib/schema/auth.schema";
 import { useMutation } from "@tanstack/react-query";
 import { signIn } from "next-auth/react";
@@ -9,15 +10,12 @@ export default function useLogin() {
     mutationKey: ["login"],
     mutationFn: async ({ email, password }: TLoginFormFields) => {
       const response = await signIn("credentials", { email, password, redirect: false });
-      if (response?.error) throw new Error(response.error);
+      if (response?.error) throw new Error(response.error || "Can't logging in");
       return response;
     },
-
-    // when login  success execute onSuccess method
     onSuccess: () => {
       window.location.href = "/";
     },
   });
-
   return { isPending, error, login: mutate };
 }

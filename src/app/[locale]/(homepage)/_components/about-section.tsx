@@ -1,7 +1,7 @@
 import Image from "next/image";
-import PurblePresent from "../../../../../public/Assets/imgs/purplepresent.png";
-import BallonPresent from "../../../../../public/Assets/imgs/ballonpresent.png";
-import OrangePresent from "../../../../../public/Assets/imgs/orangepresent.png";
+import PurblePresent from "@assets/imgs/purplepresent.png";
+import BallonPresent from "@assets/imgs/ballonpresent.png";
+import OrangePresent from "@assets/imgs/orangepresent.png";
 import { Button } from "@/components/ui/button";
 import { MoveRight, MoveLeft, Check } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";

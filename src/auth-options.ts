@@ -6,7 +6,7 @@ import { LoginResponse } from "./lib/types/auth";
 
 // Auth options
 const authOptions: NextAuthOptions = {
-  pages: { signIn: "/", signOut: "/" },
+  pages: { signIn: "/auth/login", signOut: "/" },
   providers: [
     //Credential provider
     CredentialsProvider({
