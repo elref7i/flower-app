@@ -7,6 +7,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { generaToPages } from "@/lib/utils/pagination";
 
 interface PaginationComponentProps {
   metaData: MetaData;
@@ -18,40 +19,66 @@ export default function PaginationComponent({
   handlePageChange,
 }: PaginationComponentProps) {
   console.log(metaData);
+
   const testMeta = {
-    currentPage: 1,
-    totalPages: 3,
+    currentPage: 5,
+    totalPages: 10,
     limit: 40,
-    totalItems: 16,
+    // totalItems: 16,
   };
-  const test = Array.from({ length: 5 }, (v, i) => i);
-  console.log(test);
+
+  const { currentPage, totalPages } = testMeta;
+
+  // Handle Pagination Logic
+  const pagesToRender = generaToPages({ currentPage, totalPages });
 
   return (
-    <div>
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          {Array.from({ length: testMeta.totalPages + 1 }, (v, i) => {
-            return (
-              <PaginationItem key={i + 1}>
-                <PaginationLink href="#" isActive>
-                  {i + 1}
-                </PaginationLink>
-              </PaginationItem>
-            );
-          })}
+    <Pagination>
+      <PaginationContent>
+        {/* السابق */}
+        <PaginationItem>
+          <PaginationPrevious
+            className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
+            size={"sm"}
+            aria-disabled={currentPage === 1}
+            href="#"
+            onClick={() => {
+              if (currentPage > 1) handlePageChange(currentPage - 1);
+            }}
+          />
+        </PaginationItem>
 
-          {/* <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem> */}
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
-    </div>
+        {/* الصفحات */}
+        {pagesToRender.map((page, index) =>
+          page === -1 ? (
+            <PaginationItem key={`ellipsis-${index}`}>
+              <PaginationEllipsis />
+            </PaginationItem>
+          ) : (
+            <PaginationItem key={page}>
+              <PaginationLink
+                href="#"
+                isActive={page === currentPage}
+                onClick={() => handlePageChange(page)}
+              >
+                {page}
+              </PaginationLink>
+            </PaginationItem>
+          ),
+        )}
+
+        {/* التالي */}
+        <PaginationItem>
+          <PaginationNext
+            className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
+            size={"sm"}
+            href="#"
+            onClick={() => {
+              if (currentPage < totalPages) handlePageChange(currentPage + 1);
+            }}
+          />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
   );
 }

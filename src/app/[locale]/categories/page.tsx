@@ -33,7 +33,7 @@ export default function page() {
           console.log(searchParams);
         }}
       >
-        Reais
+        ADD
       </button>
       {payload?.metadata && (
         <PaginationComponent
