@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function SubscribeFooter() {
+  //Transitions
+  const t = useTranslations();
+
   return (
     <div className="flex-2 space-y-5">
       {/* Title */}
@@ -11,7 +15,7 @@ export default function SubscribeFooter() {
         <h2 className="text-[18px]  font-semibold text-softpink-300 capitalize">
           Get<span className="text-maroon-50">20%</span> Off Discount Coupon
         </h2>
-        <p className="text-sm text-zinc-500">By subscribing to our newsletter</p>
+        <p className="text-sm text-zinc-500">{t("by-subscribing-to-our-newsletter")}</p>
       </div>
 
       {/* Input Suvscribe */}
@@ -25,7 +29,7 @@ export default function SubscribeFooter() {
           className="rounded-[30px] absolute right-0 top-1/2 -translate-y-1/2"
           variant={"default"}
         >
-          Subscribe
+          {t("subscribe")}
           <span>
             <ArrowRight size={16} />
           </span>

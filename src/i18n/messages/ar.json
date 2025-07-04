@@ -83,5 +83,21 @@
   },
   "welcome-back": "مرحبًا بعودتك",
   "welcome": "مرحبًا {name}",
-  "no-products": "لم يتم العثور على منتجات"
+  "no-products": "لم يتم العثور على منتجات",
+  "home": "الصفحة الرئيسية",
+  "products": "المنتجات",
+  "categories": "الفئات",
+  "contact": "التواصل",
+  "about": "حول",
+  "occasions.occasions-title": "المناسبات",
+  "occasions-title": "المناسبات",
+  "what-awesome-gift-are-you-looking-for": "ما هي الهدية الرائعة التي تبحث عنها؟",
+  "terms-and-conditions": "شروط",
+  "privacy-policy": "سياسة الخصوصية",
+  "faqs": "الأسئلة الشائعة",
+  "discoer-our-website": "ديسكوار موقعنا على شبكة الإنترنت",
+  "by-subscribing-to-our-newsletter": "من خلال الاشتراك في النشرة الإخبارية لدينا",
+  "subscribe": "اشترك",
+  "rose-e-commerce-app": "تطبيق التجارة الإلكترونية",
+  "all-rights-reserved-or-2025": "جميع الحقوق محفوظة | \n2025"
 }

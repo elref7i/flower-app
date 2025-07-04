@@ -24,7 +24,7 @@ export default async function MainHeader() {
       {/* Left Header */}
       <div className="flex flex-1 items-center gap-4 ">
         {/* Search input */}
-        <SearchInput placeholder={"What awesome gift are you looking for?"} />
+        <SearchInput placeholder={t("what-awesome-gift-are-you-looking-for")} />
 
         {/* Button Login */}
         <Link className="flex gap-[6px] items-center" href={"/auth/login"}>
