@@ -1,3 +1,4 @@
+"use client";
 import {
   Pagination,
   PaginationContent,
@@ -7,27 +8,29 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useRouter } from "@/i18n/navigation";
 import { generaToPages } from "@/lib/utils/pagination";
+import { useSearchParams } from "next/navigation";
 
 interface PaginationComponentProps {
   metaData: MetaData;
-  handlePageChange: (newPage: number) => void;
 }
 
-export default function PaginationComponent({
-  metaData,
-  handlePageChange,
-}: PaginationComponentProps) {
-  console.log(metaData);
+export default function PaginationComponent({ metaData }: PaginationComponentProps) {
+  // SearchParams
+  const searchParams = useSearchParams();
 
-  const testMeta = {
-    currentPage: 5,
-    totalPages: 10,
-    limit: 40,
-    // totalItems: 16,
+  //Navigation
+  const router = useRouter();
+
+  // Destructure metaData
+  const { currentPage, totalPages } = metaData;
+
+  const handlePageChange = (newPage: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", newPage.toString());
+    router.push(`?${params.toString()}`);
   };
-
-  const { currentPage, totalPages } = testMeta;
 
   // Handle Pagination Logic
   const pagesToRender = generaToPages({ currentPage, totalPages });
