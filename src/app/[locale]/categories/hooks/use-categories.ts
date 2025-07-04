@@ -1,12 +1,6 @@
-import { useState } from "react";
-import { convertSearchParams } from "@/lib/utils/convert-search-params";
 import { useQuery } from "@tanstack/react-query";
 
-export const useCategories = (searchParams: SearchParams) => {
-  const [params, SetParams] = useState({ page: 5 });
-  const queryString = convertSearchParams(searchParams);
-  console.log(queryString.toString());
-
+export const useCategories = (page: number) => {
   const {
     data: payload,
     isFetched,
@@ -14,7 +8,7 @@ export const useCategories = (searchParams: SearchParams) => {
   } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/categories?${queryString}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/categories?${page}`);
       const payload: APIResponse<Categories> = await response.json();
       if ("error" in payload) throw new Error(payload.error);
       return payload;

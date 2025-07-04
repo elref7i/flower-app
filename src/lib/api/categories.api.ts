@@ -1,9 +1,7 @@
 import { convertSearchParams } from "../utils/convert-search-params";
 
-export const getCategories = async (searchParams: SearchParams) => {
-  const response = await fetch(
-    `${process.env.BASE_API!}/categories?${convertSearchParams(searchParams).toString()}`,
-  );
+export const getCategories = async ({ page }: { page: number }) => {
+  const response = await fetch(`${process.env.BASE_API!}/categories?page=${page}`);
 
   const payload: APIResponse<Categories> = await response.json();
 

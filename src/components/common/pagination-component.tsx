@@ -10,31 +10,43 @@ import {
 
 interface PaginationComponentProps {
   metaData: MetaData;
+  handlePageChange: (newPage: number) => void;
 }
 
-export default function PaginationComponent({ metaData }: PaginationComponentProps) {
+export default function PaginationComponent({
+  metaData,
+  handlePageChange,
+}: PaginationComponentProps) {
+  console.log(metaData);
+  const testMeta = {
+    currentPage: 1,
+    totalPages: 3,
+    limit: 40,
+    totalItems: 16,
+  };
+  const test = Array.from({ length: 5 }, (v, i) => i);
+  console.log(test);
+
   return (
     <div>
-      {" "}
       <Pagination>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious href="#" />
           </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">2</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#" isActive>
-              3
-            </PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
+          {Array.from({ length: testMeta.totalPages + 1 }, (v, i) => {
+            return (
+              <PaginationItem key={i + 1}>
+                <PaginationLink href="#" isActive>
+                  {i + 1}
+                </PaginationLink>
+              </PaginationItem>
+            );
+          })}
+
+          {/* <PaginationItem>
             <PaginationEllipsis />
-          </PaginationItem>
+          </PaginationItem> */}
           <PaginationItem>
             <PaginationNext href="#" />
           </PaginationItem>
