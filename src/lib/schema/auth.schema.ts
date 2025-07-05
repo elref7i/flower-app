@@ -58,8 +58,9 @@ function useForgotPasswordSchema() {
 
   return z.object({
     email: z
-      .string()
-      .min(1, { message: t("empty-email-error") })
+      .string({
+        required_error: t("empty-email-error"),
+      })
       .email({ message: t("invalid-email-error") }),
   });
 }
@@ -82,31 +83,58 @@ function useSetPasswordSchema() {
   // Translation hook
   const t = useTranslations();
 
-  return z.object({
-    email: z
-      .string()
-      .min(1, { message: t("empty-email-error") })
-      .email({ message: t("invalid-email-error") }),
-    newPassword: z
-      .string()
-      .min(1, { message: t("empty-new-password-error") })
-      .regex(passwordRole, { message: t("password-role") }),
-  });
-}
+  return z
+    .object({
+      Password: z
+        .string({
+          required_error: t("empty-new-password-error"),
+        })
+        .regex(passwordRole, { message: t("password-role") }),
 
+      newPassword: z
+        .string({
+          required_error: t("schema.empty-confirm-password-error"),
+        }),
+    })
+    .refine((data) => data.Password === data.newPassword, {
+      path: ["newPassword"],
+      message: t("schema.passwords-dont-match-error"),
+    });
+}
+// Set password Api schema
+function useSetPasswordApiSchema() {
+  // Translation hook
+  const t = useTranslations();
+
+  return z
+    .object({
+       email: z
+      .string({
+        required_error: t("empty-email-error"),
+      })
+      .email({ message: t("invalid-email-error") }),
+
+      newPassword: z
+      .string({ required_error: t("empty-password-error")})
+      .min(1, { message: t("empty-password-error") })
+      .regex(passwordRole, { message: t("wrong-password-error") }),
+    })
+    
+}
 // Declare form types
 type TLoginFormFields = z.infer<ReturnType<typeof useLoginSchema>>;
 type TRegisterFormFields = z.infer<ReturnType<typeof useRegisterSchema>>;
 type TForgotPasswordFormFields = z.infer<ReturnType<typeof useForgotPasswordSchema>>;
 type TVerifyCodeFields = z.infer<ReturnType<typeof useVerifyCodeSchema>>;
 type TSetPasswordFields = z.infer<ReturnType<typeof useSetPasswordSchema>>;
-
+type TSetPasswordFieldsApI= z.infer<ReturnType<typeof useSetPasswordApiSchema>>;
 // Export schemas
 export {
   useLoginSchema,
   useForgotPasswordSchema,
   useVerifyCodeSchema,
   useSetPasswordSchema,
+  useSetPasswordApiSchema,
   useRegisterSchema,
 };
 
@@ -117,4 +145,5 @@ export {
   type TVerifyCodeFields,
   type TSetPasswordFields,
   type TRegisterFormFields,
+  type TSetPasswordFieldsApI,
 };
