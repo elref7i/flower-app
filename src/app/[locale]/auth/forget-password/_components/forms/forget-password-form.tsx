@@ -15,17 +15,18 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import useForgetPassword from "../../_hooks/forgot-pass-hook";
-import {
-  useForgotPasswordSchema,
-  TForgotPasswordFormFields,
-} from "@/lib/schema/auth.schema";
+import useForgetPassword from "../../_hooks/use-forget-password";
+import { useForgotPasswordSchema, TForgotPasswordFormFields } from "@/lib/schema/auth.schema";
 
 export default function ForgetPasswordForm() {
+  //Translation
   const t = useTranslations();
-  const schema = useForgotPasswordSchema();
+
+  // hooks
   const { ForgetPasswordHookFun } = useForgetPassword();
 
+  // Form
+  const schema = useForgotPasswordSchema();
   const form = useForm<TForgotPasswordFormFields>({
     resolver: zodResolver(schema),
     defaultValues: {

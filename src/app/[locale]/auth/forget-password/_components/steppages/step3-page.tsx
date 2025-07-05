@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 export default function ResetPasswordPage() {
   const t = useTranslations();
   return (
-    <div className="space-y-3 m-24  w-[406px]">
+    <div className="space-y-3 m-24 w-[406px]">
       {/* reset password title  */}
       <h2 className="font-semibold text-2xl text-zinc-800 dark:text-zinc-50">
         {t("forgetpassword.create-password")}
@@ -18,7 +18,7 @@ export default function ResetPasswordPage() {
       <div>
         {/* set password form */}
         <SetPasswordForm />
-        <hr className="  w-full  border-t mt-8" />
+        <hr className="w-full border-t mt-8" />
       </div>
 
       {/* section of need help and contact us  */}

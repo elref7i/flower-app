@@ -12,6 +12,8 @@ import { useAuthContext } from "@/lib/context/auth-context";
 import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
+import useVerifyOtp from "../../_hooks/use-verify-otp";
+import useForgetPassword from "../../_hooks/use-forget-password";
 
 export default function VerifyCodeForm() {
   // Routing
@@ -28,6 +30,8 @@ export default function VerifyCodeForm() {
   const [isPending, setIsPending] = useState(false);
   const inputsRef = useRef<HTMLInputElement[]>([]);
   const [timer, setTimer] = useState(60);
+  const { VerifyOtpHookFun } = useVerifyOtp();
+  const { ForgetPasswordHookFun } = useForgetPassword();
 
   // Handle Timer
   useEffect(() => {
@@ -76,47 +80,29 @@ export default function VerifyCodeForm() {
   };
   // Submition Function
   const onSubmit = async (values: TVerifyCodeFields) => {
-    // console.log("Form Values:", values);
-    setIsPending(true);
-    setError(null);
-
-    const res = await verifyOTPCodeAction(values);
-    setIsPending(false);
-
-    if (res.success) {
-      setStep("3");
-    } else {
-      setError(res.message || "Invalid code.");
-    }
+    VerifyOtpHookFun(values);
   };
 
   //   Start Timer Func
   const startTimer = () => setTimer(60);
 
   // Handle Resend Code Function
-  //   const resendCoade = async () => {
-  //     const response = await ForgotPasswordAction({ email });
-
-  //     if (response.succes) {
-  //       toast.success("{t('otp.otp-toast')}");
-  //       startTimer();
-  //     } else {
-  //       toast.error("{t('otp.resend-code-fail-message')}");
-  //     }
-  //   };
+  const resendCode = () => {
+    ForgetPasswordHookFun({ email });
+  };
 
   return (
-    <div className="w-96 mx-auto my-20 ">
+    <div className="w-96 mx-auto">
       {/* Header */}
-      <div>
+      <div className="w-full">
         {/* Title */}
         <h1 className="text-zinc-800  text-2xl font-semibold dark:text-zinc-50">
           {t("otp.otp-title")}
         </h1>
         {/* message */}
-        <p className="text-zinc-800 font-normal text-sm pt-1 dark:text-zinc-50">
+        <p className="text-zinc-800 font-normal text-sm text-nowrap pt-1 dark:text-zinc-50">
           {t("otp.otp-headline")}
-          {` ${email}`}{" "}
+          {` ${email}`}
           <Button
             type="button"
             variant="link"
@@ -163,7 +149,7 @@ export default function VerifyCodeForm() {
                       type="button"
                       variant="link"
                       className="text-zinc-800 dark:text-zinc-50"
-                      //   onClick={resendCoade}
+                      onClick={resendCode}
                       disabled={timer > 0}
                     >
                       {timer > 0

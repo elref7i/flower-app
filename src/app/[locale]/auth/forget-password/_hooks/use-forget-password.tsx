@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { TForgotPasswordFormFields } from "@/lib/schema/auth.schema";
-import { ForgetPass } from "../_action/forgot-pass-action";
+import { forgetPassword } from "../_action/forgot-password-action";
 import { useAuthContext } from "@/lib/context/auth-context";
 
 export default function useForgetPassword() {
@@ -10,20 +10,16 @@ export default function useForgetPassword() {
   // mutation
   const { isPending, error, mutate } = useMutation({
     mutationFn: async (ForgetPassInputs: TForgotPasswordFormFields) =>
-      await ForgetPass(ForgetPassInputs),
+      await forgetPassword(ForgetPassInputs),
 
     onSuccess: (_data, variables) => {
-    
       toast.success("Email sent successfully");
-      setEmail(variables.email);      
-      setStep('2');      
-      console.log(email,"email");
-      console.log(step,"step")        
+      setEmail(variables.email);
+      setStep("2");
     },
 
     onError: (error: Error) => {
       toast.error(error.message);
-      console.log(error.message);
     },
   });
 

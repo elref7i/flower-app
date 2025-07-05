@@ -5,7 +5,7 @@ import { TVerifyCodeFields } from "@/lib/schema/auth.schema";
 import { VerifyRestResponse } from "@/lib/types/auth";
 
 export const verifyOTPCodeAction = async (verifyOTPcodeField: TVerifyCodeFields) => {
-  const respone = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/verifyResetCode`, {
+  const respone = await fetch(`${process.env.API}/auth/verifyResetCode`, {
     method: "POST",
     body: JSON.stringify(verifyOTPcodeField),
     headers: {
@@ -15,14 +15,10 @@ export const verifyOTPCodeAction = async (verifyOTPcodeField: TVerifyCodeFields)
 
   const payload: APIResponse<VerifyRestResponse> = await respone.json();
 
-  // for debug
-  console.log("Verify OTP Code APIResponse", payload);
-  if (payload.status === "Success") {
-    return { success: true };
+  if ("error" in payload) {
+    const errorMessage = payload.error || "Something went wrong ";
+    throw new Error(errorMessage);
   }
 
-  return {
-    success: false,
-    message: payload.message,
-  };
+  return payload;
 };

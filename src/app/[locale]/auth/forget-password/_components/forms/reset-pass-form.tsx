@@ -14,7 +14,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import useResetPassword from "../../_hooks/reset-pass-hook";
+import useResetPassword from "../../_hooks/use-reset-password";
 import { useAuthContext } from "@/lib/context/auth-context";
 import {
   useSetPasswordSchema,
@@ -23,11 +23,15 @@ import {
 } from "@/lib/schema/auth.schema";
 
 export default function SetPasswordForm() {
-  const { email } = useAuthContext();
+  //Translation
   const t = useTranslations();
+
+  // Hooks
+  const { email } = useAuthContext();
   const schema = useSetPasswordSchema();
   const { ResetPasswordHookFun } = useResetPassword();
 
+  // Form
   const form = useForm<TSetPasswordFields>({
     resolver: zodResolver(schema),
     defaultValues: {

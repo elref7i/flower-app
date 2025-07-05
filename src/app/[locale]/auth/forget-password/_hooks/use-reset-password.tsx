@@ -6,10 +6,10 @@ import { ResetPass } from "../_action/reset-pass-action";
 import { useAuthContext } from "@/lib/context/auth-context";
 
 export default function useResetPassword() {
-    const { step, setStep, email, setEmail } = useAuthContext();
+  const { step, setStep, email, setEmail } = useAuthContext();
   const handleSuccess = () => {
     toast.success("Password Updated success");
-    setStep("4")
+    setStep("4");
     //  setTimeout(() => {
     //   window.location.href = "/auth/login";
     // }, 1000);
