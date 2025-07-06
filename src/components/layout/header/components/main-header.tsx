@@ -2,13 +2,13 @@ import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
 import { User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
-import IconNotification from "./icon-notification";
 import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
 import { getServerSession } from "next-auth";
 import authOptions from "@/auth-options";
 import { getTranslations } from "next-intl/server";
+import Notification from "./notifications/notification";
 
 export default async function MainHeader() {
   const t = await getTranslations();
@@ -35,7 +35,7 @@ export default async function MainHeader() {
         </Link>
 
         {/* Icon notifiactions */}
-        <IconNotification />
+        <Notification />
 
         {/* Toggle Transelation */}
         <LanguageToggle />
