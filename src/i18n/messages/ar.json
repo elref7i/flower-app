@@ -99,5 +99,6 @@
   "by-subscribing-to-our-newsletter": "من خلال الاشتراك في النشرة الإخبارية لدينا",
   "subscribe": "اشترك",
   "rose-e-commerce-app": "تطبيق التجارة الإلكترونية",
-  "all-rights-reserved-or-2025": "جميع الحقوق محفوظة | \n2025"
+  "all-rights-reserved-or-2025": "جميع الحقوق محفوظة | {year, number, plain}\n",
+  "get-discount-coupon": "احصل على <span> {percent, number, percentage}</span> قبالة قسيمة خصم"
 }

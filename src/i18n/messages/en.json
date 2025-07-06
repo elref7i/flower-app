@@ -98,5 +98,6 @@
   "by-subscribing-to-our-newsletter": "By subscribing to our newsletter",
   "subscribe": "Subscribe",
   "rose-e-commerce-app": "Rose E-Commerce App",
-  "all-rights-reserved-or-2025": "All rights reserved | 2025"
+  "all-rights-reserved-or-2025": "All rights reserved | {year, number, plain}",
+  "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon"
 }

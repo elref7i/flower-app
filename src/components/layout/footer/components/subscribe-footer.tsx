@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Span } from "next/dist/trace";
 
 export default function SubscribeFooter() {
   //Transitions
@@ -13,7 +14,10 @@ export default function SubscribeFooter() {
       <div>
         {" "}
         <h2 className="text-[18px]  font-semibold text-softpink-300 capitalize">
-          Get<span className="text-maroon-50">20%</span> Off Discount Coupon
+          {t.rich("get-discount-coupon", {
+            span: (value) => <span className="text-maroon-50">{value}</span>,
+            percent: 0.2,
+          })}
         </h2>
         <p className="text-sm text-zinc-500">{t("by-subscribing-to-our-newsletter")}</p>
       </div>

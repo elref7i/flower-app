@@ -24,8 +24,16 @@ export default getRequestConfig(async ({ requestLocale }) => {
         },
         percentage: {
           style: "percent",
-          maximumFractionDigits: 2,
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
           numberingSystem,
+        },
+        plain: {
+          style: "decimal",
+          useGrouping: false,
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+          numberingSystem: locale === "ar" ? "arab" : "laten",
         },
       },
       dateTime: {

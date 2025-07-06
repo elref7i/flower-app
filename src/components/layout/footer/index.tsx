@@ -19,7 +19,11 @@ export default function Footer() {
           <h1 className="text-[18px] font-semibold text-softpink-300">
             {t("rose-e-commerce-app")}
           </h1>
-          <p className="text-zinc-100">{t("all-rights-reserved-or-2025")}</p>
+          <p className="text-zinc-100">
+            {t("all-rights-reserved-or-2025", {
+              year: 2025,
+            })}
+          </p>
         </div>
 
         {/* Links */}
