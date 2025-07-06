@@ -1,10 +1,6 @@
 import { SetStateAction } from "react";
 import { User } from "next-auth";
-
-// Auth Forms types
-declare type TAuthForms = "login" | "register" | "forgotPassword" | "verifyCode" | "setPassword";
-
-declare type TSetAuthForm = { setForm: React.Dispatch<SetStateAction<TAuthForms>> };
+import AuthHeader from "../../app/[locale]/auth/login/_components/auth-header";
 
 // type register form fields
 declare type TListRegisterFormFields = {

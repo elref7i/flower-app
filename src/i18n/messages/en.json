@@ -7,9 +7,9 @@
   "logout": "Logout",
   "login": "Login",
   "email": "Email",
-  "password": "password",
+  "password": "Password",
   "remind-me": "Remind me",
-  "forgot-password": "forgot Password",
+  "forgot-password": "Forgot Password?",
   "first-name": "first name",
   "last-name": "last name",
   "phone-number": "phone",
@@ -18,7 +18,7 @@
   "male": "male",
   "female": "female",
   "have-account": "Already have an account?<span>Login</span>",
-  "no-account": "No account?<span>Create one here</span>",
+  "no-account": "Don't have account yet?<Link>Create one now!</Link>",
   "create-account": "Create Accountt",
   "register": "Register",
   "gallery-title": "Gallery",
@@ -49,6 +49,14 @@
   "empty-new-password-error": "New Password Shouldn't Be Empty",
   "back":"Back",
   "search":"Search for a certain category...",
+  "Best Selling": "Best selling",
+  "check out": "<span >Check Out</span>",
+  "buying": "<span>Buying</span>",
+  "every-one": " What Everyone’s",
+  "right-now": " Right Now",
+  "gifts": "  Explore gifts",
+  "paragraph": "<br> Not sure what to choose? </br>     Start with our best sellers, these are the gifts our customers keep coming back for.     Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed     to leave a lasting impression.",
+  "arrow": "<span>→</span>",
   "banner": {
     "budge": "Staring from 10.99 EGP",
     "special-gifts-title": "Special Gifts For The People You Love",
@@ -79,5 +87,39 @@
     "title":"PERFECT GIFT",
     "des-part1":"Find the",
     "des-part2":"from our handpicked collections."
-  }
+  },
+  "otp": {
+    "otp-title": "Enter the OTP Code",
+    "otp-headline": "We have sent a 6-digit code to",
+    "edit-button": "Edit",
+    "need-help": "Need help?",
+    "contact-us": "Contact us",
+    "otp-button": "Verify OTP",
+    "otp-toast": "A new OTP code has been sent to your email.",
+    "resend-otp-code": "Send a new code",
+    "resend-code-fail-message": "Failed to resend code"
+  },
+  "forgetpassword": {
+    "no-products": "No Products Found",
+    "forget-password": "Forgot Password?",
+    "forget-password-note": "Worry not, we’ll send you instructions to help you reset it.",
+    "form-email": "Email",
+    "form-button-Continue": "Continue",
+    "forgot-pass-create-account": "<span>Create one now!</span>",
+    "forgot-pass-have-no-account": "Don’t have an account yet? ",
+    "need-help": "Need Help?",
+    "contact-us": "<span> Contact us </span>",
+    "create-password": "Create a new password",
+    "set-strong-password": "Set a strong password to secure your account.",
+    "password-felid": "Password",
+    "confirm-password-felid": "Confirm Password",
+    "reset-password-feild": " Reset Password"
+  },
+  "schema": {
+    "empty-confirm-password-error": "Confirm password is required",
+    "passwords-dont-match-error": " Passwords do not match"
+  },
+  "welcome-back": "Welcome Back!",
+  "welcome": "Welcome {name}",
+  "no-products": "No Products Found"
 }

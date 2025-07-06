@@ -13,6 +13,12 @@ const config: Config = {
       padding: "5rem",
       center: true,
     },
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "980px",
+      xl: "1200px",
+    },
     extend: {
       colors: {
         maroon: {
@@ -107,6 +113,8 @@ const config: Config = {
       seaweed: ['var(--font-seaweed)'],
       lateef: ['var(--font-lateef)'],
       great: ["var(--font-great-vibes)"],
+      diwany: ["var(--font-diwany)"],
+      edwiardian: ["var(--font-edwiardian)"],
     },
   },
   plugins: [tailwindAnimate],
