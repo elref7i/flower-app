@@ -1,10 +1,10 @@
 import Image from "next/image";
-import LLingoude from "../../../../../public/Assets/imgs/LLingoude.png";
-import ginyard from "../../../../../public/Assets/imgs/ginyard.png";
-import hobus from "../../../../../public/Assets/imgs/hobus.png";
-import coconut from "../../../../../public/Assets/imgs/image 36.png";
-import ingoude from "../../../../../public/Assets/imgs/ingoude.png";
-import velvet from "../../../../../public/Assets/imgs/velvet.png";
+import LLingoude from "@assets/imgs/LLingoude.png";
+import ginyard from "@assets/imgs/ginyard.png";
+import hobus from "@assets/imgs/hobus.png";
+import coconut from "@assets/imgs/image 36.png";
+import ingoude from "@assets/imgs/ingoude.png";
+import velvet from "@assets/imgs/velvet.png";
 import { useTranslations } from "next-intl";
 
 const companiesLogos = [coconut, ginyard, LLingoude, velvet, ingoude, hobus];

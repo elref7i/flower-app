@@ -3,8 +3,8 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { getTranslations, getLocale } from "next-intl/server";
 import React, { Suspense } from "react";
 import Category from "../_components/category";
-import CategorySkeleton from "./../_components/category-skeleton";
-import ProductsSkeleton from "./../_components/product-skelton";
+import CategorySkeleton from "../_components/category-skeleton";
+import ProductsSkeleton from "../_components/product-skelton";
 import CategoryProducts from "../_components/category-products";
 
 export default async function Page({ params }: Props) {

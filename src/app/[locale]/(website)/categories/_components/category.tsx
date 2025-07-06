@@ -5,7 +5,7 @@ import img from "@/../public/assets/imgs/image-from-rawpixel-id-12370595-png 1.p
 export default async function Category({ id }: { id: string }) {
   const category: Category = await getCategoryById(id);
   return (
-    <div className="px-2.5 py-4 border-b-2 flex gap-2.5 col-span-1 relative border-softpink-300 bg-gradient-to-t from-softpink-300/25 to-transparent">
+    <div key={category._id} className="px-2.5 py-4 border-b-2 flex gap-2.5 col-span-1 relative border-softpink-300 bg-gradient-to-t from-softpink-300/25 to-transparent">
       {/*category*/}
       <h3 className="text-8xl font-great text-softpink-200 absolute top-1/2  transform start-8 -translate-y-1/2 z-0 dark:text-zinc-600">
         Category

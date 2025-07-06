@@ -1,18 +1,17 @@
-import { getAllProducts } from "@/lib/api/products.api";
+import { getAllProductsByCategory } from "@/lib/api/products.api";
 import Image from "next/image";
 import React from "react";
 import RatingStars from "./rating-star";
 import { Eye, Heart, ShoppingCart } from "lucide-react";
 
 export default async function CategoryProducts({ id }: { id: string }) {
-  const allProducts: Product[] = await getAllProducts();
-  const products: Product[] = allProducts.filter(
-    (prod: Product) => prod.category.toString() === id,
-  );
+  // Variables
+  const products: Product[] = await getAllProductsByCategory(id);
+
   return (
     <div className="gap-6 grid grid-cols-4 py-4">
       {products.map((prod) => (
-        <div className="gap-4 rounded-2xl group">
+        <div key={prod._id} className="gap-4 rounded-2xl group">
           {/*product cover*/}
           <div className="rounded-xl relative ">
             {/*image*/}

@@ -4,17 +4,19 @@ import img from "@/../public/assets/imgs/image-from-rawpixel-id-12370595-png 1.p
 import { getCategories } from "@/lib/api/categories.api";
 import { Link } from "@/i18n/navigation";
 export default async function CategoriesList() {
+  // Variables
   const categories: Category[] = await getCategories();
+
   return (
-    <div className="py-4 gap-[60px] grid grid-cols-3" dir="ltr">
+    <div className="py-4 gap-[60px] grid grid-cols-3">
       {categories.map((category) => (
         <div
           key={category._id}
-          className="px-2.5 py-4  hover:border-b-2 relative hover:border-softpink-300 hover:bg-gradient-to-t from-softpink-300/25 to-transparent transition-all duration-300"
+          className="px-2.5 py-4 hover:border-b-2 relative hover:border-softpink-300 hover:bg-gradient-to-t from-softpink-300/25 to-transparent transition-all duration-300"
         >
-          <Link href={`/categories/${category._id}`} className="gap-2.5 col-span-1 flex ">
+          <Link href={`/categories/${category._id}`} className="gap-2.5 col-span-1 flex">
             {/*category*/}
-            <h3 className="text-8xl font-great text-softpink-200 absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 dark:text-zinc-600">
+            <h3 className="text-8xl font-great text-softpink-200 absolute transform z-0 dark:text-zinc-600">
               Category
             </h3>
             {/* image*/}
