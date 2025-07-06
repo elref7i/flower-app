@@ -35,7 +35,7 @@ export default async function MainHeader() {
         </Link>
 
         {/* Icon notifiactions */}
-        <Notification />
+        {/* <Notification /> */}
 
         {/* Toggle Transelation */}
         <LanguageToggle />
