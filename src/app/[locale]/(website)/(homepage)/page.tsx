@@ -21,11 +21,11 @@ export default async function page({ searchParams }: { searchParams: { occasion?
       {/* Gifts Section */}
       <GiftsSection />
 
-      {/* Service Features */}
-      <ServiceFeatures />
-
       {/* Occasions Section */}
       <Occasions />
+
+      {/* Service Features */}
+      <ServiceFeatures />
 
       {/* About Section */}
       <AboutSection />

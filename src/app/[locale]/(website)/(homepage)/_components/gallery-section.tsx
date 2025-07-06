@@ -1,9 +1,9 @@
-import First from "../../../../../public/assets/imgs/image 2.png";
-import Second from "../../../../../public/assets/imgs/image 3.png";
-import Third from "../../../../../public/assets/imgs/image 8.png";
-import Fourth from "../../../../../public/assets/imgs/image 11.png";
-import Fifth from "../../../../../public/assets/imgs/Frame 76.png";
-import Sixth from "../../../../../public/assets/imgs/image 9.png";
+import First from "@assets/imgs/image 2.png";
+import Second from "@assets/imgs/image 3.png";
+import Third from "@assets/imgs/image 8.png";
+import Fourth from "@assets/imgs/image 11.png";
+import Fifth from "@assets/imgs/Frame 76.png";
+import Sixth from "@assets/imgs/image 9.png";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 

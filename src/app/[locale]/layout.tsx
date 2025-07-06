@@ -2,9 +2,11 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import { Sarabun, Zain } from "next/font/google";
+import { Sarabun, Zain, Seaweed_Script, Lateef, Great_Vibes } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import localFont from "next/font/local";
 import Providers from "@/components/providers";
+
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -17,6 +19,27 @@ const zain = Zain({
   subsets: ["latin"],
   weight: ["700", "400", "300"],
   variable: "--font-zain",
+});
+
+const seaweed = Seaweed_Script({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-seaweed",
+  display: "swap",
+});
+
+const lateef = Lateef({
+  subsets: ["arabic"],
+  weight: "400",
+  variable: "--font-lateef",
+  display: "swap",
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-great-vibes",
+  display: "swap",
 });
 
 const diwany = localFont({
@@ -48,26 +71,21 @@ export default function RootLayout({
     notFound();
   }
 
-
-//   import { AuthProvider } from "@/lib/context/auth-context";
-
-// export default function ForgotPasswordLayout({ chidren }: { chidren: React.ReactNode }) {
-//   return <AuthProvider>{chidren}</AuthProvider>;
-// }
-
   return (
     <html
       suppressHydrationWarning
       lang={locale}
-      className={`${locale === "ar" ? zain.variable : sarabun.variable} ${diwany.variable} ${
-        edwiardian.variable
-      }`}
+      className={`${locale === "ar" ? zain.variable : sarabun.variable} ${seaweed.variable} ${
+        lateef.variable
+      } ${greatVibes.variable} ${diwany.variable} ${edwiardian.variable}`}
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <body>
         <Providers>
           {/* Main Content */}
           {children}
+
+          <Toaster />
         </Providers>
       </body>
     </html>

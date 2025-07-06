@@ -110,6 +110,9 @@ const config: Config = {
     fontFamily: {
       sarabun: ["var(--font-sarabun)"],
       zain: ["var(--font-zain)"],
+      seaweed: ['var(--font-seaweed)'],
+      lateef: ['var(--font-lateef)'],
+      great: ["var(--font-great-vibes)"],
       diwany: ["var(--font-diwany)"],
       edwiardian: ["var(--font-edwiardian)"],
     },
