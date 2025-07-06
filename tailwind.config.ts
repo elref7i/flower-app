@@ -10,7 +10,6 @@ const config: Config = {
   ],
   theme: {
     container: {
-      padding: "5rem",
       center: true,
     },
     screens: {
@@ -20,6 +19,9 @@ const config: Config = {
       xl: "1200px",
     },
     extend: {
+      boxShadow: {
+        "custom-red": "0 4px 50.5px 0 #741C211A ",
+      },
       colors: {
         maroon: {
           "50": "#FBEAEA",
@@ -110,8 +112,8 @@ const config: Config = {
     fontFamily: {
       sarabun: ["var(--font-sarabun)"],
       zain: ["var(--font-zain)"],
-      seaweed: ['var(--font-seaweed)'],
-      lateef: ['var(--font-lateef)'],
+      seaweed: ["var(--font-seaweed)"],
+      lateef: ["var(--font-lateef)"],
       great: ["var(--font-great-vibes)"],
       diwany: ["var(--font-diwany)"],
       edwiardian: ["var(--font-edwiardian)"],
