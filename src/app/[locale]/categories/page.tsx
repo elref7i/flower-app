@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import { Suspense } from "react";
-import CategoriesList from './_components/categories-list';
-import CategoriesSkeleton from './_components/categories-skeleton';
-import SearchForm from './_components/search-form';
+import CategoriesList from "./_components/categories-list";
+import CategoriesSkeleton from "./_components/categories-skeleton";
+import SearchForm from "./_components/search-form";
 export default async function Page() {
   return (
-    <div className='container'>
+    <div className="container">
       {/*search input*/}
       <SearchForm />
       {/*category list*/}
@@ -13,5 +13,5 @@ export default async function Page() {
         <CategoriesList />
       </Suspense>
     </div>
-  )
+  );
 }
