@@ -29,6 +29,14 @@ export default getRequestConfig(async ({ requestLocale }) => {
         },
       },
       dateTime: {
+        "date-base-hours": {
+          numberingSystem: locale === "ar" ? "arab" : "latn",
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        },
         short: {
           year: "numeric",
           month: "2-digit",

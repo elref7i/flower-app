@@ -4,11 +4,11 @@ import CompaniesSection from "./_components/companies-section";
 import GallerySection from "./_components/gallery-section";
 import ServiceFeatures from "@/components/features/features/feature";
 import Occasions from "@/components/features/occasions/occasions";
-import { getServerSession } from "next-auth";
 import MostPopular from "./_components/mostpopular/most-popular";
 import BestSelling from "./_components/bestselling";
 import { fetchOccasions } from "@/lib/api/occasions.api";
 import { fetchPopularProducts } from "@/lib/api/products.api";
+import TestimonialSection from "./_components/testmonials/testmonial-section";
 
 export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
   // Variables
@@ -17,32 +17,37 @@ export default async function page({ searchParams }: { searchParams: { occasion?
   const popularProducts = await fetchPopularProducts(currentOccasionId || undefined);
 
   return (
-    <div className="container">
-      {/* Gifts Section */}
-      <GiftsSection />
+    <div>
+      <div className="container">
+        {/* Gifts Section */}
+        <GiftsSection />
 
-      {/* Occasions Section */}
-      <Occasions />
+        {/* Occasions Section */}
+        <Occasions />
 
-      {/* Service Features */}
-      <ServiceFeatures />
+        {/* Service Features */}
+        <ServiceFeatures />
 
-      {/* About Section */}
-      <AboutSection />
+        {/* About Section */}
+        <AboutSection />
 
-      {/* Gallery Section */}
-      <GallerySection />
+        {/* Gallery Section */}
+        <GallerySection />
 
-      {/* Companies Section */}
-      <CompaniesSection />
+        {/* Companies Section */}
+        <CompaniesSection />
 
-      {/* <ModeToggle /> */}
-      <MostPopular
-        occasions={occasions}
-        products={popularProducts}
-        currentSelectedOccasion={currentOccasionId}
-      />
-      <BestSelling />
+        {/* <ModeToggle /> */}
+        <MostPopular
+          occasions={occasions}
+          products={popularProducts}
+          currentSelectedOccasion={currentOccasionId}
+        />
+        {/* Best Selling */}
+        <BestSelling />
+      </div>
+      {/* Testimonials */}
+      <TestimonialSection />
     </div>
   );
 }
