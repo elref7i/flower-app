@@ -1,18 +1,22 @@
+"use client";
 import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
 import { User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
+import IconNotification from "./icon-notification";
 import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
-import { getServerSession } from "next-auth";
-import authOptions from "@/auth-options";
-import { getTranslations } from "next-intl/server";
-import Notification from "./notifications/notification";
+import { useTranslations } from "next-intl";
+import { useSession } from "next-auth/react";
 
-export default async function MainHeader() {
-  const t = await getTranslations();
-  const session = await getServerSession(authOptions);
+export default function MainHeader() {
+
+  //Translation
+  const t = useTranslations();
+
+  //Session
+  const { data: session } = useSession();
 
   return (
     <div className="py-[18px] px-9 flex gap-4">
@@ -24,7 +28,7 @@ export default async function MainHeader() {
       {/* Left Header */}
       <div className="flex flex-1 items-center gap-4 ">
         {/* Search input */}
-        <SearchInput placeholder={"What awesome gift are you looking for?"} />
+        <SearchInput placeholder={t("what-awesome-gift-are-you-looking-for")} />
 
         {/* Button Login */}
         <Link className="flex gap-[6px] items-center" href={"/auth/login"}>
@@ -35,7 +39,7 @@ export default async function MainHeader() {
         </Link>
 
         {/* Icon notifiactions */}
-        {/* <Notification /> */}
+        <IconNotification />
 
         {/* Toggle Transelation */}
         <LanguageToggle />
