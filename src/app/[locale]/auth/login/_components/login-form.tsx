@@ -1,6 +1,6 @@
 "use client";
 import { SubmitHandler, useForm } from "react-hook-form";
-import useLogin from "../hooks/use-login";
+
 import { TLoginFormFields, useLoginSchema } from "@/lib/schema/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Loader2Icon } from "lucide-react";
+import useLogin from "../_hooks/use-login";
 
 // Login Form component
 export default function LoginForm() {

@@ -1,3 +1,14 @@
+export async function getAllProductsByCategory(id: string) {
+  try {
+    const response = await fetch(`${process.env.API}/products?category=${id}`);
+    const products = await response.json();
+    if (!response.ok) throw new Error("Error:failed to get products");
+    return products.products;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
 export async function fetchBestSellers() {
   try {
     const response = await fetch(`${process.env.API}/products?sort=sold`);
