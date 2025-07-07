@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { convertSearchParams } from "../utils/convert-search-params";
 
 export const getCategories = async ({ page }: { page: number }) => {
@@ -11,6 +12,8 @@ export const getCategories = async ({ page }: { page: number }) => {
   return payload;
 };
 =======
+=======
+>>>>>>> 81c7cfbceaaf7ee4a07bf075275088b037e2ed82
 export async function getCategories() {
   const response = await fetch(`${process.env.API}/categories`);
   const categories = await response.json();
@@ -24,4 +27,7 @@ export async function getCategoryById(id: string) {
   if (!response.ok) throw new Error("Error:failed to get category");
   return category.category;
 }
+<<<<<<< HEAD
 >>>>>>> fcad3a7e8e9e2d2e86ef82d952b485a29b1483d7
+=======
+>>>>>>> 81c7cfbceaaf7ee4a07bf075275088b037e2ed82
