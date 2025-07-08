@@ -1,5 +1,6 @@
 declare type DatabaseFields = {
-  _id: string;
+  _id: s
+  tring;
   createdAt: string;
   updatedAt: string;
 };
@@ -7,7 +8,15 @@ declare type DatabaseFields = {
 declare type SuccessfullResponse<T> = {
   message: string;
 
- } & T;
+} & T;
+
+declare type MetaData = {
+  currentPage: number;
+  limit: number;
+  totalPages: number;
+  totalItems: number;
+};
+
 // declare type SuccessfulResponse<T> = {
 //   message: "success";
 //   status: "Success";
@@ -18,12 +27,8 @@ declare type ErrorResponse = {
   status: string;
   message: string;
 };
-declare type Category = {
-  _id: string;
-  name: string;
-  image: string;
-  productsCount: number
-}
+
+
 declare type Product = {
   rateAvg: number,
   rateCount: number,

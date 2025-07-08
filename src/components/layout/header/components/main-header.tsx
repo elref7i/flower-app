@@ -10,13 +10,12 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 
-export default function MainHeader() {
-
+export default function MainHeader() {  
   //Translation
   const t = useTranslations();
 
   //Session
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <div className="py-[18px] px-9 flex gap-4">
