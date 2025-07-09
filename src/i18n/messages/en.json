@@ -64,6 +64,7 @@
     "buying-button": "I'm buying!"
   },
   "occasions": {
+    "occasions": "occasions",
     "budge-one": "Wedding",
     "description-one": "Celebrate Her Forever with a Gift She’ll Always Remember",
     "budge-two": "Engagement",
@@ -83,5 +84,16 @@
   },
   "welcome-back": "Welcome Back!",
   "welcome": "Welcome {name}",
-  "no-products": "No Products Found"
+  "no-products": "No Products Found",
+  "reset-all": "Reset All",
+  "reset": "reset",
+  "price": "price",
+  "occasion": "occasion",
+  "category": "category",
+  "rating": "rating",
+  "from": "from",
+  "to": "to",
+  "positive-error": "You Should Enter Positive Number",
+  "number-error": "You Should Enter Number",
+  "numbers-compare-error": "The number is less than the minimum number"
 }

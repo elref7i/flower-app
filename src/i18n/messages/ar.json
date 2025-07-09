@@ -83,5 +83,16 @@
   },
   "welcome-back": "مرحبًا بعودتك",
   "welcome": "مرحبًا {name}",
-  "no-products": "لم يتم العثور على منتجات"
+  "no-products": "لم يتم العثور على منتجات",
+  "reset-all": "إزاله الكل",
+  "reset": "إزاله",
+  "price": "السعر",
+  "occasion": "المناسبه",
+  "category": "الفئة",
+  "rating": "التقيم",
+  "from": "من",
+  "to": "إلى",
+  "number-error": "يجب عليك إدخال رقم",
+  "positive-error": "يجب عليك ادخال رقم موجب",
+  "numbers-compare-error": "يجب ادخال رقم اكبر من الرقم الاقل"
 }

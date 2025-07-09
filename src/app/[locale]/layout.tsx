@@ -2,7 +2,7 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import { Sarabun, Zain } from "next/font/google";
+import { Sarabun, Tajawal } from "next/font/google";
 import localFont from "next/font/local";
 import Providers from "@/components/providers";
 
@@ -13,10 +13,10 @@ const sarabun = Sarabun({
   display: "swap",
 });
 
-const zain = Zain({
+const tajawal = Tajawal({
   subsets: ["latin"],
   weight: ["700", "400", "300"],
-  variable: "--font-zain",
+  variable: "--font-tajawal",
 });
 
 const diwany = localFont({
@@ -52,7 +52,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang={locale}
-      className={`${locale === "ar" ? zain.variable : sarabun.variable} ${diwany.variable} ${
+      className={` ${locale === "ar" ? tajawal.variable : sarabun.variable} ${diwany.variable} ${
         edwiardian.variable
       }`}
       dir={locale === "ar" ? "rtl" : "ltr"}
