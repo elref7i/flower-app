@@ -2,7 +2,8 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import { Sarabun, Tajawal } from "next/font/google";
+import { Sarabun, Tajawal, Seaweed_Script, Lateef, Great_Vibes } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import localFont from "next/font/local";
 import Providers from "@/components/providers";
 
@@ -17,6 +18,27 @@ const tajawal = Tajawal({
   subsets: ["latin"],
   weight: ["700", "400", "300"],
   variable: "--font-tajawal",
+});
+
+const seaweed = Seaweed_Script({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-seaweed",
+  display: "swap",
+});
+
+const lateef = Lateef({
+  subsets: ["arabic"],
+  weight: "400",
+  variable: "--font-lateef",
+  display: "swap",
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-great-vibes",
+  display: "swap",
 });
 
 const diwany = localFont({
@@ -52,15 +74,17 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang={locale}
-      className={` ${locale === "ar" ? tajawal.variable : sarabun.variable} ${diwany.variable} ${
-        edwiardian.variable
-      }`}
+      className={`${locale === "ar" ? tajawal.className : sarabun.variable} ${seaweed.variable} ${
+        lateef.variable
+      } ${greatVibes.variable} ${diwany.variable} ${edwiardian.variable}`}
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <body>
         <Providers>
           {/* Main Content */}
           {children}
+
+          <Toaster />
         </Providers>
       </body>
     </html>
