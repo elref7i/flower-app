@@ -1,14 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+// import { useState } from "react";
 import StarRating_Fractions from "../commerce-ui/star-rating-fractions";
+import { number } from "zod";
 
-export function StarRatingDynamic() {
-  const [rating, setRating] = useState(4.3);
+interface StarRatingDynamicProps {
+  rating :number;
+  setRating: (rating:number) => void;
+
+}
+export function StarRatingDyanmic({rating,setRating}:StarRatingDynamicProps) {
   return (
     <div className="flex flex-row items-center gap-4">
       <StarRating_Fractions
-        className="text-yellow-500"
+        className="text-yellow-[#FFA508]"
+        iconSize={25}
         value={rating}
         onChange={setRating}
         maxStars={5}
@@ -17,11 +24,17 @@ export function StarRatingDynamic() {
     </div>
   );
 }
-export function StarRatingReadonly() {
+export function StarRatingStatic() {
   return (
-    <div className="flex items-center gap-2">
-      <StarRating_Fractions value={3.5} readOnly maxStars={5} />
-      <p>(3.5)</p>
+    <div className="flex flex-row items-center gap-4">
+      <StarRating_Fractions
+        className="text-yellow-[#FFA508]"
+        iconSize={25}
+        readOnly={true}
+        value={3}
+        maxStars={5}
+      />
+      <p>({3})</p>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { StarRatingReadonly } from "@/components/common/rating";
+import {  StarRatingStatic } from "@/components/common/rating";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function CommentComponent() {
@@ -20,7 +20,7 @@ export default function CommentComponent() {
         </div>
       </div>
       {/* Rating Comment */}
-      <StarRatingReadonly />
+      <StarRatingStatic />
       {/* Review Title */}
       <h3 className="font-semibold">Awesome Bouquet!</h3>
       {/* Review Description */}
