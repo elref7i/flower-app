@@ -2,6 +2,7 @@ import {  StarRatingStatic } from "@/components/common/rating";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function CommentComponent() {
+  const ratingNumber= 3;
   return (
     <div className="space-y-[10px] border-b-2 pb-2">
       {" "}
@@ -19,8 +20,13 @@ export default function CommentComponent() {
           <p className="font-medium text-sm text-zinc-400">Apr 7, 2025</p>
         </div>
       </div>
+
       {/* Rating Comment */}
-      <StarRatingStatic />
+      <div className="flex items-center gap-2">
+        <StarRatingStatic ratingNumber={ratingNumber}/>
+      <span className="font-semibold">({ratingNumber})</span>
+      </div>
+
       {/* Review Title */}
       <h3 className="font-semibold">Awesome Bouquet!</h3>
       {/* Review Description */}

@@ -15,3 +15,16 @@ declare type Product = {
   isSuperAdmin?: boolean;
   sold: number;
 } & DatabaseFields;
+
+declare type ProductReview = {
+  review: review;
+};
+
+declare type review = {
+  product: string;
+  user: string;
+  rating: number;
+  title: string;
+  comment: string;
+  status: string;
+} & DatabaseFields;

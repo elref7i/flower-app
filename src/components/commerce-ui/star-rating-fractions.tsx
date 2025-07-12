@@ -54,6 +54,7 @@ const StarRating_Fractions = ({
   iconSize = 20,
   maxStars = 5,
   onChange,
+  
   readOnly = false,
   value,
 }: StarRatingBasicProps) => {

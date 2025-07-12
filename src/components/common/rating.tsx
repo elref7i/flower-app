@@ -3,16 +3,17 @@
 import React, { useState } from "react";
 // import { useState } from "react";
 import StarRating_Fractions from "../commerce-ui/star-rating-fractions";
-import { number } from "zod";
 
 interface StarRatingDynamicProps {
-  rating :number;
-  setRating: (rating:number) => void;
-
+  rating: number;
+  setRating: (rating: number) => void;
 }
-export function StarRatingDyanmic({rating,setRating}:StarRatingDynamicProps) {
+
+export function StarRatingDyanmic({ rating, setRating }: StarRatingDynamicProps) {
+  //Functions
+
   return (
-    <div className="flex flex-row items-center gap-4">
+    <div className="flex flex-row items-center gap-2">
       <StarRating_Fractions
         className="text-yellow-[#FFA508]"
         iconSize={25}
@@ -20,21 +21,20 @@ export function StarRatingDyanmic({rating,setRating}:StarRatingDynamicProps) {
         onChange={setRating}
         maxStars={5}
       />
-      <p>({rating})</p>
+      {rating > 0 && <p className="font-semibold">({rating})</p>}
     </div>
   );
 }
-export function StarRatingStatic() {
+export function StarRatingStatic({ ratingNumber }: { ratingNumber: number }) {
   return (
     <div className="flex flex-row items-center gap-4">
       <StarRating_Fractions
         className="text-yellow-[#FFA508]"
-        iconSize={25}
+        iconSize={20}
         readOnly={true}
-        value={3}
+        value={ratingNumber}
         maxStars={5}
       />
-      <p>({3})</p>
     </div>
   );
 }
