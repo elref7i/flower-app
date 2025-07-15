@@ -38,7 +38,9 @@ declare type Product = {
   category: string,
   occasion: string,
   isSuperAdmin: boolean,
-  sold: 100,
+  sold: number,
+  createdAt:string
+
 }
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 

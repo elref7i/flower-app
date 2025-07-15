@@ -3,13 +3,15 @@ import Image from "next/image";
 import img from "@/../public/assets/imgs/image-from-rawpixel-id-12370595-png 1.png";
 import { getCategories } from "@/lib/api/categories.api";
 import { Link } from "@/i18n/navigation";
-export default async function CategoriesList() {
+export default async function CategoriesList({ searchParams }: { searchParams: { [key: string]: string} }) {
   // Variables
+  const search = searchParams.search?.toLowerCase() || '';
   const categories: Category[] = await getCategories();
+  const filtered = categories.filter(cat => cat.name.toLowerCase().includes(search));
 
   return (
     <div className="py-4 gap-[60px] grid grid-cols-3">
-      {categories.map((category) => (
+      {filtered.length > 0 ? (filtered.map((category) => (
         <div
           key={category._id}
           className="px-2.5 py-4 hover:border-b-2 relative hover:border-softpink-300 hover:bg-gradient-to-t from-softpink-300/25 to-transparent transition-all duration-300"
@@ -44,7 +46,9 @@ export default async function CategoriesList() {
             </div>
           </Link>
         </div>
-      ))}
+      ))) : (
+        <li className="text-gray-500">No results</li>
+      )}
     </div>
   );
 }
