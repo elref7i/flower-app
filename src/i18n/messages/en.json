@@ -155,5 +155,14 @@
   "subscribe": "Subscribe",
   "rose-e-commerce-app": "Rose E-Commerce App",
   "all-rights-reserved-or-2025": "All rights reserved | {year, number, plain}",
-  "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon"
+  "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
+  "product-reviews": "Product Reviews",
+  "general-rating": "General rating:",
+  "ratings": "ratings",
+  "your-rating": "Your Rating :",
+  "title": "Title",
+  "review": "Review",
+  "enter-the-title": "Enter The Title",
+  "what-do-you-think-of-this-product": "What do you think of this product?",
+  "add-review": "Add review"
 }

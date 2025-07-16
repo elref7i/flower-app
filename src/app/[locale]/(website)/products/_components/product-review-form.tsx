@@ -17,10 +17,14 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { ProductReviewFields, ProductReviewSchema } from "@/lib/schema/review.schema";
 import { use, useState } from "react";
 import { useCreateProductReview } from "../_hooks/use-products";
+import { useTranslations } from "next-intl";
 
 export default function ProductReviewForm() {
   // States
   const [rating, setRating] = useState(0);
+
+  // Translations
+  const t = useTranslations();
 
   // Mutations
   const { addReview, data, error, isPending } = useCreateProductReview();
@@ -37,11 +41,7 @@ export default function ProductReviewForm() {
 
   const onSubmit: SubmitHandler<ProductReviewFields> = async (values) => {
     await addReview(values);
-    console.log(values);
   };
-
-  console.log("rating", rating);
-  console.log("formRating", form.getValues("rating"));
 
   return (
     <div className="col-span-5  pe-5">
@@ -49,7 +49,7 @@ export default function ProductReviewForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-[10px]">
           {/* star */}
           <div className="flex items-center  gap-2">
-            <span className="font-medium">Your Rating :</span>
+            <span className="font-medium">{t("your-rating")}</span>
             <StarRatingDyanmic
               rating={rating}
               setRating={(value) => {
@@ -65,9 +65,14 @@ export default function ProductReviewForm() {
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Title</FormLabel>
+                <FormLabel>{t("title")}</FormLabel>
                 <FormControl>
-                  <Input {...field} type="text" placeholder="Enter The Title" className="w-full" />
+                  <Input
+                    {...field}
+                    type="text"
+                    placeholder={`${t("enter-the-title")}`}
+                    className="w-full"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -80,11 +85,11 @@ export default function ProductReviewForm() {
             name="comment"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Review</FormLabel>
+                <FormLabel>{t("review")}</FormLabel>
                 <FormControl>
                   <Textarea
                     {...field}
-                    placeholder="What do you think of this product?"
+                    placeholder={`${t("what-do-you-think-of-this-product")}`}
                     className="w-full"
                   />
                 </FormControl>
@@ -94,7 +99,7 @@ export default function ProductReviewForm() {
           />
 
           <Button disabled={isPending} className="w-full" variant={"default"} type="submit">
-            Add review
+            {t("add-review")}
           </Button>
         </form>
       </Form>
