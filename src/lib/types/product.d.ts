@@ -17,10 +17,10 @@ declare type Product = {
 } & DatabaseFields;
 
 declare type ProductReview = {
-  review: review;
-};
+  reviews: review[];
+} & MetaData;
 
-declare type review = {
+declare type reviews = {
   product: string;
   user: string;
   rating: number;
