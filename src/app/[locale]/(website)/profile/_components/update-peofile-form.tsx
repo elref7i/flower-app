@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ProfileSchema, ProfileSchemaFields } from "@/lib/schema/profile.shema";
+import { ProfileSchema, ProfileSchemaFields } from "@/lib/schema/profile.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Profile } from "next-auth";
 import React from "react";
@@ -43,7 +43,7 @@ export default function UpdatePeofileForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSumbit)}>
+      <form onSubmit={form.handleSubmit(onSumbit)} className="space-y-[10px]">
         <FormField
           control={form.control}
           name="firstName"

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import parsePhoneNumberFromString from "libphonenumber-js";
+import { PASSWORD_REGEX } from "../constants/password-regx";
 export const ProfileSchema = z.object({
   firstName: z
     .string({ required_error: "First name is required" })
@@ -21,4 +22,16 @@ export const ProfileSchema = z.object({
   }),
 });
 
+export const ChangePasswordSchema = z.object({
+  password: z
+    .string()
+    .min(1, { message: "Old password is required" })
+    .regex(PASSWORD_REGEX, { message: "Old password is not valid" }),
+  newPassword: z
+    .string()
+    .min(1, { message: "New password is required" })
+    .regex(PASSWORD_REGEX, { message: "New password is not valid" }),
+});
+
 export type ProfileSchemaFields = z.infer<typeof ProfileSchema>;
+export type ChangePasswordFields = z.infer<typeof ChangePasswordSchema>;

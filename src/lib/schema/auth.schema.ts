@@ -1,8 +1,8 @@
 import { useTranslations } from "next-intl";
 import { z } from "zod";
+import { PASSWORD_REGEX } from "../constants/password-regx";
 
 // Password Role
-const passwordRole = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
 
 // Login hook schema
 function useLoginSchema() {
@@ -17,7 +17,7 @@ function useLoginSchema() {
     password: z
       .string()
       .min(1, { message: t("empty-password-error") })
-      .regex(passwordRole, { message: t("wrong-password-error") }),
+      .regex(PASSWORD_REGEX, { message: t("wrong-password-error") }),
   });
 }
 
@@ -37,7 +37,7 @@ function useRegisterSchema() {
       password: z
         .string()
         .min(1, { message: t("empty-password-error") })
-        .regex(passwordRole, { message: t("password-role") }),
+        .regex(PASSWORD_REGEX, { message: t("password-role") }),
       rePassword: z.string().min(1, { message: t("empty-re-password-empty") }),
       phone: z
         .string()
@@ -89,12 +89,11 @@ function useSetPasswordSchema() {
         .string({
           required_error: t("empty-new-password-error"),
         })
-        .regex(passwordRole, { message: t("password-role") }),
+        .regex(PASSWORD_REGEX, { message: t("password-role") }),
 
-      newPassword: z
-        .string({
-          required_error: t("schema.empty-confirm-password-error"),
-        }),
+      newPassword: z.string({
+        required_error: t("schema.empty-confirm-password-error"),
+      }),
     })
     .refine((data) => data.Password === data.newPassword, {
       path: ["newPassword"],
@@ -106,20 +105,18 @@ function useSetPasswordApiSchema() {
   // Translation hook
   const t = useTranslations();
 
-  return z
-    .object({
-       email: z
+  return z.object({
+    email: z
       .string({
         required_error: t("empty-email-error"),
       })
       .email({ message: t("invalid-email-error") }),
 
-      newPassword: z
-      .string({ required_error: t("empty-password-error")})
+    newPassword: z
+      .string({ required_error: t("empty-password-error") })
       .min(1, { message: t("empty-password-error") })
-      .regex(passwordRole, { message: t("wrong-password-error") }),
-    })
-    
+      .regex(PASSWORD_REGEX, { message: t("wrong-password-error") }),
+  });
 }
 // Declare form types
 type TLoginFormFields = z.infer<ReturnType<typeof useLoginSchema>>;
@@ -127,7 +124,7 @@ type TRegisterFormFields = z.infer<ReturnType<typeof useRegisterSchema>>;
 type TForgotPasswordFormFields = z.infer<ReturnType<typeof useForgotPasswordSchema>>;
 type TVerifyCodeFields = z.infer<ReturnType<typeof useVerifyCodeSchema>>;
 type TSetPasswordFields = z.infer<ReturnType<typeof useSetPasswordSchema>>;
-type TSetPasswordFieldsApI= z.infer<ReturnType<typeof useSetPasswordApiSchema>>;
+type TSetPasswordFieldsApI = z.infer<ReturnType<typeof useSetPasswordApiSchema>>;
 // Export schemas
 export {
   useLoginSchema,

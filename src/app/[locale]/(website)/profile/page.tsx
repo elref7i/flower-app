@@ -5,7 +5,7 @@ export default function page() {
   return (
     <>
       {/* Person Info */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 pb-4">
         <DropZoneImage />
         <article>
           <h3 className="text-zinc-800 font-semibold text-xl">Upload Photo</h3>
