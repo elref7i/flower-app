@@ -20,7 +20,7 @@ export default function SideBar() {
   const router = useRouter();
   const locale = useLocale();
   return (
-    <aside className="w-full pr-6 ">
+    <aside className="w-full ltr:pr-6 rtl:pl-6 ">
       {/* Category filter */}
       <CategoryFilter />
       <hr className="block w-full mt-6 mb-4 bg-zinc-100 dark:bg-zinc-700 h-[1px]" />

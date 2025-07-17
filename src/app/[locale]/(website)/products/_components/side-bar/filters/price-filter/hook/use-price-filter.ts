@@ -21,9 +21,9 @@ export default function useFilterPrice() {
     resolver: zodResolver(priceFilterSchema),
     defaultValues: {
       // @ts-expect-error
-      minPrice: searchParams.get("min-price") || "",
+      minPrice: searchParams.get("price[gte]") || "",
       // @ts-expect-error
-      maxPrice: searchParams.get("max-price") || "",
+      maxPrice: searchParams.get("price[lte]") || "",
     },
   });
 
@@ -32,17 +32,17 @@ export default function useFilterPrice() {
     //  get current search params and create a new one
     const createSearchParams = new URLSearchParams(searchParams);
 
-    // if there is no data in min-price field delete it from search params
-    if (values.minPrice === undefined && searchParams.get("min-price"))
-      createSearchParams.delete("min-price");
+    // if there is no data in price[lte] field delete it from search params
+    if (values.minPrice === undefined && searchParams.get("price[lte]"))
+      createSearchParams.delete("price[lte]");
 
-    // if there is no data in max-price field delete it from search params
-    if (values.maxPrice === undefined && searchParams.get("max-price"))
-      createSearchParams.delete("max-price");
+    // if there is no data in price[gte] field delete it from search params
+    if (values.maxPrice === undefined && searchParams.get("price[gte]"))
+      createSearchParams.delete("price[gte]");
 
     // Add existed values to new search params
-    if (values.minPrice) createSearchParams.set("min-price", `${values.minPrice}`);
-    if (values.maxPrice) createSearchParams.set("max-price", `${values.maxPrice}`);
+    if (values.minPrice) createSearchParams.set("price[gte]", `${values.minPrice}`);
+    if (values.maxPrice) createSearchParams.set("price[lte]", `${values.maxPrice}`);
 
     // Navigate to new search params ,that have been created
     router.push(`?${createSearchParams}`, { scroll: false });
@@ -50,7 +50,7 @@ export default function useFilterPrice() {
 
   // Hook to listen on search params to reset values
   useEffect(() => {
-    if (!searchParams.get("min-price") && !searchParams.get("max-price")) form.reset();
+    if (!searchParams.get("price[lte]") && !searchParams.get("price[gte]")) form.reset();
   }, [searchParams]);
 
   return { form, onSubmit, t };

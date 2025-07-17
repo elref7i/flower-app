@@ -17,8 +17,8 @@ export default function FilterHeader({ title }: { title: string }) {
 
     // Condition to apply reset on price, this condition because search params for price not equal title
     if (title === "price") {
-      createSearchParams.delete("min-price");
-      createSearchParams.delete("max-price");
+      createSearchParams.delete("price[lte]");
+      createSearchParams.delete("price[gte]");
     }
 
     // Else remove search param with value equal title
