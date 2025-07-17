@@ -1,15 +1,38 @@
+"use client";
+import { usePathname } from "@/i18n/navigation";
+import { cn } from "@/lib/utils/cn";
+import { User } from "lucide-react";
 import Link from "next/link";
 
+const links = [
+  {
+    href: "/profile",
+    label: "My Account",
+  },
+  {
+    href: "/profile/change-password",
+    label: "Change Password",
+  },
+];
 export default function SidebarProfile() {
+  const pathName = usePathname();
   return (
-    <aside>
-      <ul>
-        <li>
-          <Link href={"/profile"}>My Acount</Link>
-        </li>
-        <li>
-          <Link href={"/profile/change-password"}>Change Password</Link>
-        </li>
+    <aside className="col-span-3 p-4 bg-zinc-50 border-[1px] border-zinc-100 shadow-md rounded-lg">
+      <ul className="space-y-2">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              className={cn(
+                pathName === link.href ? "bg-zinc-800 text-zinc-50" : "text-zinc-800 ",
+                "flex items-center gap-2  py-3 px-4 rounded-lg",
+              )}
+            >
+              <User size={24} />
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </aside>
   );

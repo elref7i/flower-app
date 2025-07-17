@@ -1,4 +1,5 @@
 import DropZoneImage from "./_components/drop-zone-image";
+import UpdatePeofileForm from "./_components/update-peofile-form";
 
 export default function page() {
   return (
@@ -13,6 +14,7 @@ export default function page() {
           </p>
         </article>
       </div>
+      <UpdatePeofileForm />
     </>
   );
 }
