@@ -6,8 +6,8 @@ declare type DatabaseFields = {
 
 declare type SuccessfullResponse<T> = {
   message: string;
+} & T;
 
- } & T;
 // declare type SuccessfulResponse<T> = {
 //   message: "success";
 //   status: "Success";
@@ -18,29 +18,31 @@ declare type ErrorResponse = {
   status: string;
   message: string;
 };
+
 declare type Category = {
   _id: string;
   name: string;
   image: string;
-  productsCount: number
-}
+  productsCount: number;
+};
 declare type Product = {
-  rateAvg: number,
-  rateCount: number,
-  _id: string,
-  title: string,
-  slug: string,
-  description: string,
-  imgCover: string,
-  price: number,
-  priceAfterDiscount: number,
-  quantity: number,
-  category: string,
-  occasion: string,
-  isSuperAdmin: boolean,
-  sold: 100,
-}
-declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
+  rateAvg: number;
+  rateCount: number;
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  imgCover: string;
+  price: number;
+  priceAfterDiscount: number;
+  quantity: number;
+  category: string;
+  occasion: string;
+  isSuperAdmin: boolean;
+  sold: 100;
+};
+
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
 
 declare type PaginatedResponse<T> = {
   metadata: Metadata;

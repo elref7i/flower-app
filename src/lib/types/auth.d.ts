@@ -26,4 +26,6 @@ declare type SetPasswordResponse = {
   token: string;
 };
 
+declare type ChangePasswordResponse = SetPasswordResponse;
+
 declare type LogOutResponse = { message: "success" } | { error: string };
