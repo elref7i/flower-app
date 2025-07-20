@@ -141,5 +141,6 @@
   "welcome": "Welcome {name}",
   "no-products": "No Products Found",
   "edit-profile-successfully": "Edit Profile successfully",
-  "password-changed-successfully": "Password changed successfully"
+  "password-changed-successfully": "Password changed successfully",
+  "deleted-account": "Deleted Account"
 }

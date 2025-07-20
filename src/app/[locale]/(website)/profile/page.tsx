@@ -1,28 +1,10 @@
+import getLoggeduser from "@/lib/api/profile.api";
 import DropZoneImage from "./_components/drop-zone-image";
 import UpdatePeofileForm from "./_components/update-peofile-form";
-import { JSON_HEADER } from "@/lib/constants/api.constants";
-import getTokenFromCookies from "@/lib/utils/get-cookies-token";
-
-async function getLoggeduser() {
-  const token = await getTokenFromCookies();
-  const response = await fetch(`${process.env.API!}/auth/profile-data`, {
-    cache: "no-store",
-    method: "Get",
-    headers: {
-      ...JSON_HEADER,
-      Authorization: `Bearer ${token?.token}`,
-    },
-  });
-
-  const payload: APIResponse<LoggedUserResponse> = await response.json();
-  if ("error" in payload) throw new Error(payload.error);
-
-  return payload;
-}
 
 export default async function page() {
   const profileData = await getLoggeduser();
-
+  console.log("🔁 FETCHING PROFILE DATA");
   return (
     <>
       {/* Person Info */}

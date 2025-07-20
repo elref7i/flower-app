@@ -141,5 +141,6 @@
   "welcome": "مرحبًا {name}",
   "no-products": "لم يتم العثور على منتجات",
   "edit-profile-successfully": "تم تعديل الملف الشخصي بنجاح",
-  "password-changed-successfully": "تم تغيير كلمة المرور بنجاح"
+  "password-changed-successfully": "تم تغيير كلمة المرور بنجاح",
+  "deleted-account": "تم حذف الحساب"
 }

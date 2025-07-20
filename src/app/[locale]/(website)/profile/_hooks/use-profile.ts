@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { changePassword, editProfile } from "../_actions/profile.action";
+import { changePassword, deleteAcount, editProfile } from "../_actions/profile.action";
 import { ChangePasswordFields, EditProfileSchemaFields } from "@/lib/schema/profile.schema";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
@@ -30,7 +30,6 @@ export function useChangePassword() {
 
   const {
     mutateAsync: changePasswordMutation,
-    data: payload,
     isPending,
     isSuccess,
   } = useMutation({
@@ -44,4 +43,25 @@ export function useChangePassword() {
   });
 
   return { changePasswordMutation, isPending, isSuccess };
+}
+
+// Delete Account
+export function useDeleteAcount() {
+  const t = useTranslations();
+
+  const {
+    mutateAsync: deleteAcountMutation,
+    isPending,
+    isSuccess,
+  } = useMutation({
+    mutationFn: async () => await deleteAcount(),
+    onSuccess: (data) => {
+      toast.success(data.message || t("deleted-account"));
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
+  return { deleteAcountMutation, isPending, isSuccess };
 }

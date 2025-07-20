@@ -14,6 +14,7 @@ import { EditProfileSchema, EditProfileSchemaFields } from "@/lib/schema/profile
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEditProfile } from "../_hooks/use-profile";
+import { ConfirmDangerAction } from "@/components/common/confirm-danger-action";
 
 export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserResponse }) {
   //Mutation
@@ -31,9 +32,9 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
     resolver: zodResolver(EditProfileSchema),
   });
 
-  const onSumbit: SubmitHandler<EditProfileSchemaFields> = (values) => {
-    editProfileMutation(values);
-    console.log(values);
+  const onSumbit: SubmitHandler<EditProfileSchemaFields> = async (values) => {
+    await editProfileMutation(values);
+    form.reset(values);
   };
 
   return (
@@ -115,9 +116,12 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
 
         {/* Actions */}
         <div className="flex items-center justify-between mt-4">
-          <Button type="button" variant={"ghost"} className="text-maroon-500 font-medium">
-            delete My Account
-          </Button>
+          <ConfirmDangerAction
+            // handleAction={}
+            nameButton="delete My Account"
+            message="Are you sure you want to delete your account?"
+            discription="This action is permanent and cannot be undone."
+          />
           <Button disabled={!form.formState.isDirty || isPending} type="submit">
             Submit
           </Button>
