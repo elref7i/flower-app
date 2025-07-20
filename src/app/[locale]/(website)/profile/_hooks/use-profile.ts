@@ -3,6 +3,9 @@ import { changePassword } from "../_actions/profile.action";
 import { ChangePasswordFields } from "@/lib/schema/profile.schema";
 import { toast } from "sonner";
 
+// Update Profile
+
+// Change Password
 export function useChangePassword() {
   const {
     mutateAsync: changePasswordMutation,

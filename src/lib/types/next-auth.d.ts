@@ -20,7 +20,7 @@ declare module "next-auth" {
       role: string;
       wishlist: [];
       addresses: [];
-    } & DatabaseProperties;
+    } & DatabaseFields;
   }
 
   /**

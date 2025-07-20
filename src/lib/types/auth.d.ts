@@ -9,6 +9,19 @@ declare type TListRegisterFormFields = {
   placeholder: string;
 }[];
 
+// New
+declare type ApplicationUser = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  phone: string;
+  photo: string;
+  role: string;
+  wishlist: [];
+  addresses: [];
+} & DatabaseFields;
+
 // Authentication Api's  types
 declare type LoginResponse = Pick<User, "user" | "token">;
 

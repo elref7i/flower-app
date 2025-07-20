@@ -14,26 +14,22 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 import { ProfileSchema, ProfileSchemaFields } from "@/lib/schema/profile.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Profile } from "next-auth";
-import React from "react";
+import { User } from "next-auth";
+import { useSession } from "next-auth/react";
+import React, { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function UpdatePeofileForm() {
+  // Session
+  const { data: session } = useSession();
+
   // Form
   const form = useForm<ProfileSchemaFields>({
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      gender: "male",
-    },
     resolver: zodResolver(ProfileSchema),
   });
 
@@ -41,9 +37,25 @@ export default function UpdatePeofileForm() {
     console.log(values);
   };
 
+  useEffect(() => {
+    if (session?.user) {
+      const gender = session?.user.gender;
+      const isValidGender = gender === "male" || gender === "female";
+
+      form.reset({
+        firstName: session.user.firstName ?? "",
+        lastName: session.user.lastName ?? "",
+        email: session.user.email ?? "",
+        phone: session.user.phone ?? "",
+        gender: isValidGender ? gender : "male",
+      });
+    }
+  }, [session, form]);
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSumbit)} className="space-y-[10px]">
+        {/* First Name */}
         <FormField
           control={form.control}
           name="firstName"
@@ -58,6 +70,8 @@ export default function UpdatePeofileForm() {
             </FormItem>
           )}
         />
+
+        {/* Last Name */}
         <FormField
           control={form.control}
           name="lastName"
@@ -72,6 +86,8 @@ export default function UpdatePeofileForm() {
             </FormItem>
           )}
         />
+
+        {/* Email */}
         <FormField
           control={form.control}
           name="email"
@@ -86,6 +102,8 @@ export default function UpdatePeofileForm() {
             </FormItem>
           )}
         />
+
+        {/* Phone */}
         <FormField
           control={form.control}
           name="phone"
@@ -100,20 +118,21 @@ export default function UpdatePeofileForm() {
             </FormItem>
           )}
         />
+
+        {/* Gender */}
         <FormField
           control={form.control}
-          name="phone"
+          name="gender"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Gender</FormLabel>
               <FormControl>
-                <Select onValueChange={field.onChange} defaultValue="field.value">
+                <Select onValueChange={field.onChange} value={field.value}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a fruit" />
+                    <SelectValue placeholder="Select a gender" />
                   </SelectTrigger>
                   <SelectContent ref={field.ref}>
                     <SelectGroup>
-                      <SelectLabel>Gender</SelectLabel>
                       <SelectItem value="male">Male</SelectItem>
                       <SelectItem value="female">Female</SelectItem>
                     </SelectGroup>
@@ -131,7 +150,9 @@ export default function UpdatePeofileForm() {
           <Button type="button" variant={"ghost"} className="text-maroon-500 font-medium">
             delete My Account
           </Button>
-          <Button type="submit">Submit</Button>
+          <Button disabled={!form.formState.isDirty} type="submit">
+            Submit
+          </Button>
         </div>
       </form>
     </Form>
