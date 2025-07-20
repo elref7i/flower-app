@@ -22,7 +22,7 @@ const authOptions: NextAuthOptions = {
         const loginCredentials = { email: credentials?.email, password: credentials?.password };
 
         // Login promise
-        const response = await fetch(`${process.env.BASE_API}/auth/signin`, {
+        const response = await fetch(`${process.env.API}/auth/signin`, {
           method: "POST",
           body: JSON.stringify(loginCredentials),
           headers: { ...JSON_HEADER },

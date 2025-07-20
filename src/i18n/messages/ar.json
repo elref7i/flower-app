@@ -133,12 +133,21 @@
     "confirm-password-felid": "تأكيد كلمة المرور",
     "reset-password-feild": "إعادة تعيين كلمة المرور"
   },
-
   "schema": {
     "empty-confirm-password-error": "من فضلك أدخل تأكيد كلمة المرور",
     "passwords-dont-match-error": " كلمة المرور وتأكيدها غير متطابقين"
   },
   "welcome-back": "مرحبًا بعودتك",
   "welcome": "مرحبًا {name}",
-  "no-products": "لم يتم العثور على منتجات"
+  "no-products": "لم يتم العثور على منتجات",
+  "cash-title": "الدفع عند الاستلام",
+  "cash-content": "ستقوم بالدفع نقدًا عند استلام الطلب.",
+  "credit-content": "سيتم تحويلك إلى بوابة Stripe الآمنة لإتمام عملية الدفع.",
+  "credit-head": "بطاقة ائتمان",
+  "paymet-methods": "طريقة الدفع",
+  "back-button": "رجوع",
+  "next-button": "التالي",
+  "add-address-button": "أضف عنوانًا جديدًا",
+  "shipping-address": "عناوين الشحن",
+  "checkout-button": "إتمام الشراء"
 }
