@@ -9,48 +9,32 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { ProfileSchema, ProfileSchemaFields } from "@/lib/schema/profile.schema";
+
+import { EditProfileSchema, EditProfileSchemaFields } from "@/lib/schema/profile.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { User } from "next-auth";
-import { useSession } from "next-auth/react";
-import React, { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useEditProfile } from "../_hooks/use-profile";
 
-export default function UpdatePeofileForm() {
-  // Session
-  const { data: session } = useSession();
+export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserResponse }) {
+  //Mutation
+  const { editProfileMutation, isPending } = useEditProfile();
 
+  console.log(dataInfo.user.gender);
   // Form
-  const form = useForm<ProfileSchemaFields>({
-    resolver: zodResolver(ProfileSchema),
+  const form = useForm<EditProfileSchemaFields>({
+    defaultValues: {
+      firstName: dataInfo.user.firstName ?? "",
+      lastName: dataInfo.user.lastName ?? "",
+      email: dataInfo.user.email ?? "",
+      phone: dataInfo.user.phone ?? "",
+    },
+    resolver: zodResolver(EditProfileSchema),
   });
 
-  const onSumbit: SubmitHandler<ProfileSchemaFields> = (values) => {
+  const onSumbit: SubmitHandler<EditProfileSchemaFields> = (values) => {
+    editProfileMutation(values);
     console.log(values);
   };
-
-  useEffect(() => {
-    if (session?.user) {
-      const gender = session?.user.gender;
-      const isValidGender = gender === "male" || gender === "female";
-
-      form.reset({
-        firstName: session.user.firstName ?? "",
-        lastName: session.user.lastName ?? "",
-        email: session.user.email ?? "",
-        phone: session.user.phone ?? "",
-        gender: isValidGender ? gender : "male",
-      });
-    }
-  }, [session, form]);
 
   return (
     <Form {...form}>
@@ -120,29 +104,13 @@ export default function UpdatePeofileForm() {
         />
 
         {/* Gender */}
-        <FormField
-          control={form.control}
-          name="gender"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Gender</FormLabel>
-              <FormControl>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a gender" />
-                  </SelectTrigger>
-                  <SelectContent ref={field.ref}>
-                    <SelectGroup>
-                      <SelectItem value="male">Male</SelectItem>
-                      <SelectItem value="female">Female</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
+        <Input
+          disabled
+          placeholder="Gender"
+          type="text"
+          className="w-full"
+          value={dataInfo.user.gender}
         />
 
         {/* Actions */}
@@ -150,7 +118,7 @@ export default function UpdatePeofileForm() {
           <Button type="button" variant={"ghost"} className="text-maroon-500 font-medium">
             delete My Account
           </Button>
-          <Button disabled={!form.formState.isDirty} type="submit">
+          <Button disabled={!form.formState.isDirty || isPending} type="submit">
             Submit
           </Button>
         </div>

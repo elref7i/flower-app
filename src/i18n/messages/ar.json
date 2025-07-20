@@ -133,12 +133,13 @@
     "confirm-password-felid": "تأكيد كلمة المرور",
     "reset-password-feild": "إعادة تعيين كلمة المرور"
   },
-
   "schema": {
     "empty-confirm-password-error": "من فضلك أدخل تأكيد كلمة المرور",
     "passwords-dont-match-error": " كلمة المرور وتأكيدها غير متطابقين"
   },
   "welcome-back": "مرحبًا بعودتك",
   "welcome": "مرحبًا {name}",
-  "no-products": "لم يتم العثور على منتجات"
+  "no-products": "لم يتم العثور على منتجات",
+  "edit-profile-successfully": "تم تعديل الملف الشخصي بنجاح",
+  "password-changed-successfully": "تم تغيير كلمة المرور بنجاح"
 }

@@ -1,15 +1,14 @@
 "use server";
 
-import { ChangePasswordFields } from "@/lib/schema/profile.schema";
-import { ChangePasswordResponse } from "@/lib/types/auth";
+import { ChangePasswordFields, EditProfileSchemaFields } from "@/lib/schema/profile.schema";
 import getTokenFromCookies from "@/lib/utils/get-cookies-token";
 
-export const updateProfile = async (values: ChangePasswordFields) => {
+export const editProfile = async (values: EditProfileSchemaFields) => {
   const token = await getTokenFromCookies();
 
-  const response = await fetch(`${process.env.API!}/auth/change-password`, {
+  const response = await fetch(`${process.env.API!}/auth/editProfile`, {
     cache: "no-store",
-    method: "PATCH",
+    method: "PUT",
     headers: {
       Authorization: `Bearer ${token?.token}`,
       "Content-Type": "application/json",
@@ -17,7 +16,7 @@ export const updateProfile = async (values: ChangePasswordFields) => {
     body: JSON.stringify(values),
   });
 
-  const payload: APIResponse<ChangePasswordResponse> = await response.json();
+  const payload: APIResponse<EditProfileResponse> = await response.json();
 
   if ("error" in payload) throw new Error(payload.error);
 

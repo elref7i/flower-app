@@ -139,5 +139,7 @@
   },
   "welcome-back": "Welcome Back!",
   "welcome": "Welcome {name}",
-  "no-products": "No Products Found"
+  "no-products": "No Products Found",
+  "edit-profile-successfully": "Edit Profile successfully",
+  "password-changed-successfully": "Password changed successfully"
 }

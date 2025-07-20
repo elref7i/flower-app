@@ -1,7 +1,7 @@
 import { z } from "zod";
 import parsePhoneNumberFromString from "libphonenumber-js";
 import { PASSWORD_REGEX } from "../constants/password-regx";
-export const ProfileSchema = z.object({
+export const EditProfileSchema = z.object({
   firstName: z
     .string({ required_error: "First name is required" })
     .min(1, "First name is required")
@@ -17,9 +17,6 @@ export const ProfileSchema = z.object({
     .refine((value) => parsePhoneNumberFromString(value, "EG")?.isValid(), {
       message: "Phone number is not valid",
     }),
-  gender: z.enum(["male", "female"], {
-    required_error: "Gender is required",
-  }),
 });
 
 export const ChangePasswordSchema = z.object({
@@ -33,5 +30,5 @@ export const ChangePasswordSchema = z.object({
     .regex(PASSWORD_REGEX, { message: "New password is not valid" }),
 });
 
-export type ProfileSchemaFields = z.infer<typeof ProfileSchema>;
+export type EditProfileSchemaFields = z.infer<typeof EditProfileSchema>;
 export type ChangePasswordFields = z.infer<typeof ChangePasswordSchema>;

@@ -10,17 +10,6 @@ declare type TListRegisterFormFields = {
 }[];
 
 // New
-declare type ApplicationUser = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  gender: string;
-  phone: string;
-  photo: string;
-  role: string;
-  wishlist: [];
-  addresses: [];
-} & DatabaseFields;
 
 // Authentication Api's  types
 declare type LoginResponse = Pick<User, "user" | "token">;
@@ -38,7 +27,5 @@ declare type VerifyRestResponse = {
 declare type SetPasswordResponse = {
   token: string;
 };
-
-declare type ChangePasswordResponse = SetPasswordResponse;
 
 declare type LogOutResponse = { message: "success" } | { error: string };
