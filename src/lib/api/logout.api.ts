@@ -4,16 +4,17 @@ import getTokenFromCookies from "../utils/get-cookies-token";
 
 export default async function logOut() {
   const token = await getTokenFromCookies();
-  if (!token) throw new Error("You are not logged in");
-  const response = await fetch(`${process.env.API}/auth/logout`, {
-    method: "Get",
+
+  const response = await fetch(`https://flower.elevateegy.com/api/v1/auth/logout`, {
+    method: "GET",
     headers: {
       ...JSON_HEADER,
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token?.token}`,
     },
   });
   const payload: LogOutResponse = await response.json();
 
   if ("error" in payload) throw new Error(payload.error || "Can't Log Out");
+
   return payload;
 }

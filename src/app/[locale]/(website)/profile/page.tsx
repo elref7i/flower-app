@@ -3,24 +3,32 @@ import DropZoneImage from "./_components/drop-zone-image";
 import UpdatePeofileForm from "./_components/update-peofile-form";
 
 export default async function page() {
+  // Fetch data
   const profileData = await getLoggeduser();
-  console.log("🔁 FETCHING PROFILE DATA");
+
   return (
     <>
       {/* Person Info */}
       <div className="flex items-center gap-2 pb-4">
+        {/* Image Profile */}
         <DropZoneImage />
+
+        {/* Hints */}
         <article>
-          <h3 className="text-zinc-800 font-semibold text-xl">Upload Photo</h3>
-          <p className="text-zinc-500">
+          <h3 className="text-zinc-800 font-semibold text-xl dark:text-zinc-50">Upload Photo</h3>
+          <p className="text-zinc-500 dark:text-zinc-400">
             You can upload a .jpg, .png, or .gif photo with max size of 5MB.
           </p>
         </article>
       </div>
+
+      {/* Data */}
       {profileData?.user ? (
         <UpdatePeofileForm dataInfo={profileData} />
       ) : (
-        <p>Something went wrong while loading the profile.</p>
+        <p className="text-maroon-600-800 font-semibold text-xl">
+          Something went wrong while loading the profile.
+        </p>
       )}
     </>
   );

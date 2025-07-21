@@ -17,14 +17,21 @@ const links = [
 export default function SidebarProfile() {
   const pathName = usePathname();
   return (
-    <aside className="col-span-3 p-4 bg-zinc-50 border-[1px] border-zinc-100 shadow-md rounded-lg">
+    <aside
+      className={cn(
+        "col-span-3 p-4 bg-zinc-50  border-[1px] border-zinc-100 shadow-md rounded-lg",
+        "dark:bg-zinc-950 dark:border-zinc-800 ",
+      )}
+    >
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
               className={cn(
-                pathName === link.href ? "bg-zinc-800 text-zinc-50" : "text-zinc-800 ",
+                pathName === link.href
+                  ? "bg-zinc-800 text-zinc-50 dark:bg-zinc-50 dark:text-zinc-800"
+                  : "text-zinc-800  dark:text-zinc-50",
                 "flex items-center gap-2  py-3 px-4 rounded-lg",
               )}
             >

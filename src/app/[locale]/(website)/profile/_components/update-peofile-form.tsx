@@ -116,12 +116,14 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
 
         {/* Actions */}
         <div className="flex items-center justify-between mt-4">
+          {/* Delete Acount */}
           <ConfirmDangerAction
-            // handleAction={}
             nameButton="delete My Account"
             message="Are you sure you want to delete your account?"
             discription="This action is permanent and cannot be undone."
           />
+
+          {/* Submit Data */}
           <Button disabled={!form.formState.isDirty || isPending} type="submit">
             Submit
           </Button>

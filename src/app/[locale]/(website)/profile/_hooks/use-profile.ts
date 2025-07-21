@@ -3,6 +3,9 @@ import { changePassword, deleteAcount, editProfile } from "../_actions/profile.a
 import { ChangePasswordFields, EditProfileSchemaFields } from "@/lib/schema/profile.schema";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import logOut from "@/lib/api/logout.api";
+import { signOut } from "next-auth/react";
 
 // Update Profile
 export function useEditProfile() {
@@ -48,15 +51,17 @@ export function useChangePassword() {
 // Delete Account
 export function useDeleteAcount() {
   const t = useTranslations();
+  const router = useRouter();
 
   const {
-    mutateAsync: deleteAcountMutation,
+    mutate: deleteAcountMutation,
     isPending,
     isSuccess,
   } = useMutation({
     mutationFn: async () => await deleteAcount(),
     onSuccess: (data) => {
-      toast.success(data.message || t("deleted-account"));
+      signOut({ callbackUrl: "/" });
+      toast.success(t("deleted-account"));
     },
     onError: (error) => {
       toast.error(error.message);

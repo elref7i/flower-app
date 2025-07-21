@@ -1,5 +1,6 @@
 "use server";
 
+import logOut from "@/lib/api/logout.api";
 import { ChangePasswordFields, EditProfileSchemaFields } from "@/lib/schema/profile.schema";
 import getTokenFromCookies from "@/lib/utils/get-cookies-token";
 import { revalidatePath } from "next/cache";
