@@ -15,10 +15,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEditProfile } from "../_hooks/use-profile";
 import { ConfirmDangerAction } from "@/components/common/confirm-danger-action";
+import useLogout from "@/hooks/use-logout";
 
 export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserResponse }) {
   //Mutation
   const { editProfileMutation, isPending } = useEditProfile();
+
+  const { logOutMutation, isPending: isLog } = useLogout();
 
   // Form
   const form = useForm<EditProfileSchemaFields>({
@@ -128,6 +131,9 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           </Button>
         </div>
       </form>
+      <Button disabled={isLog} onClick={() => logOutMutation()}>
+        Logout
+      </Button>
     </Form>
   );
 }
