@@ -9,7 +9,9 @@ import { signOut } from "next-auth/react";
 
 // Update Profile
 export function useEditProfile() {
+  // translations
   const t = useTranslations();
+
   const {
     mutateAsync: editProfileMutation,
     isPending,

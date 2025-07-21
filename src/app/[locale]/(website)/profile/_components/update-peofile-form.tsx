@@ -20,7 +20,6 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
   //Mutation
   const { editProfileMutation, isPending } = useEditProfile();
 
-  console.log(dataInfo.user.gender);
   // Form
   const form = useForm<EditProfileSchemaFields>({
     defaultValues: {
@@ -32,6 +31,7 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
     resolver: zodResolver(EditProfileSchema),
   });
 
+  // onSubmit
   const onSumbit: SubmitHandler<EditProfileSchemaFields> = async (values) => {
     await editProfileMutation(values);
     form.reset(values);
@@ -105,7 +105,6 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
         />
 
         {/* Gender */}
-
         <Input
           disabled
           placeholder="Gender"
@@ -120,7 +119,7 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           <ConfirmDangerAction
             nameButton="delete My Account"
             message="Are you sure you want to delete your account?"
-            discription="This action is permanent and cannot be undone."
+            description="This action is permanent and cannot be undone."
           />
 
           {/* Submit Data */}

@@ -19,30 +19,38 @@ import { Trash, X } from "lucide-react";
 interface ConfirmDangerActionProps {
   nameButton: string;
   message: string;
-  discription: string;
+  description: string;
 }
 
+// ConfirmDangerAction
 export function ConfirmDangerAction({
   nameButton,
   message,
-  discription,
+  description,
 }: ConfirmDangerActionProps) {
   // Mutation
-
   const { deleteAcountMutation, isPending } = useDeleteAcount();
 
   return (
     <AlertDialog>
+      {/* Trigger */}
       <AlertDialogTrigger asChild>
+        {/* Button */}
         <Button variant={"link"} className="text-maroon-500 no-underline hover:no-underline">
           {nameButton}
         </Button>
       </AlertDialogTrigger>
+
+      {/* Content */}
       <AlertDialogContent className="bg-white dark:bg-zinc-900 border-maroon-500">
+        {/* Header */}
         <AlertDialogHeader className="*:text-center relative ">
+          {/* Cancel */}
           <AlertDialogCancel asChild icon={true}>
             <X className="absolute end-0 top-0 cursor-pointer dark:text-red-500  " />
           </AlertDialogCancel>
+
+          {/* Icon */}
           <div
             className={cn(
               "relative bg-[#2E2E300D] dark:bg-[#fbacac16] flex items-center justify-center size-[105px] rounded-full",
@@ -51,11 +59,20 @@ export function ConfirmDangerAction({
           >
             <Trash size={29} className="z-50 dark:text-maroon-500" />
           </div>
+
+          {/* Title */}
           <AlertDialogTitle>{message}</AlertDialogTitle>
-          <AlertDialogDescription className="text-maroon-500">{discription}</AlertDialogDescription>
+
+          {/* Description */}
+          <AlertDialogDescription className="text-maroon-500">{description}</AlertDialogDescription>
         </AlertDialogHeader>
+
+        {/* Footer */}
         <AlertDialogFooter>
+          {/* Cancel */}
           <AlertDialogCancel>Cancel</AlertDialogCancel>
+
+          {/* Continue */}
           <AlertDialogAction asChild>
             <Button disabled={isPending} onClick={() => deleteAcountMutation()}>
               Continue

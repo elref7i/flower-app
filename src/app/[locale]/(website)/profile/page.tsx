@@ -15,14 +15,17 @@ export default async function page() {
 
         {/* Hints */}
         <article>
+          {/* Title */}
           <h3 className="text-zinc-800 font-semibold text-xl dark:text-zinc-50">Upload Photo</h3>
+
+          {/* Description */}
           <p className="text-zinc-500 dark:text-zinc-400">
             You can upload a .jpg, .png, or .gif photo with max size of 5MB.
           </p>
         </article>
       </div>
 
-      {/* Data */}
+      {/* Update Profile */}
       {profileData?.user ? (
         <UpdatePeofileForm dataInfo={profileData} />
       ) : (

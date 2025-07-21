@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils/cn";
 import { User } from "lucide-react";
 import Link from "next/link";
 
+// links
 const links = [
   {
     href: "/profile",
@@ -14,8 +15,11 @@ const links = [
     label: "Change Password",
   },
 ];
+
 export default function SidebarProfile() {
+  // pathname
   const pathName = usePathname();
+
   return (
     <aside
       className={cn(
@@ -23,6 +27,7 @@ export default function SidebarProfile() {
         "dark:bg-zinc-950 dark:border-zinc-800 ",
       )}
     >
+      {/* Links */}
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link.href}>

@@ -16,7 +16,6 @@ import { useChangePassword } from "../_hooks/use-profile";
 
 export default function ChangePasswordForm() {
   //Mutation
-
   const { changePasswordMutation, isPending, isSuccess } = useChangePassword();
 
   // Form
@@ -28,12 +27,14 @@ export default function ChangePasswordForm() {
     resolver: zodResolver(ChangePasswordSchema),
   });
 
-  const onSumbit: SubmitHandler<ChangePasswordFields> = async (values) => {
+ // onSubmit
+  const onSubmit: SubmitHandler<ChangePasswordFields> = async (values) => {
     await changePasswordMutation(values);
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSumbit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        {/* Old Password */}
         <FormField
           control={form.control}
           name="password"
@@ -47,6 +48,7 @@ export default function ChangePasswordForm() {
             </FormItem>
           )}
         />
+        {/* New Password */}
         <FormField
           control={form.control}
           name="newPassword"

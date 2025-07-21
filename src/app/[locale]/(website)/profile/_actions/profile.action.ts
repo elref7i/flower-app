@@ -6,6 +6,7 @@ import getTokenFromCookies from "@/lib/utils/get-cookies-token";
 import { revalidatePath } from "next/cache";
 
 export const editProfile = async (values: EditProfileSchemaFields) => {
+  // get token
   const token = await getTokenFromCookies();
 
   const response = await fetch(`${process.env.API!}/auth/editProfile`, {
@@ -26,6 +27,7 @@ export const editProfile = async (values: EditProfileSchemaFields) => {
 };
 
 export const changePassword = async (values: ChangePasswordFields) => {
+  // get token
   const token = await getTokenFromCookies();
 
   const response = await fetch(`${process.env.API!}/auth/change-password`, {
@@ -44,6 +46,8 @@ export const changePassword = async (values: ChangePasswordFields) => {
 
   return payload;
 };
+
+
 export const deleteAcount = async () => {
   const token = await getTokenFromCookies();
 
