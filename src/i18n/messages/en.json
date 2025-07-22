@@ -139,5 +139,21 @@
   },
   "welcome-back": "Welcome Back!",
   "welcome": "Welcome {name}",
-  "no-products": "No Products Found"
+  "no-products": "No Products Found",
+  "cart": {
+    "cart": "Cart",
+    "product": "{quantity,plural, one {# Product} other {# Products}}",
+    "clear-cart": "Clear Cart",
+    "adding-to-cart": "Adding To Cart...",
+    "add-cart-error": "Can't Add Product to Cart",
+    "add-cart-success": "Product Added To Cart Successfully",
+    "clear-cart-success": "Cart Items Deleted Successfully",
+    "empty-cart": "Your cart is empty, wanna try shopping?",
+    "continue-shopping": "Continue Shopping",
+    "rating": "Rating :",
+    "ratings": "ratings",
+    "remove": "Remove",
+    "EGP": "EGP",
+    "related-products": "<span>Products You</span>MayLike"
+  }
 }

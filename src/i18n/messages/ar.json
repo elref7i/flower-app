@@ -133,12 +133,27 @@
     "confirm-password-felid": "تأكيد كلمة المرور",
     "reset-password-feild": "إعادة تعيين كلمة المرور"
   },
-
   "schema": {
     "empty-confirm-password-error": "من فضلك أدخل تأكيد كلمة المرور",
     "passwords-dont-match-error": " كلمة المرور وتأكيدها غير متطابقين"
   },
   "welcome-back": "مرحبًا بعودتك",
   "welcome": "مرحبًا {name}",
-  "no-products": "لم يتم العثور على منتجات"
+  "no-products": "لم يتم العثور على منتجات",
+  "cart": {
+    "cart": "العربه",
+    "product": "{quantity,plural, one {# منتج} two {منتجين} other {# منتجات} }",
+    "clear-cart": "مسح العربه",
+    "adding-to-cart": "جاري اضافة المنتج إلي العربه ...",
+    "add-cart-error": "غير قادر علي اضافة المنتج الي العربه",
+    "add-cart-success": "تم اضافة المنتج الى العربه بنجاح",
+    "clear-cart-success": "تم مسح مختويات العربة بنجاح",
+    "empty-cart": " ليس لديك اي منتجات في العربه. هل تريد النسوق؟ ",
+    "continue-shopping": "مواصلة التسوق",
+    "rating": "التقيم: ",
+    "ratings": "تقيمات",
+    "remove": "حذف",
+    "EGP": "ج.م",
+    "related-products": "<span>بعض المنتجات</span>التي تفضلها"
+  }
 }

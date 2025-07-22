@@ -15,3 +15,25 @@ declare type Product = {
   isSuperAdmin?: boolean;
   sold: number;
 } & DatabaseFields;
+
+declare type ProductCard = Pick<
+  Product,
+  "imgCover" | "title" | "rateAvg" | "rateCount" | "price" | "priceAfterDiscount" | "_id"
+>;
+
+declare type Recommendation = {
+  _id: string;
+  title: string;
+  imgCover: string;
+  price: number;
+  priceAfterDiscount: number;
+  discount: number;
+  rateAvg: number;
+  rateCount: number;
+  id: string;
+};
+
+declare type RelatedProductsResponse = {
+  count: number;
+  recommendations: Recommendation[];
+};

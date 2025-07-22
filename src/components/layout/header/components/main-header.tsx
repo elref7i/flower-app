@@ -1,6 +1,6 @@
 import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
-import { User } from "lucide-react";
+import { Bell, User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
@@ -9,6 +9,9 @@ import { getServerSession } from "next-auth";
 import authOptions from "@/auth-options";
 import { getTranslations } from "next-intl/server";
 import Notification from "./notifications/notification";
+import { notificationIcons } from "../constants/icons";
+import CartIcon from "./cart/cart-icon";
+import WishlistIcon from "./wishlist/wishlist-icon";
 
 export default async function MainHeader() {
   const t = await getTranslations();
@@ -34,8 +37,10 @@ export default async function MainHeader() {
           {session?.user ? t("welcome", { name: session?.user.firstName }) : t("login")}
         </Link>
 
-        {/* Icon notifiactions */}
-        {/* <Notification /> */}
+        <ul className="flex gap-1 items-center px-3 border-r border-l border-zinc-300 dark:border-zinc-700">
+          <WishlistIcon />
+          <CartIcon />
+        </ul>
 
         {/* Toggle Transelation */}
         <LanguageToggle />
