@@ -154,6 +154,7 @@
     "ratings": "تقيمات",
     "remove": "حذف",
     "EGP": "ج.م",
-    "related-products": "<span>بعض المنتجات</span>التي تفضلها"
+    "related-products": "<span>بعض المنتجات</span>التي تفضلها",
+    "login-error": "يجب عليك تسجيل الدخول لتتمكن من اضافة منتجات"
   }
 }

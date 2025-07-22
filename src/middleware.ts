@@ -6,7 +6,7 @@ import { getToken } from "next-auth/jwt";
 
 const authRouts = ["/auth/login"];
 const publicPages = ["/", ...authRouts];
-const protectedPage = ["/cart", "/cart/checkout"];
+
 const handleI18nRouting = createMiddleware(routing);
 
 const authMiddleware = withAuth(
@@ -40,10 +40,10 @@ export default async function middleware(req: NextRequest) {
 
   const isPublicPage = pathRegex(publicPages).test(req.nextUrl.pathname);
   const isAuthPage = pathRegex(authRouts).test(req.nextUrl.pathname);
-  const isProtectedPage = pathRegex(protectedPage).test(req.nextUrl.pathname);
+
   if (isPublicPage || "/*") {
     const token = await getToken({ req });
-    if (isProtectedPage && !token) return NextResponse.redirect(new URL("/", req.nextUrl.origin));
+
     if (isAuthPage && token) {
       return NextResponse.redirect(new URL("/", req.nextUrl.origin));
     }

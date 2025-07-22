@@ -154,6 +154,7 @@
     "ratings": "ratings",
     "remove": "Remove",
     "EGP": "EGP",
-    "related-products": "<span>Products You</span>MayLike"
+    "related-products": "<span>Products You</span>MayLike",
+    "login-error": "You Should login to add items to your cart"
   }
 }
