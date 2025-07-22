@@ -2,7 +2,7 @@
 import PaymentMethodPage from "./step2-page";
 import ShippingAddressPage from "./step1-page";
 import { useCheckout } from "@/lib/context/checkout-context";
-// import { Address } from "@/types";
+import ProgressBar from "@/components/common/progress-bar";
 
 type Props = {
   addresses: Address[];
@@ -22,5 +22,10 @@ export default function RenderSteps({ addresses }: Props) {
     }
   };
 
-  return <div className="w-[782px]  px-5">{renderStep()}</div>;
+  return (
+    <div className="w-[782px]  px-5">
+      <ProgressBar step={step} />
+      {renderStep()}
+    </div>
+  );
 }

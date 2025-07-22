@@ -149,5 +149,9 @@
   "next-button": "التالي",
   "add-address-button": "أضف عنوانًا جديدًا",
   "shipping-address": "عناوين الشحن",
-  "checkout-button": "إتمام الشراء"
+  "checkout-button": "إتمام الشراء",
+  "no-coupons": "لا يوجد كوبونات",
+  "sub-total": "الإجمالي قبل التخفيض",
+  "total": "المجموع",
+  "apply-coupon": "فعل الكوبون"
 }

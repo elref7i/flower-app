@@ -149,5 +149,9 @@
   "next-button": "Next",
   "add-address-button": "Add a New Address",
   "shipping-address": "Shipping Addresses",
-  "checkout-button": "Checkout"
+  "checkout-button": "Checkout",
+  "no-coupons": "No coupons applied",
+  "sub-total": "Subtotal",
+  "total": "Total",
+  "apply-coupon": "Apply Coupon"
 }
