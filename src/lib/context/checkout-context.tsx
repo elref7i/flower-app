@@ -4,7 +4,7 @@ import { createContext, useContext, useState, ReactNode } from "react";
 type CheckoutContextType = {
   step: string;
   setStep: (step: string) => void;
-  selectedAddress: Address;
+  selectedAddress: Address | null;
   setSelectedAddress: (address: Address) => void;
 };
 
@@ -12,7 +12,9 @@ const CheckoutContext = createContext<CheckoutContextType | undefined>(undefined
 
 export function CheckoutProvider({ children }: { children: ReactNode }) {
   const [step, setStep] = useState("1");
+
   const [selectedAddress, setSelectedAddress] = useState<Address | null>(null);
+
   return (
     <CheckoutContext.Provider value={{ step, setStep, selectedAddress, setSelectedAddress }}>
       {children}

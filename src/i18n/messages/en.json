@@ -75,6 +75,7 @@
   "gifts": "  Explore gifts",
   "paragraph": "<br> Not sure what to choose? </br>     Start with our best sellers, these are the gifts our customers keep coming back for.     Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed     to leave a lasting impression.",
   "arrow": "<span>→</span>",
+  "discount": "<strong>{percentage}%</strong> Discount",
   "banner": {
     "budge": "Staring from 10.99 EGP",
     "special-gifts-title": "Special Gifts For The People You Love",
@@ -153,5 +154,8 @@
   "no-coupons": "No coupons applied",
   "sub-total": "Subtotal",
   "total": "Total",
-  "apply-coupon": "Apply Coupon"
+  "apply-coupon": "Apply Coupon",
+  "summary-title": "Summary",
+  "message-on-cash": "Pay with cash when your order arrives.",
+  "message-on-credit": "Redirecting to payment..."
 }

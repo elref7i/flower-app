@@ -1,6 +1,5 @@
 import { getUserAddressesAction } from "./_actions/get-user-addresses.action";
 import { CheckoutProvider } from "@/lib/context/checkout-context";
-import Progressbar from "./_components/progress-bar";
 import RenderSteps from "./_components/steppages";
 
 export default async function Page() {

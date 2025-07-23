@@ -1,17 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-// import { getCartItems } from "@/lib/api/cart";
+import { getCartItems } from "@/lib/api/cart";
 import { TicketPercent } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 
 export default async function SummaryWithoutDiscount() {
-  // const { product }: CartItem = await getCartItems();
-  // const { price, priceAfterDiscount } = product;
-
   //   Translartion
   const t = useTranslations();
   const format = useFormatter();
+
+  // Get cart data
+  const data = await getCartItems();
+
+  const cartItems = data?.cart?.cartItems || [];
+
+  // Calculate total prices
+  const totalPrice = cartItems.reduce((acc: number, item: CartItem) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
+  const totalPriceAfterDiscount = cartItems.reduce((acc: number, item: CartItem) => {
+    return acc + item.product.priceAfterDiscount * item.quantity;
+  }, 0);
+
   return (
     <div>
       {/* Head */}
@@ -19,7 +31,7 @@ export default async function SummaryWithoutDiscount() {
         <Input placeholder="Coupon Code" className="bg-zinc-50" />
         <Button className="font-semibold py-6">
           <TicketPercent />
-          Apply Coupon
+          {t("apply-coupon")}
         </Button>
       </div>
 
@@ -29,7 +41,7 @@ export default async function SummaryWithoutDiscount() {
 
       {/* total */}
       <div className="text-zinc-800 font-bold text-2xl flex justify-between py-3">
-        <span>Total</span>
+        <span>{t("total")}</span>
         <span>
           {format.number(500, {
             style: "currency",

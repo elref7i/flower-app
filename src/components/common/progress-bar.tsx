@@ -2,6 +2,7 @@
 
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils/cn";
+import { useLocale } from "next-intl";
 
 type ProgressBarProps = {
   step: string;
@@ -9,6 +10,7 @@ type ProgressBarProps = {
 
 const ProgressBar = ({ step }: ProgressBarProps) => {
   const value = step === "1" ? 33.3333 : step === "2" ? 66.6666 : 0;
+  const locale = useLocale();
 
   return (
     <div className="w-full relative px-2 my-5">
@@ -19,6 +21,7 @@ const ProgressBar = ({ step }: ProgressBarProps) => {
           "h-2 bg-zinc-200",
           "[&>div]:bg-maroon-600",
           "[&>div]:transition-all [&>div]:duration-500",
+          "rtl:[&>div]:bg-gradient-to-l ltr:[&>div]:bg-gradient-to-r", // دعم RTL و LTR
         )}
       />
 

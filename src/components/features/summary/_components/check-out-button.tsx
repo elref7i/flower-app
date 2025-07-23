@@ -1,7 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { MoveRight } from "lucide-react";
+import { MoveLeft, MoveRight } from "lucide-react";
+import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function CheckoutButton() {
@@ -11,17 +12,14 @@ export default function CheckoutButton() {
   // variables
   const pathUrl = pathname === "/en/cart";
   if (!pathUrl) return null;
-
+  const locale = useLocale();
   //   Route
   const router = useRouter();
 
-  const handleClick = () => {
-    router.push("/en/checkout");
-  };
   return (
     <Button className="w-full my-3" onClick={() => router.push("/en/checkout")}>
       Checkout
-      <MoveRight />
+      {locale === "en" ? <MoveRight /> : <MoveLeft />}
     </Button>
   );
 }

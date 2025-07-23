@@ -1,17 +1,35 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-// import { getCartItems } from "@/lib/api/cart";
+import { getCartItems } from "@/lib/api/cart";
 import { TicketPercent } from "lucide-react";
-import { useFormatter, useTranslations } from "next-intl";
+import { getTranslations, getFormatter } from "next-intl/server";
+
+// import TotalandSubtotal from "./total-subtotal";
 
 export default async function SummaryWithDiscount() {
-  // const { product }: CartItem = await getCartItems();
-  // const { price, priceAfterDiscount } = product;
+  // Get cart data
+  const data = await getCartItems();
+
+  const cartItems = data?.cart?.cartItems || [];
+
+  // // Calculate total prices
+  const totalPrice = cartItems.reduce((acc: number, item: CartItem) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
+  // Calculate Total After Discount
+  const totalPriceAfterDiscount = cartItems.reduce((acc: number, item: CartItem) => {
+    return acc + item.product.priceAfterDiscount * item.quantity;
+  }, 0);
+
+  // Calculate Discount
+  const discountAmount = totalPrice - totalPriceAfterDiscount;
+  const discountPercentage = totalPrice ? Math.round((discountAmount / totalPrice) * 100) : 0;
 
   //   Translations
-  const t = useTranslations();
-  const format = useFormatter();
+  const t = await getTranslations();
+  const format = await getFormatter();
   return (
     <div>
       {/* Head */}
@@ -19,7 +37,7 @@ export default async function SummaryWithDiscount() {
         <Input placeholder="Coupon Code" className="bg-zinc-50" />
         <Button className="font-semibold py-6">
           <TicketPercent />
-          Apply Coupon
+          {t("apply-coupon")}
         </Button>
       </div>
 
@@ -31,9 +49,10 @@ export default async function SummaryWithDiscount() {
       <div className="text-zinc-800 w-full flex justify-between py-3">
         <span className="text-lg font-medium ">{t("sub-total")}</span>
         <span className="font-semibold text-xl">
-          {format.number(250, {
+          {format.number(totalPriceAfterDiscount, {
             style: "currency",
             currency: "EGP",
+            maximumFractionDigits: 0,
           })}
         </span>
       </div>
@@ -41,7 +60,10 @@ export default async function SummaryWithDiscount() {
       {/* discount */}
       <div className="relative w-full flex justify-center items-center ">
         <span className="relative z-10 bg-zinc-50 px-3 text-black text-lg font-semibold">
-          50% Discount
+          {t.rich("discount", {
+            percentage: discountPercentage,
+            strong: (chunks) => <span className="font-bold text-primary">{chunks}</span>,
+          })}
         </span>
         <div className="absolute top-1/2 left-0 w-full border-t border-gray-300 -z-0 translate-y-1/2" />
       </div>
@@ -50,12 +72,15 @@ export default async function SummaryWithDiscount() {
       <div className="text-zinc-800 font-bold text-2xl flex justify-between py-3">
         <span>{t("total")}</span>
         <span>
-          {format.number(150, {
+          {format.number(totalPrice, {
             style: "currency",
             currency: "EGP",
+            maximumFractionDigits: 0,
           })}
         </span>
       </div>
+
+      {/* <TotalandSubtotal /> */}
     </div>
   );
 }

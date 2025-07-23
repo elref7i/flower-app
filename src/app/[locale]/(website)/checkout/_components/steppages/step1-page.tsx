@@ -1,4 +1,3 @@
-"use client";
 import AddressesList from "../addresses-list";
 
 type Props = {

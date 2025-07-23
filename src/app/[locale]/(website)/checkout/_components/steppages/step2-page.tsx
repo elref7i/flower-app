@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useCheckout } from "@/lib/context/checkout-context";
 import usePayByCash from "../../_hooks/use-pay-by-cash";
 import usePayByCredit from "../../_hooks/use-pay-by-credit";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function PaymentMethodPage() {
   // Hooks
@@ -17,7 +17,7 @@ export default function PaymentMethodPage() {
   const { PayByCashHookFun, isPending } = usePayByCash();
   const { PayByCreditHookFun } = usePayByCredit();
   const [selectedMethod, setSelectedMethod] = useState<"cash" | "card" | null>(null);
-
+  const locale = useLocale();
   // Translation
   const t = useTranslations();
 
@@ -47,7 +47,7 @@ export default function PaymentMethodPage() {
             setStep("1");
           }}
         >
-          <MoveLeft className="w-4 h-4" />
+          {locale === "en" ? <MoveLeft /> : <MoveRight />}
           {t("back-button")}
         </Button>
 
@@ -116,7 +116,8 @@ export default function PaymentMethodPage() {
           onClick={handleCheckout}
           disabled={isPending || !selectedMethod}
         >
-          {t("checkout-button")} <MoveRight />
+          {t("checkout-button")}
+          {locale === "en" ? <MoveRight /> : <MoveLeft />}
         </Button>
       </div>
     </section>

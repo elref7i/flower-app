@@ -1,9 +1,9 @@
 "use client";
 
 import { useCheckout } from "@/lib/context/checkout-context";
-import { MoveRight, Phone } from "lucide-react";
+import { MoveRight, Phone, MoveLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 type Props = {
   addresses: Address[];
@@ -12,6 +12,7 @@ type Props = {
 export default function AddressesList({ addresses }: Props) {
   // hooks
   const { setStep, selectedAddress, setSelectedAddress } = useCheckout();
+  const locale = useLocale();
 
   // translation
   const t = useTranslations();
@@ -22,8 +23,9 @@ export default function AddressesList({ addresses }: Props) {
 
   return (
     <div>
+      {/* Title */}
       <h1 className="text-3xl font-semibold my-6 ms-1">{t("shipping-address")}</h1>
-
+      {/* Addresses List */}
       <ul className="mt-4 space-y-3">
         {addresses.map((address) => (
           <li
@@ -72,12 +74,14 @@ export default function AddressesList({ addresses }: Props) {
         </div>
       </div>
 
+      {/* Add Address Button */}
       <Button className="bg-maroon-50 text-maroon-600 font-medium w-full rounded-lg  hover:text-maroon-50">
         {t("add-address-button")}
       </Button>
 
       <hr />
 
+      {/* Next Button */}
       <div className="flex justify-end">
         <Button
           className="bg-maroon-600 my-5 text-white font-semibold text-sm w-[152px]"
@@ -87,7 +91,7 @@ export default function AddressesList({ addresses }: Props) {
           disabled={!selectedAddress}
         >
           {t("next-button")}
-          <MoveRight />
+          {locale === "en" ? <MoveRight /> : <MoveLeft />}
         </Button>
       </div>
     </div>

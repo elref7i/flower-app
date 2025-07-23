@@ -2,15 +2,19 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { payByCreditAction } from "../_actions/pay-credit.action";
-payByCreditAction;
+import { useTranslations } from "next-intl";
 
 export default function usePayByCredit() {
+  // Translation
+  const t = useTranslations();
+
+  // mutation
   const { isPending, error, mutate } = useMutation({
     mutationFn: async (shippingAddressValues: ShippingAddress) =>
       await payByCreditAction(shippingAddressValues),
 
     onSuccess: (data) => {
-      toast.success("Redirecting to payment...");
+      toast.success("{t('message-on-credit')}");
 
       const stripeUrl = data?.session?.url;
 

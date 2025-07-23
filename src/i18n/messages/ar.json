@@ -153,5 +153,9 @@
   "no-coupons": "لا يوجد كوبونات",
   "sub-total": "الإجمالي قبل التخفيض",
   "total": "المجموع",
-  "apply-coupon": "فعل الكوبون"
+  "apply-coupon": "فعل الكوبون",
+  "discount": "<strong>{percentage}%</strong> خصم",
+  "summary-title": "تفاصيل السلة",
+  "message-on-cash": "سيتم الدفع نقدًا عند تسليم الطلب.",
+  "message-on-credit": "إعادة التوجيه إلى الدفع ..."
 }
