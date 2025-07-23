@@ -1,10 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
-import { changePassword, deleteAcount, editProfile } from "../_actions/profile.action";
+import {
+  changePassword,
+  deleteAcount,
+  editProfile,
+  uploadImageProfile,
+} from "../_actions/profile.action";
 import { ChangePasswordFields, EditProfileSchemaFields } from "@/lib/schema/profile.schema";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
-import logOut from "@/lib/api/logout.api";
 import { signOut } from "next-auth/react";
 
 // Update Profile
@@ -71,4 +75,25 @@ export function useDeleteAcount() {
   });
 
   return { deleteAcountMutation, isPending, isSuccess };
+}
+
+// Edit Image Profile
+export function useUploadImageProfile() {
+  const t = useTranslations();
+
+  const {
+    mutate: editImage,
+    isPending,
+    isSuccess,
+  } = useMutation({
+    mutationFn: async (formData: FormData) => await uploadImageProfile(formData),
+    onSuccess: (data) => {
+      toast.success("Success Upload image");
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
+  return { editImage, isPending, isSuccess };
 }

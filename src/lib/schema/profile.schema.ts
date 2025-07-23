@@ -30,5 +30,17 @@ export const ChangePasswordSchema = z.object({
     .regex(PASSWORD_REGEX, { message: "New password is not valid" }),
 });
 
+export const ImageProfileSchema = z.object({
+  photo: z
+    .any()
+    .refine((file) => file?.size <= 4 * 1024 * 1024, {
+      message: "Image must be less than 4MB.",
+    })
+    .refine((file) => ["image/jpeg", "image/png", "image/webp"].includes(file?.type), {
+      message: "Only .jpg, .png, and .webp files are allowed.",
+    }),
+});
+
 export type EditProfileSchemaFields = z.infer<typeof EditProfileSchema>;
 export type ChangePasswordFields = z.infer<typeof ChangePasswordSchema>;
+export type ImageProfileField = z.infer<typeof ImageProfileSchema>;

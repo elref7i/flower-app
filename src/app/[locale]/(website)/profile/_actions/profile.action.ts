@@ -1,20 +1,20 @@
 "use server";
 
 import logOut from "@/lib/api/logout.api";
+import { DATA_HEADER, JSON_HEADER } from "@/lib/constants/api.constants";
 import { ChangePasswordFields, EditProfileSchemaFields } from "@/lib/schema/profile.schema";
 import getTokenFromCookies from "@/lib/utils/get-cookies-token";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 export const editProfile = async (values: EditProfileSchemaFields) => {
   // get token
   const token = await getTokenFromCookies();
 
   const response = await fetch(`${process.env.API!}/auth/editProfile`, {
-    cache: "no-store",
     method: "PUT",
     headers: {
       Authorization: `Bearer ${token?.token}`,
-      "Content-Type": "application/json",
+      ...JSON_HEADER,
     },
     body: JSON.stringify(values),
   });
@@ -31,11 +31,10 @@ export const changePassword = async (values: ChangePasswordFields) => {
   const token = await getTokenFromCookies();
 
   const response = await fetch(`${process.env.API!}/auth/change-password`, {
-    cache: "no-store",
     method: "PATCH",
     headers: {
       Authorization: `Bearer ${token?.token}`,
-      "Content-Type": "application/json",
+      ...JSON_HEADER,
     },
     body: JSON.stringify(values),
   });
@@ -47,16 +46,14 @@ export const changePassword = async (values: ChangePasswordFields) => {
   return payload;
 };
 
-
 export const deleteAcount = async () => {
   const token = await getTokenFromCookies();
 
   const response = await fetch(`${process.env.API!}/auth/deleteMe`, {
-    cache: "no-store",
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token?.token}`,
-      "Content-Type": "application/json",
+      ...JSON_HEADER,
     },
   });
 
@@ -64,5 +61,23 @@ export const deleteAcount = async () => {
 
   if ("error" in payload) throw new Error(payload.error);
 
+  return payload;
+};
+
+export const uploadImageProfile = async (formData: FormData) => {
+  const token = await getTokenFromCookies();
+
+  const response = await fetch(`${process.env.API!}/auth/upload-photo`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token?.token}`,
+    },
+    body: formData,
+  });
+
+  const payload: APIResponse<ChangePasswordResponse> = await response.json();
+
+  if ("error" in payload) throw new Error(payload.error);
+  revalidateTag("profile");
   return payload;
 };

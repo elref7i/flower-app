@@ -1,13 +1,13 @@
 import { JSON_HEADER } from "../constants/api.constants";
 import getTokenFromCookies from "../utils/get-cookies-token";
 
-
 export default async function getLoggeduser() {
   // get token
   const token = await getTokenFromCookies();
 
   // fetch
   const response = await fetch(`${process.env.API!}/auth/profile-data`, {
+    next: { tags: ["profile"] },
     cache: "no-store",
     method: "Get",
     headers: {

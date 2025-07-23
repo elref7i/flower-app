@@ -131,9 +131,6 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           </Button>
         </div>
       </form>
-      <Button disabled={isLog} onClick={() => logOutMutation()}>
-        Logout
-      </Button>
     </Form>
   );
 }
