@@ -21,8 +21,6 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
   //Mutation
   const { editProfileMutation, isPending } = useEditProfile();
 
-  const { logOutMutation, isPending: isLog } = useLogout();
-
   // Form
   const form = useForm<EditProfileSchemaFields>({
     defaultValues: {
@@ -42,6 +40,7 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
 
   return (
     <Form {...form}>
+      {/* Form */}
       <form onSubmit={form.handleSubmit(onSumbit)} className="space-y-[10px]">
         {/* First Name */}
         <FormField
@@ -49,11 +48,15 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           name="firstName"
           render={({ field }) => (
             <FormItem>
+              {/* Label */}
               <FormLabel>First Name</FormLabel>
+
+              {/* Input */}
               <FormControl>
                 <Input placeholder="First Name" type="text" className="w-full" {...field} />
               </FormControl>
 
+              {/* Message */}
               <FormMessage />
             </FormItem>
           )}
@@ -65,11 +68,15 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           name="lastName"
           render={({ field }) => (
             <FormItem>
+              {/* Label */}
               <FormLabel>Last Name</FormLabel>
+
+              {/* Input */}
               <FormControl>
                 <Input placeholder="Last Name" type="text" className="w-full" {...field} />
               </FormControl>
 
+              {/* Message */}
               <FormMessage />
             </FormItem>
           )}
@@ -81,11 +88,15 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           name="email"
           render={({ field }) => (
             <FormItem>
+              {/* Label */}
               <FormLabel>Email</FormLabel>
+
+              {/* Input */}
               <FormControl>
                 <Input placeholder="Email" type="email" className="w-full" {...field} />
               </FormControl>
 
+              {/* Message */}
               <FormMessage />
             </FormItem>
           )}
@@ -97,11 +108,15 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           name="phone"
           render={({ field }) => (
             <FormItem>
+              {/* Label */}
               <FormLabel>Phone</FormLabel>
+
+              {/* Input */}
               <FormControl>
                 <Input placeholder="Phone" type="tel" className="w-full" {...field} />
               </FormControl>
 
+              {/* Message */}
               <FormMessage />
             </FormItem>
           )}

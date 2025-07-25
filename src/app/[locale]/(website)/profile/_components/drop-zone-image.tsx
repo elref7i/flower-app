@@ -28,16 +28,19 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
   // States
   const [selectedFile, setSelectedFile] = React.useState<FileWithPreview | null>(null);
   const [isDialogOpen, setDialogOpen] = React.useState(false);
-  const { editImage, isPending } = useUploadImageProfile();
+  const { editImage, isPending, isSuccess } = useUploadImageProfile();
 
   // Functions
   const onDrop = React.useCallback((acceptedFiles: FileWithPath[]) => {
     const file = acceptedFiles[0];
+
+    // Check File
     if (!file) {
       alert("Selected image is too large!");
       return;
     }
 
+    //  File Review
     const fileWithPreview = Object.assign(file, {
       preview: URL.createObjectURL(file),
     });
@@ -55,16 +58,20 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
     accept,
   });
 
+  //  Form
   const form = useForm<ImageProfileField>({
     resolver: zodResolver(ImageProfileSchema),
   });
 
+  // Submit
   const onSubmit: SubmitHandler<ImageProfileField> = () => {
     if (!selectedFile) return;
 
+    // Form Data
     const formData = new FormData();
     formData.append("photo", selectedFile);
 
+    // Mutation Function
     editImage(formData);
   };
 
@@ -72,6 +79,7 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
     <>
       <div className="relative ">
         {selectedFile ? (
+          // Image
           <ImageCropper
             dialogOpen={isDialogOpen}
             setDialogOpen={setDialogOpen}
@@ -80,18 +88,21 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
           />
         ) : (
           <div className="relative w-fit bg-red-600 rounded-full ">
+            {/* Avater */}
             <Avatar className="size-[120px] cursor-pointer ring-offset-1 ring-1 ring-zinc-200 ">
-              {/* <input {...getInputProps()} /> */}
-
               <AvatarImage src={photo} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
+
+            {/* Upload Image */}
             <div
               {...getRootProps()}
               className="size-6 ring-offset-1 ring-1 ring-zinc-200 rounded-full text-black bg-zinc-50 absolute bottom-0 end-0 cursor-pointer"
             >
+              {/* Input */}
               <Input type="file" {...getInputProps()} />
 
+              {/* Icon */}
               <CloudUpload />
             </div>
           </div>
@@ -101,17 +112,32 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
       {/* Hints */}
       {selectedFile ? (
         <>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
-            {/* Avatar + DropZone هنا */}
+          {isSuccess ? (
+            <article>
+              {/* Title */}
+              <h3 className="text-zinc-800 font-semibold text-xl dark:text-zinc-50">
+                Upload Photo
+              </h3>
 
-            {form.formState.errors.photo && (
-              <p className="text-red-500 text-sm mt-2">{form.formState.errors.photo.message}</p>
-            )}
+              {/* Description */}
+              <p className="text-zinc-500 dark:text-zinc-400">
+                You can upload a .jpg, .png, or .gif photo with max size of 5MB.
+              </p>
+            </article>
+          ) : (
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+              {/* Avatar + DropZone هنا */}
 
-            <Button type="submit" disabled={isPending} variant={"outline"}>
-              Upload Now
-            </Button>
-          </form>
+              {form.formState.errors.photo && (
+                <p className="text-red-500 text-sm mt-2">{form.formState.errors.photo.message}</p>
+              )}
+
+              {/* Button */}
+              <Button type="submit" disabled={isPending} variant={"outline"}>
+                Upload Now
+              </Button>
+            </form>
+          )}
         </>
       ) : (
         <article>
