@@ -157,5 +157,7 @@
   "discount": "<strong>{percentage}%</strong> خصم",
   "summary-title": "تفاصيل السلة",
   "message-on-cash": "سيتم الدفع نقدًا عند تسليم الطلب.",
-  "message-on-credit": "إعادة التوجيه إلى الدفع ..."
+  "message-on-credit": "إعادة التوجيه إلى الدفع ...",
+  "most-popular": "الأكثر شعبية",
+  "veiw-more": "عرض المزيد"
 }

@@ -157,5 +157,7 @@
   "apply-coupon": "Apply Coupon",
   "summary-title": "Summary",
   "message-on-cash": "Pay with cash when your order arrives.",
-  "message-on-credit": "Redirecting to payment..."
+  "message-on-credit": "Redirecting to payment...",
+  "most-popular": "Most Popular",
+  "veiw-more": "View More"
 }

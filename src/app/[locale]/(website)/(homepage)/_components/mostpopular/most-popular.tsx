@@ -3,8 +3,10 @@ import React from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import ProductItem from "@/components/common/card-item";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
+import { Button } from "@/components/ui/button";
+import { MoveLeft, MoveRight } from "lucide-react";
 
 type MostPopularProps = {
   occasions: Occasion[];
@@ -19,6 +21,7 @@ export default function MostPopular({
 }: MostPopularProps) {
   // Translation
   const t = useTranslations();
+  const locale = useLocale();
   // Navigation
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -32,14 +35,15 @@ export default function MostPopular({
   };
 
   return (
-    <section className="w-full container mb-4">
-      <div className="flex justify-between items-center w-full mb-4">
-        <p className="font-bold text-4xl text-maroon-700   ">
-          <span className="border-b-[2px] border-pink-600">Mos</span>
-          <span>t Popular</span>
-        </p>
+    <section className="w-full mt-32 mb-16">
+      <div className="flex justify-between items-center w-full mb-10">
+        {/* Title */}
+        <h2 className="relative  w-fit text-4xl font-bold text-maroon-700 before:absolute before:bottom-0 before:h-[2px] before:w-[30%] before:bg-maroon-400 before:dark:bg-softpink-600 after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-1/2 after:w-[70%] after:rounded-e-full after:bg-maroon-100 dark:text-softpink-200 after:dark:bg-zinc-700 after:rtl:right-0">
+          {t("most-popular")}
+        </h2>
 
-        <ul className="flex space-x-5 font-medium text-base">
+        {/* Occasiobns List */}
+        <ul className="flex gap-5  font-medium text-base p-3  ">
           {occasions.map((occasion: Occasion) => {
             const isActive = currentSelectedOccasion
               ? currentSelectedOccasion === occasion._id
@@ -49,7 +53,9 @@ export default function MostPopular({
                 key={occasion._id}
                 className={cn(
                   "cursor-pointer hover:text-maroon-600 transition-colors",
-                  isActive ? "text-maroon-600 font-bold" : "text-zinc-700",
+                  isActive
+                    ? "text-maroon-600 font-bold dark:text-softpink-200"
+                    : "text-zinc-700 dark:text-zinc-400",
                 )}
                 onClick={() => handleClick(occasion._id)}
               >
@@ -60,11 +66,23 @@ export default function MostPopular({
         </ul>
       </div>
 
+      {/* Products */}
       {products.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <ProductItem product={product} key={product.id} />
-          ))}
+        <div>
+          {/* Grid of products */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <ProductItem product={product} key={product._id} />
+            ))}
+          </div>
+
+          {/* View More Button */}
+          <div className=" mt-10 flex justify-end">
+            <Button className=" bg-transparent dark:bg-transparent text-base font-semibold text-maroon-700 dark:text-softpink-200 hover:bg-transparent hover:dark:bg-transparent ">
+              {t("veiw-more")}
+              {locale == "en" ? <MoveRight /> : <MoveLeft />}
+            </Button>
+          </div>
         </div>
       ) : (
         <div className="text-center py-6 rtl:text-right min-h-44 flex items-center justify-center">

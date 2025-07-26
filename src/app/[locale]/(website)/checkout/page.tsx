@@ -4,10 +4,9 @@ import RenderSteps from "./_components/steppages";
 
 export default async function Page() {
   const addresses = await getUserAddressesAction();
-  // console.log("add page", addresses);
 
   return (
-    <section className=" ms-3   ">
+    <section className="ms-3">
       <CheckoutProvider>
         <RenderSteps addresses={addresses} />
       </CheckoutProvider>
