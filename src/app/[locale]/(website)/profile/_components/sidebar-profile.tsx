@@ -23,7 +23,7 @@ export default function SidebarProfile() {
   return (
     <aside
       className={cn(
-        "col-span-3 p-4 bg-zinc-50  border-[1px] border-zinc-100 shadow-md rounded-lg",
+        "col-span-3 p-4 bg-zinc-50  border border-zinc-100 shadow-md rounded-lg",
         "dark:bg-zinc-950 dark:border-zinc-800 ",
       )}
     >
