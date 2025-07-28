@@ -32,7 +32,7 @@ export default function MostPopular({
   };
 
   return (
-    <section className="w-full container mb-4">
+    <section className="w-full  mb-4">
       <div className="flex justify-between items-center w-full mb-4">
         <p className="font-bold text-4xl text-maroon-700   ">
           <span className="border-b-[2px] border-pink-600">Mos</span>

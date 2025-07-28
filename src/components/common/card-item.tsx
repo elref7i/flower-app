@@ -3,11 +3,11 @@ import React from "react";
 
 export default function ProductItem({ product }: { product: Product }) {
   return (
-    <div className=" w-[302px] h-[364px] ">
+    <div className=" w-full h-[364px] ">
       <img
         src={product.imgCover}
         alt={product.title}
-        className="w-[302px] h-[272px] rounded-[12px] "
+        className="w-full aspect-square rounded-[12px] "
       />
       <h2 className="mt-[14px] font-semibold text-maroon-700 dark:text-softpink-200 text-lg">
         {product.title.slice(1, 25)}...
