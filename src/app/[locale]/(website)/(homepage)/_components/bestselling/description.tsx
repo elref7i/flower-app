@@ -15,7 +15,7 @@ export default function Description() {
         })}{" "}
         {t("every-one")}
         {t.rich("buying", {
-          span1: (value) => <span className="text-softpink-500">{value}</span>,
+          span: (value) => <span className="text-softpink-500">{value}</span>,
         })}{" "}
         {t("right-now")}
       </h2>
