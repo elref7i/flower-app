@@ -5,7 +5,7 @@ import getTokenFromCookies from "../utils/get-cookies-token";
 export default async function logOut() {
   const token = await getTokenFromCookies();
   if (!token) throw new Error("You are not logged in");
-  const response = await fetch(`${process.env.BASE_API}/auth/logout`, {
+  const response = await fetch(`${process.env.API}/auth/logout`, {
     method: "Get",
     headers: {
       ...JSON_HEADER,
