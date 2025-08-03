@@ -4,20 +4,13 @@ import React from "react";
 
 export default function ProductItem({ product }: { product: Product }) {
   return (
-    <div className="  ">
-      {/* Product Image */}
-      <div className="h-[272px] w-[290px] relative rounded-xl overflow-hidden">
-        <Image
-          src={product.imgCover}
-          alt={product.title}
-          fill
-          className="object-cover rounded-xl"
-          unoptimized
-        />
-      </div>
-
-      {/* Product Name */}
-      <h2 className="mt-4 font-semibold text-maroon-700 dark:text-softpink-200 text-lg">
+    <div className=" w-full h-[364px] ">
+      <img
+        src={product.imgCover}
+        alt={product.title}
+        className="w-full aspect-square rounded-[12px] "
+      />
+      <h2 className="mt-[14px] font-semibold text-maroon-700 dark:text-softpink-200 text-lg">
         {product.title.slice(1, 25)}...
       </h2>
 
