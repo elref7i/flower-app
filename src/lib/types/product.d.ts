@@ -1,7 +1,6 @@
 declare type Product = {
   rateAvg: number;
   rateCount: number;
-  id: string;
   title: string;
   slug: string;
   description: string;
