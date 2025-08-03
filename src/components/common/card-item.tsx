@@ -1,4 +1,5 @@
 import { ShoppingCart, Star } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 export default function ProductItem({ product }: { product: Product }) {
@@ -15,6 +16,7 @@ export default function ProductItem({ product }: { product: Product }) {
 
       <div className="flex justify-between">
         <div>
+          {/* Rating stars */}
           <div className="flex mt-1 space-x-1 text-[#FBA707]">
             {Array.from({ length: 4 }, (_, i) => (
               <Star
@@ -25,6 +27,7 @@ export default function ProductItem({ product }: { product: Product }) {
             ))}
           </div>
 
+          {/* Product Price */}
           <div className="flex  font-medium mt-1">
             <p className="text-[16px] text-maroon-700 dark:text-softpink-200 me-2">
               {product.price.toFixed(2)} EGP
@@ -35,6 +38,7 @@ export default function ProductItem({ product }: { product: Product }) {
           </div>
         </div>
 
+        {/* Cart Icon */}
         <div className="w-[42px] h-[42px] bg-maroon-600 dark:bg-maroon-500 flex justify-center items-center rounded-[999px]">
           <ShoppingCart className="text-white" />
         </div>

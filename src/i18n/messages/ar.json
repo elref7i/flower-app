@@ -133,7 +133,6 @@
     "confirm-password-felid": "تأكيد كلمة المرور",
     "reset-password-feild": "إعادة تعيين كلمة المرور"
   },
-
   "schema": {
     "empty-confirm-password-error": "من فضلك أدخل تأكيد كلمة المرور",
     "passwords-dont-match-error": " كلمة المرور وتأكيدها غير متطابقين"
