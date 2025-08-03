@@ -1,5 +1,3 @@
-"use client";
-
 import Footer from "@/components/layout/footer";
 import MainHeader from "@/components/layout/header/components/main-header";
 import NavigationHeader from "@/components/layout/header/components/navigation-header";

@@ -1,7 +1,8 @@
-import React, { forwardRef, PropsWithChildren, useState } from "react";
-import { Input } from "../ui/input";
+"use client";
+import React, { forwardRef, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 
 export const PasswordInput = forwardRef<HTMLInputElement, React.ComponentProps<typeof Input>>(
   (props, ref) => {
