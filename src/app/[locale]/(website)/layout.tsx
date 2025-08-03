@@ -1,11 +1,12 @@
 import { Toaster } from "@/components/ui/sonner";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
-import { getSession } from "next-auth/react";
+import { headers } from "next/headers";
 
-export default async function LocaleLayout({ children }: { children: React.ReactNode }) {
-  const session = await getSession();
-  console.log(session);
+export default function LocaleLayout({ children }: { children: React.ReactNode }) {
+  const headersList = headers();
+  const pathname = headersList.get("x-next-url");
+  console.log("pathname", pathname);
 
   return (
     <>
