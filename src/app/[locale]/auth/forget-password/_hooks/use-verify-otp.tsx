@@ -1,7 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { TForgotPasswordFormFields, TVerifyCodeFields } from "@/lib/schema/auth.schema";
-import { forgetPassword } from "../_action/forgot-password-action";
+import { TVerifyCodeFields } from "@/lib/schema/auth.schema";
 import { useAuthContext } from "@/lib/context/auth-context";
 import { verifyOTPCodeAction } from "../_action/otp-action";
 

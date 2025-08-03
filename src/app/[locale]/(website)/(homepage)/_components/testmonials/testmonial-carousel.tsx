@@ -87,14 +87,14 @@ export function TestimonilalCarousel() {
         ))}
       </CarouselContent>
       {/* Buttons Navigations */}
-      <CarouselPrevious
+      {/* <CarouselPrevious
         variant={"outline"}
         className="absolute -left-12 top-1/2 h-8 w-8 -translate-y-1/2 rounded-full"
       />
       <CarouselNext
         variant={"outline"}
         className="absolute -right-12 top-1/2 h-8 w-8 -translate-y-1/2 rounded-full"
-      />
+      /> */}
     </Carousel>
   );
 }

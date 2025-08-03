@@ -28,7 +28,7 @@ export default async function Occasions() {
 
   return (
     <>
-      <div className="container grid grid-cols-3 gap-6 mb-4">
+      <div className="container grid grid-cols-3 gap-6 mb-10">
         {occasions.map((occasion) => (
           <div key={occasion.budge} className="rounded-2xl gap-2.5 overflow-hidden relative">
             <Link href={"./occasions"}>
