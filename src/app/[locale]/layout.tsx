@@ -6,6 +6,7 @@ import { Sarabun, Tajawal, Seaweed_Script, Lateef, Great_Vibes } from "next/font
 import { Toaster } from "@/components/ui/sonner";
 import localFont from "next/font/local";
 import Providers from "@/components/providers";
+import React from "react";
 
 const sarabun = Sarabun({
   subsets: ["latin"],

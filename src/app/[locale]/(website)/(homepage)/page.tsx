@@ -29,15 +29,8 @@ export default async function page({ searchParams }: { searchParams: { occasion?
 
         {/* Service Features */}
         <ServiceFeatures />
-
-        {/* About Section */}
-        <AboutSection />
-
-        {/* Gallery Section */}
-        <GallerySection />
-
-        {/* Companies Section */}
-        <CompaniesSection />
+        {/* Best Selling */}
+        <BestSelling />
 
         {/* <ModeToggle /> */}
         <MostPopular
@@ -45,11 +38,17 @@ export default async function page({ searchParams }: { searchParams: { occasion?
           products={popularProducts}
           currentSelectedOccasion={currentOccasionId}
         />
-        {/* Best Selling */}
-        <BestSelling />
+        {/* About Section */}
+        <AboutSection />
+
+        {/* Gallery Section */}
+        <GallerySection />
       </div>
       {/* Testimonials */}
       <TestimonialSection />
+
+      {/* Companies Section */}
+      <CompaniesSection />
     </div>
   );
 }

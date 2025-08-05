@@ -1,4 +1,5 @@
 {
+  "home": "Home",
   "hello": "Hello world!",
   "about-us": "Go to the about page",
   "not-found-page": "Not found page",
@@ -75,6 +76,7 @@
   "gifts": "  Explore gifts",
   "paragraph": "<br> Not sure what to choose? </br>     Start with our best sellers, these are the gifts our customers keep coming back for.     Whether you're celebrating a birthday, anniversary or wedding, our top picks are guaranteed     to leave a lasting impression.",
   "arrow": "<span>→</span>",
+  "discount": "<strong>{percentage}%</strong> Discount",
   "banner": {
     "budge": "Staring from 10.99 EGP",
     "special-gifts-title": "Special Gifts For The People You Love",
@@ -153,5 +155,20 @@
   "number-error": "You Should Enter Number",
   "numbers-compare-error": "The number is less than the minimum number",
   "please-wait": "Please Wait...",
-  "empty-message": "Sorry...There are no {name} to display"
+  "empty-message": "Sorry...There are no {name} to display",
+  "products": "products",
+  "categories": "Categories",
+  "contact": "contact",
+  "about": "about",
+  "occasions-title": "Occasions",
+  "what-awesome-gift-are-you-looking-for": "What awesome gift are you looking for?",
+  "terms-and-conditions": "Terms & Conditions",
+  "privacy-policy": "Privacy Policy",
+  "faqs": "FAQs",
+  "discoer-our-website": "Discoer our website",
+  "by-subscribing-to-our-newsletter": "By subscribing to our newsletter",
+  "subscribe": "Subscribe",
+  "rose-e-commerce-app": "Rose E-Commerce App",
+  "all-rights-reserved-or-2025": "All rights reserved | {year, number, plain}",
+  "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon"
 }
