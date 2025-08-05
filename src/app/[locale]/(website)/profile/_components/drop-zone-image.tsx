@@ -1,16 +1,16 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import { ImageCropper } from "@/components/common/image-cropper";
-import { FileWithPath, useDropzone } from "react-dropzone";
+import { useDropzone, FileWithPath } from "react-dropzone";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CloudUpload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useSession } from "next-auth/react";
-import { useUploadImageProfile } from "../_hooks/use-profile";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ImageProfileField, ImageProfileSchema } from "@/lib/schema/profile.schema";
+import { useUploadImageProfile } from "../_hooks/use-profile";
+import { useTranslations } from "next-intl";
 
 interface DropZoneImageProps {
   photo: string;
@@ -29,6 +29,9 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
   const [selectedFile, setSelectedFile] = React.useState<FileWithPreview | null>(null);
   const [isDialogOpen, setDialogOpen] = React.useState(false);
   const { editImage, isPending, isSuccess } = useUploadImageProfile();
+
+  // Trnaslations
+  const t = useTranslations();
 
   // Functions
   const onDrop = React.useCallback((acceptedFiles: FileWithPath[]) => {
@@ -91,7 +94,7 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
             {/* Avater */}
             <Avatar className="size-[120px] cursor-pointer ring-offset-1 ring-1 ring-zinc-200 ">
               <AvatarImage src={photo} alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>Photo</AvatarFallback>
             </Avatar>
 
             {/* Upload Image */}
@@ -116,12 +119,12 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
             <article>
               {/* Title */}
               <h3 className="text-zinc-800 font-semibold text-xl dark:text-zinc-50">
-                Upload Photo
+                {t("upload-photo")}
               </h3>
 
               {/* Description */}
               <p className="text-zinc-500 dark:text-zinc-400">
-                You can upload a .jpg, .png, or .gif photo with max size of 5MB.
+                {t("you-can-upload-a-jpg-png-or-gif-photo-with-max-size-of-5mb")}
               </p>
             </article>
           ) : (
@@ -134,7 +137,7 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
 
               {/* Button */}
               <Button type="submit" disabled={isPending} variant={"outline"}>
-                Upload Now
+                {t("upload-now")}
               </Button>
             </form>
           )}
@@ -142,11 +145,13 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
       ) : (
         <article>
           {/* Title */}
-          <h3 className="text-zinc-800 font-semibold text-xl dark:text-zinc-50">Upload Photo</h3>
+          <h3 className="text-zinc-800 font-semibold text-xl dark:text-zinc-50">
+            {t("upload-photo")}
+          </h3>
 
           {/* Description */}
           <p className="text-zinc-500 dark:text-zinc-400">
-            You can upload a .jpg, .png, or .gif photo with max size of 5MB.
+            {t("you-can-upload-a-jpg-png-or-gif-photo-with-max-size-of-5mb")}
           </p>
         </article>
       )}

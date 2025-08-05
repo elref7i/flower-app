@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils/cn";
 import { Trash, X } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 
 interface ConfirmDangerActionProps {
   nameButton: string;
@@ -30,6 +31,12 @@ export function ConfirmDangerAction({
 }: ConfirmDangerActionProps) {
   // Mutation
   const { deleteAcountMutation, isPending } = useDeleteAcount();
+
+  // Trnaslations
+  const t = useTranslations();
+
+  // Locale
+  const locale = useLocale();
 
   return (
     <AlertDialog>
@@ -55,6 +62,7 @@ export function ConfirmDangerAction({
             className={cn(
               "relative bg-[#2E2E300D] dark:bg-[#fbacac16] flex items-center justify-center size-[105px] rounded-full",
               " before:bg-[#3b3b3d0d]  before:dark:bg-[#f98c8c42]  before:absolute before:top-1/2  before:start-1/2 before:size-[70px] before:-translate-x-1/2 before:-translate-y-1/2  before:rounded-full",
+              locale === "ar" ? "before:translate-x-1/2 " : "before:-translate-x-1/2 ",
             )}
           >
             <Trash size={29} className="z-50 dark:text-maroon-500" />
@@ -68,14 +76,14 @@ export function ConfirmDangerAction({
         </AlertDialogHeader>
 
         {/* Footer */}
-        <AlertDialogFooter>
+        <AlertDialogFooter className="gap-2">
           {/* Cancel */}
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
 
           {/* Continue */}
           <AlertDialogAction asChild>
             <Button disabled={isPending} onClick={() => deleteAcountMutation()}>
-              Continue
+              {t("continue")}
             </Button>
           </AlertDialogAction>
         </AlertDialogFooter>

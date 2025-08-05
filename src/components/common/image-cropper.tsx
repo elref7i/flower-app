@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog";
 
 import "react-image-crop/dist/ReactCrop.css";
-import { CropIcon, Trash2Icon, Upload } from "lucide-react";
+import { CropIcon, Trash2Icon } from "lucide-react";
 import { FileWithPreview } from "@/app/[locale]/(website)/profile/_components/drop-zone-image";
 
 interface ImageCropperProps {

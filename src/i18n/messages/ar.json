@@ -142,5 +142,19 @@
   "no-products": "لم يتم العثور على منتجات",
   "edit-profile-successfully": "تم تعديل الملف الشخصي بنجاح",
   "password-changed-successfully": "تم تغيير كلمة المرور بنجاح",
-  "deleted-account": "تم حذف الحساب"
+  "deleted-account": "تم حذف الحساب",
+  "upload-photo": "تحميل الصورة",
+  "you-can-upload-a-jpg-png-or-gif-photo-with-max-size-of-5mb": "يمكنك تحميل صورة .jpg أو .png أو .gif بحجم أقصى قدرها 5 ميجابايت.",
+  "upload-now": "تحميل الآن",
+  "my-account": "حسابي",
+  "change-password": "تغيير كلمة المرور",
+  "old-password": "كلمة المرور القديمة",
+  "new-password": "كلمة المرور الجديدة",
+  "change-password-0": "تغيير كلمة المرور",
+  "submit": "ارسال",
+  "delete-my-account": "حذف حسابي",
+  "are-you-sure-you-want-to-delete-your-account": "هل أنت متأكد من أنك تريد حذف حسابك؟",
+  "this-action-is-permanent-and-cannot-be-undone": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
+  "cancel": "الغاء",
+  "continue": "استمرار"
 }

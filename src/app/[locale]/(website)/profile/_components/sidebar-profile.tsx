@@ -2,23 +2,27 @@
 import { usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 import { User } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-
-// links
-const links = [
-  {
-    href: "/profile",
-    label: "My Account",
-  },
-  {
-    href: "/profile/change-password",
-    label: "Change Password",
-  },
-];
 
 export default function SidebarProfile() {
   // pathname
   const pathName = usePathname();
+
+  // Trnaslations
+  const t = useTranslations();
+
+  // links
+  const links = [
+    {
+      href: "/profile",
+      label: `${t("my-account")}`,
+    },
+    {
+      href: "/profile/change-password",
+      label: `${t("change-password")}`,
+    },
+  ];
 
   return (
     <aside

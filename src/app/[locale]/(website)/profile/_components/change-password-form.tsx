@@ -13,10 +13,14 @@ import { ChangePasswordFields, ChangePasswordSchema } from "@/lib/schema/profile
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useChangePassword } from "../_hooks/use-profile";
+import { useTranslations } from "next-intl";
 
 export default function ChangePasswordForm() {
   //Mutation
   const { changePasswordMutation, isPending, isSuccess } = useChangePassword();
+
+  // Trnaslations
+  const t = useTranslations();
 
   // Form
   const form = useForm<ChangePasswordFields>({
@@ -27,7 +31,7 @@ export default function ChangePasswordForm() {
     resolver: zodResolver(ChangePasswordSchema),
   });
 
- // onSubmit
+  // onSubmit
   const onSubmit: SubmitHandler<ChangePasswordFields> = async (values) => {
     await changePasswordMutation(values);
   };
@@ -40,9 +44,9 @@ export default function ChangePasswordForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Old Password</FormLabel>
+              <FormLabel>{t("old-password")}</FormLabel>
               <FormControl>
-                <PasswordInput placeholder="Old Password" {...field} />
+                <PasswordInput placeholder={`${t("old-password")}`} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -54,9 +58,9 @@ export default function ChangePasswordForm() {
           name="newPassword"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>New Password</FormLabel>
+              <FormLabel>{t("new-password")}</FormLabel>
               <FormControl>
-                <PasswordInput placeholder="New Password" {...field} />
+                <PasswordInput placeholder={`${t("new-password")}`} {...field} />
               </FormControl>
 
               <FormMessage />
@@ -66,7 +70,7 @@ export default function ChangePasswordForm() {
 
         {/* Actions */}
         <Button disabled={isPending} type="submit" className="">
-          Change Password
+          {t("change-password-0")}
         </Button>
       </form>
     </Form>

@@ -15,11 +15,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEditProfile } from "../_hooks/use-profile";
 import { ConfirmDangerAction } from "@/components/common/confirm-danger-action";
-import useLogout from "@/hooks/use-logout";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserResponse }) {
   //Mutation
   const { editProfileMutation, isPending } = useEditProfile();
+
+  // Translations
+  const t = useTranslations();
+
+  //Locale
+  const locale = useLocale();
 
   // Form
   const form = useForm<EditProfileSchemaFields>({
@@ -49,11 +55,16 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           render={({ field }) => (
             <FormItem>
               {/* Label */}
-              <FormLabel>First Name</FormLabel>
+              <FormLabel>{t("first-name")}</FormLabel>
 
               {/* Input */}
               <FormControl>
-                <Input placeholder="First Name" type="text" className="w-full" {...field} />
+                <Input
+                  placeholder={`${t("first-name")}`}
+                  type="text"
+                  className="w-full"
+                  {...field}
+                />
               </FormControl>
 
               {/* Message */}
@@ -69,11 +80,16 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           render={({ field }) => (
             <FormItem>
               {/* Label */}
-              <FormLabel>Last Name</FormLabel>
+              <FormLabel>{t("last-name")}</FormLabel>
 
               {/* Input */}
               <FormControl>
-                <Input placeholder="Last Name" type="text" className="w-full" {...field} />
+                <Input
+                  placeholder={`${t("last-name")}`}
+                  type="text"
+                  className="w-full"
+                  {...field}
+                />
               </FormControl>
 
               {/* Message */}
@@ -89,7 +105,7 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           render={({ field }) => (
             <FormItem>
               {/* Label */}
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t("email")}</FormLabel>
 
               {/* Input */}
               <FormControl>
@@ -109,11 +125,11 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
           render={({ field }) => (
             <FormItem>
               {/* Label */}
-              <FormLabel>Phone</FormLabel>
+              <FormLabel>{t("phone-number")}</FormLabel>
 
               {/* Input */}
               <FormControl>
-                <Input placeholder="Phone" type="tel" className="w-full" {...field} />
+                <Input dir="rtl" placeholder="Phone" type="tel" className="w-full" {...field} />
               </FormControl>
 
               {/* Message */}
@@ -135,14 +151,14 @@ export default function UpdatePeofileForm({ dataInfo }: { dataInfo: LoggedUserRe
         <div className="flex items-center justify-between mt-4">
           {/* Delete Acount */}
           <ConfirmDangerAction
-            nameButton="delete My Account"
-            message="Are you sure you want to delete your account?"
-            description="This action is permanent and cannot be undone."
+            nameButton={`${t("delete-my-account")}`}
+            message={`${t("are-you-sure-you-want-to-delete-your-account")}`}
+            description={`${t("this-action-is-permanent-and-cannot-be-undone")}`}
           />
 
           {/* Submit Data */}
           <Button disabled={!form.formState.isDirty || isPending} type="submit">
-            Submit
+            {t("submit")}
           </Button>
         </div>
       </form>
