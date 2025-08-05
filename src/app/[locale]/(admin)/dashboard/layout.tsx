@@ -12,7 +12,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <SidebarProvider>
       <SidebarAdmin />
       <div className="space-y-6 w-full">
-        <div className="w-full flex justify-between bg-white  px-4 py-6 shadow-sm dark:bg-zinc-800 dark:shadow-zinc-50">
+        <div className="w-full flex justify-between bg-white p-4 shadow-sm dark:bg-zinc-800 dark:shadow-zinc-50">
           <div className="flex items-center gap-1">
             <SidebarTrigger />
             <h2>{t("dashboard")}</h2>
