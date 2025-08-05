@@ -161,5 +161,7 @@
   "links": "Links",
   "overview": "overview",
   "catergories": "catergories",
-  "dashboard": "Dashboard"
+  "dashboard": "Dashboard",
+  "account": "Account",
+  "log-out": "Log out"
 }

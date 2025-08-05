@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import getTokenFromCookies from "@/lib/utils/get-cookies-token";
 import { JSON_HEADER } from "@/lib/constants/api.constants";
 import { Suspense } from "react";
+import { getTranslations } from "next-intl/server";
 // API Response Type
 async function getLoggeduser() {
   // get token
@@ -34,10 +35,12 @@ async function getLoggeduser() {
 }
 
 export async function UserDropdownMenu() {
+  // Translations
+  const t = await getTranslations();
+
   // Fetch the logged user data
   const profileData = await getLoggeduser();
 
-  console.log("profileData", profileData.user.firstName);
   // Fetch data
 
   return (
@@ -48,7 +51,9 @@ export async function UserDropdownMenu() {
           variant="ghost"
           className="flex items-center gap-3 p-3 h-auto hover:bg-zinc-200 hover:dark:bg-zinc-700"
         >
+          {/* Profile Image and User Info */}
           <Suspense fallback={<div className="w-6 h-6 bg-gray-200 rounded-full animate-pulse" />}>
+            {/* Profile Image */}
             <div className="relative size-[54px] rounded-full bg-gray-600">
               {profileData?.user ? (
                 <Image
@@ -84,26 +89,28 @@ export async function UserDropdownMenu() {
       <DropdownMenuContent className="w-56 p-0 bg-white dark:bg-zinc-700" align="end" side="bottom">
         {/* User Info */}
         <div className="px-4 py-3 border-b-2 border-slate-100 dark:border-slate-500">
+          {/* Name user */}
           <h3 className="font-bold text-sm text-maroon-700 dark:text-maroon-500">
             {profileData.user.firstName} {profileData.user.lastName}
           </h3>
         </div>
 
-        {/* Account and Logout Options */}
+        {/* Account Option */}
         <DropdownMenuItem
           className="flex border-b-2 border-slate-100 dark:border-slate-500 items-center gap-3 px-4 py-3 cursor-pointer  hover:bg-slate-100 hover:dark:bg-zinc-600"
           // onClick={onAccountClick}
         >
           <User className="w-5 h-5" />
-          <span>Account</span>
+          <span>{t("account")}</span>
         </DropdownMenuItem>
 
+        {/* Logout Option */}
         <DropdownMenuItem
           className="flex items-center gap-3 px-4 py-3 cursor-pointer  hover:bg-slate-100 hover:dark:bg-zinc-600  hover:text-red-600"
           // onClick={onLogoutClick}
         >
           <LogOut className="w-5 h-5" />
-          <span>Log out</span>
+          <span>{t("log-out")}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -161,5 +161,7 @@
   "preview-website": "معاينة موقع الويب",
   "overview": "نظرة عامة",
   "catergories": "التصنيفات",
-  "dashboard": "لوحة القيادة"
+  "dashboard": "لوحة القيادة",
+  "account": "حساب",
+  "log-out": "تسجيل الخروج"
 }
