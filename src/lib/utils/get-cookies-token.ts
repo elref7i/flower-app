@@ -6,10 +6,12 @@ export default async function getTokenFromCookies() {
   // Get token from cookies
   const cookiesToken = cookies().get("next-auth.session-token")?.value;
 
+  console.log("Cookies Token:", cookiesToken);
+
   // Decode token
   const token = await decode({
     token: cookiesToken,
-    secret: process.env.NEXTAUTH_SECRET!,
+    secret: process.env.AUTH_SECRET!,
   });
 
   // If token doesn't exit return undefined

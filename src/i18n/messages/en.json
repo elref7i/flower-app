@@ -156,5 +156,10 @@
   "subscribe": "Subscribe",
   "rose-e-commerce-app": "Rose E-Commerce App",
   "all-rights-reserved-or-2025": "All rights reserved | {year, number, plain}",
-  "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon"
+  "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
+  "preview-website": "Preview website",
+  "links": "Links",
+  "overview": "overview",
+  "catergories": "catergories",
+  "dashboard": "Dashboard"
 }

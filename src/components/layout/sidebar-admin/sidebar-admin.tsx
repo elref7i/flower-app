@@ -1,16 +1,4 @@
-"use client";
-import {
-  Calendar,
-  CalendarHeart,
-  ClipboardList,
-  Flower,
-  Home,
-  Inbox,
-  LayoutDashboard,
-  Package,
-  Search,
-  Settings,
-} from "lucide-react";
+import { Flower } from "lucide-react";
 
 import logo from "../../../../public/assets/imgs/logo 1.png";
 
@@ -23,94 +11,84 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { UserDropdownMenu } from "@/app/[locale]/(admin)/_components/user-dropdown-menu";
+import SidebarLinks from "./_components/sidebar-links";
+import getTokenFromCookies from "@/lib/utils/get-cookies-token";
+import { JSON_HEADER } from "@/lib/constants/api.constants";
+import { getLocale, getTranslations } from "next-intl/server";
 
-// Menu items.
-const items = [
-  {
-    title: "overview",
-    url: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    title: "Catergories",
-    url: "/dashboard/categories",
-    icon: ClipboardList,
-  },
-  {
-    title: "Occasions",
-    url: "/dashboard/occasions",
-    icon: CalendarHeart,
-  },
-  {
-    title: "Products",
-    url: "/dashboard/products",
-    icon: Package,
-  },
-];
+// API Response Type
+async function getLoggeduser() {
+  // get token
+  const token = await getTokenFromCookies();
+  console.log(token);
 
-export function SidebarAdmin() {
-  const user = {
-    name: "Jonathan Adrian",
-    email: "user-email@example.com",
-    avatar: "",
-  };
+  // fetch
+  const response = await fetch(`${process.env.API!}/auth/profile-data`, {
+    next: { tags: ["profile"] },
+    cache: "no-store",
+    method: "Get",
+    headers: {
+      ...JSON_HEADER,
+      Authorization: `Bearer ${token?.token}`,
+    },
+  });
 
-  const handleAccountClick = () => {
-    console.log("Account clicked");
-    // Navigate to account page or open account modal
-  };
+  const payload: APIResponse<LoggedUserResponse> = await response.json();
+  if ("error" in payload) throw new Error(payload.error);
 
-  const handleLogoutClick = () => {
-    console.log("Logout clicked");
-    // Handle logout logic
-  };
+  return payload;
+}
+
+export async function SidebarAdmin() {
+  // Fetch the logged user data
+  const profileData = await getLoggeduser();
+
+  // Locale
+  const locale = await getLocale();
+
+  // Translations
+  const t = await getTranslations();
+
   return (
-    <Sidebar>
+    <Sidebar side={locale === "ar" ? "right" : "left"} variant="sidebar" className="w-[300px]">
+      {/* Content */}
       <SidebarContent>
+        {/* Group  */}
         <SidebarGroup className="p-8 flex flex-col items-center justify-between min-h-screen bg-white dark:bg-zinc-800">
-          <SidebarGroupLabel className="sr-only">Admin</SidebarGroupLabel>
+          {/* Group label */}
+          <SidebarGroupLabel className="sr-only">{t("links")}</SidebarGroupLabel>
+
+          {/* Group content */}
           <SidebarGroupContent className="space-y-6">
+            {/* Header */}
             <SidebarHeader className="flex gap-6 flex-col items-center justify-center">
+              {/* Image */}
               <Image width={120} height={112} src={logo} alt="Flower app logo" />
+
+              {/* Button */}
               <Button className="font-semibold">
                 <div>
                   <Flower className="!w-[25px] !h-[25px]" />
                 </div>
-                Prevview website
+                {t("preview-website")}
               </Button>
             </SidebarHeader>
+
+            {/* Menu */}
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem
-                  key={item.title}
-                  className="hover:bg-none px-2 py-[10px] dark:bg-red-700 rounded-[10px]"
-                >
-                  <SidebarMenuButton asChild>
-                    <Link
-                      className="text-xl font-bold gap-[10px] flex items-center"
-                      href={item.url}
-                    >
-                      <item.icon className="!w-[25px] !h-[25px]" />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {/* Links */}
+              <SidebarLinks />
             </SidebarMenu>
           </SidebarGroupContent>
+
+          {/* Footer */}
           <SidebarFooter>
-            <UserDropdownMenu
-              user={user}
-              onAccountClick={() => console.log("Account clicked")}
-              onLogoutClick={() => console.log("Logout clicked")}
-            />
+            {/* User Dropdown Menu */}
+            <UserDropdownMenu />
           </SidebarFooter>
         </SidebarGroup>
       </SidebarContent>
