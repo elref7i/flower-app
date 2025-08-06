@@ -1,3 +1,4 @@
+import { PaginatedResponse, Product } from "./../types/api.d";
 export async function getAllProductsByCategory(id: string) {
   try {
     const response = await fetch(`${process.env.API}/products?category=${id}`);
@@ -18,6 +19,57 @@ export async function fetchBestSellers() {
   } catch (error) {
     console.error(error);
     return [];
+  }
+}
+
+// Top Selling Products
+export async function fetchProductStats(pageParam = 1) {
+  try {
+    const response = await fetch(
+      `https://flower.elevateegy.com/api/v1/products?sort=-sold&page=${pageParam}&limit=8`,
+    );
+    if (!response.ok) throw new Error("Failed to Fetch Products");
+    const data = await response.json();
+    return {
+      products: data.products || [],
+      metadata: data.metadata || {
+        currentPage: pageParam,
+        totalPages: 3,
+        limit: 9,
+        totalItems: 0,
+      },
+    };
+  } catch (error) {
+    return { products: [], metadata: { currentPage: 1, totalPages: 1 } };
+  }
+}
+
+// Low Stock Products
+export async function fetchLowStockProducts(
+  pageParam = 1,
+): Promise<PaginatedResponse<{ products: Product[] }>> {
+  try {
+    const response = await fetch(
+      `https://flower.elevateegy.com/api/v1/products?sort=quantity&page=${pageParam}&limit=9`,
+    );
+    if (!response.ok) throw new Error("Failed to Fetch Products");
+
+    const data = await response.json();
+
+    return {
+      products: data.products || [],
+      metadata: data.metadata || {
+        currentPage: pageParam,
+        totalPages: 3,
+        limit: 9,
+        totalItems: 0,
+      },
+    };
+  } catch (error) {
+    return {
+      products: [],
+      metadata: { currentPage: pageParam, totalPages: 1, limit: 9, totalItems: 0 },
+    };
   }
 }
 
