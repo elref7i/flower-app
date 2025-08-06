@@ -156,5 +156,16 @@
   "subscribe": "اشترك",
   "rose-e-commerce-app": "تطبيق التجارة الإلكترونية",
   "all-rights-reserved-or-2025": "جميع الحقوق محفوظة | {year, number, plain}\n",
-  "get-discount-coupon": "احصل على <span> {percent, number, percentage}</span> قبالة قسيمة خصم"
+  "get-discount-coupon": "احصل على <span> {percent, number, percentage}</span> قبالة قسيمة خصم",
+  "product-review": "مراجعة المنتج",
+  "product-reviews": "مراجعات المنتج",
+  "general-rating": "التصنيف العام:",
+  "ratings": "تقييمات",
+  "your-rating": "تصنيفك:",
+  "title": "العنوان",
+  "review": "المراجعة",
+  "enter-the-title": "أدخل العنوان",
+  "what-do-you-think-of-this-product": "ما رأيك في هذا المنتج؟",
+  "add-review": "إضافة المراجعة",
+  "login-to-add-review": "يرجى تسجيل الدخول لتتمكن من إضافة تقييم إلى المنتج\t"
 }

@@ -19,7 +19,7 @@ declare type ErrorResponse = {
   error: string;
 };
 
-declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
 
 declare type PaginatedResponse<T> = {
   metadata: Metadata;
