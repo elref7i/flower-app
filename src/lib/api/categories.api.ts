@@ -6,7 +6,7 @@ export async function getCategories() {
 }
 
 export async function getCategoryById(id: string) {
-  const response = await fetch(`${process.env.API}/categories/${id}`);
+  const response = await fetch(`${process.env.API!}/categories/${id}`);
   const category = await response.json();
   if (!response.ok) throw new Error("Error:failed to get category");
   return category.category;

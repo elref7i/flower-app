@@ -9,13 +9,14 @@ import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
+import UserDropdown from "@/components/commerce-ui/user-dropdown";
 
 export default function MainHeader() {
   //Translation
   const t = useTranslations();
 
   //Session
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <div className="py-[18px] px-9 flex gap-4">
@@ -29,13 +30,24 @@ export default function MainHeader() {
         {/* Search input */}
         <SearchInput placeholder={t("what-awesome-gift-are-you-looking-for")} />
 
-        {/* Button Login */}
-        <Link className="flex gap-[6px] items-center" href={"/auth/login"}>
-          <span>
-            <User size={20} />
-          </span>
-          {session?.user?.firstName ? t("welcome", { name: session.user.firstName }) : t("login")}
-        </Link>
+        {/* Check authorization */}
+        {session ? (
+          // If user is logged in, show user dropdown
+          <UserDropdown
+            firstName={session?.user?.firstName}
+            lastName={session?.user?.lastName}
+            role={session?.user?.role}
+          />
+        ) : (
+          // If user is not logged in, show login link
+          <Link className="flex gap-[6px] items-center" href={"/auth/login"}>
+            <span>
+              <User size={20} />
+            </span>
+
+            {t("login")}
+          </Link>
+        )}
 
         {/* Icon notifiactions */}
         <IconNotification />
