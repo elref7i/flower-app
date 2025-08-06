@@ -164,5 +164,6 @@
   "review": "Review",
   "enter-the-title": "Enter The Title",
   "what-do-you-think-of-this-product": "What do you think of this product?",
-  "add-review": "Add review"
+  "add-review": "Add review",
+  "login-to-add-review": "Please login to be able to add a review to the product"
 }

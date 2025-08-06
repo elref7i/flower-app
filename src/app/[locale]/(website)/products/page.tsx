@@ -1,11 +1,5 @@
-import ProductReview from "./_components/product-review";
+import React from "react";
 
-export default function Page() {
-  return (
-    <>
-      <div className="container py-10">
-        <ProductReview />
-      </div>
-    </>
-  );
+export default function page() {
+  return <div>products page</div>;
 }

@@ -1,4 +1,4 @@
-import { createReview } from "../_actions/products.action";
+import { createReview } from "../_actions/add-review.action";
 import { ProductReviewFields } from "@/lib/schema/review.schema";
 import { toast } from "sonner";
 import { useMutation, useQuery } from "@tanstack/react-query";
