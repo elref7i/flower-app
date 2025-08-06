@@ -1,5 +1,4 @@
 declare type AllStatisticsResponse = {
-  message: string;
   statistics: {
     overall: {
       totalProducts: number;

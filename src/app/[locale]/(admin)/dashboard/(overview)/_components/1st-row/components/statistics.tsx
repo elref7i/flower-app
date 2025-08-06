@@ -4,7 +4,12 @@ import { getFormatter, getTranslations } from "next-intl/server";
 
 export default async function Statistics() {
   // fetch statistics
-  const { statistics }: AllStatisticsResponse = await getAllStatistics();
+  const response = await getAllStatistics();
+  if (!("statistics" in response)) {
+    // You can customize this error handling as needed
+    throw new Error(response.message || "Failed to fetch statistics");
+  }
+  const { statistics } = response;
 
   // Translation hooks
   const format = await getFormatter();

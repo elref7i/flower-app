@@ -14,3 +14,16 @@ declare type Product = {
   isSuperAdmin?: boolean;
   sold: number;
 } & DatabaseFields;
+
+declare type ProductReview = {
+  reviews: review[];
+} & MetaData;
+
+declare type reviews = {
+  product: string;
+  user: string;
+  rating: number;
+  title: string;
+  comment: string;
+  status: string;
+} & DatabaseFields;

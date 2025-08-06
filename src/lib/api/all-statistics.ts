@@ -20,7 +20,7 @@ export async function getAllStatistics() {
 
     // payload
     const payload: APIResponse<AllStatisticsResponse> = await response.json();
-    if ("error" in payload) throw new Error(payload.message || "Can't fetch data");
+    if ("error" in payload) throw new Error(payload.error || "Can't fetch data");
 
     return payload;
   } catch (error) {
