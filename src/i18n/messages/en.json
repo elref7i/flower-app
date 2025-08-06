@@ -1,6 +1,6 @@
 {
   "home": "Home",
-  "hello": "Hello world!",
+  "hello": "Hello",
   "about-us": "Go to the about page",
   "not-found-page": "Not found page",
   "go-to-homepage": "Go to homepage",
@@ -140,7 +140,6 @@
     "passwords-dont-match-error": " Passwords do not match"
   },
   "welcome-back": "Welcome Back!",
-  "welcome": "Welcome {name}",
   "no-products": "No Products Found",
   "products": "products",
   "categories": "Categories",
@@ -166,5 +165,10 @@
   "enter-the-title": "Enter The Title",
   "what-do-you-think-of-this-product": "What do you think of this product?",
   "add-review": "Add review",
-  "login-to-add-review": "Please login to be able to add a review to the product"
+  "login-to-add-review": "Please login to be able to add a review to the product",
+  "welcome": "Welcome",
+  "my-profile": "My Profile",
+  "my-addresses": "My Addresses",
+  "my-orders": "My Orders",
+  "dashboard": "Dashboard"
 }
