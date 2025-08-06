@@ -157,17 +157,6 @@
   "rose-e-commerce-app": "Rose E-Commerce App",
   "all-rights-reserved-or-2025": "All rights reserved | {year, number, plain}",
   "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
-<<<<<<< HEAD
-  "dashboard": {
-    "all-categories": "All Categories",
-    "total-products": "Total products",
-    "total-orders": "Total orders",
-    "total-categories": "Total categories",
-    "total-revenue": "Total revenue",
-    "EGP": "EGP",
-    "products": "{count,plural, one {Product} other {Products}}"
-  }
-=======
   "product-reviews": "Product Reviews",
   "general-rating": "General rating:",
   "ratings": "ratings",
@@ -177,6 +166,14 @@
   "enter-the-title": "Enter The Title",
   "what-do-you-think-of-this-product": "What do you think of this product?",
   "add-review": "Add review",
-  "login-to-add-review": "Please login to be able to add a review to the product"
->>>>>>> fa0cea4fcda5742f4e5db4c2c5c4781fb389966e
+  "login-to-add-review": "Please login to be able to add a review to the product",
+  "dashboard": {
+    "all-categories": "All Categories",
+    "total-products": "Total products",
+    "total-orders": "Total orders",
+    "total-categories": "Total categories",
+    "total-revenue": "Total revenue",
+    "EGP": "EGP",
+    "products": "{count,plural, one {Product} other {Products}}"
+  }
 }

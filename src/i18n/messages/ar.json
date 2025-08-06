@@ -157,7 +157,7 @@
   "rose-e-commerce-app": "تطبيق التجارة الإلكترونية",
   "all-rights-reserved-or-2025": "جميع الحقوق محفوظة | {year, number, plain}\n",
   "get-discount-coupon": "احصل على <span> {percent, number, percentage}</span> قبالة قسيمة خصم",
-<<<<<<< HEAD
+
   "dashboard": {
     "all-categories": "جميع الفئات",
     "total-products": "مجموع المنتجات",
@@ -167,17 +167,4 @@
     "EGP": "ج.م",
     "products": "{count,plural, one {منتج} two {منتجين } other {منتجات}}"
   }
-=======
-  "product-review": "مراجعة المنتج",
-  "product-reviews": "مراجعات المنتج",
-  "general-rating": "التصنيف العام:",
-  "ratings": "تقييمات",
-  "your-rating": "تصنيفك:",
-  "title": "العنوان",
-  "review": "المراجعة",
-  "enter-the-title": "أدخل العنوان",
-  "what-do-you-think-of-this-product": "ما رأيك في هذا المنتج؟",
-  "add-review": "إضافة المراجعة",
-  "login-to-add-review": "يرجى تسجيل الدخول لتتمكن من إضافة تقييم إلى المنتج\t"
->>>>>>> fa0cea4fcda5742f4e5db4c2c5c4781fb389966e
 }
