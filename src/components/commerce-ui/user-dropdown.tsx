@@ -5,7 +5,6 @@ import {
   Package,
   LayoutDashboard,
   LogOut,
-  TypeIcon as type,
   LucideIcon,
 } from "lucide-react";
 import {
@@ -41,40 +40,24 @@ export default function UserDropdown({ firstName, lastName, role }: UserDropdown
       label: "My Profile",
       icon: User,
       href: "#",
-      className:
-        "flex items-center gap-3 px-3 py-2 text-sm text-gray-700 dark:text-zinc-100 hover:bg-gray-50 dark:hover:bg-zinc-600 rounded-md cursor-pointer",
     },
     {
       id: "addresses",
       label: "My Addresses",
       icon: MapPin,
       href: "#",
-      className:
-        "flex items-center gap-3 px-3 py-2 text-sm text-gray-700 dark:text-zinc-100 hover:bg-gray-50 dark:hover:bg-zinc-600 rounded-md cursor-pointer",
     },
     {
       id: "orders",
       label: "My Orders",
       icon: Package,
       href: "#",
-      className:
-        "flex items-center gap-3 px-3 py-2 text-sm text-gray-700 dark:text-zinc-100 hover:bg-gray-50 dark:hover:bg-zinc-600 rounded-md cursor-pointer",
     },
     {
       id: "dashboard",
       label: "Dashboard",
       icon: LayoutDashboard,
       href: "#",
-      className:
-        "flex items-center gap-3 px-3 py-2 text-sm text-gray-700 dark:text-zinc-100 hover:bg-gray-50 dark:hover:bg-zinc-600 rounded-md cursor-pointer",
-    },
-    {
-      id: "logout",
-      label: "Log out",
-      icon: LogOut,
-      href: "#",
-      className:
-        "flex items-center gap-3 mt-2 px-3 py-2 text-sm text-gray-700 dark:text-zinc-100 hover:bg-blue-50 dark:hover:bg-blue-900/50 rounded-md cursor-pointer border-2 border-blue-200 dark:border-blue-400 bg-blue-50/50 dark:bg-blue-900/20",
     },
   ];
 
@@ -91,7 +74,11 @@ export default function UserDropdown({ firstName, lastName, role }: UserDropdown
           ""
         ) : (
           <Link href={item.href}>
-            <DropdownMenuItem className={item.className}>
+            <DropdownMenuItem
+              className={
+                "flex items-center gap-3 px-3 py-2 text-sm text-gray-700 dark:text-zinc-100 hover:bg-gray-50 dark:hover:bg-zinc-600 rounded-md cursor-pointer"
+              }
+            >
               <IconComponent className="h-4 w-4" />
               {item.label}
             </DropdownMenuItem>
@@ -109,7 +96,7 @@ export default function UserDropdown({ firstName, lastName, role }: UserDropdown
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className="w-fit items-center relative text-maroon-500 dark:text-pink-200 px-3 py-2 text-sm font-medium"
+          className="w-fit items-center relative text-maroon-500 hover:text-maroon-500 dark:text-pink-200 px-3 py-2 text-sm font-medium"
         >
           <span className="text-[12px] text-zinc-500 absolute -top-[1px] start-3">Hello</span>
           Welcome {firstName}
@@ -131,6 +118,16 @@ export default function UserDropdown({ firstName, lastName, role }: UserDropdown
         <DropdownMenuSeparator className="my-1 bg-gray-200 dark:bg-zinc-600" />
 
         {menuItems.map((item, index) => renderMenuItem(item, index))}
+        <Button variant={"ghost"} className="w-full justify-start mt-2" asChild>
+          <DropdownMenuItem
+            className={
+              "flex items-center w-full gap-3px-3 py-2 text-sm text-red-500 hover:text-red-600 hover:dark:text-red-600 hover:bg-gray-50 dark:hover:bg-zinc-600 rounded-md cursor-pointer"
+            }
+          >
+            <LogOut className="h-4 w-4" />
+            Logout
+          </DropdownMenuItem>
+        </Button>
       </DropdownMenuContent>
     </DropdownMenu>
   );
