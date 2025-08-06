@@ -17,8 +17,6 @@ declare type MetaData = {
 
 declare type ErrorResponse = {
   error: string;
-  status: string;
-  message: string;
 };
 
 declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;

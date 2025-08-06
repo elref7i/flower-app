@@ -8,9 +8,6 @@ export default async function CategoryProducts({ id }: { id: string }) {
   // Variables
   const products: Product[] = await getAllProductsByCategory(id);
 
-  console.log(products);
-  
-
   return (
     <div className="gap-6 grid grid-cols-4 py-4">
       {products.map((prod) => (

@@ -10,7 +10,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 
-export default function MainHeader() {  
+export default function MainHeader() {
   //Translation
   const t = useTranslations();
 
@@ -34,7 +34,7 @@ export default function MainHeader() {
           <span>
             <User size={20} />
           </span>
-          {session?.user ? t("welcome", { name: session?.user.firstName }) : t("login")}
+          {session?.user?.firstName ? t("welcome", { name: session.user.firstName }) : t("login")}
         </Link>
 
         {/* Icon notifiactions */}
