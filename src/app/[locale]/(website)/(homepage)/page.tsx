@@ -9,6 +9,7 @@ import BestSelling from "./_components/bestselling";
 import { fetchOccasions } from "@/lib/api/occasions.api";
 import { fetchPopularProducts } from "@/lib/api/products.api";
 import TestimonialSection from "./_components/testmonials/testmonial-section";
+import  ChartSection  from "@/components/features/charts/chart-section";
 
 export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
   // Variables
@@ -19,6 +20,7 @@ export default async function page({ searchParams }: { searchParams: { occasion?
   return (
     <div>
       <div className="container">
+        <ChartSection/>
         {/* Gifts Section */}
         <GiftsSection />
 
