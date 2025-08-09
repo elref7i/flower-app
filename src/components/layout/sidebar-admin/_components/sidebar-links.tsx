@@ -20,7 +20,7 @@ export default function SidebarLinks() {
       icon: LayoutDashboard,
     },
     {
-      title: `${t("catergories")}`,
+      title: `${t("categories")}`,
       url: "/dashboard/categories",
       icon: ClipboardList,
     },
