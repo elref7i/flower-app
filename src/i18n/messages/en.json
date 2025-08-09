@@ -142,7 +142,7 @@
   "welcome-back": "Welcome Back!",
   "welcome": "Welcome {name}",
   "no-products": "No Products Found",
-  "products": "products",
+  "products": "Products",
   "categories": "Categories",
   "contact": "contact",
   "about": "about",
@@ -159,9 +159,10 @@
   "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
   "preview-website": "Preview website",
   "links": "Links",
-  "overview": "overview",
-  "catergories": "catergories",
+  "overview": "Overview",
+  "catergories": "Catergories",
   "dashboard": "Dashboard",
   "account": "Account",
-  "log-out": "Log out"
+  "log-out": "Log out",
+  "Catergories": "Catergories"
 }

@@ -7,32 +7,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import getTokenFromCookies from "@/lib/utils/get-cookies-token";
-import { JSON_HEADER } from "@/lib/constants/api.constants";
+
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
-// API Response Type
-async function getLoggeduser() {
-  // get token
-  const token = await getTokenFromCookies();
-  console.log(token);
-
-  // fetch
-  const response = await fetch(`${process.env.API!}/auth/profile-data`, {
-    next: { tags: ["profile"] },
-    cache: "no-store",
-    method: "Get",
-    headers: {
-      ...JSON_HEADER,
-      Authorization: `Bearer ${token?.token}`,
-    },
-  });
-
-  const payload: APIResponse<LoggedUserResponse> = await response.json();
-  if ("error" in payload) throw new Error(payload.error);
-
-  return payload;
-}
+import getLoggeduser from "@/lib/api/user.api";
 
 export async function UserDropdownMenu() {
   // Translations
@@ -54,13 +32,13 @@ export async function UserDropdownMenu() {
           {/* Profile Image and User Info */}
           <Suspense fallback={<div className="w-6 h-6 bg-gray-200 rounded-full animate-pulse" />}>
             {/* Profile Image */}
-            <div className="relative size-[54px] rounded-full bg-gray-600">
+            <div className="relative size-[54px] rounded-[40px]   bg-gray-600 overflow-hidden">
               {profileData?.user ? (
                 <Image
                   src={profileData?.user.photo || "/placeholder.svg"}
                   alt={profileData.user.firstName}
                   fill
-                  className=" object-cover"
+                  className="object-cover "
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-gray-600">
