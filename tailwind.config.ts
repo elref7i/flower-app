@@ -111,7 +111,7 @@ const config: Config = {
     },
     fontFamily: {
       sarabun: ["var(--font-sarabun)"],
-      zain: ["var(--font-zain)"],
+      tajawal: ["var(--font-tajawal)"],
       seaweed: ["var(--font-seaweed)"],
       lateef: ["var(--font-lateef)"],
       great: ["var(--font-great-vibes)"],

@@ -13,3 +13,18 @@ export async function fetchOccasions() {
     return [];
   }
 }
+
+export async function getPaginatedOccasions(limit = "", page = "") {
+  try {
+    const response: APIResponse<PaginatedResponse<FetchOccasionsResponse>> = await fetch(
+      `${process.env.BASE_API}/occasions?limit=${limit}&page=${page}`,
+    );
+    if (!response.ok) throw new Error("Failed to fetch occasions");
+    const payload: APIResponse<PaginatedResponse<Occasion[]>> = await response.json();
+    if (payload.message !== "success") throw new Error("Failed to fetch occasions");
+
+    return payload;
+  } catch (error) {
+    return { message: "Can't get Categories", occasions: [] };
+  }
+}
