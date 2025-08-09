@@ -12,7 +12,9 @@ import TestimonialSection from "./_components/testmonials/testmonial-section";
 
 export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
   // Variables
+
   const occasions = await fetchOccasions();
+
   const currentOccasionId = searchParams.occasion || null;
   const popularProducts = await fetchPopularProducts(currentOccasionId || undefined);
 

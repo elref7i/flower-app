@@ -88,6 +88,10 @@ body {
   * {
     @apply border-border;
   }
+  .scrollBar-hidden {
+    scrollbar-width: none;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

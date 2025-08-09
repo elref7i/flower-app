@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 import { getToken } from "next-auth/jwt";
 
+
 const authRouts = [
   "/auth/login",
   "/auth/register",
@@ -13,6 +14,7 @@ const authRouts = [
 ];
 const adminPage = ["/dashboard", "/dashboard"];
 const publicPages = ["/", ...authRouts];
+
 
 const handleI18nRouting = createMiddleware(routing);
 

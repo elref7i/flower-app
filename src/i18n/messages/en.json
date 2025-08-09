@@ -86,6 +86,7 @@
     "buying-button": "I'm buying!"
   },
   "occasions": {
+    "occasions": "occasions",
     "budge-one": "Wedding",
     "description-one": "Celebrate Her Forever with a Gift She’ll Always Remember",
     "budge-two": "Engagement",
@@ -143,6 +144,19 @@
   "welcome": "Welcome {name}",
   "no-products": "No Products Found",
   "products": "Products",
+  "reset-all": "Reset All",
+  "reset": "reset",
+  "price": "price",
+  "occasion": "occasion",
+  "category": "category",
+  "rating": "rating",
+  "from": "from",
+  "to": "to",
+  "positive-error": "You Should Enter Positive Number",
+  "number-error": "You Should Enter Number",
+  "numbers-compare-error": "The number is less than the minimum number",
+  "please-wait": "Please Wait...",
+  "empty-message": "Sorry...There are no {name} to display",
   "categories": "Categories",
   "contact": "contact",
   "about": "about",
@@ -160,9 +174,18 @@
   "preview-website": "Preview website",
   "links": "Links",
   "overview": "Overview",
-  "catergories": "Catergories",
   "dashboard": "Dashboard",
   "account": "Account",
   "log-out": "Log out",
-  "Catergories": "Catergories"
+  "product-reviews": "Product Reviews",
+  "general-rating": "General rating:",
+  "ratings": "ratings",
+  "your-rating": "Your Rating :",
+  "title": "Title",
+  "review": "Review",
+  "enter-the-title": "Enter The Title",
+  "what-do-you-think-of-this-product": "What do you think of this product?",
+  "add-review": "Add review",
+  "login-to-add-review": "Please login to be able to add a review to the product"
+
 }

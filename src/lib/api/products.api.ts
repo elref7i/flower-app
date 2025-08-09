@@ -29,3 +29,13 @@ export async function fetchPopularProducts(occasionId?: string) {
   const data = await response.json();
   return data.products;
 }
+export async function getProductReviews(productId: string) {
+  const response = await fetch(`${process.env.API!}/products/${productId}/reviews`);
+  const payload: APIResponse<ProductReview> = await response.json();
+  if ("error" in payload) {
+    throw new Error(payload.error);
+  }
+  console.log("Fetched reviews:", payload);
+
+  return payload;
+}
