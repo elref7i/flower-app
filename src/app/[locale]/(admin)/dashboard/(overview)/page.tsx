@@ -1,9 +1,13 @@
+import { getAllStatistics } from "@/lib/api/all-statistics";
 import FirstRow from "./_components/1st-row";
 
-export default function page() {
+export default async function page() {
+  const response = await getAllStatistics();
+  if (!("statistics" in response)) throw new Error("Can't fetch statistics");
+  const { statistics } = response;
   return (
     <div className="bg-zinc-50 h-screen">
-      <FirstRow />
+      <FirstRow statistics={statistics} />
     </div>
   );
 }

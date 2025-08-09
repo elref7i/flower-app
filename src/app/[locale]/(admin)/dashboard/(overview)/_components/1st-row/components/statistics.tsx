@@ -1,19 +1,12 @@
 import { getAllStatistics } from "@/lib/api/all-statistics";
 import { CircleDollarSign, ClipboardList, Package, ReceiptText } from "lucide-react";
+import { useFormatter, useTranslations } from "next-intl";
 import { getFormatter, getTranslations } from "next-intl/server";
 
-export default async function Statistics() {
-  // fetch statistics
-  const response = await getAllStatistics();
-  if (!("statistics" in response)) {
-    // You can customize this error handling as needed
-    throw new Error(response.message || "Failed to fetch statistics");
-  }
-  const { statistics } = response;
-
+export default function Statistics({ statistics }: FirstRowProps) {
   // Translation hooks
-  const format = await getFormatter();
-  const t = await getTranslations("dashboard");
+  const format = useFormatter();
+  const t = useTranslations("dashboard");
 
   // Statistics list
   const renderedStatistics = [
