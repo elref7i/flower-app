@@ -4,11 +4,15 @@ import FilterHeader from "../../filter-header";
 import useRatingFilter from "./hook/use-rating-filter";
 
 export default function RatingFilter() {
+  // hooks
   const { rate, handleRate } = useRatingFilter();
+
   return (
     <div>
       {/* Filter header */}
       <FilterHeader title="rating" />
+
+      {/* Rating stars */}
       <div className="flex gap-2 text-[#FBA707]">
         {Array(5)
           .fill(0)

@@ -6,11 +6,14 @@ import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 
 export default function FilterHeader({ title }: { title: string }) {
-  // Hooks
+  // Translations
   const t = useTranslations();
-  const searchParams = useSearchParams().toString();
-  const router = useRouter();
 
+  // Navigation
+  const router = useRouter();
+  const searchParams = useSearchParams().toString();
+
+  // Functions
   // Function to remove search param
   function handleReset() {
     const createSearchParams = new URLSearchParams(searchParams);

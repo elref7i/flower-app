@@ -8,6 +8,7 @@ import useCategoryFilter from "./hook/use-category-filter";
 import { useTranslations } from "next-intl";
 
 export default function CategoryFilter() {
+  // hooks
   const {
     error,
     isLoading,
@@ -17,7 +18,10 @@ export default function CategoryFilter() {
     searchParams,
     isFetchingNextPage,
   } = useCategoryFilter();
+
+  // Translations
   const t = useTranslations();
+
   return (
     <>
       <div className="max-h-64 overflow-y-auto scrollBar-hidden relative ">
@@ -45,13 +49,13 @@ export default function CategoryFilter() {
                 <div
                   key={cat._id}
                   onClick={() => {
-                    handleCategory(cat.name);
+                    handleCategory(cat._id);
                   }}
                   className={cn(
                     "w-full bg-zinc-200 dark:bg-zinc-700 flex items-center h-7 rounded-sm overflow-hidden gap-3 cursor-pointer text-sm font-medium transition-colors duration-300 ease-in-out",
-                    searchParams.get("category") === cat.name &&
+                    searchParams.get("category") === cat._id &&
                       "bg-maroon-50 dark:bg-softpink-100",
-                    searchParams.get("category") !== cat.name &&
+                    searchParams.get("category") !== cat._id &&
                       "hover:bg-zinc-300 dark:hover:bg-zinc-600",
                   )}
                 >
@@ -59,7 +63,7 @@ export default function CategoryFilter() {
                   <span
                     className={cn(
                       "bg-zinc-500 py-1 px-2 transition-colors duration-300 ease-in-out",
-                      searchParams.get("category") === cat.name &&
+                      searchParams.get("category") === cat._id &&
                         "bg-maroon-600 dark:bg-softpink-300",
                     )}
                   >

@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils/cn";
 import { LoaderCircle } from "lucide-react";
 import useFilterOccasion from "./hook/use-filter-occasion";
 import { useTranslations } from "next-intl";
-import Occasions from "@/components/features/occasions/occasions";
 
 // Occasion filter component
 export default function OccasionFilter() {
+  // hooks
   const {
     error,
     isLoading,
@@ -18,7 +18,10 @@ export default function OccasionFilter() {
     searchParams,
     isFetchingNextPage,
   } = useFilterOccasion();
+
+  // Translations
   const t = useTranslations();
+
   return (
     <>
       <div className="mb-5 w-full max-h-80 overflow-y-auto scrollBar-hidden relative">
@@ -45,10 +48,10 @@ export default function OccasionFilter() {
                 // occasion
                 <div
                   key={occ._id}
-                  onClick={() => handleOccasion(occ.name)}
+                  onClick={() => handleOccasion(occ._id)}
                   className={cn(
                     `cursor-pointer w-full h-20 relative before:rounded-md before:absolute before:opacity-50 before:w-full before:h-full `,
-                    searchParams.get("occasion") === occ.name.toLocaleLowerCase()
+                    searchParams.get("occasion") === occ._id
                       ? "before:bg-gradient-to-b before:from-black before:from-25% before:to-[#FFA3B9]"
                       : "before:bg-black",
                   )}
