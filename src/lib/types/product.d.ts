@@ -1,7 +1,6 @@
 declare type Product = {
   rateAvg: number;
   rateCount: number;
-  id: string;
   title: string;
   slug: string;
   description: string;
@@ -14,4 +13,17 @@ declare type Product = {
   occasion: string;
   isSuperAdmin?: boolean;
   sold: number;
+} & DatabaseFields;
+
+declare type ProductReview = {
+  reviews: review[];
+} & MetaData;
+
+declare type reviews = {
+  product: string;
+  user: string;
+  rating: number;
+  title: string;
+  comment: string;
+  status: string;
 } & DatabaseFields;

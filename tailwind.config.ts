@@ -16,7 +16,7 @@ const config: Config = {
       sm: "480px",
       md: "768px",
       lg: "980px",
-      xl: "1200px",
+      xl: "1380px",
     },
     extend: {
       boxShadow: {
@@ -111,7 +111,7 @@ const config: Config = {
     },
     fontFamily: {
       sarabun: ["var(--font-sarabun)"],
-      zain: ["var(--font-zain)"],
+      tajawal: ["var(--font-tajawal)"],
       seaweed: ["var(--font-seaweed)"],
       lateef: ["var(--font-lateef)"],
       great: ["var(--font-great-vibes)"],
