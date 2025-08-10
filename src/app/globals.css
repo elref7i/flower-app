@@ -75,6 +75,7 @@ body {
   .scrollBar-hidden {
     scrollbar-width: none;
   }
+
   body {
     @apply bg-background text-foreground;
   }

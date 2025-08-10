@@ -14,7 +14,7 @@ export async function getCategoryById(id: string) {
 
 export async function getPaginatedCategories(limit = "", page = "") {
   try {
-    const response = await fetch(`${process.env.API}/categories?limit=${limit}&page=${page}`);
+    const response = await fetch(`${process.env.BASE_API}/categories?limit=${limit}&page=${page}`);
     if (!response.ok) throw new Error("Error:failed to get categories");
     const payload: APIResponse<PaginatedResponse<Categories[]>> = await response.json();
     if (payload.message !== "success") throw new Error("Can't get categories");
