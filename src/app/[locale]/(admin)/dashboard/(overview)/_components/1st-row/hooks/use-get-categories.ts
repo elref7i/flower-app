@@ -23,9 +23,10 @@ export default function useGetCategories() {
       //  if promise rejected
       if (!response.ok) throw new Error("Can't get Categories");
 
-      const payload = await response.json();
+      const payload: APIResponse<PaginatedResponse<Categories[]>> = await response.json();
 
       //  Condition if payload  doesn't accepted
+      if ("error" in payload) throw new Error(payload.error || "Invalid response");
       if (payload.message !== "success") {
         throw new Error(payload.message || "Invalid response");
       }
@@ -37,7 +38,9 @@ export default function useGetCategories() {
 
     // Pass next page number to function
     getNextPageParam: (lastPage) => {
+      // @ts-expect-error
       if (lastPage.metadata.currentPage === lastPage.metadata.totalPages) return undefined;
+      // @ts-expect-error
       return lastPage.metadata.currentPage + 1;
     },
   });
@@ -61,6 +64,7 @@ export default function useGetCategories() {
   // Get all categories from paginated data
   const categories: Category[] =
     payload?.pages.flatMap((page) => {
+      // @ts-expect-error
       return page.categories;
     }) || [];
 

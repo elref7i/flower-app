@@ -3,7 +3,7 @@ import Statistics from "./components/statistics";
 
 export default function FirstRow({ statistics }: FirstRowProps) {
   return (
-    <section className="flex flex-col gap-6 justify-center md:flex-row md:justify-between px-4 pt-6">
+    <section className="flex flex-col gap-6 justify-center md:flex-row  px-4 pt-6">
       <Statistics statistics={statistics} />
       <Categories />
     </section>

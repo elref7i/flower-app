@@ -15,31 +15,31 @@ export default function Statistics({ statistics }: FirstRowProps) {
       color: "text-maroon-600",
       backgroundColor: "bg-maroon-50",
       quantity: format.number(statistics.overall.totalProducts, "units"),
-      icon: <Package width={35} height={35} />,
+      icon: Package,
       isCurrency: false,
     },
     {
       name: t("total-orders"),
       color: "text-blue-600",
-      backgroundColor: "bg-[#0063D00D]",
+      backgroundColor: "bg-blue-50",
       quantity: format.number(statistics.overall.totalOrders, "units"),
-      icon: <ReceiptText width={35} height={35} />,
+      icon: ReceiptText,
       isCurrency: false,
     },
     {
       name: t("total-categories"),
-      color: "text-[#753CBF]",
-      backgroundColor: "bg-[#753CBF0D]",
+      color: "text-purple-800",
+      backgroundColor: "bg-purple-50",
       quantity: format.number(statistics.overall.totalCategories, "units"),
-      icon: <ClipboardList width={35} height={35} />,
+      icon: ClipboardList,
       isCurrency: false,
     },
     {
       name: t("total-revenue"),
       color: "text-emerald-600",
-      backgroundColor: "bg-[#0089610D]",
+      backgroundColor: "bg-emerald-50",
       quantity: format.number(statistics.overall.totalRevenue, "units"),
-      icon: <CircleDollarSign width={35} height={35} />,
+      icon: CircleDollarSign,
       isCurrency: true,
     },
   ];
@@ -50,7 +50,7 @@ export default function Statistics({ statistics }: FirstRowProps) {
       {renderedStatistics.map((el) => (
         <div key={el.name} className={`${el.backgroundColor}  ${el.color} rounded-2xl p-4`}>
           {/* Icon */}
-          <span>{el.icon}</span>
+          <span>{<el.icon width={35} height={35} />}</span>
 
           {/* quantity */}
           <div className="flex items-end gap-2 flex-wrap">

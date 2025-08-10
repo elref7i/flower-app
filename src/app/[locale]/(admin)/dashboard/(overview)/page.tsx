@@ -6,7 +6,7 @@ export default async function page() {
   if (!("statistics" in response)) throw new Error("Can't fetch statistics");
   const { statistics } = response;
   return (
-    <div className="bg-zinc-50 h-screen">
+    <div className="h-screen">
       <FirstRow statistics={statistics} />
     </div>
   );
