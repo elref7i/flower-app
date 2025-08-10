@@ -13,7 +13,9 @@ import  ChartSection  from "@/components/features/charts/chart-section";
 
 export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
   // Variables
+
   const occasions = await fetchOccasions();
+
   const currentOccasionId = searchParams.occasion || null;
   const popularProducts = await fetchPopularProducts(currentOccasionId || undefined);
 
