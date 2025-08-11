@@ -6,8 +6,6 @@ export default async function getTokenFromCookies() {
   // Get token from cookies
   const cookiesToken = cookies().get("next-auth.session-token")?.value;
 
-  console.log("Cookies Token:", cookiesToken);
-
   // Decode token
   const token = await decode({
     token: cookiesToken,

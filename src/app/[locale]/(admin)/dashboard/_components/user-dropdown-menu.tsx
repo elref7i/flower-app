@@ -12,6 +12,8 @@ import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import getLoggeduser from "@/lib/api/user.api";
 
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
 export async function UserDropdownMenu() {
   // Translations
   const t = await getTranslations();
@@ -21,7 +23,7 @@ export async function UserDropdownMenu() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className=" w-full">
         {/* Button */}
         <Button
           variant="ghost"
@@ -29,14 +31,16 @@ export async function UserDropdownMenu() {
         >
           {/* Profile Image and User Info */}
           <Suspense fallback={<div className="w-6 h-6 bg-gray-200 rounded-full animate-pulse" />}>
-            <div className="relative size-[54px] rounded-[40px]   bg-gray-600 overflow-hidden">
-              <Image
-                src={profileData?.user.photo || "/placeholder.svg"}
+            {/* Profile Image */}
+            <Avatar className="relative size-[54px] rounded-full bg-gray-600">
+              <AvatarImage
+                src={profileData.user.photo || "/placeholder.svg"}
                 alt={profileData?.user.firstName}
-                fill
-                className="object-cover"
               />
-            </div>
+              <AvatarFallback className="font-bold text-3xl bg-maroon-400 text-white">
+                {profileData.user.firstName.slice(0, 1).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
 
             {/* User Info */}
             <div className="flex-1 text-left w-[142px]">
