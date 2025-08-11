@@ -19,8 +19,6 @@ export async function UserDropdownMenu() {
   // Fetch the logged user data
   const profileData = await getLoggeduser();
 
-  // Fetch data
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -31,20 +29,13 @@ export async function UserDropdownMenu() {
         >
           {/* Profile Image and User Info */}
           <Suspense fallback={<div className="w-6 h-6 bg-gray-200 rounded-full animate-pulse" />}>
-            {/* Profile Image */}
             <div className="relative size-[54px] rounded-[40px]   bg-gray-600 overflow-hidden">
-              {profileData?.user ? (
-                <Image
-                  src={profileData?.user.photo || "/placeholder.svg"}
-                  alt={profileData.user.firstName}
-                  fill
-                  className="object-cover "
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gray-600">
-                  <User className="w-5 h-5 text-gray-300" />
-                </div>
-              )}
+              <Image
+                src={profileData?.user.photo || "/placeholder.svg"}
+                alt={profileData?.user.firstName}
+                fill
+                className="object-cover"
+              />
             </div>
 
             {/* User Info */}
