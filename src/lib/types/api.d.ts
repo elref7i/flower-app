@@ -12,7 +12,7 @@ declare type Metadata = {
 };
 
 declare type SuccessfullResponse<T> = {
-  message: string;
+  message: "success";
 } & T;
 
 declare type ErrorResponse = {

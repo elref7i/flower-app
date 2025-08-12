@@ -40,10 +40,6 @@ export default async function MainHeader() {
             role={session?.user?.role}
           />
         ) : (
-          ""
-        )}
-
-        {!session && ( // If user is not logged in, show login link
           <Link className="flex gap-[6px] items-center" href={"/auth/login"}>
             <span>
               <User size={20} />
