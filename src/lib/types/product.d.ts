@@ -1,3 +1,7 @@
+declare type Products = {
+  products: Product[];
+};
+
 declare type Product = {
   rateAvg: number;
   rateCount: number;
@@ -17,7 +21,7 @@ declare type Product = {
 
 declare type ProductReview = {
   reviews: review[];
-} & MetaData;
+} & Metadata;
 
 declare type reviews = {
   product: string;

@@ -1,5 +1,5 @@
 declare type Categories = {
-  metadata: MetaData;
+  metadata: Metadata;
   categories: Category[];
 };
 

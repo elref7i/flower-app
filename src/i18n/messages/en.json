@@ -173,7 +173,6 @@
   "preview-website": "Preview website",
   "links": "Links",
   "overview": "Overview",
-  "dashboard": "Dashboard",
   "account": "Account",
   "log-out": "Log out",
   "product-reviews": "Product Reviews",
@@ -185,15 +184,10 @@
   "enter-the-title": "Enter The Title",
   "what-do-you-think-of-this-product": "What do you think of this product?",
   "add-review": "Add review",
-<<<<<<< HEAD
-  "login-to-add-review": "Please login to be able to add a review to the product"
-
-=======
   "login-to-add-review": "Please login to be able to add a review to the product",
   "welcome": "Welcome",
   "my-profile": "My Profile",
   "my-addresses": "My Addresses",
   "my-orders": "My Orders",
   "dashboard": "Dashboard"
->>>>>>> bb644d405ccd9dc252a84e740bb637b0b42d2c85
 }

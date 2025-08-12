@@ -17,7 +17,7 @@ export default function NotFoundPage() {
       <NavigationHeader />
       <div className="flex flex-col gap-8 min-h-screen items-center justify-center">
         {/* Headline */}
-        <h1 className="text-red-500 font-bold text-9xl">404ss</h1>
+        <h1 className="text-red-500 font-bold text-9xl">404 G</h1>
 
         {/* Description */}
         <p>{t("not-found-page")}.</p>

@@ -3,7 +3,6 @@
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -11,8 +10,28 @@ import {
 import { Link, usePathname } from "@/i18n/navigation";
 import { useMemo } from "react";
 
+import { notFound } from "next/navigation";
+
 export default function DashboardBreadcrumb() {
   const pathName = usePathname();
+
+  const validRoutes = useMemo(
+    () => [
+      "/dashboard",
+      "/dashboard/categories",
+      "/dashboard/occasions",
+      "/dashboard/products",
+      // Add your valid dashboard routes here
+    ],
+    [],
+  );
+
+  // Check if current path is valid
+  const isValidRoute = useMemo(() => {
+    return validRoutes.some(
+      (route) => pathName === route || (pathName.startsWith(route + "/") && route !== "/dashboard"),
+    );
+  }, [pathName, validRoutes]);
 
   // Memoize the path segments to avoid recalculation on every render
   const pathSegments = useMemo(() => {
@@ -36,6 +55,11 @@ export default function DashboardBreadcrumb() {
       isLast: index === pathSegments.length - 1,
     }));
   }, [pathName, pathSegments]);
+
+  // Return NotFound if route is invalid
+  if (pathName.startsWith("/dashboard") && !isValidRoute) {
+    notFound();
+  }
 
   return (
     <Breadcrumb>

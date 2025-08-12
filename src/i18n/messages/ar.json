@@ -173,7 +173,6 @@
   "links": "الروابط",
   "preview-website": "معاينة موقع الويب",
   "overview": "نظرة عامة",
-  "dashboard": "لوحة القيادة",
   "account": "حساب",
   "log-out": "تسجيل الخروج",
   "product-review": "مراجعة المنتج",
@@ -186,14 +185,9 @@
   "enter-the-title": "أدخل العنوان",
   "what-do-you-think-of-this-product": "ما رأيك في هذا المنتج؟",
   "add-review": "إضافة المراجعة",
-<<<<<<< HEAD
-  "login-to-add-review": "يرجى تسجيل الدخول لتتمكن من إضافة تقييم إلى المنتج\t"
-
-=======
   "login-to-add-review": "يرجى تسجيل الدخول لتتمكن من إضافة تقييم إلى المنتج\t",
   "my-profile": "ملفي الشخصي",
   "my-addresses": "عنوانى",
   "my-orders": "طلباتى",
   "dashboard": "لوحة القيادة"
->>>>>>> bb644d405ccd9dc252a84e740bb637b0b42d2c85
 }

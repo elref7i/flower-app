@@ -15,7 +15,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 
 interface PaginationComponentProps {
-  metaData: MetaData;
+  metaData: Metadata;
 }
 
 function getVisiblePages(currentPage: number, totalPages: number): (number | string)[] {
