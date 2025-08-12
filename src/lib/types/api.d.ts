@@ -4,35 +4,23 @@ declare type DatabaseFields = {
   updatedAt: string;
 };
 
-declare type ApplicationUser = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  gender: string;
-  phone: string;
-  photo: string;
-  role: string;
-  wishlist: [];
-  addresses: [];
-} & DatabaseFields;
-
-declare type SuccessfullResponse<T> = {
-  message: string;
-} & T;
-
-declare type MetaData = {
+declare type Metadata = {
   currentPage: number;
   limit: number;
   totalPages: number;
   totalItems: number;
 };
 
+declare type SuccessfullResponse<T> = {
+  message: "success";
+} & T;
+
 declare type ErrorResponse = {
   error: string;
 };
 
-declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
-
 declare type PaginatedResponse<T> = {
   metadata: Metadata;
 } & T;
+
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;

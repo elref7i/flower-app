@@ -1,5 +1,5 @@
 {
-  "hello": "مرحبا",
+  "hello": "مرحبًا",
   "about-us": "اذهب الي صفحة عنا",
   "not-found-page": "الصفحة غير متوفرة\n",
   "go-to-homepage": "اذهب إلى الصفحة الرئيسية",
@@ -138,7 +138,7 @@
     "passwords-dont-match-error": " كلمة المرور وتأكيدها غير متطابقين"
   },
   "welcome-back": "مرحبًا بعودتك",
-  "welcome": "مرحبًا {name}",
+  "welcome": "أهلا",
   "no-products": "لم يتم العثور على منتجات",
   "reset-all": "إزاله الكل",
   "reset": "إزاله",
@@ -186,6 +186,14 @@
   "enter-the-title": "أدخل العنوان",
   "what-do-you-think-of-this-product": "ما رأيك في هذا المنتج؟",
   "add-review": "إضافة المراجعة",
+<<<<<<< HEAD
   "login-to-add-review": "يرجى تسجيل الدخول لتتمكن من إضافة تقييم إلى المنتج\t"
 
+=======
+  "login-to-add-review": "يرجى تسجيل الدخول لتتمكن من إضافة تقييم إلى المنتج\t",
+  "my-profile": "ملفي الشخصي",
+  "my-addresses": "عنوانى",
+  "my-orders": "طلباتى",
+  "dashboard": "لوحة القيادة"
+>>>>>>> bb644d405ccd9dc252a84e740bb637b0b42d2c85
 }
