@@ -189,5 +189,6 @@
   "my-profile": "My Profile",
   "my-addresses": "My Addresses",
   "my-orders": "My Orders",
-  "dashboard": "Dashboard"
+  "dashboard": "Dashboard",
+  "success-deleted-this-product": "Product successfully deleted"
 }

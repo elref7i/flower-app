@@ -23,6 +23,10 @@ declare type ProductReview = {
   reviews: review[];
 } & Metadata;
 
+declare type ProducteDeletedResponse = {
+  id: string;
+};
+
 declare type reviews = {
   product: string;
   user: string;

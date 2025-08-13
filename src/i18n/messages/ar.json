@@ -189,5 +189,6 @@
   "my-profile": "ملفي الشخصي",
   "my-addresses": "عنوانى",
   "my-orders": "طلباتى",
-  "dashboard": "لوحة القيادة"
+  "dashboard": "لوحة القيادة",
+  "success-deleted-this-product": "تم حذف المنتج بنجاح"
 }
