@@ -61,7 +61,7 @@ export default async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL("/auth/login", req.nextUrl.origin));
     }
     if (token.user.role !== "admin") {
-      return NextResponse.redirect(new URL("/", req.nextUrl.origin));
+      return NextResponse.redirect(new URL("/not-authorized", req.nextUrl.origin));
     }
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
