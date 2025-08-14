@@ -159,5 +159,18 @@
   "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
   "veiw-more": "view more",
   "top-selling": "Top Selling Product",
-  "low-stock": "Low Stock Products"
+  "low-stock": "Low Stock Products",
+  "deleted-category": "Category Deleted Successfully",
+  "update-category": "Update Category:",
+  "name-lable": "Name",
+  "view-cat-imgs": "View category image",
+  "products-lable": "Products",
+  "edit-button": "Edit",
+  "delete-button": "Delete",
+  "category-inp-palceholder": "Enter category name",
+  "cat-img": "Category image",
+  "add-category": "Add Category",
+  "waiting-add-category": "Adding Category...",
+  "add-new-category-button": "Add a New Category",
+  "all-categories": "All Categories"
 }

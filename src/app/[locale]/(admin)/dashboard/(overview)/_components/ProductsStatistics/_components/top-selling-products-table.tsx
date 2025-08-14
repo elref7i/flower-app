@@ -36,8 +36,8 @@ export default function TopSellingProductsTable() {
 
   return (
     <>
-      {isLoading && products.length === 0 && <p>Loading...</p>}
-      {isError && <p>Error fetching products</p>}
+      {isLoading && products.length === 0 && <p className="text-zinc-800">Loading...</p>}
+      {isError && <p className="text-zinc-800">Error fetching products</p>}
       {payload && (
         <div id="scrollableDiv" className="overflow-auto max-h-full scrollbar-hide p-0 m-0">
           <InfiniteScroll
@@ -55,7 +55,6 @@ export default function TopSellingProductsTable() {
             <Table className="w-full h-full scrollbar-hide">
               <TableBody className="flex flex-col gap-2">
                 {products.map((product, index) => {
-                  // تحديد خلفية الصف حسب ترتيبه
                   let bgStyle = {};
 
                   if (index === 0) {
