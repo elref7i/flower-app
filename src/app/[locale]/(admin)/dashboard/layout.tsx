@@ -4,7 +4,7 @@ import { SidebarAdmin } from "@/components/layout/sidebar-admin/sidebar-admin";
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { getTranslations } from "next-intl/server";
-import DashboardBreadcrumb from "./_components/dashboard-breadcrumb";
+import DashboardBreadcrumb from "../../../../components/commerce-ui/dashboard-breadcrumb";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   // Translations

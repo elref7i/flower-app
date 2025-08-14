@@ -12,7 +12,7 @@ const authRouts = [
   "/auth/verify-email/success",
 ];
 const adminPage = ["/dashboard,/dashboard/products,/dashboard/occasions"];
-const publicPages = ["/", ...authRouts];
+const publicPages = ["/", "/not-authorized", ...authRouts];
 
 const handleI18nRouting = createMiddleware(routing);
 
@@ -48,7 +48,21 @@ export default async function middleware(req: NextRequest) {
   const isPublicPage = pathRegex(publicPages).test(req.nextUrl.pathname);
   const isAuthpage = pathRegex(authRouts).test(req.nextUrl.pathname);
   const isAdminPage = pathRegex(adminPage).test(req.nextUrl.pathname);
+  const isNotAuthorizedPage = pathRegex(["/not-authorized"]).test(req.nextUrl.pathname);
   const token = await getToken({ req });
+
+  // check Not AUthorized
+  if (isNotAuthorizedPage) {
+    if (!token) {
+      return NextResponse.redirect(new URL("/auth/login", req.nextUrl.origin));
+    }
+    if (token.user.role === "admin") {
+      return NextResponse.redirect(new URL("/dashboard", req.nextUrl.origin));
+    }
+    return handleI18nRouting(req);
+  }
+
+  //  Check Public
   if (isPublicPage) {
     if (isAuthpage && token) {
       return NextResponse.redirect(new URL("/", req.nextUrl.origin));
