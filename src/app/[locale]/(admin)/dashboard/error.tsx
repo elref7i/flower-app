@@ -1,5 +1,6 @@
 "use client"; // Error components must be Client Components
 
+import OopsWrong from "@/components/commerce-ui/oops";
 import { useEffect } from "react";
 
 export default function Error({
@@ -14,17 +15,5 @@ export default function Error({
     console.error(error);
   }, [error]);
 
-  return (
-    <div>
-      <h2>Somethingsss went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
-    </div>
-  );
+  return <OopsWrong />;
 }
