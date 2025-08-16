@@ -17,10 +17,10 @@ export default function DashboardBreadcrumb() {
 
   const validRoutes = useMemo(
     () => [
-      "/dashboard",
-      "/dashboard/categories",
-      "/dashboard/occasions",
-      "/dashboard/products",
+      "/admin/dashboard",
+      "/admin/categories",
+      "/admin/occasions",
+      "/admin/products",
       // Add your valid dashboard routes here
     ],
     [],
@@ -29,7 +29,8 @@ export default function DashboardBreadcrumb() {
   // Check if current path is valid
   const isValidRoute = useMemo(() => {
     return validRoutes.some(
-      (route) => pathName === route || (pathName.startsWith(route + "/") && route !== "/dashboard"),
+      (route) =>
+        pathName === route || (pathName.startsWith(route + "/") && route !== "/admin/dashboard"),
     );
   }, [pathName, validRoutes]);
 
@@ -37,19 +38,20 @@ export default function DashboardBreadcrumb() {
   const pathSegments = useMemo(() => {
     return pathName.split("/").filter((segment) => segment !== "");
   }, [pathName]);
+  console.log(pathSegments);
 
   // Memoize breadcrumb items
   const breadcrumbItems = useMemo(() => {
     // Special case for dashboard root
-    if (pathName === "/dashboard") {
+    if (pathName === "/admin/dashboard") {
       return [
-        { path: "dashboard", href: "/dashboard", isLast: false },
+        { path: "dashboard", href: "/admin/dashboard", isLast: false },
         { path: "overview", href: "", isLast: true },
       ];
     }
 
     return pathSegments.map((segment, index) => ({
-      path: segment,
+      path: segment === "admin" ? "dashboard" : segment,
       href:
         index === pathSegments.length - 1 ? null : `/${pathSegments.slice(0, index + 1).join("/")}`,
       isLast: index === pathSegments.length - 1,
@@ -57,7 +59,7 @@ export default function DashboardBreadcrumb() {
   }, [pathName, pathSegments]);
 
   // Return NotFound if route is invalid
-  if (pathName.startsWith("/dashboard") && !isValidRoute) {
+  if (pathName.startsWith("/admin") && !isValidRoute) {
     notFound();
   }
 

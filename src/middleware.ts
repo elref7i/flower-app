@@ -11,16 +11,12 @@ const authRouts = [
   "/auth/verify-email",
   "/auth/verify-email/success",
 ];
-const adminPage = ["/dashboard,/dashboard/products,/dashboard/occasions"];
+const adminPage = ["/admin/dashboard", "/admin/products", "/admin/occasions", "/admin/categories"];
 const publicPages = ["/", "/not-authorized", ...authRouts];
 
 const handleI18nRouting = createMiddleware(routing);
 
 const authMiddleware = withAuth(
-  // Note that this callback is only invoked if
-  // the `authorized` callback has returned `true`
-  // and not for pages listed in `pages`.
-
   function onSuccess(req) {
     return handleI18nRouting(req);
   },
@@ -35,7 +31,6 @@ const authMiddleware = withAuth(
 );
 
 export default async function middleware(req: NextRequest) {
-  // Function to create a regex for matching paths
   function pathRegex(paths: string[]): RegExp {
     return RegExp(
       `^(/(${routing.locales.join("|")}))?(${paths
@@ -45,13 +40,20 @@ export default async function middleware(req: NextRequest) {
     );
   }
 
+  // ✅ check if path starts with /admin (even invalid ones)
+  function isAdminPath(pathname: string): boolean {
+    const cleanPath = pathname.replace(new RegExp(`^/(${routing.locales.join("|")})`), "");
+    return cleanPath.startsWith("/admin");
+  }
+
   const isPublicPage = pathRegex(publicPages).test(req.nextUrl.pathname);
   const isAuthpage = pathRegex(authRouts).test(req.nextUrl.pathname);
   const isAdminPage = pathRegex(adminPage).test(req.nextUrl.pathname);
+
   const isNotAuthorizedPage = pathRegex(["/not-authorized"]).test(req.nextUrl.pathname);
   const token = await getToken({ req });
 
-  // check Not AUthorized
+  // ✅ Not Authorized
   if (isNotAuthorizedPage) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/login", req.nextUrl.origin));
@@ -62,7 +64,7 @@ export default async function middleware(req: NextRequest) {
     return handleI18nRouting(req);
   }
 
-  //  Check Public
+  // ✅ Public pages
   if (isPublicPage) {
     if (isAuthpage && token) {
       return NextResponse.redirect(new URL("/", req.nextUrl.origin));
@@ -70,15 +72,21 @@ export default async function middleware(req: NextRequest) {
     return handleI18nRouting(req);
   }
 
-  if (isAdminPage) {
+  // ✅ Admin paths (even invalid ones)
+  if (isAdminPath(req.nextUrl.pathname)) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/login", req.nextUrl.origin));
     }
     if (token.user.role !== "admin") {
       return NextResponse.redirect(new URL("/not-authorized", req.nextUrl.origin));
     }
+
+    // Important: let Next.js handle the rest → this way
+    // /admin/invalid will trigger app/admin/not-found.tsx
+    return handleI18nRouting(req);
   }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+  // ✅ fallback
   return (authMiddleware as any)(req);
 }
 

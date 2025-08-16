@@ -17,22 +17,22 @@ export default function SidebarLinks() {
     () => [
       {
         title: t("overview"),
-        url: "/dashboard",
+        url: "/admin/dashboard",
         icon: LayoutDashboard,
       },
       {
         title: t("categories"), // Fixed typo: "cateories" -> "categories"
-        url: "/dashboard/categories", // Fixed URL as well
+        url: "/admin/categories", // Fixed URL as well
         icon: ClipboardList,
       },
       {
         title: t("occasions-title"),
-        url: "/dashboard/occasions",
+        url: "/admin/occasions",
         icon: CalendarHeart,
       },
       {
         title: t("products"),
-        url: "/dashboard/products",
+        url: "/admin/products",
         icon: Package,
       },
     ],
