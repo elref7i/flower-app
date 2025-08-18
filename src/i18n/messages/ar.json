@@ -1,5 +1,5 @@
 {
-  "hello": "مرحبا",
+  "hello": "مرحبًا",
   "about-us": "اذهب الي صفحة عنا",
   "not-found-page": "الصفحة غير متوفرة\n",
   "go-to-homepage": "اذهب إلى الصفحة الرئيسية",
@@ -138,8 +138,21 @@
     "passwords-dont-match-error": " كلمة المرور وتأكيدها غير متطابقين"
   },
   "welcome-back": "مرحبًا بعودتك",
-  "welcome": "مرحبًا {name}",
+  "welcome": "أهلا",
   "no-products": "لم يتم العثور على منتجات",
+  "reset-all": "إزاله الكل",
+  "reset": "إزاله",
+  "price": "السعر",
+  "occasion": "المناسبه",
+  "category": "الفئة",
+  "rating": "التقيم",
+  "from": "من",
+  "to": "إلى",
+  "number-error": "يجب عليك إدخال رقم",
+  "positive-error": "يجب عليك ادخال رقم موجب",
+  "numbers-compare-error": "يجب ادخال رقم اكبر من الرقم الاقل",
+  "please-wait": "انتظر من فضلك...",
+  "empty-message": "آسف ... لا يوجد {name} لعرضها",
   "home": "الصفحة الرئيسية",
   "products": "المنتجات",
   "categories": "الفئات",
@@ -167,5 +180,9 @@
   "enter-the-title": "أدخل العنوان",
   "what-do-you-think-of-this-product": "ما رأيك في هذا المنتج؟",
   "add-review": "إضافة المراجعة",
-  "login-to-add-review": "يرجى تسجيل الدخول لتتمكن من إضافة تقييم إلى المنتج\t"
+  "login-to-add-review": "يرجى تسجيل الدخول لتتمكن من إضافة تقييم إلى المنتج\t",
+  "my-profile": "ملفي الشخصي",
+  "my-addresses": "عنوانى",
+  "my-orders": "طلباتى",
+  "dashboard": "لوحة القيادة"
 }
