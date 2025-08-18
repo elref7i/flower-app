@@ -5,35 +5,25 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { useVerifyCodeSchema, TVerifyCodeFields } from "@/lib/schema/auth.schema";
-import { verifyOTPCodeAction } from "../../_action/otp-action";
-// import { ForgotPasswordAction } from "../_actions/forgot-password.action";
-import { useState, useRef, useEffect } from "react";
+import { forgetPassword } from "../../_action/forgot-password-action";
+import { useState, useEffect } from "react";
 import { useAuthContext } from "@/lib/context/auth-context";
-import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import useVerifyOtp from "../../_hooks/use-verify-otp";
-import useForgetPassword from "../../_hooks/use-forget-password";
+import useOtpCode from "../../_hooks/use-verify-otp";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 
 export default function VerifyCodeForm() {
-  // Routing
-  const router = useRouter();
-
   // Contetxt
   const { setStep, email } = useAuthContext();
 
   // Constants
   const schema = useVerifyCodeSchema();
+  const { VerifyOtpHookFun, isPending } = useOtpCode();
 
   // Hooks
-  const [error, setError] = useState<string | null>(null);
-  const [isPending, setIsPending] = useState(false);
-  const inputsRef = useRef<HTMLInputElement[]>([]);
   const [timer, setTimer] = useState(60);
-  const { VerifyOtpHookFun } = useVerifyOtp();
-  const { ForgetPasswordHookFun } = useForgetPassword();
 
-  // Handle Timer
   useEffect(() => {
     if (timer === 0) return;
 
@@ -44,9 +34,6 @@ export default function VerifyCodeForm() {
     return () => clearInterval(interval);
   }, [timer]);
 
-  // Translation
-  const t = useTranslations();
-
   // Form
   const form = useForm<TVerifyCodeFields>({
     resolver: zodResolver(schema),
@@ -55,31 +42,8 @@ export default function VerifyCodeForm() {
     },
   });
 
-  // Functions
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const value = e.target.value;
-    // handle each input accept one number
-    if (!/^\d?$/.test(value)) return;
-
-    // catch numbers from inputs and make them (String)
-    const currentCode = form.getValues("resetCode").split("");
-    currentCode[index] = value;
-    const newCode = currentCode.join("");
-    form.setValue("resetCode", newCode);
-
-    if (value && index < 5) {
-      inputsRef.current[index + 1]?.focus();
-    }
-  };
-
-  // Handle Backspace Button
-  const handleBackspace = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
-    if (e.key === "Backspace" && !e.currentTarget.value && index > 0) {
-      inputsRef.current[index - 1]?.focus();
-    }
-  };
   // Submition Function
-  const onSubmit = async (values: TVerifyCodeFields) => {
+  const onSubmit = (values: TVerifyCodeFields) => {
     VerifyOtpHookFun(values);
   };
 
@@ -87,31 +51,51 @@ export default function VerifyCodeForm() {
   const startTimer = () => setTimer(60);
 
   // Handle Resend Code Function
-  const resendCode = () => {
-    ForgetPasswordHookFun({ email });
+  const resendCoade = async () => {
+    try {
+      const response = await forgetPassword({ email });
+
+      if (response.message === "success") {
+        toast.success(t("otp.otp-toast"));
+        startTimer();
+      } else {
+        toast.error(t("otp.resend-code-fail-message"));
+      }
+    } catch (error: any) {
+      toast.error(error.message || "Something went wrong!");
+    }
   };
+
+  // Translation
+  const t = useTranslations();
 
   return (
     <div className="w-96 mx-auto">
       {/* Header */}
-      <div className="w-full">
+      <div>
         {/* Title */}
-        <h1 className="text-zinc-800  text-2xl font-semibold dark:text-zinc-50">
+        <h1 className="text-zinc-800 text-2xl font-semibold dark:text-zinc-50">
           {t("otp.otp-title")}
         </h1>
         {/* message */}
-        <p className="text-zinc-800 font-normal text-sm text-nowrap pt-1 dark:text-zinc-50">
-          {t("otp.otp-headline")}
-          {` ${email}`}
-          <Button
-            type="button"
-            variant="link"
-            className="p-0 h-auto ml-1 underline text-blue-700"
-            onClick={() => setStep("1")}
-          >
-            {t("otp.edit-button")}
-          </Button>
-        </p>
+        <div className="">
+          <div className="flex items-center justify-between text-zinc-800 font-normal text-sm pt-1 dark:text-zinc-50">
+            <div
+              className="overflow-hidden whitespace-nowrap text-ellipsis pe-2 max-w-[calc(100%-60px)]"
+              title={email}
+            >
+              {t("otp.otp-headline")} {email}
+            </div>
+            <Button
+              type="button"
+              variant="link"
+              className="p-0 h-auto underline text-blue-700 w-[60px] text-right"
+              onClick={() => setStep("1")}
+            >
+              {t("otp.edit-button")}
+            </Button>
+          </div>
+        </div>
       </div>
 
       {/* Form */}
@@ -124,40 +108,49 @@ export default function VerifyCodeForm() {
               render={() => (
                 <FormItem>
                   {/* OTP Inputs */}
-                  <div className="flex justify-center gap-2">
-                    {Array(6)
-                      .fill(0)
-                      .map((_, index) => (
-                        <input
-                          key={index}
-                          type="text"
-                          inputMode="numeric"
-                          maxLength={1}
-                          className="w-11 h-11 text-center bg-white  border   rounded-md text-xl focus:outline-none focus:ring-2 focus:ring-primary dark:bg-zinc-600 "
-                          ref={(el) => {
-                            inputsRef.current[index] = el!;
-                          }}
-                          onChange={(e) => handleChange(e, index)}
-                          onKeyDown={(e) => handleBackspace(e, index)}
-                        />
-                      ))}
-                  </div>
+                  <FormField
+                    control={form.control}
+                    name="resetCode"
+                    render={({ field }) => (
+                      <FormItem>
+                        <InputOTP
+                          maxLength={6}
+                          {...field}
+                          value={field.value}
+                          onChange={field.onChange}
+                          disabled={isPending}
+                          className="flex gap-3 focus:border-maroon-600"
+                        >
+                          <InputOTPGroup className="flex gap-3 mx-auto">
+                            {[...Array(6)].map((_, i) => (
+                              <InputOTPSlot
+                                key={i}
+                                index={i}
+                                className="w-11 h-11 text-center text-xl focus:border-maroon-600 rounded-md border bg-white dark:bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-primary"
+                              />
+                            ))}
+                          </InputOTPGroup>
+                        </InputOTP>
 
-                  {/* Resend Code Button */}
-                  <div className="flex justify-end pt-2">
-                    <Button
-                      type="button"
-                      variant="link"
-                      className="text-zinc-800 dark:text-zinc-50"
-                      onClick={resendCode}
-                      disabled={timer > 0}
-                    >
-                      {timer > 0
-                        ? `${t("otp.resend-otp-code")} (00:${String(timer).padStart(2, "0")})`
-                        : t("otp.resend-otp-code")}
-                    </Button>
-                  </div>
+                        {/* Resend Code Button */}
+                        <div className="flex justify-end pt-2">
+                          <Button
+                            type="button"
+                            variant="link"
+                            className="text-zinc-800 dark:text-zinc-50"
+                            onClick={resendCoade}
+                            disabled={timer > 0}
+                          >
+                            {timer > 0
+                              ? `${t("otp.resend-otp-code")} (00:${String(timer).padStart(2, "0")})`
+                              : t("otp.resend-otp-code")}
+                          </Button>
+                        </div>
 
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                   <FormMessage />
                 </FormItem>
               )}
@@ -173,21 +166,6 @@ export default function VerifyCodeForm() {
             </Button>
           </form>
         </Form>
-      </div>
-
-      {/* contact us */}
-      <div className="text-center mt-5">
-        <p className="text-sm font-bold text-zinc-800 dark:text-zinc-50">
-          {t("otp.need-help")}{" "}
-          <Button
-            type="button"
-            variant="link"
-            className="text-maroon-700 text-sm font-bold p-0 h-auto align-baseline dark:text-softpink-300"
-            onClick={() => router.push("/contact-us")}
-          >
-            {t("otp.contact-us")}
-          </Button>
-        </p>
       </div>
     </div>
   );

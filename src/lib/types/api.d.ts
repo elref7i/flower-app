@@ -30,3 +30,5 @@ declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
 declare type PaginatedResponse<T> = {
   metadata: Metadata;
 } & T;
+
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;

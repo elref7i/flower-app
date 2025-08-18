@@ -87,7 +87,7 @@ export default function EditCategoryForm() {
             className="w-full bg-maroon-600 hover:bg-maroon-700 text-white py-3 px-4 rounded-md font-medium transition-colors"
             disabled={isPending}
           >
-            {isPending ? "{t('waiting-add-category')}" : "{t('add-category')}"}
+            {isPending ? t("waiting-add-category") : t("add-category")}
           </Button>
         </form>
       </Form>
