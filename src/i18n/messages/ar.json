@@ -159,5 +159,6 @@
   "get-discount-coupon": "احصل على <span> {percent, number, percentage}</span> قبالة قسيمة خصم",
   "veiw-more": "عرض المزيد",
   "top-selling": "المنتجات الأكثر مبيعا",
-  "low-stock": "منتجات الأسهم منخفضة"
+  "low-stock": "منتجات الأسهم منخفضة",
+  "no-more-porducts": "لا مزيد من المنتجات للتحميل"
 }

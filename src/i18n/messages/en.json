@@ -159,5 +159,6 @@
   "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
   "veiw-more": "view more",
   "top-selling": "Top Selling Product",
-  "low-stock": "Low Stock Products"
+  "low-stock": "Low Stock Products",
+  "no-more-porducts": "No more products to load"
 }

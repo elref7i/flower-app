@@ -7,15 +7,19 @@ body {
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-   .scrollbar-hide {
+ .scrollbar-auto {
     -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: thin; /* Firefox */
   }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+
+  .scrollbar-auto::-webkit-scrollbar {
+    width: 0; /* Chrome, Safari, Opera */
+    height: 0;
+    transition: width 0.3s;
+  }
+
+  .scrollbar-auto:hover::-webkit-scrollbar {
+    width: 6px; 
   }
 }
 

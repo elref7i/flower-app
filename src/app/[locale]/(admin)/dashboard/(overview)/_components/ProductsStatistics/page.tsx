@@ -6,31 +6,29 @@ import { getTranslations } from "next-intl/server";
 
 export default async function ProductStatistic() {
   // Translations
-  const t = getTranslations();
+  const t = await getTranslations();
   return (
-    <section className="flex justify-center gap-6">
+    <section className="flex justify-center gap-6 mt-6">
       {/* Top Selling Product */}
-      <Card className="bg-white rounded-2xl max-h-[443px] ">
+      <Card className="bg-white rounded-2xl w-[536px] max-h-[443px]">
         <CardHeader>
           {/* title */}
-          <CardTitle className="text-2xl font-semibold text-zinc-800 pt-4 ps-6">
-            Top Selling Product
+          <CardTitle className="text-2xl font-semibold text-zinc-800 ">
+            {t("top-selling")}
           </CardTitle>
         </CardHeader>
-        <CardContent className="p-6 overflow-auto max-h-[350px] py-0">
+        <CardContent className="p-6 py-0">
           {/* Table */}
           <TopSellingProductsTable />
         </CardContent>
       </Card>
 
-      {/* Low Sttock Product */}
-      <Card className="bg-white rounded-2xl max-h-[443px]">
+      {/* Low Stock Product */}
+      <Card className="bg-white rounded-2xl w-[536px] max-h-[443px]">
         <CardHeader>
-          <CardTitle className="text-2xl font-semibold text-zinc-800 pt-6 ps-6">
-            Low Stock Products
-          </CardTitle>
+          <CardTitle className="text-2xl font-semibold text-zinc-800 ">{t("low-stock")}</CardTitle>
         </CardHeader>
-        <CardContent className="px-6 overflow-auto max-h-[350px]   mt-0">
+        <CardContent className="p-6 py-0">
           {/* Table */}
           <LowStockProductsTable />
         </CardContent>
