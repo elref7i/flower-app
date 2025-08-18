@@ -184,8 +184,7 @@
   "my-profile": "ملفي الشخصي",
   "my-addresses": "عنوانى",
   "my-orders": "طلباتى",
-  "dashboard": "لوحة القيادة"
-  "get-discount-coupon": "احصل على <span> {percent, number, percentage}</span> قبالة قسيمة خصم",
+  "dashboard": "لوحة القيادة",
   "veiw-more": "عرض المزيد",
   "top-selling": "المنتجات الأكثر مبيعا",
   "low-stock": "منتجات الأسهم منخفضة",

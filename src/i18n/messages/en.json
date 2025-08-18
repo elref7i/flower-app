@@ -184,8 +184,7 @@
   "my-profile": "My Profile",
   "my-addresses": "My Addresses",
   "my-orders": "My Orders",
-  "dashboard": "Dashboard"
-  "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
+  "dashboard": "Dashboard",
   "veiw-more": "view more",
   "top-selling": "Top Selling Product",
   "low-stock": "Low Stock Products",
