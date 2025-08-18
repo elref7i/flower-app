@@ -184,5 +184,7 @@
   "my-profile": "My Profile",
   "my-addresses": "My Addresses",
   "my-orders": "My Orders",
-  "dashboard": "Dashboard"
+  "dashboard": "Dashboard",
+  "become-part-of-our-family": "Become part of our family!",
+  "alerdy-account": "Already have an account?<Link>Login</Link>"
 }

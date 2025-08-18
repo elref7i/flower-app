@@ -10,7 +10,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-export default function AuthHeader() {
+interface AuthHeaderProps { 
+  page?: string;
+}
+
+export default function AuthHeader({page}:AuthHeaderProps) {
   // Hook to get currant theme
   const { theme } = useTheme();
 
@@ -37,14 +41,13 @@ export default function AuthHeader() {
         />
 
         {/*header message */}
-
         <h3
           className={cn(
-            " text-maroon-700 text-center text-5xl font-edwiardian dark:text-softpink-300 pb-2",
+            " text-maroon-700 text-nowrap text-center text-5xl font-edwiardian dark:text-softpink-300 pb-2",
             locale === "ar" && ["font-diwany"],
           )}
         >
-          {t("welcome-back")}
+          {page==="register" ?`${t('become-part-of-our-family')}`:t("welcome-back")}
         </h3>
       </div>
     </div>

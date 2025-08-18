@@ -4,8 +4,8 @@ import React from "react";
 import ForgetPassword from "./step1-page";
 import OtpPage from "./step2-page";
 import ResetPasswordPage from "./step3-page";
-import AuthHeader from "../../../login/_components/auth-header";
-import AuthFooter from "../../../login/_components/auth-footer";
+import AuthHeader from "../../../_components/auth-header";
+import AuthFooter from "../../../_components/auth-footer";
 
 export default function RenderSteps() {
   const { step } = useAuthContext();
