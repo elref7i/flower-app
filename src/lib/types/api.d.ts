@@ -4,46 +4,23 @@ export type DatabaseFields = {
   updatedAt: string;
 };
 
-export type Metadata = {
+declare type Metadata = {
   currentPage: number;
   limit: number;
   totalPages: number;
   totalItems: number;
 };
 
-export type Product = {
-  rateAvg: number;
-  rateCount: number;
-  title: string;
-  slug: string;
-  description: string;
-  imgCover: string;
-  images: string[];
-  price: number;
-  priceAfterDiscount: number;
-  quantity: number;
-  category: string;
-  occasion: string;
-  isSuperAdmin?: boolean;
-  sold: number;
-} & DatabaseFields;
-
-export type BestSellersResponse = {
-  message?: string;
-  metadata: Metadata;
-  products: Product[];
-};
-
-export type SuccessfulResponse<T> = {
-  message: string;
+declare type SuccessfullResponse<T> = {
+  message: "success";
 } & T;
 
-export type ErrorResponse = {
+declare type ErrorResponse = {
   error: string;
 };
-
-export type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 
 export type PaginatedResponse<T> = {
   metadata: Metadata;
 } & T;
+
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;

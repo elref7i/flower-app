@@ -1,4 +1,3 @@
-"use client";
 import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
 import { User } from "lucide-react";
@@ -7,15 +6,18 @@ import IconNotification from "./icon-notification";
 import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
-import { useSession } from "next-auth/react";
+import UserDropdown from "@/components/commerce-ui/user-dropdown";
+import { getTranslations } from "next-intl/server";
+import { getServerSession } from "next-auth";
+import { log } from "console";
+import authOptions from "@/auth-options";
 
-export default function MainHeader() {
+export default async function MainHeader() {
   //Translation
-  const t = useTranslations();
+  const t = await getTranslations();
 
   //Session
-  const { data: session, status } = useSession();
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="py-[18px] px-9 flex gap-4">
@@ -29,13 +31,23 @@ export default function MainHeader() {
         {/* Search input */}
         <SearchInput placeholder={t("what-awesome-gift-are-you-looking-for")} />
 
-        {/* Button Login */}
-        <Link className="flex gap-[6px] items-center" href={"/auth/login"}>
-          <span>
-            <User size={20} />
-          </span>
-          {session?.user?.firstName ? t("welcome", { name: session.user.firstName }) : t("login")}
-        </Link>
+        {/* Check authorization */}
+        {session ? (
+          // If user is logged in, show user dropdown
+          <UserDropdown
+            firstName={session?.user?.firstName}
+            lastName={session?.user?.lastName}
+            role={session?.user?.role}
+          />
+        ) : (
+          <Link className="flex gap-[6px] items-center" href={"/auth/login"}>
+            <span>
+              <User size={20} />
+            </span>
+
+            {t("login")}
+          </Link>
+        )}
 
         {/* Icon notifiactions */}
         <IconNotification />
