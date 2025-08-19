@@ -4,20 +4,21 @@ declare type DatabaseFields = {
   updatedAt: string;
 };
 
-declare type SuccessfullResponse<T> = {
-  message: string;
+declare type Metadata = {
+  currentPage: number;
+  limit: number;
+  totalPages: number;
+  totalItems: number;
+};
 
- } & T;
-// declare type SuccessfulResponse<T> = {
-//   message: "success";
-//   status: "Success";
-// } & T;
+declare type SuccessfullResponse<T> = {
+  message: "success";
+} & T;
 
 declare type ErrorResponse = {
   error: string;
-  status: string;
-  message: string;
 };
+
 declare type Category = {
   _id: string;
   name: string;
@@ -44,6 +45,9 @@ declare type Product = {
 }
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 
+
 declare type PaginatedResponse<T> = {
   metadata: Metadata;
 } & T;
+
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;

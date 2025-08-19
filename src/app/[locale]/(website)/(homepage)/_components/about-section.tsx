@@ -11,7 +11,7 @@ export default function AboutSection() {
   const t = useTranslations();
   const locale = useLocale();
   return (
-    <section className=" flex gap-20 max-w-7xl mx-auto  mt-8 ">
+    <section className=" flex gap-20 !max-w-7xl mx-auto mt-32 ">
       {/* /Left Section */}
       <div className="flex gap-3 h-[376px]  my-auto flex-row px-4">
         {/* Left Pic */}

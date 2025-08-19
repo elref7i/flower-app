@@ -12,7 +12,9 @@ import TestimonialSection from "./_components/testmonials/testmonial-section";
 
 export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
   // Variables
+
   const occasions = await fetchOccasions();
+
   const currentOccasionId = searchParams.occasion || null;
   const popularProducts = await fetchPopularProducts(currentOccasionId || undefined);
 
@@ -27,15 +29,8 @@ export default async function page({ searchParams }: { searchParams: { occasion?
 
         {/* Service Features */}
         <ServiceFeatures />
-
-        {/* About Section */}
-        <AboutSection />
-
-        {/* Gallery Section */}
-        <GallerySection />
-
-        {/* Companies Section */}
-        <CompaniesSection />
+        {/* Best Selling */}
+        <BestSelling />
 
         {/* <ModeToggle /> */}
         <MostPopular
@@ -43,11 +38,17 @@ export default async function page({ searchParams }: { searchParams: { occasion?
           products={popularProducts}
           currentSelectedOccasion={currentOccasionId}
         />
-        {/* Best Selling */}
-        <BestSelling />
+        {/* About Section */}
+        <AboutSection />
+
+        {/* Gallery Section */}
+        <GallerySection />
       </div>
       {/* Testimonials */}
       <TestimonialSection />
+
+      {/* Companies Section */}
+      <CompaniesSection />
     </div>
   );
 }

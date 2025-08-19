@@ -3,13 +3,18 @@ import Image from "next/image";
 import img from "@/../public/assets/imgs/image-from-rawpixel-id-12370595-png 1.png";
 import { getCategories } from "@/lib/api/categories.api";
 import { Link } from "@/i18n/navigation";
+import PaginationComponent from "@/components/common/pagination-component";
+
 export default async function CategoriesList({ searchParams }: { searchParams: { [key: string]: string} }) {
   // Variables
   const search = searchParams.search?.toLowerCase() || '';
   const categories: Category[] = await getCategories();
   const filtered = categories.filter(cat => cat.name.toLowerCase().includes(search));
 
+  console.log(categories);
+  
   return (
+    <>
     <div className="py-4 gap-[60px] grid grid-cols-3">
       {filtered.length > 0 ? (filtered.map((category) => (
         <div
@@ -49,6 +54,9 @@ export default async function CategoriesList({ searchParams }: { searchParams: {
       ))) : (
         <li className="text-gray-500">No results</li>
       )}
+
     </div>
+    <PaginationComponent metaData={categories.metadata} />
+    </>
   );
 }

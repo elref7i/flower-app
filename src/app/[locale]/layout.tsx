@@ -2,11 +2,11 @@ import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import { Sarabun, Zain, Seaweed_Script, Lateef, Great_Vibes } from "next/font/google";
+import { Sarabun, Tajawal, Seaweed_Script, Lateef, Great_Vibes } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import localFont from "next/font/local";
 import Providers from "@/components/providers";
-
+import React from "react";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -15,10 +15,10 @@ const sarabun = Sarabun({
   display: "swap",
 });
 
-const zain = Zain({
+const tajawal = Tajawal({
   subsets: ["latin"],
   weight: ["700", "400", "300"],
-  variable: "--font-zain",
+  variable: "--font-tajawal",
 });
 
 const seaweed = Seaweed_Script({
@@ -75,7 +75,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang={locale}
-      className={`${locale === "ar" ? zain.variable : sarabun.variable} ${seaweed.variable} ${
+      className={`${locale === "ar" ? tajawal.className : sarabun.variable} ${seaweed.variable} ${
         lateef.variable
       } ${greatVibes.variable} ${diwany.variable} ${edwiardian.variable}`}
       dir={locale === "ar" ? "rtl" : "ltr"}

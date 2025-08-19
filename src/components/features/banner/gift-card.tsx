@@ -33,7 +33,7 @@ export default function GiftCard() {
           <Link href={"./products"}>
             <Button
               variant="secondary"
-              className="rounded-[10px] py-2.5 px-4 gap-1.5 text-maroon-700 font-base font-normal my-1"
+              className="rounded-[10px] py-2.5 px-4 gap-1.5  text-maroon-700  dark:bg-maroon-50 dark:text-maroon-700 font-base font-normal my-1"
             >
               {t("shop-button")}
               <ArrowRight />
