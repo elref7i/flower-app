@@ -25,6 +25,7 @@ import {
 import { TRegisterFormFields, useRegisterSchema } from "@/lib/schema/auth.schema";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import useRegister from "../_hook/useRegister";
 
 const COUNTRIES = [
   { value: "EG", label: "EG (+20)", dialCode: "+20", flag: "🇪🇬" },
@@ -49,14 +50,16 @@ export default function RegisterForm() {
     },
     mode: "onBlur",
   });
-
+  const { registerHookFunc } = useRegister();
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirm, setShowConfirm] = React.useState(false);
 
   const onSubmit = async (values: TRegisterFormFields) => {
     // Simulate async submission
-    await new Promise((r) => setTimeout(r, 900));
-    // eslint-disable-next-line no-console
+    // await new Promise((r) => setTimeout(r, 900));
+    // // eslint-disable-next-line no-console
+
+    registerHookFunc(values);
     console.log("Submitted:", values);
   };
 
