@@ -10,9 +10,11 @@ export async function registerAction(registerInputs: TRegisterFormFields) {
     headers: { ...JSON_HEADER },
   });
 
-  const payload: APIResponse<RegisterResponse> = await response.json();
+  const payload = await response.json();
 
-  if ("error" in payload) throw new Error("Something went Wrong");
+  if (!response.ok) {
+    throw new Error(payload.error || payload.message || "Something went wrong");
+  }
 
-  return payload;
+  return payload as APIResponse<RegisterResponse>;
 }

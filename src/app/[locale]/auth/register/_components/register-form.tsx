@@ -46,7 +46,7 @@ export default function RegisterForm() {
       phone: "",
       // gender intentionally omitted to start as undefined
       password: "",
-      confirmPassword: "",
+      rePassword: "",
     },
     mode: "onBlur",
   });
@@ -200,7 +200,7 @@ export default function RegisterForm() {
         {/* Confirm Password */}
         <FormField
           control={form.control}
-          name="confirmPassword"
+          name="rePassword"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-sm font-medium text-zinc-800">

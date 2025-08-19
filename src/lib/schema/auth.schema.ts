@@ -42,10 +42,10 @@ function useRegisterSchema() {
         required_error: "Please select your gender",
       }),
       password: passwordSchema,
-      confirmPassword: z.string(),
+      rePassword: z.string(),
     })
-    .refine((data) => data.password === data.confirmPassword, {
-      path: ["confirmPassword"],
+    .refine((data) => data.password === data.rePassword, {
+      path: ["rePassword"],
       message: "Passwords do not match",
     });
 }
