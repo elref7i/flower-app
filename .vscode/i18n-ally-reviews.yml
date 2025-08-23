@@ -23,3 +23,39 @@ reviews:
             suggestion: ''
             type: approve
             time: '2025-08-13T13:10:25.255Z'
+  name:
+    locales:
+      ar:
+        comments:
+          - user:
+              name: Ahmed Refai
+              email: momo3956248@gmail.com
+            id: UvQpdhV_ch1jX1y2teqpA
+            comment: ''
+            suggestion: ''
+            type: approve
+            time: '2025-08-23T17:42:23.600Z'
+  stock:
+    locales:
+      ar:
+        comments:
+          - user:
+              name: Ahmed Refai
+              email: momo3956248@gmail.com
+            id: WV0ArvHWNM6IcBLaHbW9l
+            comment: ''
+            suggestion: ''
+            type: approve
+            time: '2025-08-23T17:48:33.437Z'
+  sales:
+    locales:
+      ar:
+        comments:
+          - user:
+              name: Ahmed Refai
+              email: momo3956248@gmail.com
+            id: nKluYO-QsdmlmoznBohqc
+            comment: ''
+            suggestion: ''
+            type: approve
+            time: '2025-08-23T17:48:57.125Z'

@@ -12,7 +12,7 @@ export function useDeleteProduct() {
     isSuccess,
   } = useMutation({
     mutationFn: async (id: string) => await deleteProduct(id),
-    onSuccess: (_) => toast.success("{t('success-deleted-this-product')}"),
+    onSuccess: (_) => toast.success(t("success-deleted-this-product")),
     onError: (error) => toast.error(error.message),
   });
 

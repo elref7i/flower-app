@@ -190,5 +190,12 @@
   "my-addresses": "My Addresses",
   "my-orders": "My Orders",
   "dashboard": "Dashboard",
-  "success-deleted-this-product": "Product successfully deleted"
+  "success-deleted-this-product": "Product successfully deleted",
+  "you-are-not-authorized-to-access-this-page": "You are not authorized to access this page.",
+  "if-you-think-this-is-wrong-please-contact-the-support": "If you think this is wrong, please contact the support.",
+  "go-to-homepage-0": "Go to Homepage",
+  "name": "Name",
+  "price-0": "Price",
+  "stock": "Stock",
+  "sales": "Sales"
 }
