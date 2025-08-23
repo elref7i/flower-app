@@ -7,7 +7,7 @@ declare type DatabaseFields = {
 declare type SuccessfullResponse<T> = {
   message: string;
 
- } & T;
+} & T;
 // declare type SuccessfulResponse<T> = {
 //   message: "success";
 //   status: "Success";
@@ -39,6 +39,16 @@ declare type Product = {
   occasion: string,
   isSuperAdmin: boolean,
   sold: 100,
+}
+declare type Address = {
+
+  street: string,
+  phone: string,
+  city: string,
+  lat: string,
+  long: string,
+  username: string
+  _id: string
 }
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 

@@ -30,7 +30,7 @@ export default function ProductItem({ product }: { product: Product }) {
               {product.price.toFixed(2)} EGP
             </p>
             <p className="text-zinc-400 dark:text-zinc-500 line-through ">
-              {product.priceAfterDiscount.toFixed(2)}
+              {product.priceAfterDiscount?.toFixed(2) ?? product.price.toFixed(2)}
             </p>
           </div>
         </div>

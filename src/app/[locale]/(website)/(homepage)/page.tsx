@@ -3,6 +3,7 @@ import AboutSection from "./_components/about-section";
 import CompaniesSection from "./_components/companies-section";
 import GallerySection from "./_components/gallery-section";
 import ServiceFeatures from "@/components/features/features/feature";
+import AddressModel from "@/components/features/address/address-model";
 import Occasions from "@/components/features/occasions/occasions";
 import MostPopular from "./_components/mostpopular/most-popular";
 import BestSelling from "./_components/bestselling";
@@ -21,6 +22,7 @@ export default async function page({ searchParams }: { searchParams: { occasion?
       <div className="container">
         {/* Gifts Section */}
         <GiftsSection />
+        <AddressModel/>
 
         {/* Occasions Section */}
         <Occasions />

@@ -140,5 +140,15 @@
   },
   "welcome-back": "مرحبًا بعودتك",
   "welcome": "مرحبًا {name}",
-  "no-products": "لم يتم العثور على منتجات"
+  "no-products": "لم يتم العثور على منتجات",
+  "address": {
+    "find-my-location":"اعثر على مكانى",
+    "all-addresses":"عنوايينك",
+    "add-new-address":"اضف عنوان جديد",
+    "delete":"هل انت متاكد انك تريد حذف العنوان ؟",
+    "confirm":"تاكيد",
+    "cancel":"الغاء",
+    "deleting":"حذف",
+    "update-address":"تحديث عنوان"
+  }
 }

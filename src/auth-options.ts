@@ -57,6 +57,7 @@ const authOptions: NextAuthOptions = {
     session: ({ session, token }) => {
       // Decode the user data from the token cookie and store it in the session object
       session.user = token.user;
+      session.token = token.token;
 
       return session;
     },
