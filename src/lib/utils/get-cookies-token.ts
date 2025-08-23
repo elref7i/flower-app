@@ -9,7 +9,7 @@ export default async function getTokenFromCookies() {
   // Decode token
   const token = await decode({
     token: cookiesToken,
-    secret: process.env.NEXTAUTH_SECRET!,
+    secret: process.env.AUTH_SECRET!,
   });
 
   // If token doesn't exit return undefined

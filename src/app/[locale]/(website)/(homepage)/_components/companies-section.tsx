@@ -15,7 +15,7 @@ export default function CompaniesSection() {
   const t = useTranslations();
 
   return (
-    <section className="w-full max-h-56 bg-maroon-50 rounded-2xl py-10 px-6 mx-auto   dark:bg-zinc-700 ">
+    <section className="max-w-[1280px] mt-28 mb-80 max-h-56 my-16 bg-maroon-50 rounded-2xl py-10 px-6 mx-auto dark:bg-zinc-700 ">
       {/* Headline */}
       <div className="pb-10 ">
         <h2 className=" text-maroon-700 text-4xl text-center font-bold dark:text-softpink-200">

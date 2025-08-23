@@ -28,7 +28,7 @@ export default async function ServiceFeatures() {
   ];
 
   return (
-    <Card className="container bg-maroon-50 p-10 rounded-2xl dark:bg-zinc-700">
+    <Card className="container bg-maroon-50 p-10 rounded-2xl dark:bg-zinc-700 mb-16">
       <CardContent className="flex justify-between items-center flex-wrap">
         {features.map((feature) => (
           <div key={feature.title} className="flex items-center gap-4">
