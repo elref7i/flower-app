@@ -1,11 +1,12 @@
 "use client";
 
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-
-import TableHeaderComponent from "./table-header";
-import { useDeleteProduct } from "../_hooks/use-products";
 import { Button } from "@/components/ui/button";
 import { Edit, Trash2 } from "lucide-react";
+
+import TableHeaderComponent from "./table-header";
+
+import { useDeleteProduct } from "../_hooks/use-products";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 // Formate Stock
 const formatStock = (stock: number) => {

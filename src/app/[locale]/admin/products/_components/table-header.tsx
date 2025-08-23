@@ -1,4 +1,4 @@
-import { TableHeader, TableHead, TableRow } from "@/components/ui/table";
+import { TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 import { useTranslations } from "next-intl";
 
