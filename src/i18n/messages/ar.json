@@ -185,6 +185,7 @@
   "my-addresses": "عنوانى",
   "my-orders": "طلباتى",
   "dashboard": "لوحة القيادة",
+
   "products-cu": {
     "enter-title": "ادخل الاسم",
     "enter-description": "ادخل وصف المنتج",
@@ -218,5 +219,21 @@
       "image-type": "يجب ان تكون الصورة من نوع  .png,.jpg,jpeg",
       "discount": "الخصم يجب ان يكون اقل من او يساوي السعر"
     }
-  }
+  },
+  "veiw-more": "عرض المزيد",
+  "top-selling": "المنتجات الأكثر مبيعا",
+  "low-stock": "منتجات الأسهم منخفضة",
+  "deleted-category": "تم حذف الفئة بنجاح",
+  "update-category": "تحديث الفئة :",
+  "name-lable": "الأسم",
+  "view-cat-imgs": "عرض صورة الفئة",
+  "products-lable": "منتجات",
+  "edit-button": "يحرر",
+  "delete-button": "يمسح",
+  "category-inp-palceholder": "أدخل اسم الفئة",
+  "cat-img": "صورة الفئة",
+  "add-category": "إضافة الفئة",
+  "waiting-add-category": "جاري الإضافة...",
+  "add-new-category-button": "أضف فئة جديدة",
+  "all-categories": "جميع الفئات"
 }

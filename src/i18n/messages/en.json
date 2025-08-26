@@ -185,6 +185,7 @@
   "my-addresses": "My Addresses",
   "my-orders": "My Orders",
   "dashboard": "Dashboard",
+
   "products-cu": {
     "enter-title": "Enter product title",
     "enter-description": "Enter product description",
@@ -218,5 +219,21 @@
       "image-type": "Image should be .png,.jpg,jpeg",
       "discount": "discount should be less than or equal price"
     }
-  }
+  },
+  "veiw-more": "view more",
+  "top-selling": "Top Selling Product",
+  "low-stock": "Low Stock Products",
+  "deleted-category": "Category Deleted Successfully",
+  "update-category": "Update Category:",
+  "name-lable": "Name",
+  "view-cat-imgs": "View category image",
+  "products-lable": "Products",
+  "edit-button": "Edit",
+  "delete-button": "Delete",
+  "category-inp-palceholder": "Enter category name",
+  "cat-img": "Category image",
+  "add-category": "Add Category",
+  "waiting-add-category": "Adding Category...",
+  "add-new-category-button": "Add a New Category",
+  "all-categories": "All Categories"
 }
