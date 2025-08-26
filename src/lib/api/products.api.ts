@@ -37,7 +37,13 @@ export async function getProductReviews(productId: string) {
   if ("error" in payload) {
     throw new Error(payload.error);
   }
-  console.log("Fetched reviews:", payload);
 
   return payload;
+}
+
+export async function getProductById(id: string) {
+  const response = await fetch(`${process.env.API}/products/${id}`);
+  const payload: APIResponse<{ product: Product }> = await response.json();
+  if ("error" in payload) throw new Error(payload.error || "Can't get product");
+  return payload.product;
 }

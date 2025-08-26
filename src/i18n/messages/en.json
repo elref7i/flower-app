@@ -184,5 +184,39 @@
   "my-profile": "My Profile",
   "my-addresses": "My Addresses",
   "my-orders": "My Orders",
-  "dashboard": "Dashboard"
+  "dashboard": "Dashboard",
+  "products-cu": {
+    "enter-title": "Enter product title",
+    "enter-description": "Enter product description",
+    "example": "example: {number}",
+    "title": "title",
+    "description": "description",
+    "price": "price",
+    "discount": "Discount",
+    "final-price": "Price after discount",
+    "quantity": "quantity",
+    "cover-image": "cover image",
+    "gallery": "product gallery",
+    "category": "category",
+    "occasion": "occasion",
+    "no-options": "no found options",
+    "select-option": "select option",
+    "add-product": "Add Product",
+    "upload-photo": "Upload Photo",
+    "add-new-product": "Add a New Product",
+    "require-error": "Product {field} is required",
+    "min-error": "Product {field} should be at least {count} characters",
+    "positive-error": "Enter Number and Should be a Positive Number",
+    "category-error": "You should select category",
+    "occasion-error": "You should select occasion",
+    "update-product": "Update Product",
+    "image-errors": {
+      "cover-image": "You should add one image",
+      "images": "you should add At least one image",
+      "max-images": "Max number of images is 4",
+      "max-image": "Max size is 4MB",
+      "image-type": "Image should be .png,.jpg,jpeg",
+      "discount": "discount should be less than or equal price"
+    }
+  }
 }

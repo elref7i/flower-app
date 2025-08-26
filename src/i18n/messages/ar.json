@@ -184,5 +184,39 @@
   "my-profile": "ملفي الشخصي",
   "my-addresses": "عنوانى",
   "my-orders": "طلباتى",
-  "dashboard": "لوحة القيادة"
+  "dashboard": "لوحة القيادة",
+  "products-cu": {
+    "enter-title": "ادخل الاسم",
+    "enter-description": "ادخل وصف المنتج",
+    "example": "مثال {number}",
+    "title": "العنوان",
+    "description": "الوصف",
+    "price": "السعر",
+    "discount": "الخصم",
+    "final-price": " السعر بعد الخصم",
+    "quantity": "الكمية",
+    "cover-image": "صورة الغلاف",
+    "gallery": "الصور",
+    "category": "الفئة",
+    "occasion": "المناسبة",
+    "no-options": "لا يتوفر خيارات",
+    "select-option": "اختر احد الخيارات",
+    "upload-photo": "ارفع صورة",
+    "add-product": "اضف منتج",
+    "add-new-product": "إضافة منتج جديد",
+    "require-error": "يجب ادخال هذا الحقل",
+    "min-error": "يجب ان يكون محتوى هذا الحقل مكون من {count} حرف علي الاقل",
+    "positive-error": "يجب عليك إدخال رقم علي ان يكون موجب",
+    "category-error": "يجب عليك اختيار الفئة",
+    "occasion-error": "يجب عليك اختيار المناسبة",
+    "update-product": "تحديث المنتج",
+    "image-errors": {
+      "cover-image": " يجب عليك ادخال صورة غلاف واحدة",
+      "images": "يجب اضافة صورةعلي الاقل لالبوم الصور",
+      "max-image": "اكبر حجم للصورة 4 ميجابايت",
+      "max-images": "اقصى عدد للصور 4",
+      "image-type": "يجب ان تكون الصورة من نوع  .png,.jpg,jpeg",
+      "discount": "الخصم يجب ان يكون اقل من او يساوي السعر"
+    }
+  }
 }
