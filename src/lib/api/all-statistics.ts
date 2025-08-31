@@ -4,14 +4,14 @@ import getTokenFromCookies from "../utils/get-cookies-token";
 export async function getAllStatistics() {
   try {
     // get user token
-    // const token = await getTokenFromCookies();
-    // if (!token) throw new Error("You should signin");
+    const token = await getTokenFromCookies();
+    if (!token) throw new Error("You should signin");
 
     // Response
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/statistics`, {
+    const response = await fetch(`${process.env.API}/statistics`, {
       method: "GET",
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjg5MDg3MWVhOGJjYTMwN2Y5ZDgyNDZlIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTQzMDIyMzh9.0KS_SHTxueVBae8aOyWE9FXM48DMRMkoKgAjZ3NUapw`,
+        Authorization: `Bearer ${token.token}`,
         "Content-Type": "application/json",
       },
     });

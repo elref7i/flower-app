@@ -4,8 +4,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 import { getToken } from "next-auth/jwt";
 
-const authRouts = ["/auth/login"];
-const publicPages = ["/", "/products", ...authRouts];
+const authRouts = [
+  "/auth/login",
+  "/auth/register",
+  "/auth/forget-password",
+  "/auth/verify-email",
+  "/auth/verify-email/success",
+];
+const adminPage = ["/dashboard"];
+const publicPages = ["/", ...authRouts];
+
 const handleI18nRouting = createMiddleware(routing);
 
 const authMiddleware = withAuth(
@@ -39,16 +47,25 @@ export default async function middleware(req: NextRequest) {
 
   const isPublicPage = pathRegex(publicPages).test(req.nextUrl.pathname);
   const isAuthpage = pathRegex(authRouts).test(req.nextUrl.pathname);
-  if (isPublicPage || "/*") {
-    const token = await getToken({ req });
+  const isAdminPage = pathRegex(adminPage).test(req.nextUrl.pathname);
+  const token = await getToken({ req });
+  if (isPublicPage) {
     if (isAuthpage && token) {
       return NextResponse.redirect(new URL("/", req.nextUrl.origin));
     }
     return handleI18nRouting(req);
-  } else {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (authMiddleware as any)(req);
   }
+
+  if (isAdminPage) {
+    if (!token) {
+      return NextResponse.redirect(new URL("/auth/login", req.nextUrl.origin));
+    }
+    if (token.user.role !== "admin") {
+      return NextResponse.redirect(new URL("/", req.nextUrl.origin));
+    }
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (authMiddleware as any)(req);
 }
 
 export const config = {
