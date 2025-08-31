@@ -1,4 +1,4 @@
-export type DatabaseFields = {
+declare type DatabaseFields = {
   _id: string;
   createdAt: string;
   updatedAt: string;
@@ -11,15 +11,23 @@ declare type Metadata = {
   totalItems: number;
 };
 
+declare type BestSellersResponse = {
+  message?: string;
+  metadata: Metadata;
+  products: Product[];
+};
+
 declare type SuccessfullResponse<T> = {
-  message: "success";
+  message: string;
 } & T;
 
 declare type ErrorResponse = {
   error: string;
 };
 
-export type PaginatedResponse<T> = {
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
+
+declare type PaginatedResponse<T> = {
   metadata: Metadata;
 } & T;
 

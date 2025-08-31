@@ -11,7 +11,7 @@ export default async function getTokenFromCookies() {
     token: cookiesToken,
     secret: process.env.AUTH_SECRET!,
   });
-
+  5;
   // If token doesn't exit return undefined
   if (!token) return undefined;
 
