@@ -170,6 +170,12 @@
   "rose-e-commerce-app": "Rose E-Commerce App",
   "all-rights-reserved-or-2025": "All rights reserved | {year, number, plain}",
   "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
+  "dashboard": {
+    "order-status": "Orders Status",
+    "revenue": "Revenue",
+    "monthly": "Monthly",
+    "last-week": "Last Week"
+  },
   "preview-website": "Preview website",
   "links": "Links",
   "overview": "Overview",
