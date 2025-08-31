@@ -9,10 +9,10 @@ reviews:
               name: Ahmed Refai
               email: momo3956248@gmail.com
             id: 496yIgNex-8UW9x5nyt5T
-            comment: ''
-            suggestion: ''
+            comment: ""
+            suggestion: ""
             type: approve
-            time: '2025-07-16T14:41:52.843Z'
+            time: "2025-07-16T14:41:52.843Z"
   title:
     locales:
       ar:
@@ -21,10 +21,10 @@ reviews:
               name: Ahmed Refai
               email: momo3956248@gmail.com
             id: O97D9XBEiwNXhBCdnsWjU
-            comment: ''
-            suggestion: ''
+            comment: ""
+            suggestion: ""
             type: approve
-            time: '2025-07-16T14:50:32.426Z'
+            time: "2025-07-16T14:50:32.426Z"
   review:
     locales:
       ar:
@@ -33,10 +33,10 @@ reviews:
               name: Ahmed Refai
               email: momo3956248@gmail.com
             id: HVG3XFstx44Y_HMBlse-Z
-            comment: ''
-            suggestion: ''
+            comment: ""
+            suggestion: ""
             type: approve
-            time: '2025-07-16T14:51:05.610Z'
+            time: "2025-07-16T14:51:05.610Z"
   hello:
     locales:
       ar:
@@ -45,18 +45,18 @@ reviews:
               name: Ahmed Refai
               email: momo3956248@gmail.com
             id: lbjXtfoYfuJASYKkJi_re
-            comment: ''
-            suggestion: ''
+            comment: ""
+            suggestion: ""
             type: approve
-            time: '2025-08-06T20:53:28.151Z'
+            time: "2025-08-06T20:53:28.151Z"
           - user:
               name: Ahmed Refai
               email: momo3956248@gmail.com
             id: kAzk88EOSZiFTYLo9MyVp
-            comment: ''
-            suggestion: ''
+            comment: ""
+            suggestion: ""
             type: approve
-            time: '2025-08-06T20:54:04.062Z'
+            time: "2025-08-06T20:54:04.062Z"
   welcome:
     locales:
       ar:
@@ -65,10 +65,10 @@ reviews:
               name: Ahmed Refai
               email: momo3956248@gmail.com
             id: gmyHNhAnl8Nb88jdRa5Dl
-            comment: ''
-            suggestion: ''
+            comment: ""
+            suggestion: ""
             type: approve
-            time: '2025-08-06T20:53:51.827Z'
+            time: "2025-08-06T20:53:51.827Z"
   my-addresses:
     locales:
       ar:
@@ -77,10 +77,10 @@ reviews:
               name: Ahmed Refai
               email: momo3956248@gmail.com
             id: waWYqGDqKU563wHfMY-5X
-            comment: ''
-            suggestion: ''
+            comment: ""
+            suggestion: ""
             type: approve
-            time: '2025-08-06T21:03:52.217Z'
+            time: "2025-08-06T21:03:52.217Z"
   my-orders:
     locales:
       ar:
@@ -89,7 +89,7 @@ reviews:
               name: Ahmed Refai
               email: momo3956248@gmail.com
             id: RDjXz2ZpW4AP0ZRpkmIg9
-            comment: ''
-            suggestion: ''
+            comment: ""
+            suggestion: ""
             type: approve
-            time: '2025-08-06T21:04:59.770Z'
+            time: "2025-08-06T21:04:59.770Z"
