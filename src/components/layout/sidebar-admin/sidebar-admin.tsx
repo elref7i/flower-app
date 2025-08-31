@@ -31,7 +31,7 @@ export async function SidebarAdmin() {
       {/* Content */}
       <SidebarContent>
         {/* Group  */}
-        <SidebarGroup className="p-7 flex flex-col items-center justify-between min-h-screen bg-white dark:bg-zinc-800">
+        <SidebarGroup className="flex flex-col items-center justify-between min-h-screen bg-white dark:bg-zinc-800">
           {/* Group label */}
           <SidebarGroupLabel className="sr-only">{t("links")}</SidebarGroupLabel>
 

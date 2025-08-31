@@ -14,39 +14,29 @@ import { useMemo } from "react";
 export default function DashboardBreadcrumb() {
   const pathName = usePathname();
 
-  // Memoize the path segments to avoid recalculation on every render
+  // Split path into segments
   const pathSegments = useMemo(() => {
     return pathName.split("/").filter((segment) => segment !== "");
   }, [pathName]);
 
-  // Memoize breadcrumb items
+  // Build breadcrumb items dynamically
   const breadcrumbItems = useMemo(() => {
-    // Special case for dashboard root
-    if (pathName === "/dashboard") {
-      return [
-        { path: "dashboard", href: "/dashboard", isLast: false },
-        { path: "overview", href: "", isLast: true },
-      ];
-    }
-
     return pathSegments.map((segment, index) => ({
       path: segment,
       href:
         index === pathSegments.length - 1 ? null : `/${pathSegments.slice(0, index + 1).join("/")}`,
       isLast: index === pathSegments.length - 1,
     }));
-  }, [pathName, pathSegments]);
+  }, [pathSegments]);
 
   return (
     <Breadcrumb>
       <BreadcrumbList>
         {breadcrumbItems.map((item, index) => (
-          <div key={`${item.path}-${index}`} style={{ display: "contents" }}>
+          <div key={`${item.path}-${index}`} className="flex items-center">
             <BreadcrumbItem>
               {item.isLast ? (
-                <BreadcrumbPage className="capitalize">
-                  {item.path === "overview" ? "OverView" : item.path}
-                </BreadcrumbPage>
+                <BreadcrumbPage className="capitalize">{item.path}</BreadcrumbPage>
               ) : (
                 <Link href={item.href || ""} className="capitalize">
                   {item.path}
