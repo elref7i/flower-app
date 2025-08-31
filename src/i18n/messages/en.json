@@ -186,6 +186,15 @@
   "what-do-you-think-of-this-product": "What do you think of this product?",
   "add-review": "Add review",
   "login-to-add-review": "Please login to be able to add a review to the product",
+  "dashboard": {
+    "all-categories": "All Categories",
+    "total-products": "Total products",
+    "total-orders": "Total orders",
+    "total-categories": "Total categories",
+    "total-revenue": "Total revenue",
+    "EGP": "EGP",
+    "products": "{count,plural, one {Product} other {Products}}"
+  },
   "welcome": "Welcome",
   "my-profile": "My Profile",
   "my-addresses": "My Addresses",

@@ -27,6 +27,11 @@ export default getRequestConfig(async ({ requestLocale }) => {
           maximumFractionDigits: 2,
           numberingSystem,
         },
+        units: {
+          style: "decimal",
+          maximumFractionDigits: 0,
+          numberingSystem,
+        },
       },
       dateTime: {
         "date-base-hours": {
