@@ -40,23 +40,15 @@ export default function DashboardBreadcrumb() {
   }, [pathName]);
   console.log(pathSegments);
 
-  // Memoize breadcrumb items
+  // Build breadcrumb items dynamically
   const breadcrumbItems = useMemo(() => {
-    // Special case for dashboard root
-    if (pathName === "/admin/dashboard") {
-      return [
-        { path: "dashboard", href: "/admin/dashboard", isLast: false },
-        { path: "overview", href: "", isLast: true },
-      ];
-    }
-
     return pathSegments.map((segment, index) => ({
       path: segment === "admin" ? "dashboard" : segment,
       href:
         index === pathSegments.length - 1 ? null : `/${pathSegments.slice(0, index + 1).join("/")}`,
       isLast: index === pathSegments.length - 1,
     }));
-  }, [pathName, pathSegments]);
+  }, [pathSegments]);
 
   // Return NotFound if route is invalid
   if (pathName.startsWith("/admin") && !isValidRoute) {
@@ -67,12 +59,10 @@ export default function DashboardBreadcrumb() {
     <Breadcrumb>
       <BreadcrumbList>
         {breadcrumbItems.map((item, index) => (
-          <div key={`${item.path}-${index}`} style={{ display: "contents" }}>
+          <div key={`${item.path}-${index}`} className="flex items-center">
             <BreadcrumbItem>
               {item.isLast ? (
-                <BreadcrumbPage className="capitalize">
-                  {item.path === "overview" ? "OverView" : item.path}
-                </BreadcrumbPage>
+                <BreadcrumbPage className="capitalize">{item.path}</BreadcrumbPage>
               ) : (
                 <Link href={item.href || ""} className="capitalize">
                   {item.path}

@@ -170,6 +170,12 @@
   "rose-e-commerce-app": "Rose E-Commerce App",
   "all-rights-reserved-or-2025": "All rights reserved | {year, number, plain}",
   "get-discount-coupon": "Get<span> {percent, number, percentage}</span> Off Discount Coupon",
+  "dashboard": {
+    "order-status": "Orders Status",
+    "revenue": "Revenue",
+    "monthly": "Monthly",
+    "last-week": "Last Week"
+  },
   "preview-website": "Preview website",
   "links": "Links",
   "overview": "Overview",
@@ -185,6 +191,15 @@
   "what-do-you-think-of-this-product": "What do you think of this product?",
   "add-review": "Add review",
   "login-to-add-review": "Please login to be able to add a review to the product",
+  "dashboard": {
+    "all-categories": "All Categories",
+    "total-products": "Total products",
+    "total-orders": "Total orders",
+    "total-categories": "Total categories",
+    "total-revenue": "Total revenue",
+    "EGP": "EGP",
+    "products": "{count,plural, one {Product} other {Products}}"
+  },
   "welcome": "Welcome",
   "my-profile": "My Profile",
   "my-addresses": "My Addresses",
@@ -193,6 +208,7 @@
   "veiw-more": "view more",
   "top-selling": "Top Selling Product",
   "low-stock": "Low Stock Products",
+  "no-more-porducts": "No more products to load",
   "deleted-category": "Category Deleted Successfully",
   "update-category": "Update Category:",
   "name-lable": "Name",

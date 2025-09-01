@@ -1,3 +1,3 @@
 declare type Props = {
-    params: { id: string }
-}
+  params: { id: string };
+};
