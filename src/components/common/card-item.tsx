@@ -3,6 +3,9 @@ import Image from "next/image";
 import React from "react";
 
 export default function ProductItem({ product }: { product: Product }) {
+  console.log(product.price);
+  console.log(product.priceAfterDiscount);
+
   return (
     <div className=" w-full h-[364px] ">
       <img
@@ -30,10 +33,10 @@ export default function ProductItem({ product }: { product: Product }) {
           {/* Product Price */}
           <div className="flex  font-medium mt-1">
             <p className="text-[16px] text-maroon-700 dark:text-softpink-200 me-2">
-              {product.price.toFixed(2)} EGP
+              {product.price?.toFixed(2)} EGP
             </p>
             <p className="text-zinc-400 dark:text-zinc-500 line-through ">
-              {product.priceAfterDiscount.toFixed(2)}
+              {product.priceAfterDiscount?.toFixed(2)}
             </p>
           </div>
         </div>

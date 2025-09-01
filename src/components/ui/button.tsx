@@ -9,6 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+
         default: cn(
           "bg-maroon-600 text-primary-foreground hover:bg-maroon-700",
           "disabled:bg-zinc-300 disabled:text-zinc-500",
@@ -40,6 +41,7 @@ const buttonVariants = cva(
           " disabled:bg-zinc-100 disabled:text-zinc-400",
           " dark:hover:bg-zinc-700 dark:disabled:bg-zinc-700",
         ),
+
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

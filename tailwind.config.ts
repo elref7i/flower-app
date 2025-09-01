@@ -16,7 +16,7 @@ const config: Config = {
       sm: "480px",
       md: "768px",
       lg: "980px",
-      xl: "1380px",
+      xl: "1200px",
     },
     extend: {
       boxShadow: {
@@ -102,6 +102,16 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -111,7 +121,7 @@ const config: Config = {
     },
     fontFamily: {
       sarabun: ["var(--font-sarabun)"],
-      tajawal: ["var(--font-tajawal)"],
+      zain: ["var(--font-zain)"],
       seaweed: ["var(--font-seaweed)"],
       lateef: ["var(--font-lateef)"],
       great: ["var(--font-great-vibes)"],
