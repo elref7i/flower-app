@@ -1,9 +1,9 @@
+import DashboardBreadcrumb from "@/components/commerce-ui/dashboard-breadcrumb";
 import LanguageToggle from "@/components/common/language-toggle";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import { SidebarAdmin } from "@/components/layout/sidebar-admin/sidebar-admin";
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import DashboardBreadcrumb from "./_components/dashboard-breadcrumb";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (

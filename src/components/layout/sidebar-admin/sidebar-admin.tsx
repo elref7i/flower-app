@@ -14,10 +14,11 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { UserDropdownMenu } from "@/app/[locale]/(admin)/dashboard/_components/user-dropdown-menu";
+
 import SidebarLinks from "./_components/sidebar-links";
 import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { UserDropdownMenu } from "@/app/[locale]/admin/_components/user-dropdown-menu";
 
 export async function SidebarAdmin() {
   // Locale

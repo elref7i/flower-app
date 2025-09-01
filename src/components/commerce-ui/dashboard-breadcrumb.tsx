@@ -3,7 +3,6 @@
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -11,23 +10,50 @@ import {
 import { Link, usePathname } from "@/i18n/navigation";
 import { useMemo } from "react";
 
+import { notFound } from "next/navigation";
+
 export default function DashboardBreadcrumb() {
   const pathName = usePathname();
 
-  // Split path into segments
+  const validRoutes = useMemo(
+    () => [
+      "/admin/dashboard",
+      "/admin/categories",
+      "/admin/occasions",
+      "/admin/products",
+      // Add your valid dashboard routes here
+    ],
+    [],
+  );
+
+  // Check if current path is valid
+  const isValidRoute = useMemo(() => {
+    return validRoutes.some(
+      (route) =>
+        pathName === route || (pathName.startsWith(route + "/") && route !== "/admin/dashboard"),
+    );
+  }, [pathName, validRoutes]);
+
+  // Memoize the path segments to avoid recalculation on every render
   const pathSegments = useMemo(() => {
     return pathName.split("/").filter((segment) => segment !== "");
   }, [pathName]);
+  console.log(pathSegments);
 
   // Build breadcrumb items dynamically
   const breadcrumbItems = useMemo(() => {
     return pathSegments.map((segment, index) => ({
-      path: segment,
+      path: segment === "admin" ? "dashboard" : segment,
       href:
         index === pathSegments.length - 1 ? null : `/${pathSegments.slice(0, index + 1).join("/")}`,
       isLast: index === pathSegments.length - 1,
     }));
   }, [pathSegments]);
+
+  // Return NotFound if route is invalid
+  if (pathName.startsWith("/admin") && !isValidRoute) {
+    notFound();
+  }
 
   return (
     <Breadcrumb>

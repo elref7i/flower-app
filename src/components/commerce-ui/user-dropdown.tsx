@@ -65,7 +65,7 @@ export default function UserDropdown({ firstName, lastName, role }: UserDropdown
       id: "dashboard",
       label: `${t("dashboard")}`,
       icon: LayoutDashboard,
-      href: "/dashboard",
+      href: "/admin/dashboard",
     },
   ];
 

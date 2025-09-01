@@ -8,10 +8,10 @@ export default function NotFound() {
       <body>
         <main className="flex flex-col gap-8 min-h-screen items-center justify-center">
           {/* Headline */}
-          <h1 className="text-red-500 font-bold text-9xl">404</h1>
+          <h1 className="text-red-500 font-bold text-9xl">40dd</h1>
 
           {/* Description */}
-          <p>Page not found.</p>
+          <p>Page not ddd.</p>
 
           {/* Action */}
           <Link href="/" className={cn(buttonVariants({ variant: "link" }))}>

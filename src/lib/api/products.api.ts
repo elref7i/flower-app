@@ -1,4 +1,17 @@
-import { APIResponse, PaginatedResponse, Product } from "./../types/api.d";
+export async function getAllProducts() {
+  try {
+    const response = await fetch(`${process.env.API!}/products`);
+
+    const payload: APIResponse<PaginatedResponse<Products>> = await response.json();
+
+    if ("error" in payload) throw new Error(payload.error);
+
+    return payload;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
 export async function getAllProductsByCategory(id: string) {
   try {
     const response = await fetch(`${process.env.API!}/products?category=${id}`);
