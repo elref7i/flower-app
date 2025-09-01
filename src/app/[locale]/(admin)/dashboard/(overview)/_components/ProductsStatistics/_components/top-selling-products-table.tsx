@@ -1,98 +1,75 @@
 "use client";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { fetchProductStats } from "@/lib/api/products.api";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { useState } from "react";
 import { LoaderCircle } from "lucide-react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useTopSellingProducts } from "../_hooks/useTopSellingProducts";
+import { useTranslations } from "next-intl";
 
 export default function TopSellingProductsTable() {
-  // Hooks
-  const {
-    data: payload,
-    fetchNextPage,
-    hasNextPage,
-    isLoading,
-    isError,
-  } = useInfiniteQuery({
-    queryKey: ["product-stats"],
-    queryFn: ({ pageParam = 1 }) => fetchProductStats(pageParam),
-    getNextPageParam: (lastPage) => {
-      const { currentPage, totalPages } = lastPage.metadata;
-      return currentPage < totalPages ? currentPage + 1 : undefined;
-    },
-    initialPageParam: 1,
-  });
+  // Hook
+  const { products, fetchNextPage, hasNextPage, isLoading, isError, payload } =
+    useTopSellingProducts();
 
-  // Variables
-  const products = payload?.pages.flatMap((page) => page.products) || [];
-
-  // Functions
+  // Load More
   const loadMore = () => {
     if (hasNextPage && !isLoading) {
       fetchNextPage();
     }
   };
 
+  // Translation
+  const t = useTranslations();
+
   return (
     <>
-      {isLoading && products.length === 0 && <p className="text-zinc-800">Loading...</p>}
-      {isError && <p className="text-zinc-800">Error fetching products</p>}
+      {/* Loading */}
+      {isLoading && products.length === 0 && (
+        <div className="flex justify-center py-8">
+          <LoaderCircle className="animate-spin" />
+        </div>
+      )}
+      {/* Error */}
+      {isError && <p className="text-center py-4 text-red-500">Error fetching products</p>}
+
+      {/* Table */}
       {payload && (
-        <div id="scrollableDiv" className="overflow-auto max-h-full scrollbar-hide p-0 m-0">
+        <div id="scrollableDiv" className="h-[350px] w-full overflow-y-auto  rounded-md mt-0">
           <InfiniteScroll
             dataLength={products.length}
             next={loadMore}
             hasMore={hasNextPage}
             loader={
-              <p className="py-1 text-zinc-500 flex justify-center">
-                <LoaderCircle />
-              </p>
+              <div className="flex justify-center py-4">
+                <LoaderCircle className="animate-spin" />
+              </div>
+            }
+            endMessage={
+              <p className="text-center py-2 text-zinc-400 text-sm">{t("no-more-porducts")}</p>
             }
             scrollableTarget="scrollableDiv"
           >
-            {/* Table */}
-            <Table className="w-full h-full scrollbar-hide">
-              <TableBody className="flex flex-col gap-2">
-                {products.map((product, index) => {
-                  let bgStyle = {};
+            <div className="flex flex-col gap-3 pr-4">
+              {products.map((product, index) => {
+                // default color
+                let gradientClass = "bg-zinc-100";
 
-                  if (index === 0) {
-                    bgStyle = {
-                      background: "linear-gradient(to right, #DFAC1640 25%, #DFAC161A 100%)",
-                    };
-                  } else if (index === 1) {
-                    bgStyle = {
-                      background: "linear-gradient(to right, #757F9540 25%, #757F951A 100%)",
-                    };
-                  } else if (index === 2) {
-                    bgStyle = {
-                      background: "linear-gradient(to right, #91440040 25%, #9144001A 100%)",
-                    };
-                  }
+                // Background color for first 3 rows
+                if (index === 0) {
+                  gradientClass = "bg-[linear-gradient(to_right,#DFAC1640_25%,#DFAC161A_100%)]";
+                } else if (index === 1) {
+                  gradientClass = "bg-[linear-gradient(to_right,#757F9540_25%,#757F951A_100%)]";
+                } else if (index === 2) {
+                  gradientClass = "bg-[linear-gradient(to_right,#91440040_25%,#9144001A_100%)]";
+                }
 
-                  return (
-                    <TableRow
-                      key={product._id}
-                      style={bgStyle}
-                      className="text-zinc-800 w-[488px] p-0 rounded-lg border-none h-8 flex justify-between items-center"
-                    >
-                      <TableCell title={product.title}>
-                        {/* Product Name */}
-                        {product.title.length > 27
-                          ? product.title.slice(0, 27) + "..."
-                          : product.title}{" "}
-                        {/* Product Price */}({product.price} EGP)
-                      </TableCell>
-                      <TableCell className="font-medium text-sm">
-                        <span className="font-bold">{product.sold}</span> Sales
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-            {/* </div> */}
+                return (
+                  // rows
+                  <div key={product._id} className={`rounded-lg px-3 py-1 ${gradientClass}`}>
+                    {product.title.length > 27 ? product.title.slice(0, 27) + "..." : product.title}{" "}
+                    ({product.price} EGP)
+                  </div>
+                );
+              })}
+            </div>
           </InfiniteScroll>
         </div>
       )}
