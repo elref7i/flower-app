@@ -78,7 +78,7 @@ export default function GiftCarousol() {
                 {/*button*/}
                 <Button
                   variant="secondary"
-                  className="rounded-[10px] py-2.5 px-4 my-3 gap-1.5 text-maroon-700 font-base font-normal"
+                  className="rounded-[10px] py-2.5 px-4 my-3 gap-1.5 text-maroon-700 dark:bg-maroon-50 dark:text-maroon-700 font-base font-normal"
                 >
                   {t("buying-button")}
                 </Button>

@@ -1,7 +1,10 @@
+declare type Products = {
+  products: Product[];
+};
+
 declare type Product = {
   rateAvg: number;
   rateCount: number;
-  id: string;
   title: string;
   slug: string;
   description: string;
@@ -37,3 +40,19 @@ declare type RelatedProductsResponse = {
   count: number;
   recommendations: Recommendation[];
 };
+declare type ProductReview = {
+  reviews: review[];
+} & Metadata;
+
+declare type ProducteDeletedResponse = {
+  id: string;
+};
+
+declare type reviews = {
+  product: string;
+  user: string;
+  rating: number;
+  title: string;
+  comment: string;
+  status: string;
+} & DatabaseFields;

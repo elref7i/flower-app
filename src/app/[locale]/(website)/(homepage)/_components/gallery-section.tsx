@@ -15,25 +15,17 @@ export default function GallerySection() {
   const t = useTranslations();
 
   return (
-    <section className="mt-8 max-w-screen-xl mx-auto">
+    <section className="mt-32 max-w-screen-xl mx-auto">
       {/* Title */}
       <div className=" text-center">
         <h4 className="text-softpink-500 font-bold text-base tracking-wide py-2 dark:text-maroon-400">
           {t("gallery-title")}
         </h4>
-        <div className="relative inline-block">
-          {/* Headline */}
-          <h2 className="relative z-10 font-bold text-4xl text-maroon-700 dark:text-softpink-200">
-            {/* Check Out our Wonderful Gallery */}
-            {t("gallery-headline")}
-          </h2>
 
-          {/* Text Background Decoration */}
-          <div className=" absolute z-0 bottom-0 start-0 w-3/4 rounded-e-xl  bg-softpink-200/35 dark:bg-zinc-500/50 h-1/2 "></div>
-
-          {/* Underline */}
-          <div className="relative h-[2px] z-10 w-44 bg-softpink-600"></div>
-        </div>
+        {/* Headline */}
+        <h2 className="relative mx-auto w-fit text-4xl font-bold text-maroon-700 before:absolute before:bottom-0 before:h-1 before:w-[30%] before:bg-maroon-400 before:dark:bg-softpink-600 after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-1/2 after:w-[70%] after:rounded-e-full after:bg-maroon-100 dark:text-softpink-200 after:dark:bg-zinc-700 after:rtl:right-0">
+          {t("gallery-headline")}
+        </h2>
       </div>
 
       {/* Grid Design */}

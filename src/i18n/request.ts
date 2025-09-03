@@ -28,6 +28,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
           numberingSystem,
         },
         units: {
+          style: "decimal",
+          maximumFractionDigits: 0,
           numberingSystem,
         },
       },
