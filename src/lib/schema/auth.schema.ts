@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { z } from "zod";
+import { PASSWORD_REGEX } from "../constants/password-regx";
 
 // Password Role
 const passwordSchema = z

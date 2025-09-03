@@ -1,3 +1,4 @@
+"use client";
 import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
 import { User } from "lucide-react";
@@ -7,17 +8,17 @@ import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
 import UserDropdown from "@/components/commerce-ui/user-dropdown";
-import { getTranslations } from "next-intl/server";
 import { getServerSession } from "next-auth";
-import { log } from "console";
 import authOptions from "@/auth-options";
+import { useTranslations } from "next-intl";
+import { useSession } from "next-auth/react";
 
-export default async function MainHeader() {
+export default function MainHeader() {
   //Translation
-  const t = await getTranslations();
+  const t = useTranslations();
 
   //Session
-  const session = await getServerSession(authOptions);
+  const { data: session } = useSession();
 
   return (
     <div className="py-[18px] px-9 flex gap-4">

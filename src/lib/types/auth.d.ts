@@ -9,6 +9,8 @@ declare type TListRegisterFormFields = {
   placeholder: string;
 }[];
 
+// New
+
 // Authentication Api's  types
 declare type LoginResponse = Pick<User, "user" | "token">;
 
