@@ -1,0 +1,72 @@
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { useEffect, useRef } from "react";
+
+export default function useGetCategories() {
+  const loadMore = useRef<HTMLDivElement | null>(null);
+  // Hook to fetch paginated queries
+  const {
+    isLoading,
+    isFetchingNextPage,
+    hasNextPage,
+    data: payload,
+    fetchNextPage,
+    error,
+  } = useInfiniteQuery<APIResponse<PaginatedResponse<Categories[]>>>({
+    // Query key
+    queryKey: ["categories"],
+
+    // Query function to fetch data depends on current page
+    queryFn: async ({ pageParam }) => {
+      // Request on route handler to get data
+      const response = await fetch(`/api/categories/get-categories?page=${pageParam}&limit=7`);
+
+      //  if promise rejected
+      if (!response.ok) throw new Error("Can't get Categories");
+
+      const payload: APIResponse<PaginatedResponse<Categories[]>> = await response.json();
+
+      //  Condition if payload  doesn't accepted
+      if ("error" in payload) throw new Error(payload.error || "Invalid response");
+      if (payload.message !== "success") {
+        throw new Error(payload.message || "Invalid response");
+      }
+      return payload;
+    },
+
+    // initial page to fetch
+    initialPageParam: 1,
+
+    // Pass next page number to function
+    getNextPageParam: (lastPage) => {
+      // @ts-expect-error
+      if (lastPage.metadata.currentPage === lastPage.metadata.totalPages) return undefined;
+      // @ts-expect-error
+      return lastPage.metadata.currentPage + 1;
+    },
+  });
+
+  //  Hook to check if the user scrolled to the last element then fetch next page
+  useEffect(() => {
+    if (!hasNextPage || isFetchingNextPage || isLoading || !loadMore.current) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        fetchNextPage();
+      }
+    });
+    observer.observe(loadMore?.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
+  // Get all categories from paginated data
+  const categories: Category[] =
+    payload?.pages.flatMap((page) => {
+      // @ts-expect-error
+      return page.categories;
+    }) || [];
+
+  return { isLoading, categories, loadMore, isFetchingNextPage, error };
+}

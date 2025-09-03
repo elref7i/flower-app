@@ -1,6 +1,6 @@
 import { SetStateAction } from "react";
 import { User } from "next-auth";
-import AuthHeader from "../../app/[locale]/auth/login/_components/auth-header";
+import AuthHeader from "../../app/[locale]/auth/_components/auth-header";
 
 // type register form fields
 declare type TListRegisterFormFields = {

@@ -15,6 +15,18 @@ declare type ApplicationUser = {
   wishlist: [];
   addresses: [];
 } & DatabaseFields;
+declare type Metadata = {
+  currentPage: number;
+  limit: number;
+  totalPages: number;
+  totalItems: number;
+};
+
+declare type BestSellersResponse = {
+  message?: string;
+  metadata: Metadata;
+  products: Product[];
+};
 
 declare type SuccessfullResponse<T> = {
   message: string;
@@ -27,8 +39,6 @@ declare type SuccessfullResponse<T> = {
 
 declare type ErrorResponse = {
   error: string;
-  status: string;
-  message: string;
 };
 
 declare type Category = {
@@ -59,3 +69,5 @@ declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
 declare type PaginatedResponse<T> = {
   metadata: Metadata;
 } & T;
+
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;

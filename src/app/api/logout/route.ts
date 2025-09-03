@@ -14,7 +14,6 @@ export async function GET(req: NextRequest) {
   });
 
   const payload: LogOutResponse = await response.json();
-  console.log(payload);
 
   return NextResponse.json(payload, { status: response.status });
 }

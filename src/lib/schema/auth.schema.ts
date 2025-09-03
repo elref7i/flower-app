@@ -1,8 +1,15 @@
 import { useTranslations } from "next-intl";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import { z } from "zod";
 import { PASSWORD_REGEX } from "../constants/password-regx";
 
 // Password Role
+const passwordSchema = z
+  .string()
+  .min(8, "Password must be at least 8 characters")
+  .regex(/[A-Z]/, "Password must include at least one uppercase letter")
+  .regex(/[a-z]/, "Password must include at least one lowercase letter")
+  .regex(/[0-9]/, "Password must include at least one number");
 
 // Login hook schema
 function useLoginSchema() {
@@ -14,10 +21,7 @@ function useLoginSchema() {
       .string()
       .min(1, { message: t("empty-email-error") })
       .email({ message: t("invalid-email-error") }),
-    password: z
-      .string()
-      .min(1, { message: t("empty-password-error") })
-      .regex(PASSWORD_REGEX, { message: t("wrong-password-error") }),
+    password: passwordSchema,
   });
 }
 
@@ -28,26 +32,22 @@ function useRegisterSchema() {
 
   return z
     .object({
-      firstName: z.string().min(1, { message: t("empty-first-name-error") }),
-      lastName: z.string().min(1, { message: t("empty-last-name-error") }),
-      email: z
-        .string()
-        .min(1, { message: t("empty-email-error") })
-        .email({ message: t("invalid-email-error") }),
-      password: z
-        .string()
-        .min(1, { message: t("empty-password-error") })
-        .regex(PASSWORD_REGEX, { message: t("password-role") }),
-      rePassword: z.string().min(1, { message: t("empty-re-password-empty") }),
+      firstName: z.string().min(2, "First name is required"),
+      lastName: z.string().min(2, "Last name is required"),
+      email: z.string().email("Enter a valid email"),
       phone: z
         .string()
-        .min(1, { message: t("empty-phone-error") })
-        .min(10, { message: t("invalid-phone-error") }),
-      gender: z.enum(["male", "female"], { message: t("empty-gender-error") }),
+        .min(1, "Phone number is required")
+        .refine((v) => isValidPhoneNumber(v), "Enter a valid phone number"),
+      gender: z.enum(["male", "female", "other"], {
+        required_error: "Please select your gender",
+      }),
+      password: passwordSchema,
+      rePassword: z.string(),
     })
-    .refine((value) => value.password === value.rePassword, {
+    .refine((data) => data.password === data.rePassword, {
       path: ["rePassword"],
-      message: t("confirm-password-error"),
+      message: "Passwords do not match",
     });
 }
 
@@ -85,12 +85,7 @@ function useSetPasswordSchema() {
 
   return z
     .object({
-      Password: z
-        .string({
-          required_error: t("empty-new-password-error"),
-        })
-        .regex(PASSWORD_REGEX, { message: t("password-role") }),
-
+      Password: passwordSchema,
       newPassword: z.string({
         required_error: t("schema.empty-confirm-password-error"),
       }),
@@ -112,10 +107,7 @@ function useSetPasswordApiSchema() {
       })
       .email({ message: t("invalid-email-error") }),
 
-    newPassword: z
-      .string({ required_error: t("empty-password-error") })
-      .min(1, { message: t("empty-password-error") })
-      .regex(PASSWORD_REGEX, { message: t("wrong-password-error") }),
+    newPassword: passwordSchema,
   });
 }
 // Declare form types
