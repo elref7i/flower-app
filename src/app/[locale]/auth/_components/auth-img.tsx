@@ -5,8 +5,8 @@ import { usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 
 export default function AuthPageImg() {
+  // Navigation
   const pathName = usePathname();
-  console.log(pathName);
 
   return (
     <section

@@ -6,10 +6,13 @@ import OtpPage from "./step2-page";
 import ResetPasswordPage from "./step3-page";
 import AuthHeader from "../../../_components/auth-header";
 import AuthFooter from "../../../_components/auth-footer";
+import NotFound from "@/app/not-found";
 
 export default function RenderSteps() {
+  // Hooks
   const { step } = useAuthContext();
 
+  // Functions
   const renderStep = () => {
     switch (step) {
       case "1":
@@ -21,18 +24,18 @@ export default function RenderSteps() {
       // case "4":
       //   return;// login
       default:
-        return <p>Not found</p>; // optional fallback
+        return NotFound(); // optional fallback
     }
   };
   return (
     <div className=" w-full max-w-[450px] mx-auto px-5">
       {/* Auth header component */}
-      <AuthHeader />
+      <AuthHeader page="forget-password" />
 
       {/* Login Form */}
       {renderStep()}
       {/* Auth Footer component */}
-      <AuthFooter />
+      <AuthFooter page="forget-password" />
     </div>
   );
 }
