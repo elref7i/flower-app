@@ -1,10 +1,9 @@
 "use server";
 
-import logOut from "@/lib/api/logout.api";
-import { DATA_HEADER, JSON_HEADER } from "@/lib/constants/api.constants";
+import { JSON_HEADER } from "@/lib/constants/api.constants";
 import { ChangePasswordFields, EditProfileSchemaFields } from "@/lib/schema/profile.schema";
 import getTokenFromCookies from "@/lib/utils/get-cookies-token";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 
 export const editProfile = async (values: EditProfileSchemaFields) => {
   // get token
