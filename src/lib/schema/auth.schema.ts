@@ -1,8 +1,14 @@
 import { useTranslations } from "next-intl";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import { z } from "zod";
 
 // Password Role
-const passwordRole = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+const passwordSchema = z
+  .string()
+  .min(8, "Password must be at least 8 characters")
+  .regex(/[A-Z]/, "Password must include at least one uppercase letter")
+  .regex(/[a-z]/, "Password must include at least one lowercase letter")
+  .regex(/[0-9]/, "Password must include at least one number");
 
 // Login hook schema
 function useLoginSchema() {
@@ -14,10 +20,7 @@ function useLoginSchema() {
       .string()
       .min(1, { message: t("empty-email-error") })
       .email({ message: t("invalid-email-error") }),
-    password: z
-      .string()
-      .min(1, { message: t("empty-password-error") })
-      .regex(passwordRole, { message: t("wrong-password-error") }),
+    password: passwordSchema,
   });
 }
 
@@ -28,26 +31,22 @@ function useRegisterSchema() {
 
   return z
     .object({
-      firstName: z.string().min(1, { message: t("empty-first-name-error") }),
-      lastName: z.string().min(1, { message: t("empty-last-name-error") }),
-      email: z
-        .string()
-        .min(1, { message: t("empty-email-error") })
-        .email({ message: t("invalid-email-error") }),
-      password: z
-        .string()
-        .min(1, { message: t("empty-password-error") })
-        .regex(passwordRole, { message: t("password-role") }),
-      rePassword: z.string().min(1, { message: t("empty-re-password-empty") }),
+      firstName: z.string().min(2, "First name is required"),
+      lastName: z.string().min(2, "Last name is required"),
+      email: z.string().email("Enter a valid email"),
       phone: z
         .string()
-        .min(1, { message: t("empty-phone-error") })
-        .min(10, { message: t("invalid-phone-error") }),
-      gender: z.enum(["male", "female"], { message: t("empty-gender-error") }),
+        .min(1, "Phone number is required")
+        .refine((v) => isValidPhoneNumber(v), "Enter a valid phone number"),
+      gender: z.enum(["male", "female", "other"], {
+        required_error: "Please select your gender",
+      }),
+      password: passwordSchema,
+      rePassword: z.string(),
     })
-    .refine((value) => value.password === value.rePassword, {
+    .refine((data) => data.password === data.rePassword, {
       path: ["rePassword"],
-      message: t("confirm-password-error"),
+      message: "Passwords do not match",
     });
 }
 
@@ -85,16 +84,10 @@ function useSetPasswordSchema() {
 
   return z
     .object({
-      Password: z
-        .string({
-          required_error: t("empty-new-password-error"),
-        })
-        .regex(passwordRole, { message: t("password-role") }),
-
-      newPassword: z
-        .string({
-          required_error: t("schema.empty-confirm-password-error"),
-        }),
+      Password: passwordSchema,
+      newPassword: z.string({
+        required_error: t("schema.empty-confirm-password-error"),
+      }),
     })
     .refine((data) => data.Password === data.newPassword, {
       path: ["newPassword"],
@@ -106,20 +99,15 @@ function useSetPasswordApiSchema() {
   // Translation hook
   const t = useTranslations();
 
-  return z
-    .object({
-       email: z
+  return z.object({
+    email: z
       .string({
         required_error: t("empty-email-error"),
       })
       .email({ message: t("invalid-email-error") }),
 
-      newPassword: z
-      .string({ required_error: t("empty-password-error")})
-      .min(1, { message: t("empty-password-error") })
-      .regex(passwordRole, { message: t("wrong-password-error") }),
-    })
-    
+    newPassword: passwordSchema,
+  });
 }
 // Declare form types
 type TLoginFormFields = z.infer<ReturnType<typeof useLoginSchema>>;
@@ -127,7 +115,7 @@ type TRegisterFormFields = z.infer<ReturnType<typeof useRegisterSchema>>;
 type TForgotPasswordFormFields = z.infer<ReturnType<typeof useForgotPasswordSchema>>;
 type TVerifyCodeFields = z.infer<ReturnType<typeof useVerifyCodeSchema>>;
 type TSetPasswordFields = z.infer<ReturnType<typeof useSetPasswordSchema>>;
-type TSetPasswordFieldsApI= z.infer<ReturnType<typeof useSetPasswordApiSchema>>;
+type TSetPasswordFieldsApI = z.infer<ReturnType<typeof useSetPasswordApiSchema>>;
 // Export schemas
 export {
   useLoginSchema,
