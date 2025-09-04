@@ -38,7 +38,6 @@ export default function DashboardBreadcrumb() {
   const pathSegments = useMemo(() => {
     return pathName.split("/").filter((segment) => segment !== "");
   }, [pathName]);
-  console.log(pathSegments);
 
   // Build breadcrumb items dynamically
   const breadcrumbItems = useMemo(() => {

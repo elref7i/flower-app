@@ -12,7 +12,7 @@ const authRouts = [
   "/auth/verify-email/success",
 ];
 const adminPage = ["/admin/dashboard", "/admin/products", "/admin/occasions", "/admin/categories"];
-const publicPages = ["/", "/not-authorized", ...authRouts];
+const publicPages = ["/", "/cart", "/not-authorized", ...authRouts];
 
 const handleI18nRouting = createMiddleware(routing);
 

@@ -17,7 +17,6 @@ import Custom404 from "@/components/commerce-ui/404";
 export default async function NotFoundPage() {
   const t = await getTranslations();
   const session = await getServerSession(authOptions);
-  console.log(session);
 
   return session?.user.role === "admin" ? (
     <SidebarProvider>

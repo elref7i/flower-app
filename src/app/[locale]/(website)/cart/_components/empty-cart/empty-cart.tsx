@@ -3,7 +3,7 @@ import React from "react";
 import noCart from "@assets/imgs/no-cart 1.png";
 import { useTranslations } from "next-intl";
 
-export default function EmptyCart({ loggedIn = true }: { loggedIn: boolean }) {
+export default function EmptyCart({ loggedIn = true }: { loggedIn?: boolean }) {
   const t = useTranslations("cart");
   return (
     <div className="my-20 mx-auto w-fit text-center">

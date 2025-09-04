@@ -6,8 +6,6 @@ export default async function page() {
   // Fetch data
   const profileData = await getLoggeduser();
 
-  console.log();
-
   return (
     <>
       {/* Person Info */}
