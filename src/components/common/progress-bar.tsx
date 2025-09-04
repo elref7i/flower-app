@@ -49,3 +49,4 @@ const ProgressBar = ({ step }: ProgressBarProps) => {
 };
 
 export default ProgressBar;
+

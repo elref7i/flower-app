@@ -149,6 +149,16 @@
   },
   "welcome-back": "مرحبًا بعودتك",
   "welcome": "مرحبًا {name}",
+  "address": {
+    "find-my-location": "اعثر على مكانى",
+    "all-addresses": "عنوايينك",
+    "add-new-address": "اضف عنوان جديد",
+    "delete": "هل انت متاكد انك تريد حذف العنوان ؟",
+    "confirm": "تاكيد",
+    "cancel": "الغاء",
+    "deleting": "حذف",
+    "update-address": "تحديث عنوان"
+  },
   "no-products": "لم يتم العثور على منتجات",
   "cart": {
     "cart": "العربه",

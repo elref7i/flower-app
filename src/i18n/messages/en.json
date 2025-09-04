@@ -159,6 +159,16 @@
   },
   "welcome-back": "Welcome Back!",
   "welcome": "Welcome {name}",
+  "address": {
+    "find-my-location": "Find My Location",
+    "all-addresses": "My Addresses",
+    "add-new-address": "Add a New Address",
+    "delete": "Are you sure you want to delete this address?",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "deleting": "Deleting...",
+    "update-address": "Update Address Info"
+  },
   "no-products": "No Products Found",
   "cart": {
     "cart": "Cart",
