@@ -5,7 +5,6 @@ import getTokenFromCookies from "@/lib/utils/get-cookies-token";
 
 export async function createReview({ ...values }: ProductReviewFields) {
   const token = await getTokenFromCookies();
-  console.log(process.env.API);
 
   const response = await fetch(`${process.env.API!}/reviews`, {
     method: "POST",

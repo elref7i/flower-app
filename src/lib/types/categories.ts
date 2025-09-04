@@ -1,5 +1,5 @@
 declare type Categories = {
-  metadata: MetaData;
+  metadata: Metadata;
   categories: Category[];
 };
 
@@ -11,3 +11,12 @@ declare type Category = {
   isSuperAdmin: boolean;
   productsCount: number;
 } & DatabaseFields;
+
+declare type AddCategoryResponse = {
+  message: string;
+  category: Category;
+};
+
+declare type DeleteCategoryResponse = {
+  token: string;
+};
