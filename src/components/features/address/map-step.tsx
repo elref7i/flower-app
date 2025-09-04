@@ -6,10 +6,10 @@ import L from "leaflet";
 import type { LeafletMouseEvent } from "leaflet";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { MapPinHouse } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { MapPinHouse } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-//red icon 
+//red icon
 const redIcon = L.icon({
   iconUrl: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
   shadowUrl: "/assets/imgs/marker-shadow.png",
@@ -23,7 +23,6 @@ type MapStepProps = {
   initialCenter?: [number, number];
   initialZoom?: number;
 };
-
 
 function LocationPicker({ onSelect }: { onSelect: (lat: number, lng: number) => void }) {
   const [position, setPosition] = useState<[number, number] | null>(null);
@@ -60,13 +59,13 @@ export default function MapStep({
         },
         (err) => {
           console.error("Geolocation error:", err);
-        }
+        },
       );
     }
   }, [onSelect]);
 
   //translation
-  const t = useTranslations("address")
+  const t = useTranslations("address");
 
   return (
     <div className="relative  w-full h-[349px]  rounded overflow-hidden border border-zinc-200">
@@ -77,7 +76,6 @@ export default function MapStep({
         className="h-full w-full z-0"
         ref={mapRef}
       >
-
         {/*integrate with open street map*/}
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -90,7 +88,7 @@ export default function MapStep({
 
       {/*button to find loacation*/}
       <Button
-      type='button'
+        type="button"
         onClick={() => {
           if (currentPosition && mapRef.current) {
             mapRef.current.setView(currentPosition, 15); // zoom لموقعي
@@ -100,7 +98,7 @@ export default function MapStep({
         className="absolute group flex gap-2.5 top-4 right-4 z-50  bg-white text-maroon-600 font-semibold px-3.5 py-2.5 border border-maroon-600 rounded-[10px] text-sm hover:text-white hover:bg-maroon-600 hover:border-white"
       >
         {/*icon*/}
-        <MapPinHouse size={20}  className='stroke-current' />
+        <MapPinHouse size={20} className="stroke-current" />
         {t("find-my-location")}
       </Button>
     </div>
