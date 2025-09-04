@@ -4,6 +4,17 @@ declare type DatabaseFields = {
   updatedAt: string;
 };
 
+declare type ApplicationUser = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  phone: string;
+  photo: string;
+  role: string;
+  wishlist: [];
+  addresses: [];
+} & DatabaseFields;
 declare type Metadata = {
   currentPage: number;
   limit: number;
@@ -19,12 +30,17 @@ declare type BestSellersResponse = {
 
 declare type SuccessfullResponse<T> = {
   message: string;
-  
+
+  // declare type SuccessfulResponse<T> = {
+  //   message: "success";
+  //   status: "Success";
+  // } & T;
+} & T;
+
 // declare type SuccessfulResponse<T> = {
 //   message: "success";
 //   status: "Success";
 // } & T;
-} & T;
 
 declare type ErrorResponse = {
   error: string;
@@ -33,36 +49,59 @@ declare type Category = {
   _id: string;
   name: string;
   image: string;
-  productsCount: number
-}
+  productsCount: number;
+};
 declare type Product = {
-  rateAvg: number,
-  rateCount: number,
-  _id: string,
-  title: string,
-  slug: string,
-  description: string,
-  imgCover: string,
-  price: number,
-  priceAfterDiscount: number,
-  quantity: number,
-  category: string,
-  occasion: string,
-  isSuperAdmin: boolean,
-  sold: 100,
-}
+  rateAvg: number;
+  rateCount: number;
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  imgCover: string;
+  price: number;
+  priceAfterDiscount: number;
+  quantity: number;
+  category: string;
+  occasion: string;
+  isSuperAdmin: boolean;
+  sold: 100;
+};
 declare type Address = {
-
-  street: string,
-  phone: string,
-  city: string,
-  lat: string,
-  long: string,
-  username: string
-  _id: string
-}
+  street: string;
+  phone: string;
+  city: string;
+  lat: string;
+  long: string;
+  username: string;
+  _id: string;
+};
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 
+declare type Category = {
+  _id: string;
+  name: string;
+  image: string;
+  productsCount: number;
+};
+declare type Product = {
+  rateAvg: number;
+  rateCount: number;
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  imgCover: string;
+  price: number;
+  priceAfterDiscount: number;
+  quantity: number;
+  category: string;
+  occasion: string;
+  isSuperAdmin: boolean;
+  sold: 100;
+};
+
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
 
 declare type PaginatedResponse<T> = {
   metadata: Metadata;

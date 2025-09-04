@@ -16,72 +16,49 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { Input } from "@/components/ui/input";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils/cn";
 
-type PhoneInputProps = Omit<
-  React.ComponentProps<"input">,
-  "onChange" | "value" | "ref"
-> &
+type PhoneInputProps = Omit<React.ComponentProps<"input">, "onChange" | "value" | "ref"> &
   Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> & {
     onChange?: (value: RPNInput.Value) => void;
   };
 
-const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
-  React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
-    ({ className, onChange, value, ...props }, ref) => {
-      const locale = useLocale(); // 👈 تحديد اللغة الحالية
-      const isRTL = locale === "ar";
-
-      return (
-        <RPNInput.default
-          ref={ref}
-          className={cn(
-            "flex w-full",
-            isRTL ? "flex-row-reverse text-right" : "flex-row text-left", // 👈 قلب الاتجاه في العربي
-            className
-          )}
-          flagComponent={FlagComponent}
-          countrySelectComponent={(selectProps) => (
-            <CountrySelect {...selectProps} isRTL={isRTL} />
-          )}
-          defaultCountry="EG"
-          inputComponent={(inputProps) => (
-            <InputComponent {...inputProps} isRTL={isRTL} />
-          )}
-          smartCaret={false}
-          value={value || undefined}
-          onChange={(value) => onChange?.(value || ("" as RPNInput.Value))}
-          {...props}
-        />
-      );
-    }
+const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> = React.forwardRef<
+  React.ElementRef<typeof RPNInput.default>,
+  PhoneInputProps
+>(({ className, onChange, value, ...props }, ref) => {
+  return (
+    <RPNInput.default
+      ref={ref}
+      className={cn("flex", className)}
+      flagComponent={FlagComponent}
+      countrySelectComponent={CountrySelect}
+      inputComponent={InputComponent}
+      smartCaret={false}
+      value={value || undefined}
+      /**
+       * Handles the onChange event.
+       *
+       * react-phone-number-input might trigger the onChange event as undefined
+       * when a valid phone number is not entered. To prevent this,
+       * the value is coerced to an empty string.
+       *
+       * @param {E164Number | undefined} value - The entered value
+       */
+      onChange={(value) => onChange?.(value || ("" as RPNInput.Value))}
+      {...props}
+    />
   );
+});
 PhoneInput.displayName = "PhoneInput";
 
-// ✅ تعديل InputComponent لدعم RTL
-const InputComponent = React.forwardRef<
-  HTMLInputElement,
-  React.ComponentProps<"input"> & { isRTL?: boolean }
->(({ className, isRTL, ...props }, ref) => (
-  <Input
-    className={cn(
-      "h-10",
-      isRTL
-        ? "rounded-r-none border-r-0 text-right"
-        : "rounded-l-none border-l-0 text-left",
-      className
-    )}
-    {...props}
-    ref={ref}
-    dir={isRTL ? "rtl" : "ltr"} // 👈 دعم RTL
-  />
-));
+const InputComponent = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+  ({ className, ...props }, ref) => (
+    <Input className={cn("rounded-e-lg rounded-s-none", className)} {...props} ref={ref} />
+  ),
+);
 InputComponent.displayName = "InputComponent";
 
 type CountryEntry = { label: string; value: RPNInput.Country | undefined };
@@ -123,19 +100,13 @@ const CountrySelect = ({
             "flex gap-1 h-10 px-3",
             isRTL
               ? "rounded-l-none rounded-r-lg border-l-0 flex-row-reverse"
-              : "rounded-r-none rounded-l-lg border-r-0 flex-row"
+              : "rounded-r-none rounded-l-lg border-r-0 flex-row",
           )}
           disabled={disabled}
         >
-          <FlagComponent
-            country={selectedCountry}
-            countryName={selectedCountry}
-          />
+          <FlagComponent country={selectedCountry} countryName={selectedCountry} />
           <ChevronsUpDown
-            className={cn(
-              "-mr-2 size-4 opacity-50",
-              disabled ? "hidden" : "opacity-100"
-            )}
+            className={cn("-mr-2 size-4 opacity-50", disabled ? "hidden" : "opacity-100")}
           />
         </Button>
       </PopoverTrigger>
@@ -150,10 +121,9 @@ const CountrySelect = ({
               setSearchValue(value);
               setTimeout(() => {
                 if (scrollAreaRef.current) {
-                  const viewportElement =
-                    scrollAreaRef.current.querySelector(
-                      "[data-radix-scroll-area-viewport]"
-                    );
+                  const viewportElement = scrollAreaRef.current.querySelector(
+                    "[data-radix-scroll-area-viewport]",
+                  );
                   if (viewportElement) {
                     viewportElement.scrollTop = 0;
                   }
@@ -177,7 +147,7 @@ const CountrySelect = ({
                       onSelectComplete={() => setIsOpen(false)}
                       isRTL={isRTL}
                     />
-                  ) : null
+                  ) : null,
                 )}
               </CommandGroup>
             </ScrollArea>
@@ -219,9 +189,7 @@ const CountrySelectOption = ({
         {`+${RPNInput.getCountryCallingCode(country)}`}
       </span>
       <CheckIcon
-        className={`ml-auto size-4 ${
-          country === selectedCountry ? "opacity-100" : "opacity-0"
-        }`}
+        className={`ml-auto size-4 ${country === selectedCountry ? "opacity-100" : "opacity-0"}`}
       />
     </CommandItem>
   );

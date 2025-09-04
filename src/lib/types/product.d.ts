@@ -1,3 +1,7 @@
+declare type Products = {
+  products: Product[];
+};
+
 declare type Product = {
   rateAvg: number;
   rateCount: number;
@@ -15,9 +19,34 @@ declare type Product = {
   sold: number;
 } & DatabaseFields;
 
+declare type ProductCard = Pick<
+  Product,
+  "imgCover" | "title" | "rateAvg" | "rateCount" | "price" | "priceAfterDiscount" | "_id"
+>;
+
+declare type Recommendation = {
+  _id: string;
+  title: string;
+  imgCover: string;
+  price: number;
+  priceAfterDiscount: number;
+  discount: number;
+  rateAvg: number;
+  rateCount: number;
+  id: string;
+};
+
+declare type RelatedProductsResponse = {
+  count: number;
+  recommendations: Recommendation[];
+};
 declare type ProductReview = {
   reviews: review[];
-} & MetaData;
+} & Metadata;
+
+declare type ProducteDeletedResponse = {
+  id: string;
+};
 
 declare type reviews = {
   product: string;
