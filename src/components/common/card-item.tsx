@@ -1,11 +1,9 @@
 import { ShoppingCart, Star } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import AddToCart from "./add-to-cart/add-to-cart";
 
 export default function ProductItem({ product }: { product: Product }) {
-  console.log(product.price);
-  console.log(product.priceAfterDiscount);
-
   return (
     <div className=" w-full h-[364px] ">
       <img
@@ -43,7 +41,9 @@ export default function ProductItem({ product }: { product: Product }) {
 
         {/* Cart Icon */}
         <div className="w-[42px] h-[42px] bg-maroon-600 dark:bg-maroon-500 flex justify-center items-center rounded-[999px]">
-          <ShoppingCart className="text-white" />
+          <AddToCart product={product._id}>
+            <ShoppingCart className="text-white" />
+          </AddToCart>
         </div>
       </div>
     </div>

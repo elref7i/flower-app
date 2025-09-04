@@ -1,17 +1,17 @@
 "use client";
 import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
-import { User } from "lucide-react";
+import { Bell, User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import IconNotification from "./icon-notification";
-import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
 import UserDropdown from "@/components/commerce-ui/user-dropdown";
-import { getServerSession } from "next-auth";
-import authOptions from "@/auth-options";
-import { useTranslations } from "next-intl";
+import CartIcon from "./cart/cart-icon";
+import WishlistIcon from "./wishlist/wishlist-icon";
 import { useSession } from "next-auth/react";
+import SearchInput from "@/components/common/search-input";
+import { useTranslations } from "next-intl";
 
 export default function MainHeader() {
   //Translation
@@ -50,8 +50,23 @@ export default function MainHeader() {
           </Link>
         )}
 
-        {/* Icon notifiactions */}
-        <IconNotification />
+        {/* Icons Section */}
+        <ul className="flex items-center gap-3 px-4 py-2 border-x border-zinc-200 dark:border-zinc-700 rounded-lg bg-zinc-50/40 dark:bg-zinc-900/40">
+          {/* Wishlist Icon */}
+          <li>
+            <WishlistIcon aria-label="Wishlist" />
+          </li>
+
+          {/* Cart Icon */}
+          <li>
+            <CartIcon aria-label="Cart" />
+          </li>
+
+          {/* Notifications Icon */}
+          <li>
+            <IconNotification aria-label="Notifications" />
+          </li>
+        </ul>
 
         {/* Toggle Transelation */}
         <LanguageToggle />
