@@ -12,14 +12,16 @@ export default async function CategoriesList({
 }) {
   // Variables
   const search = searchParams.search?.toLowerCase() || "";
-  const categories: Category[] = await getCategories();
-  const filtered = categories.filter((cat) => cat.name.toLowerCase().includes(search));
+  const response = await getCategories();
+  const filtered = response.categories.filter((cat: Category) =>
+    cat.name.toLowerCase().includes(search),
+  );
 
   return (
     <>
       <div className="py-4 gap-[60px] grid grid-cols-3">
         {filtered.length > 0 ? (
-          filtered.map((category) => (
+          filtered.map((category: Category) => (
             <div
               key={category._id}
               className="px-2.5 py-4 hover:border-b-2 relative hover:border-softpink-300 hover:bg-gradient-to-t from-softpink-300/25 to-transparent transition-all duration-300"
@@ -74,7 +76,7 @@ export default async function CategoriesList({
           <li className="text-gray-500">No results</li>
         )}
       </div>
-      <PaginationComponent metaData={categories.metadata} />
+      <PaginationComponent metaData={response.metadata} />
     </>
   );
 }
