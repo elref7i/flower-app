@@ -1,11 +1,18 @@
-declare type Categories = {
+declare type Category = {
+  _id: string;
   name: string;
-  slug: string;
   image: string;
-  isSuperAdmin: boolean;
   productsCount: number;
-} & DatabaseFields;
-
+};
 declare type CategoriesResponse = {
-  categories: Categories[];
+  categories: Category[];
+};
+
+declare type AddCategoryResponse = {
+  message: string;
+  category: Category;
+};
+
+declare type DeleteCategoryResponse = {
+  token: string;
 };
