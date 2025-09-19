@@ -56,11 +56,16 @@ export default function NavigationFooter() {
   return (
     <div className="flex-1">
       {/* Title */}
-      <h2 className="text-softpink-300 font-semibold text-[18px]">{t("discoer-our-website")}</h2>
-      <ul className="*:text-white space-y-[6px] font-medium">
+      <h2 className="text-softpink-300 font-semibold responsive-text-base mb-4">
+        {t("discoer-our-website")}
+      </h2>
+      <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2 sm:gap-3">
         {linksFooter.map((link, i) => (
-          <li className="w-fit hover:text-softpink-100" key={i}>
-            <Link className="flex gap-2 items-center" href={link.path}>
+          <li key={i}>
+            <Link
+              className="text-white hover:text-softpink-100 transition-colors responsive-text-sm font-medium block py-1"
+              href={link.path}
+            >
               {link.name}
             </Link>
           </li>

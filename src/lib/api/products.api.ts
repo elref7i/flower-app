@@ -1,4 +1,17 @@
-// import { PaginatedResponse, Product } from "./../types/api.d";
+export async function getAllProducts() {
+  try {
+    const response = await fetch(`${process.env.API!}/products`);
+
+    const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
+
+    if ("error" in payload) throw new Error(payload.error);
+
+    return payload;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
 export async function getAllProductsByCategory(id: string) {
   try {
     const response = await fetch(`${process.env.API!}/products?category=${id}`);
@@ -11,64 +24,74 @@ export async function getAllProductsByCategory(id: string) {
   }
 }
 
-export async function fetchBestSellers() {
+// Unified function for fetching products with various filters
+export async function fetchProducts(
+  options: {
+    sort?: string;
+    limit?: number;
+    page?: number;
+    occasion?: string;
+    category?: string;
+  } = {},
+) {
+  const { sort = "sold", limit = 12, page = 1, occasion, category } = options;
+
   try {
-    const response = await fetch(`${process.env.API!}/products?sort=sold`);
-    if (!response.ok) throw new Error("Failed to fetch best-seller products");
+    const params = new URLSearchParams({
+      sort,
+      limit: limit.toString(),
+      page: page.toString(),
+    });
+
+    if (occasion) params.append("occasion", occasion);
+    if (category) params.append("category", category);
+
+    const response = await fetch(`${process.env.API!}/products?${params}`);
+    if (!response.ok) throw new Error("Failed to fetch products");
+
     const data = await response.json();
-    return data.products;
+    return data;
   } catch (error) {
     console.error(error);
-    return [];
+    return { products: [], metadata: { currentPage: page, totalPages: 1, limit, totalItems: 0 } };
   }
 }
 
-// Top Selling Products
-export async function fetchProductStats(pageParam = 1) {
-  const response = await fetch(
-    `https://flower.elevateegy.com/api/v1/products?sort=-sold&page=${pageParam}&limit=8`,
-  );
-  const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
-  if ("error" in payload) throw new Error(payload.error);
-  return payload;
-}
-
-// Low Stock Products
-export async function fetchLowStockProducts(
-  pageParam = 1,
-): Promise<PaginatedResponse<{ products: Product[] }>> {
-  try {
-    const response = await fetch(
-      `https://flower.elevateegy.com/api/v1/products?sort=quantity&page=${pageParam}&limit=9`,
-    );
-    if (!response.ok) throw new Error("Failed to Fetch Products");
-
-    const data = await response.json();
-
-    return {
-      products: data.products || [],
-      metadata: data.metadata || {
-        currentPage: pageParam,
-        totalPages: 3,
-        limit: 9,
-        totalItems: 0,
-      },
-    };
-  } catch (error) {
-    return {
-      products: [],
-      metadata: { currentPage: pageParam, totalPages: 1, limit: 9, totalItems: 0 },
-    };
-  }
+// Convenience functions for common use cases
+export async function fetchBestSellers() {
+  const data = await fetchProducts({ sort: "sold", limit: 12 });
+  return data.products || [];
 }
 
 export async function fetchPopularProducts(occasionId?: string) {
-  const baseUrl = `${process.env.API!}/products?limit=12&sort=sold`;
-  const url = occasionId ? `${baseUrl}&occasion=${occasionId}` : baseUrl;
-  const response = await fetch(url);
-  if (!response.ok) throw new Error("Failed to fetch products");
-  const data = await response.json();
-  return data.products;
+  const data = await fetchProducts({ sort: "sold", limit: 12, occasion: occasionId });
+  return data.products || [];
+}
+
+export async function fetchProductStats(pageParam = 1) {
+  const data = await fetchProducts({ sort: "-sold", limit: 8, page: pageParam });
+  return {
+    products: data.products || [],
+    metadata: data.metadata || {
+      currentPage: pageParam,
+      totalPages: 1,
+      limit: 8,
+      totalItems: 0,
+    },
+  };
+}
+
+export async function fetchLowStockProducts(pageParam = 1) {
+  const data = await fetchProducts({ sort: "quantity", limit: 9, page: pageParam });
+  return {
+    products: data.products || [],
+    metadata: data.metadata || {
+      currentPage: pageParam,
+      totalPages: 1,
+      limit: 9,
+      totalItems: 0,
+    },
+  };
 }
 
 export async function getProductReviews(productId: string) {

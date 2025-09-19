@@ -4,11 +4,11 @@ import GiftCarousol from "./gift-carsoul";
 
 export default function GiftsSection() {
   return (
-    <div className="grid grid-cols-4 gap-5 my-10">
-      <div className="col-span-1">
+    <div className="responsive-grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+      <div className="lg:col-span-1">
         <GiftCard />
       </div>
-      <div className="col-span-3">
+      <div className="lg:col-span-3">
         <GiftCarousol />
       </div>
     </div>

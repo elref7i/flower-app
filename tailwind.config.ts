@@ -13,10 +13,12 @@ const config: Config = {
       center: true,
     },
     screens: {
-      sm: "480px",
+      xs: "320px",
+      sm: "640px",
       md: "768px",
-      lg: "980px",
-      xl: "1380px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     extend: {
       boxShadow: {
@@ -107,6 +109,16 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      spacing: {
+        "18": "4.5rem",
+        "88": "22rem",
+        "128": "32rem",
+        "144": "36rem",
+      },
+      maxWidth: {
+        "8xl": "88rem",
+        "9xl": "96rem",
       },
     },
     fontFamily: {
