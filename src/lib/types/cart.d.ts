@@ -26,7 +26,6 @@ declare type CartItem = {
 };
 
 declare type CartInfo = {
-  message: string;
   numOfCartItems: number;
   cart: {
     _id: string;

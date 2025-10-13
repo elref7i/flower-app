@@ -1,78 +1,74 @@
 "use client";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { fetchLowStockProducts } from "@/lib/api/products.api";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { LoaderCircle } from "lucide-react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useLowStockProduct } from "../_hooks/useLowStockProduct";
+import { useTranslations } from "next-intl";
 
-export default function LowStockProductsTable() {
-  // Hooks
-  const {
-    data: payload,
-    fetchNextPage,
-    hasNextPage,
-    isLoading,
-    isError,
-  } = useInfiniteQuery({
-    queryKey: ["product-low-stock"],
-    queryFn: ({ pageParam = 1 }) => {
-      return fetchLowStockProducts(pageParam);
-    },
-    getNextPageParam: (lastPage) => {
-      const { currentPage, totalPages } = lastPage.metadata;
-      return currentPage < totalPages ? currentPage + 1 : undefined;
-    },
-    initialPageParam: 1,
-  });
+export default function LowStockProductsList() {
+  // Hook
+  const { products, fetchNextPage, hasNextPage, isLoading, isError, payload } =
+    useLowStockProduct();
 
-  // Variables
-  const products = payload?.pages.flatMap((page) => page.products) || [];
-
-  // Functions
+  // Load More
   const loadMore = () => {
     if (hasNextPage && !isLoading) {
       fetchNextPage();
     }
   };
 
+  // Translations
+  const t = useTranslations();
+
   return (
     <>
-      {isLoading && products.length === 0 && <p className="text-zinc-400">Loading...</p>}
-      {isError && <p className="text-center text-red-600">Error fetching products</p>}
+      {/* Loading */}
+      {isLoading && products.length === 0 && (
+        <div className="flex justify-center py-8">
+          <LoaderCircle className="animate-spin" />
+        </div>
+      )}
+      {/* Error */}
+      {isError && <p className="text-center py-4 text-red-500">Error fetching products</p>}
+
       {payload && (
-        <div id="scrollableDiv" className="overflow-auto h-full  rounded scrollbar-hide">
+        <div id="scrollableDiv" className="h-[350px] w-full overflow-y-auto rounded-md mt-0">
           <InfiniteScroll
             dataLength={products.length}
             next={loadMore}
             hasMore={hasNextPage}
             loader={
-              <p className="py-1 text-zinc-500 flex justify-center">
-                <LoaderCircle />
-              </p>
+              <div className="flex justify-center py-4">
+                <LoaderCircle className="animate-spin" />
+              </div>
+            }
+            endMessage={
+              <p className="text-center py-2 text-zinc-400 text-sm">{t("no-more-porducts")}</p>
             }
             scrollableTarget="scrollableDiv"
           >
-            <Table className="w-full h-full scrollbar-hide m-0 p-0">
-              <TableBody>
-                {products.map((product) => (
-                  <TableRow
-                    key={product._id}
-                    className="text-zinc-800 w-[488px] p-0 border-b border-zinc-100 h-8 flex justify-between items-center"
+            {/* Table */}
+            <div className="flex flex-col gap-2 pr-4">
+              {products.map((product) => (
+                <div
+                  key={product._id}
+                  className="rounded-lg px-3 py-2 bg-zinc-100 flex justify-between items-center"
+                >
+                  {/* Product Name */}
+                  <span className="truncate max-w-[240px]" title={product.title}>
+                    {product.title.length > 27 ? product.title.slice(0, 27) + "..." : product.title}
+                  </span>
+
+                  {/* Product Quantity */}
+                  <span
+                    className={`font-semibold text-sm ${
+                      product.quantity < 0 ? "text-red-500" : "text-zinc-700"
+                    }`}
                   >
-                    <TableCell title={product.title}>
-                      {product.title.length > 27
-                        ? product.title.slice(0, 27) + "..."
-                        : product.title}
-                    </TableCell>
-                    <TableCell className="font-medium text-sm">
-                      <span className={`font-bold ${product.quantity < 0 ? "text-red-500" : ""}`}>
-                        {product.quantity} Products
-                      </span>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                    {product.quantity} Products
+                  </span>
+                </div>
+              ))}
+            </div>
           </InfiniteScroll>
         </div>
       )}

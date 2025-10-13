@@ -4,9 +4,8 @@ export async function getCartItems() {
   const token = await getTokenFromCookies();
   if (!token) return { message: "you are not logged in", numOfCartItems: 0 };
   try {
-    const response = await fetch(`${process.env.API}/cart`, {
+    const response = await fetch(`${process.env.API!}/cart`, {
       next: { tags: ["cartInfo"] },
-      method: "GET",
       headers: {
         Authorization: `Bearer ${token.token}`,
         "Content-Type": "application/json",

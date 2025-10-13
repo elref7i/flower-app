@@ -1,23 +1,24 @@
+"use client";
 import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
-import { User } from "lucide-react";
+import { Bell, User } from "lucide-react";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import IconNotification from "./icon-notification";
-import SearchInput from "@/components/common/search-input";
 import LanguageToggle from "@/components/common/language-toggle";
 import { Link } from "@/i18n/navigation";
 import UserDropdown from "@/components/commerce-ui/user-dropdown";
-import { getTranslations } from "next-intl/server";
-import { getServerSession } from "next-auth";
-import { log } from "console";
-import authOptions from "@/auth-options";
+import CartIcon from "./cart/cart-icon";
+import WishlistIcon from "./wishlist/wishlist-icon";
+import { useSession } from "next-auth/react";
+import SearchInput from "@/components/common/search-input";
+import { useTranslations } from "next-intl";
 
-export default async function MainHeader() {
+export default function MainHeader() {
   //Translation
-  const t = await getTranslations();
+  const t = useTranslations();
 
   //Session
-  const session = await getServerSession(authOptions);
+  const { data: session } = useSession();
 
   return (
     <div className="section-padding py-4 sm:py-6">
@@ -40,6 +41,7 @@ export default async function MainHeader() {
             <SearchInput placeholder={t("what-awesome-gift-are-you-looking-for")} />
           </div>
 
+<<<<<<< HEAD
           {/* Right side actions */}
           <div className="flex items-center gap-2 sm:gap-4">
             {/* Check authorization */}
@@ -59,6 +61,25 @@ export default async function MainHeader() {
                 <span className="hidden sm:inline">{t("login")}</span>
               </Link>
             )}
+=======
+        {/* Icons Section */}
+        <ul className="flex items-center gap-3 px-4 py-2 border-x border-zinc-200 dark:border-zinc-700 rounded-lg bg-zinc-50/40 dark:bg-zinc-900/40">
+          {/* Wishlist Icon */}
+          <li>
+            <WishlistIcon aria-label="Wishlist" />
+          </li>
+
+          {/* Cart Icon */}
+          <li>
+            <CartIcon aria-label="Cart" />
+          </li>
+
+          {/* Notifications Icon */}
+          <li>
+            <IconNotification aria-label="Notifications" />
+          </li>
+        </ul>
+>>>>>>> 9cccdcf5592d1c0de2e073ae7c37b240d82f1448
 
             {/* Icon notifications */}
             <IconNotification />

@@ -2,7 +2,11 @@ export async function getAllProducts() {
   try {
     const response = await fetch(`${process.env.API!}/products`);
 
+<<<<<<< HEAD
     const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
+=======
+    const payload: APIResponse<PaginatedResponse<Products>> = await response.json();
+>>>>>>> 9cccdcf5592d1c0de2e073ae7c37b240d82f1448
 
     if ("error" in payload) throw new Error(payload.error);
 
@@ -57,10 +61,32 @@ export async function fetchProducts(
   }
 }
 
+<<<<<<< HEAD
 // Convenience functions for common use cases
 export async function fetchBestSellers() {
   const data = await fetchProducts({ sort: "sold", limit: 12 });
   return data.products || [];
+=======
+// Top Selling Products
+export async function fetchProductStats(pageParam = 1) {
+  const response = await fetch(
+    `https://flower.elevateegy.com/api/v1/products?sort=-sold&page=${pageParam}&limit=8`,
+  );
+  const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
+  if ("error" in payload) throw new Error(payload.error);
+  return payload;
+}
+
+// Low Stock Products
+export async function fetchLowStockProducts(pageParam = 1) {
+  const response = await fetch(
+    `https://flower.elevateegy.com/api/v1/products?sort=quantity&page=${pageParam}&limit=9`,
+  );
+
+  const payload: APIResponse<PaginatedResponse<Product>> = await response.json();
+  if ("error" in payload) throw new Error(payload.error);
+  return payload;
+>>>>>>> 9cccdcf5592d1c0de2e073ae7c37b240d82f1448
 }
 
 export async function fetchPopularProducts(occasionId?: string) {
@@ -100,7 +126,13 @@ export async function getProductReviews(productId: string) {
   if ("error" in payload) {
     throw new Error(payload.error);
   }
-  console.log("Fetched reviews:", payload);
 
   return payload;
+}
+
+export async function getProductById(id: string) {
+  const response = await fetch(`${process.env.API}/products/${id}`);
+  const payload: APIResponse<{ product: Product }> = await response.json();
+  if ("error" in payload) throw new Error(payload.error || "Can't get product");
+  return payload.product;
 }

@@ -7,7 +7,7 @@ import { getTranslations } from "next-intl/server";
 
 export default async function Summary() {
   // Variables
-  const cartInfo: CartInfo = await getCartItems();
+  const cartInfo = await getCartItems();
   const cartItems = cartInfo.cart.cartItems;
   // check has discount
   const hasDiscount = cartItems.some(
