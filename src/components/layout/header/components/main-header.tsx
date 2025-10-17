@@ -1,4 +1,3 @@
-"use client";
 import imageLogo from "@assets/imgs/logo 1.png";
 import Image from "next/image";
 import { Bell, User } from "lucide-react";
@@ -12,13 +11,16 @@ import WishlistIcon from "./wishlist/wishlist-icon";
 import { useSession } from "next-auth/react";
 import SearchInput from "@/components/common/search-input";
 import { useTranslations } from "next-intl";
+import { getServerSession } from "next-auth";
+import { getTranslations } from "next-intl/server";
+import authOptions from "@/auth-options";
 
-export default function MainHeader() {
+export default async function MainHeader() {
   //Translation
-  const t = useTranslations();
+  const t = await getTranslations();
+  const session = await getServerSession(authOptions);
 
   //Session
-  const { data: session } = useSession();
 
   return (
     <div className="py-[18px] px-9 flex gap-4">

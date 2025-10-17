@@ -24,7 +24,7 @@ export default function RemoveItemButton({ productId }: { productId: string }) {
     // On mutate remove item from cart items
     onMutate: () => {
       const items: CartItem[] = queryClient.getQueryData<CartItem[]>(["cartItems"]) || [];
-      const newItems = items?.filter((el) => el.product._id != productId);
+      const newItems = items?.filter((el) => el.product?._id != productId);
       queryClient.setQueryData<CartItem[]>(["cartItems"], newItems);
       return { items };
     },

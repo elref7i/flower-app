@@ -6,7 +6,7 @@ import { revalidateTag } from "next/cache";
 export async function deleteCartItem(productId: string) {
   const token = await getTokenFromCookies();
   if (!token) throw new Error("You are not logged in");
-
+  console.log(`${process.env.API}/cart/${productId}`);
   const response = await fetch(`${process.env.API}/cart/${productId}`, {
     method: "DELETE",
     headers: {

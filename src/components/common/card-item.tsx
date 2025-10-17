@@ -41,7 +41,7 @@ export default function ProductItem({ product }: { product: Product }) {
 
         {/* Cart Icon */}
         <div className="w-[42px] h-[42px] bg-maroon-600 dark:bg-maroon-500 flex justify-center items-center rounded-[999px]">
-          <AddToCart product={product._id}>
+          <AddToCart product={product?._id}>
             <ShoppingCart className="text-white" />
           </AddToCart>
         </div>

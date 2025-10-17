@@ -1,7 +1,7 @@
 import { getCartItems } from "@/lib/api/cart";
-import RelatedProducts from "./_components/related-product/related-product";
+import RelatedProducts from "./@cart/_components/related-product/related-product";
 import getTokenFromCookies from "@/lib/utils/get-cookies-token";
-import EmptyCart from "./_components/empty-cart/empty-cart";
+import EmptyCart from "./@cart/_components/empty-cart/empty-cart";
 
 export default async function Layout({
   summery,
@@ -12,7 +12,7 @@ export default async function Layout({
 }) {
   const token = await getTokenFromCookies();
 
-  const CartInfo = await getCartItems();
+  const { numOfCartItems }: CartInfo = await getCartItems();
   return (
     <main className=" mx-20 mt-16 mb-40">
       {token ? (
@@ -23,7 +23,7 @@ export default async function Layout({
             <section className="flex-1">{cart}</section>
 
             {/* If there are items in cart will render summery route  */}
-            {!!CartInfo.numOfCartItems && <section className="w-[460px]">{summery}</section>}
+            {!!numOfCartItems && <section className="w-[460px]">{summery}</section>}
           </div>
           <RelatedProducts />
         </div>

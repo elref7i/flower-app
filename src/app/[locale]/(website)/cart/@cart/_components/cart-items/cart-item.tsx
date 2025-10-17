@@ -8,7 +8,7 @@ import RemoveItemButton from "./remove-item";
 export default function CartItem({ item }: { item: CartItem }) {
   // Destruct item props
   const { id, imgCover, title, rateAvg, rateCount, price, priceAfterDiscount, quantity } =
-    item.product;
+    item?.product;
 
   // Hooks for translation
   const format = useFormatter();
