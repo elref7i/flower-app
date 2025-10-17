@@ -4,34 +4,9 @@ declare type DatabaseFields = {
   updatedAt: string;
 };
 
-declare type ApplicationUser = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  gender: string;
-  phone: string;
-  photo: string;
-  role: string;
-  wishlist: [];
-  addresses: [];
-} & DatabaseFields;
-declare type Metadata = {
-  currentPage: number;
-  limit: number;
-  totalPages: number;
-  totalItems: number;
-};
-
-declare type BestSellersResponse = {
-  message?: string;
-  metadata: Metadata;
-  products: Product[];
-};
-
 declare type SuccessfullResponse<T> = {
   message: string;
 } & T;
-
 // declare type SuccessfulResponse<T> = {
 //   message: "success";
 //   status: "Success";
@@ -39,8 +14,9 @@ declare type SuccessfullResponse<T> = {
 
 declare type ErrorResponse = {
   error: string;
+  status: string;
+  message: string;
 };
-
 declare type Category = {
   _id: string;
   name: string;
@@ -63,11 +39,8 @@ declare type Product = {
   isSuperAdmin: boolean;
   sold: 100;
 };
-
-declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
+declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 
 declare type PaginatedResponse<T> = {
   metadata: Metadata;
 } & T;
-
-declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
