@@ -2,11 +2,7 @@ export async function getAllProducts() {
   try {
     const response = await fetch(`${process.env.API!}/products`);
 
-<<<<<<< HEAD
     const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
-=======
-    const payload: APIResponse<PaginatedResponse<Products>> = await response.json();
->>>>>>> 9cccdcf5592d1c0de2e073ae7c37b240d82f1448
 
     if ("error" in payload) throw new Error(payload.error);
 
@@ -61,12 +57,6 @@ export async function fetchProducts(
   }
 }
 
-<<<<<<< HEAD
-// Convenience functions for common use cases
-export async function fetchBestSellers() {
-  const data = await fetchProducts({ sort: "sold", limit: 12 });
-  return data.products || [];
-=======
 // Top Selling Products
 export async function fetchProductStats(pageParam = 1) {
   const response = await fetch(
@@ -86,38 +76,11 @@ export async function fetchLowStockProducts(pageParam = 1) {
   const payload: APIResponse<PaginatedResponse<Product>> = await response.json();
   if ("error" in payload) throw new Error(payload.error);
   return payload;
->>>>>>> 9cccdcf5592d1c0de2e073ae7c37b240d82f1448
 }
 
 export async function fetchPopularProducts(occasionId?: string) {
   const data = await fetchProducts({ sort: "sold", limit: 12, occasion: occasionId });
   return data.products || [];
-}
-
-export async function fetchProductStats(pageParam = 1) {
-  const data = await fetchProducts({ sort: "-sold", limit: 8, page: pageParam });
-  return {
-    products: data.products || [],
-    metadata: data.metadata || {
-      currentPage: pageParam,
-      totalPages: 1,
-      limit: 8,
-      totalItems: 0,
-    },
-  };
-}
-
-export async function fetchLowStockProducts(pageParam = 1) {
-  const data = await fetchProducts({ sort: "quantity", limit: 9, page: pageParam });
-  return {
-    products: data.products || [],
-    metadata: data.metadata || {
-      currentPage: pageParam,
-      totalPages: 1,
-      limit: 9,
-      totalItems: 0,
-    },
-  };
 }
 
 export async function getProductReviews(productId: string) {

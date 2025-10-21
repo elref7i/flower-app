@@ -1,4 +1,3 @@
-
 import AuthFooter from "../_components/auth-footer";
 import AuthHeader from "../_components/auth-header";
 import LoginForm from "./_components/login-form";
@@ -13,7 +12,7 @@ export default function page() {
       <LoginForm />
 
       {/* Auth Footer component */}
-      <AuthFooter />
+      <AuthFooter page="login" />
     </div>
   );
 }

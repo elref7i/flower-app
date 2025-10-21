@@ -41,7 +41,6 @@ export default function MainHeader() {
             <SearchInput placeholder={t("what-awesome-gift-are-you-looking-for")} />
           </div>
 
-<<<<<<< HEAD
           {/* Right side actions */}
           <div className="flex items-center gap-2 sm:gap-4">
             {/* Check authorization */}
@@ -61,7 +60,6 @@ export default function MainHeader() {
                 <span className="hidden sm:inline">{t("login")}</span>
               </Link>
             )}
-=======
         {/* Icons Section */}
         <ul className="flex items-center gap-3 px-4 py-2 border-x border-zinc-200 dark:border-zinc-700 rounded-lg bg-zinc-50/40 dark:bg-zinc-900/40">
           {/* Wishlist Icon */}
@@ -79,7 +77,6 @@ export default function MainHeader() {
             <IconNotification aria-label="Notifications" />
           </li>
         </ul>
->>>>>>> 9cccdcf5592d1c0de2e073ae7c37b240d82f1448
 
             {/* Icon notifications */}
             <IconNotification />

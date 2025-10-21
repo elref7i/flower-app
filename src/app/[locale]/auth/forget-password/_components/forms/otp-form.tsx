@@ -72,7 +72,7 @@ export default function VerifyCodeForm() {
   return (
     <div className="w-96 mx-auto">
       {/* Header */}
-      <div>
+      <div className="border-b-2 pb-3">
         {/* Title */}
         <h1 className="text-zinc-800 text-2xl font-semibold dark:text-zinc-50">
           {t("otp.otp-title")}
@@ -99,7 +99,7 @@ export default function VerifyCodeForm() {
       </div>
 
       {/* Form */}
-      <div className="my-7 border-y py-12">
+      <div className="pt-12">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField

@@ -39,14 +39,15 @@ export default function AuthHeader({ page }: AuthHeaderProps) {
         />
 
         {/*header message */}
+
         {page !== "forget-password" && (
           <h3
             className={cn(
-              "text-maroon-700 text-nowrap text-center text-2xl md:text-[43px] font-edwiardian dark:text-softpink-300 pb-2",
+              "text-maroon-700 text-nowrap text-center  text-2xl md:text-[43px] font-edwiardian dark:text-softpink-300 mb-3",
               locale === "ar" && ["font-diwany"],
             )}
           >
-            {page === "register" ? t("become-part-of-our-family") : t("welcome-back")}
+            {page === "register" ? t("become-part-ossf-our-family") : t("welcome-back")}
           </h3>
         )}
       </div>

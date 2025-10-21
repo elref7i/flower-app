@@ -1,11 +1,13 @@
 import React from "react";
 import Description from "./description";
 import CarouselPage from "./carousel";
-import { fetchBestSellers } from "@/lib/api/products.api";
+import { fetchLowStockProducts } from "@/lib/api/products.api";
 
 export default async function BestSelling() {
   // Variables
-  const products = await fetchBestSellers();
+  const products = await fetchLowStockProducts();
+  console.log(products);
+  
 
   return (
     <div className="flex flex-col md:flex-row items-start gap-6 mt-24 ">

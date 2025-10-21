@@ -148,7 +148,7 @@
     "passwords-dont-match-error": " كلمة المرور وتأكيدها غير متطابقين"
   },
   "welcome-back": "مرحبًا بعودتك",
-  "welcome": "مرحبًا {name}",
+  "welcome": "أهلا",
   "address": {
     "find-my-location": "اعثر على مكانى",
     "all-addresses": "عنوايينك",
@@ -194,8 +194,6 @@
   "this-action-is-permanent-and-cannot-be-undone": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
   "cancel": "الغاء",
   "continue": "استمرار",
-  "welcome": "أهلا",
-  "no-products": "لم يتم العثور على منتجات",
   "reset-all": "إزاله الكل",
   "reset": "إزاله",
   "price": "السعر",
@@ -257,5 +255,9 @@
   "add-category": "إضافة الفئة",
   "waiting-add-category": "جاري الإضافة...",
   "add-new-category-button": "أضف فئة جديدة",
-  "all-categories": "جميع الفئات"
+  "all-categories": "جميع الفئات",
+  "become-part-ossf-our-family": "تصبح جزءا من عائلتنا",
+  "already-have-an-account-less-than-link-greater-than-login-less-than-link-greater-than": "هل لديك حساب بالفعل؟ \n<رابط>تسجيل الدخول</Link>",
+  "already-have-account": "هل لديك حساب بالفعل؟ \n<رابط>تسجيل الدخول</Link>",
+  "need-help": "بحاجة الى مساعدة؟ \n<Link>اتصل بنا</Link>"
 }

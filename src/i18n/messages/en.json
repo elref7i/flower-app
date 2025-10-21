@@ -131,7 +131,6 @@
     "otp-headline": "We have sent a 6-digit code to",
     "edit-button": "Edit",
     "need-help": "Need help?",
-    "contact-us": "Contact us",
     "otp-button": "Verify OTP",
     "otp-toast": "A new OTP code has been sent to your email.",
     "resend-otp-code": "Send a new code",
@@ -146,7 +145,6 @@
     "forgot-pass-create-account": "<span>Create one now!</span>",
     "forgot-pass-have-no-account": "Don't have an account yet? ",
     "need-help": "Need Help?",
-    "contact-us": "<span> Contact us </span>",
     "create-password": "Create a new password",
     "set-strong-password": "Set a strong password to secure your account.",
     "password-felid": "Password",
@@ -158,7 +156,7 @@
     "passwords-dont-match-error": " Passwords do not match"
   },
   "welcome-back": "Welcome Back!",
-  "welcome": "Welcome {name}",
+  "welcome": "Welcome",
   "address": {
     "find-my-location": "Find My Location",
     "all-addresses": "My Addresses",
@@ -204,7 +202,6 @@
   "this-action-is-permanent-and-cannot-be-undone": "This action is permanent and cannot be undone.",
   "cancel": "Cancel",
   "continue": "Continue",
-  "no-products": "No Products Found",
   "products": "Products",
   "reset-all": "Reset All",
   "reset": "reset",
@@ -243,7 +240,6 @@
   "what-do-you-think-of-this-product": "What do you think of this product?",
   "add-review": "Add review",
   "login-to-add-review": "Please login to be able to add a review to the product",
-  "welcome": "Welcome",
   "my-profile": "My Profile",
   "my-addresses": "My Addresses",
   "my-orders": "My Orders",
@@ -264,5 +260,9 @@
   "add-category": "Add Category",
   "waiting-add-category": "Adding Category...",
   "add-new-category-button": "Add a New Category",
-  "all-categories": "All Categories"
+  "all-categories": "All Categories",
+  "become-part-ossf-our-family": "become-part-of-our-family",
+  "already-have-an-account-less-than-link-greater-than-login-less-than-link-greater-than-0": "Already have an account? <Link>Login</Link>",
+  "already-have-account": "Already have an account? <Link>Login</Link>",
+  "need-help": "Need help? <Link>Contact Us</Link>"
 }
