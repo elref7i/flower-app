@@ -1,4 +1,3 @@
-import React from "react";
 import SetPasswordForm from "../forms/reset-pass-form";
 import { useTranslations } from "next-intl";
 import AuthFooter from "../../../_components/auth-footer";

@@ -3,17 +3,13 @@ import { toast } from "sonner";
 import { TSetPasswordFieldsApI } from "@/lib/schema/auth.schema";
 
 import { ResetPass } from "../_action/reset-pass-action";
-import { useAuthContext } from "@/lib/context/auth-context";
 
 export default function useResetPassword() {
-  const { setStep, email, setEmail } = useAuthContext();
-
   const handleSuccess = () => {
     toast.success("Password Updated success");
-    setStep("3");
     setTimeout(() => {
       window.location.href = "/auth/login";
-    }, 1000);
+    }, 500);
   };
   const handleError = (error: Error) => {
     console.log("refai");

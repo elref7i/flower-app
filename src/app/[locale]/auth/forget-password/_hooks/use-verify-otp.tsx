@@ -5,7 +5,7 @@ import { useAuthContext } from "@/lib/context/auth-context";
 import { verifyOTPCodeAction } from "../_action/otp-action";
 
 export default function useVerifyOtp() {
-  const { step, setStep, email, setEmail } = useAuthContext();
+  const { setStep } = useAuthContext();
 
   // mutation
   const { isPending, error, mutate } = useMutation({
