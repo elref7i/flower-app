@@ -10,7 +10,13 @@ import { fetchOccasions } from "@/lib/api/occasions.api";
 import { fetchPopularProducts } from "@/lib/api/products.api";
 import TestimonialSection from "./_components/testmonials/testmonial-section";
 
-export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
+interface HomePageProps {
+  searchParams: {
+    occasion?: string;
+  };
+}
+
+export default async function page({ searchParams }: HomePageProps) {
   // Variables
   const occasions = await fetchOccasions();
   const currentOccasionId = searchParams.occasion || null;
@@ -27,7 +33,7 @@ export default async function page({ searchParams }: { searchParams: { occasion?
 
         {/* Occasions Section */}
         <section className="section-margin">
-          <Occasions />
+          <Occasions occasions={occasions} />
         </section>
 
         {/* Service Features */}

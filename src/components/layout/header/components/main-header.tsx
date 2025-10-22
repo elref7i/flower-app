@@ -27,7 +27,7 @@ export default function MainHeader() {
         <Link href={"/"} className="flex-shrink-0">
           <Image
             src={imageLogo}
-            width={85}
+            width={80}
             height={80}
             alt={"Flower Logo"}
             className="w-16 h-auto sm:w-20 md:w-24"
@@ -60,26 +60,23 @@ export default function MainHeader() {
                 <span className="hidden sm:inline">{t("login")}</span>
               </Link>
             )}
-        {/* Icons Section */}
-        <ul className="flex items-center gap-3 px-4 py-2 border-x border-zinc-200 dark:border-zinc-700 rounded-lg bg-zinc-50/40 dark:bg-zinc-900/40">
-          {/* Wishlist Icon */}
-          <li>
-            <WishlistIcon aria-label="Wishlist" />
-          </li>
+            {/* Icons Section */}
+            <ul className="flex items-center gap-3 px-4 py-2 border-x-2 border-zinc-200 dark:border-zinc-700  bg-transparent">
+              {/* Wishlist Icon */}
+              <li>
+                <WishlistIcon aria-label="Wishlist" />
+              </li>
 
-          {/* Cart Icon */}
-          <li>
-            <CartIcon aria-label="Cart" />
-          </li>
+              {/* Cart Icon */}
+              <li>
+                <CartIcon aria-label="Cart" />
+              </li>
 
-          {/* Notifications Icon */}
-          <li>
-            <IconNotification aria-label="Notifications" />
-          </li>
-        </ul>
-
-            {/* Icon notifications */}
-            <IconNotification />
+              {/* Notifications Icon */}
+              <li>
+                <IconNotification aria-label="Notifications" />
+              </li>
+            </ul>
 
             {/* Toggle Translation */}
             <LanguageToggle />

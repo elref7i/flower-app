@@ -15,6 +15,7 @@ declare type ApplicationUser = {
   wishlist: [];
   addresses: [];
 } & DatabaseFields;
+
 declare type Metadata = {
   currentPage: number;
   limit: number;
@@ -30,17 +31,7 @@ declare type BestSellersResponse = {
 
 declare type SuccessfullResponse<T> = {
   message: string;
-
-  // declare type SuccessfulResponse<T> = {
-  //   message: "success";
-  //   status: "Success";
-  // } & T;
 } & T;
-
-// declare type SuccessfulResponse<T> = {
-//   message: "success";
-//   status: "Success";
-// } & T;
 
 declare type ErrorResponse = {
   error: string;
@@ -62,6 +53,7 @@ declare type Product = {
   isSuperAdmin: boolean;
   sold: 100;
 };
+
 declare type Address = {
   street: string;
   phone: string;
@@ -71,7 +63,7 @@ declare type Address = {
   username: string;
   _id: string;
 };
-declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;
 
 declare type Category = {
   _id: string;
