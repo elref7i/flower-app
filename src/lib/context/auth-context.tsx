@@ -8,7 +8,7 @@ const AuthContext = createContext<AuthContext | null>(null);
 // create context-provider
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [step, setStep] = useState("1");
-  const [email, setEmail] = useState("emanelkaser@gmail.com");
+  const [email, setEmail] = useState("");
 
   return (
     // send email and step to children

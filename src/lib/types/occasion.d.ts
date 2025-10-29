@@ -6,6 +6,6 @@ declare type Occasion = {
   productsCount: number;
 } & DatabaseFields;
 
-declare type FetchOccasionsResponse = {
+declare type Occasions = {
   occasions: Occasion[];
-};
+} & Metadata;

@@ -5,7 +5,7 @@ import { forgetPassword } from "../_action/forgot-password-action";
 import { useAuthContext } from "@/lib/context/auth-context";
 
 export default function useForgetPassword() {
-  const { step, setStep, email, setEmail } = useAuthContext();
+  const { setStep, setEmail } = useAuthContext();
 
   // mutation
   const { isPending, error, mutate } = useMutation({

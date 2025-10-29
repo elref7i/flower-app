@@ -1,10 +1,11 @@
 export async function fetchOccasions() {
   try {
-    const response = await fetch(`${process.env.API!}/occasions?limit=4`);
-    if (!response.ok) throw new Error("Failed to fetch occasions");
-    const data = await response.json();
+    const response = await fetch(`${process.env.API!}/occasions?limit=6`);
+    const payload: APIResponse<Occasions> = await response.json();
 
-    return data.occasions;
+    if ("error" in payload) throw new Error(payload.error);
+
+    return payload.occasions;
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);

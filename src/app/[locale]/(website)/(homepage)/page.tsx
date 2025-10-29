@@ -10,43 +10,71 @@ import { fetchOccasions } from "@/lib/api/occasions.api";
 import { fetchPopularProducts } from "@/lib/api/products.api";
 import TestimonialSection from "./_components/testmonials/testmonial-section";
 
-export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
+interface HomePageProps {
+  searchParams: {
+    occasion?: string;
+  };
+}
+
+export default async function page({ searchParams }: HomePageProps) {
   // Variables
   const occasions = await fetchOccasions();
   const currentOccasionId = searchParams.occasion || null;
   const popularProducts = await fetchPopularProducts(currentOccasionId || undefined);
 
   return (
-    <div>
-      <div className="container">
+    <div className="min-h-screen">
+      {/* Main Content */}
+      <main className="content-max-width section-padding">
         {/* Gifts Section */}
-        <GiftsSection />
+        <section className="section-margin">
+          <GiftsSection />
+        </section>
 
         {/* Occasions Section */}
-        <Occasions />
+        <section className="section-margin">
+          <Occasions occasions={occasions} />
+        </section>
 
         {/* Service Features */}
-        <ServiceFeatures />
-        {/* Best Selling */}
-        <BestSelling />
+        <section className="section-margin">
+          <ServiceFeatures />
+        </section>
 
-        {/* <ModeToggle /> */}
-        <MostPopular
-          occasions={occasions}
-          products={popularProducts}
-          currentSelectedOccasion={currentOccasionId}
-        />
+        {/* Best Selling */}
+        {/* <section className="section-margin">
+          <BestSelling />
+        </section> */}
+
+        {/* Most Popular */}
+        <section className="section-margin">
+          <MostPopular
+            occasions={occasions}
+            products={popularProducts}
+            currentSelectedOccasion={currentOccasionId}
+          />
+        </section>
+
         {/* About Section */}
-        <AboutSection />
+        <section className="section-margin">
+          <AboutSection />
+        </section>
 
         {/* Gallery Section */}
-        <GallerySection />
-      </div>
+        <section className="section-margin">
+          <GallerySection />
+        </section>
+      </main>
+
       {/* Testimonials */}
-      <TestimonialSection />
+      <section className="section-margin">
+        <TestimonialSection />
+      </section>
 
       {/* Companies Section */}
-      <CompaniesSection />
+      <section className="section-margin">
+        <CompaniesSection />
+      </section>
     </div>
   );
 }

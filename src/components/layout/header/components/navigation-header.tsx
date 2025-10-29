@@ -45,23 +45,28 @@ export default function NavigationHeader() {
   ];
 
   return (
-    <ul className="flex gap-4 text-white dark:text-maroon-800 justify-center bg-maroon-700 dark:bg-softpink-200">
-      {links.map((link) => (
-        <li
-          key={link.path}
-          className={cn(
-            "relative p-3",
-            link.path === path
-              ? "border-b-2 border-softpink-200 dark:border-maroon-800 text-softpink-200 dark:text-maroon-800"
-              : "",
-          )}
-        >
-          <Link className="flex gap-2 items-center" href={link.path}>
-            <span>{link.icon}</span>
-            {link.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <nav className="bg-maroon-700 dark:bg-softpink-200 ">
+      <div className="content-max-width">
+        <ul className="flex flex-wrap gap-1  sm:gap-2 md:gap-4 text-white dark:text-maroon-800 justify-center  overflow-x-auto scrollbar-hide">
+          {links.map((link) => (
+            <li
+              key={link.path}
+              className={cn(
+                "relative flex-shrink-0 ",
+                "p-2 sm:p-3",
+                link.path === path
+                  ? "border-b-2 border-softpink-200 dark:border-maroon-800 text-softpink-200 dark:text-maroon-800"
+                  : "hover:bg-maroon-600 dark:hover:bg-softpink-300 transition-colors",
+              )}
+            >
+              <Link className="flex gap-1 sm:gap-2 items-center whitespace-nowrap" href={link.path}>
+                <span className="w-4 h-4 sm:w-5 sm:h-5">{link.icon}</span>
+                <span className="text-xs sm:text-sm md:text-base">{link.name}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
   );
 }

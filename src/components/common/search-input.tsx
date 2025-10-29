@@ -8,7 +8,7 @@ type SearchInputProps = {
 
 export default function SearchInput({ placeholder }: SearchInputProps) {
   return (
-    <div className="flex-1 relative">
+    <div className="flex-1  relative">
       <Input className="w-full ps-7 h-[52px]" type="search" placeholder={placeholder} />
       <Search size={18} className="absolute top-1/2 start-2 -translate-y-1/2 text-zinc-400" />
     </div>
