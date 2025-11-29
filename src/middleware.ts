@@ -48,7 +48,7 @@ export default async function middleware(req: NextRequest) {
 
   const isPublicPage = pathRegex(publicPages).test(req.nextUrl.pathname);
   const isAuthpage = pathRegex(authRouts).test(req.nextUrl.pathname);
-  const isAdminPage = pathRegex(adminPage).test(req.nextUrl.pathname);
+  // const isAdminPage = pathRegex(adminPage).test(req.nextUrl.pathname);
 
   const isNotAuthorizedPage = pathRegex(["/not-authorized"]).test(req.nextUrl.pathname);
   const token = await getToken({ req });
@@ -58,9 +58,9 @@ export default async function middleware(req: NextRequest) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/login", req.nextUrl.origin));
     }
-    if (token.user.role === "admin") {
-      return NextResponse.redirect(new URL("/dashboard", req.nextUrl.origin));
-    }
+    // if (token.user.role === "admin") {
+    //   return NextResponse.redirect(new URL("/dashboard", req.nextUrl.origin));
+    // }
     return handleI18nRouting(req);
   }
 
@@ -77,9 +77,9 @@ export default async function middleware(req: NextRequest) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/login", req.nextUrl.origin));
     }
-    if (token.user.role !== "admin") {
-      return NextResponse.redirect(new URL("/not-authorized", req.nextUrl.origin));
-    }
+    // if (token.user.role !== "admin") {
+    //   return NextResponse.redirect(new URL("/not-authorized", req.nextUrl.origin));
+    // }
 
     // Important: let Next.js handle the rest → this way
     // /admin/invalid will trigger app/admin/not-found.tsx

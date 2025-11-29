@@ -5,7 +5,7 @@ import React from "react";
 export default function Description() {
   const t = useTranslations();
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col w-72 h-full">
       {/* Title */}
       <p className="text-[16px] tracking-widest text-softpink-500 font-bold  uppercase dark:text-maroon-400">
         {t("Best Selling")}
@@ -41,7 +41,7 @@ export default function Description() {
       </div>
 
       {/*Button*/}
-      <Button className=" mt-12 bg-maroon-600 hover:bg-maroon-700 text-white px-4 py-2 rounded-[10px] flex items-center gap-2 text-base font-normal dark:text-zinc-800 ">
+      <Button className=" mt-16 bg-maroon-600 hover:bg-maroon-700 text-white px-4 py-2 rounded-[10px] flex items-center gap-2 text-base font-normal dark:text-zinc-800 ">
         {t("gifts")}{" "}
         {t.rich("arrow", {
           span: (value) => <span className="text-lg">{value}</span>,

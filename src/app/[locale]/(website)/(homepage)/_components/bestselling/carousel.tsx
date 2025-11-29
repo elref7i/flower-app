@@ -13,23 +13,43 @@ import {
 export default function CarouselPage({ products }: { products: Product[] }) {
   return (
     <Carousel
-      className="relative w-full max-w-4xl "
+      className="relative w-full max-w-6xl mx-auto px-2 pt-0 h-full"
       opts={{
         align: "start",
       }}
     >
-      <CarouselContent className="flex gap-6 ">
+      <CarouselContent className="flex gap-8 py-4">
         {products &&
           products.map((product: Product) => (
-            <CarouselItem key={product._id} className="basis-[304px] shrink-0">
+            <CarouselItem
+              key={product._id}
+              className="md:basis-1/2 lg:basis-[360px]"
+            >
               <ProductItem product={product} />
             </CarouselItem>
           ))}
       </CarouselContent>
 
-      <CarouselPrevious className="bg-maroon-600 dark:bg-maroon-500 absolute left-0 top-1/2 -translate-x-1/2 z-10 cursor-pointer " />
+      {/* Previous Button */}
+      <CarouselPrevious
+        className="
+          absolute left-3 top-1/2 -translate-x-1/2 -translate-y-1/2
+          w-10 h-10 rounded-full
+          bg-maroon-600 text-white shadow-lg
+          hover:bg-maroon-700 z-20  dark:bg-maroon-600 dark:hover:bg-maroon-700
+        "
+      />
 
-      <CarouselNext className="bg-maroon-600 dark:bg-maroon-500 absolute right-0 top-1/2 translate-x-1/2 z-10 cursor-pointer  " />
+      {/* Next Button */}
+      <CarouselNext
+        className="
+          absolute right-14 top-1/2 translate-x-1/2 -translate-y-1/2
+          w-10 h-10 rounded-full
+          bg-maroon-600 text-white shadow-lg
+          hover:bg-maroon-700 z-20
+          dark:bg-maroon-600 dark:hover:bg-maroon-700
+        "
+      />
     </Carousel>
   );
 }

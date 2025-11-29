@@ -33,9 +33,8 @@ export default function GallerySection() {
         {photos.map((src, index) => (
           <div
             key={index}
-            className={`mb-3 break-inside-avoid ${
-              [0, 3, 5].includes(index) ? "h-[617px]" : "h-[411px]"
-            }`}
+            className={`mb-3 break-inside-avoid ${[0, 3, 5].includes(index) ? "h-[617px]" : "h-[411px]"
+              }`}
           >
             <Image
               src={src}
