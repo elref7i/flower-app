@@ -185,16 +185,16 @@
     "related-products": "<span>Products You</span>MayLike",
     "login-error": "You Should login to add items to your cart"
   },
-  "dashboard-pages":{
-    "total-products":"Total products",
-    "total-orders":"Total Orders",
-    "total-categories":"Total Categories",
-    "total-revenue":"Total Revenue",
-    "EGP":"EGP",
-    "products":"Products",
-    "all-categories":"All Categories",
+  "dashboard-pages": {
+    "total-products": "Total products",
+    "total-orders": "Total Orders",
+    "total-categories": "Total Categories",
+    "total-revenue": "Total Revenue",
+    "EGP": "EGP",
+    "products": "Products",
+    "all-categories": "All Categories",
     "error-loading-data": "Error loading data",
-  "loading": "Loading..."
+    "loading": "Loading..."
   },
   "edit-profile-successfully": "Edit Profile successfully",
   "password-changed-successfully": "Password changed successfully",

@@ -178,17 +178,16 @@
     "login-error": "يجب عليك تسجيل الدخول لتتمكن من اضافة منتجات"
   },
   "dashboard-pages": {
-  "total-products": "إجمالي المنتجات",
-  "total-orders": "إجمالي الطلبات",
-  "total-categories": "إجمالي الفئات",
-  "total-revenue": "إجمالي الإيرادات",
-  "EGP":"ج.م",
-  "products":"المنتجات",
-  "all-categories":"جميع الفئات",
-  "error-loading-data": "حدث خطأ أثناء تحميل البيانات",
-  "loading": "جاري التحميل..."
-  
-},
+    "total-products": "إجمالي المنتجات",
+    "total-orders": "إجمالي الطلبات",
+    "total-categories": "إجمالي الفئات",
+    "total-revenue": "إجمالي الإيرادات",
+    "EGP": "ج.م",
+    "products": "المنتجات",
+    "all-categories": "جميع الفئات",
+    "error-loading-data": "حدث خطأ أثناء تحميل البيانات",
+    "loading": "جاري التحميل..."
+  },
   "edit-profile-successfully": "تم تعديل الملف الشخصي بنجاح",
   "password-changed-successfully": "تم تغيير كلمة المرور بنجاح",
   "deleted-account": "تم حذف الحساب",
