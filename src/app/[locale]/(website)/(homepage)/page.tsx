@@ -42,9 +42,9 @@ export default async function page({ searchParams }: HomePageProps) {
         </section>
 
         {/* Best Selling */}
-        {/* <section className="section-margin">
+        <section className="section-margin">
           <BestSelling />
-        </section> */}
+        </section>
 
         {/* Most Popular */}
         <section className="section-margin">

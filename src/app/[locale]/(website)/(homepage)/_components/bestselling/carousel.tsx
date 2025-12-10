@@ -1,6 +1,7 @@
 "use client";
 
 import ProductItem from "@/components/common/card-item";
+import { Card, CardContent } from "@/components/ui/card";
 
 import {
   Carousel,
@@ -9,27 +10,32 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-export default function CarouselPage({ products }: { products: Product[] }) {
+interface CarouselBestSellingProps {
+  products: Product[];
+}
+export default function CarouselBestSelling({ products }: CarouselBestSellingProps) {
   return (
     <Carousel
-      className="relative w-full max-w-4xl "
       opts={{
         align: "start",
       }}
+      className="w-full"
     >
-      <CarouselContent className="flex gap-6 ">
-        {products &&
-          products.map((product: Product) => (
-            <CarouselItem key={product._id} className="basis-[304px] shrink-0">
-              <ProductItem product={product} />
-            </CarouselItem>
-          ))}
+      <CarouselContent>
+        {products.map((product) => (
+          <CarouselItem key={product._id} className="md:basis-1/2 lg:basis-1/3">
+            <div>
+              <Card className="p-0">
+                <CardContent className="flex aspect-square items-center justify-center rounded-lg relative ">
+                  <ProductItem product={product} key={product._id} />
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
       </CarouselContent>
-
-      <CarouselPrevious className="bg-maroon-600 dark:bg-maroon-500 absolute left-0 top-1/2 -translate-x-1/2 z-10 cursor-pointer " />
-
-      <CarouselNext className="bg-maroon-600 dark:bg-maroon-500 absolute right-0 top-1/2 translate-x-1/2 z-10 cursor-pointer  " />
+      <CarouselPrevious />
+      <CarouselNext />
     </Carousel>
   );
 }

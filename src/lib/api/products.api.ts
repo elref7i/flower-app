@@ -62,7 +62,7 @@ export async function fetchProductStats(pageParam = 1) {
   const response = await fetch(
     `https://flower.elevateegy.com/api/v1/products?sort=-sold&page=${pageParam}&limit=8`,
   );
-  const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
+  const payload: APIResponse<PaginatedResponse<Products>> = await response.json();
   if ("error" in payload) throw new Error(payload.error);
   return payload;
 }
@@ -73,8 +73,11 @@ export async function fetchLowStockProducts(pageParam = 1) {
     `https://flower.elevateegy.com/api/v1/products?sort=quantity&page=${pageParam}&limit=9`,
   );
 
-  const payload: APIResponse<PaginatedResponse<Product>> = await response.json();
+  const payload: APIResponse<PaginatedResponse<Products>> = await response.json();
   if ("error" in payload) throw new Error(payload.error);
+
+  console.log(payload);
+
   return payload;
 }
 
