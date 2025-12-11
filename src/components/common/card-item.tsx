@@ -1,16 +1,11 @@
 import { ShoppingCart, Star } from "lucide-react";
-import Image from "next/image";
 import React from "react";
 import AddToCart from "./add-to-cart/add-to-cart";
 
 export default function ProductItem({ product }: { product: Product }) {
   return (
-    <div className=" w-full h-[364px] ">
-      <img
-        src={product.imgCover}
-        alt={product.title}
-        className="w-full aspect-square rounded-[12px] "
-      />
+    <div className=" w-full">
+      <img src={product.imgCover} alt={product.title} className="w-full aspect-square " />
       <h2 className="mt-[14px] font-semibold text-maroon-700 dark:text-softpink-200 text-lg">
         {product.title.slice(1, 25)}...
       </h2>

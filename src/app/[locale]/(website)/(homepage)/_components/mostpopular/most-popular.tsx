@@ -20,6 +20,9 @@ export default function MostPopular({
   currentSelectedOccasion,
 }: MostPopularProps) {
   // Translation
+
+  console.log("refai", products);
+
   const t = useTranslations();
   const locale = useLocale();
   // Navigation
@@ -37,9 +40,11 @@ export default function MostPopular({
   return (
     <section className="w-full  mb-4">
       <div className="flex justify-between items-center w-full mb-4">
-        <p className="font-bold text-4xl text-maroon-700   ">
-          <span className="border-b-[2px] border-pink-600">Mos</span>
-          <span>t Popular</span>
+        <p className="font-bold text-4xl text-maroon-700 ">
+          <span className="pr-2 relative before:absolute before:h-[2px] before:w-[75%] before:bg-maroon-500 before:bottom-0 border-pink-600">
+            Most
+          </span>
+          <span>Popular</span>
         </p>
 
         <ul className="flex space-x-5 font-medium text-base">

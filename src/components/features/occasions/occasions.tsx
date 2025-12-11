@@ -39,7 +39,7 @@ export default async function Occasions({ occasions }: OccasionsProps) {
                       className="w-full object-cover block"
                     />
                     {/*overlay*/}
-                    <div className="absolute inset-0 z-10 flex justify-center items-center bg-gradient-to-t from-black/50 to-transparent">
+                    <div className="absolute inset-0 z-10 flex justify-center items-center bg-gradient-to-t from-black/80 to-black/20 hover:from-black/50 duration-300">
                       <div className="text-center p-3 z-20">
                         {/*budge*/}
                         <div className="bg-maroon-50 rounded-xl inline-block text-maroon-600 font-medium text-lg py-2 px-4 my-1 gap-2.5">
