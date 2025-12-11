@@ -16,10 +16,12 @@ interface HomePageProps {
   };
 }
 
+// Search Params in parent
 export default async function page({ searchParams }: HomePageProps) {
   // Variables
   const occasions = await fetchOccasions();
   const currentOccasionId = searchParams.occasion || null;
+
   const popularProducts = await fetchPopularProducts(currentOccasionId || undefined);
 
   return (

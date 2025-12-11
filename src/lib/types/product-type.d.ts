@@ -1,7 +1,3 @@
-declare type Products = {
-  products: Product[];
-};
-
 declare type Product = {
   rateAvg: number;
   rateCount: number;
@@ -18,6 +14,10 @@ declare type Product = {
   isSuperAdmin?: boolean;
   sold: number;
 } & DatabaseFields;
+
+declare type AllProducts = {
+  products: Product[];
+};
 
 declare type ProductCard = Pick<
   Product,
@@ -40,6 +40,7 @@ declare type RelatedProductsResponse = {
   count: number;
   recommendations: Recommendation[];
 };
+
 declare type ProductReview = {
   reviews: review[];
 } & Metadata;

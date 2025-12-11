@@ -6,12 +6,12 @@ import { fetchLowStockProducts } from "@/lib/api/products.api";
 export default async function BestSelling() {
   // Variables
   const products = await fetchLowStockProducts();
-  console.log(products);
+  // console.log(products);
 
   return (
     <div className="flex flex-col md:flex-row items-start gap-6 mt-24 ">
       <Description />
-      <CarouselPage products={products.products} />
+      <CarouselPage products={products} />
     </div>
   );
 }
