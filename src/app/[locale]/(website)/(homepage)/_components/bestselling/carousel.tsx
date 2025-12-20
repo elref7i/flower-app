@@ -36,7 +36,7 @@ export default function CarouselPage({ products }: { products: Product[] }) {
           absolute left-3 top-1/2 -translate-x-1/2 -translate-y-1/2
           w-10 h-10 rounded-full
           bg-maroon-600 text-white shadow-lg
-          hover:bg-maroon-700 z-20  dark:bg-maroon-600 dark:hover:bg-maroon-700
+          hover:bg-maroon-700 z-20  dark:bg-softpink-300 dark:hover:bg-softpink-400 dark:text-zinc-700
         "
       />
 
@@ -47,7 +47,7 @@ export default function CarouselPage({ products }: { products: Product[] }) {
           w-10 h-10 rounded-full
           bg-maroon-600 text-white shadow-lg
           hover:bg-maroon-700 z-20
-          dark:bg-maroon-600 dark:hover:bg-maroon-700
+          dark:bg-softpink-300 dark:hover:bg-softpink-400 dark:text-zinc-700
         "
       />
     </Carousel>

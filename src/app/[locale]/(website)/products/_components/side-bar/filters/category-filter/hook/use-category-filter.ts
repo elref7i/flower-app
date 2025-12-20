@@ -13,7 +13,7 @@ export default function useCategoryFilter() {
     data: payload,
     fetchNextPage,
     error,
-  } = useInfiniteQuery<APIResponse<PaginatedResponse<Categories[]>>>({
+  } = useInfiniteQuery<APIResponse<PaginatedResponse<Categories>>>({
     // Query key
     queryKey: ["categories"],
 

@@ -48,21 +48,21 @@ export default function OccasionsSection() {
                                 src={occasion.src || "/placeholder.svg"}
                                 alt={occasion.alt}
                                 fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                className="object-cover "
                             />
                             {/* Gradient overlay for text readability */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                         </div>
 
                         {/* Content overlay */}
-                        <div className="absolute inset-0 flex flex-col justify-between p-6 rounded-3xl">
+                        <div className="absolute bottom-1 left-1 max-w-88 p-6 rounded-3xl">
                             {/* Badge at top */}
                             <div>
                                 <Badge className="bg-maroon-50 text-maroon-600 dark:text-maroon-600 dark:bg-maroon-50 hover:bg-white">{occasion.badge}</Badge>
                             </div>
 
                             {/* Title at bottom */}
-                            <h3 className="text-white text-lg font-semibold leading-tight">{occasion.title}</h3>
+                            <h3 className="text-white mt-1 font-semibold text-xl leading-tight">{occasion.title}</h3>
                         </div>
                     </div>
                 ))}

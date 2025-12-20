@@ -32,9 +32,9 @@ export default function FilterHeader({ title }: { title: string }) {
   }
 
   return (
-    <div className="flex mb-2 items-center justify-between bg-background dark:bg-[#121212] z-10 sticky top-0 left-0 right-0">
+    <div className="flex mb-2 items-center justify-between bg-background z-10 sticky top-0 left-0 right-0">
       {/* Title */}
-      <h3 className="text-lg h-full font-semibold pb-1 capitalize">{t(title)}</h3>
+      <h3 className="text-lg h-full font-semibold pb-2 capitalize ">{t(title)}</h3>
 
       {/* Reset button  */}
       <button
@@ -42,7 +42,7 @@ export default function FilterHeader({ title }: { title: string }) {
         className={cn(
           `flex opacity-0 rtl:flex-row-reverse cursor-default items-center capitalize justify-center py-0 w-fit text-red-600 text-sm px-2 rounded-sm hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-opacity duration-200 ease-in-out`,
           searchParams.toLocaleLowerCase().includes(title.toLocaleLowerCase()) &&
-            "opacity-100 cursor-pointer",
+          "opacity-100 cursor-pointer",
         )}
       >
         <X className="size-4 mr-1" /> <span>{t("reset")}</span>

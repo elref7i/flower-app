@@ -31,6 +31,7 @@ declare type BestSellersResponse = {
 
 declare type SuccessfullResponse<T> = {
   message: string;
+  metadata: Metadata;
 } & T;
 
 declare type ErrorResponse = {
@@ -116,6 +117,7 @@ declare type Product = {
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 
 declare type PaginatedResponse<T> = {
+  message: string;
   metadata: Metadata;
 } & T;
 

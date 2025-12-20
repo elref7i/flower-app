@@ -54,9 +54,9 @@ export default function CategoryFilter() {
                   className={cn(
                     "w-full bg-zinc-200 dark:bg-zinc-700 flex items-center h-7 rounded-sm overflow-hidden gap-3 cursor-pointer text-sm font-medium transition-colors duration-300 ease-in-out",
                     searchParams.get("category") === cat._id &&
-                      "bg-maroon-50 dark:bg-softpink-100",
+                    "bg-maroon-50 dark:bg-softpink-100",
                     searchParams.get("category") !== cat._id &&
-                      "hover:bg-zinc-300 dark:hover:bg-zinc-600",
+                    "hover:bg-zinc-300 dark:hover:bg-zinc-600",
                   )}
                 >
                   {/* Category Icon */}
@@ -64,7 +64,7 @@ export default function CategoryFilter() {
                     className={cn(
                       "bg-zinc-500 py-1 px-2 transition-colors duration-300 ease-in-out",
                       searchParams.get("category") === cat._id &&
-                        "bg-maroon-600 dark:bg-softpink-300",
+                      "bg-maroon-600 dark:bg-softpink-300",
                     )}
                   >
                     <Image src={cat.image} width={21} height={20} alt="icon" />

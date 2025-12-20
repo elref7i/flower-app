@@ -9,7 +9,7 @@ export default function HeaderReview() {
   return (
     <div>
       {/* Title */}
-      <h1 className="font-bold text-4xl  text-maroon-700 dark:text-softpink-200">
+      <h1 className="relative mb-3 w-fit text-4xl font-bold text-maroon-700 before:absolute before:bottom-0 before:h-1 before:w-[30%] before:bg-maroon-400 before:dark:bg-softpink-600 after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-1/2 after:w-[70%] after:rounded-e-full after:bg-maroon-100 dark:text-softpink-200 after:dark:bg-zinc-700 after:rtl:right-0">
         {t("product-reviews")}
       </h1>
 

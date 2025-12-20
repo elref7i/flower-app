@@ -9,16 +9,12 @@ export default async function ProductReview({ productId }: { productId: string }
   const payload = await getProductReviews(productId);
 
   return (
-    <div className="space-y-8">
+    <section className="space-y-8">
       {/* product Review */}
       <HeaderReview />
 
       {/* Form & Comments */}
       <div className="grid grid-cols-12 gap-10 ">
-        {/* Form */}
-        <div className="col-span-6">
-          <ProductReviewForm productId={productId} />
-        </div>
 
         <div className="col-span-6">
           {/* Comments */}
@@ -35,7 +31,12 @@ export default async function ProductReview({ productId }: { productId: string }
             </div>
           )}
         </div>
+
+        {/* Form */}
+        <div className="col-span-6">
+          <ProductReviewForm productId={productId} />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
