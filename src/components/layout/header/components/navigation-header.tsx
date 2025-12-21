@@ -46,8 +46,8 @@ export default function NavigationHeader() {
 
   return (
     <nav className="bg-maroon-700 dark:bg-softpink-200 ">
-      <div className="content-max-width">
-        <ul className="flex flex-wrap gap-1  sm:gap-2 md:gap-4 text-white dark:text-maroon-800 justify-center  overflow-x-auto scrollbar-hide">
+      {/* <div className=" bg-green-300"> */}
+        <ul className="flex flex-wrap gap-1 sm:gap-1 md:gap-1 text-white dark:text-maroon-800 justify-center  overflow-x-auto scrollbar-hide">
           {links.map((link) => (
             <li
               key={link.path}
@@ -66,7 +66,7 @@ export default function NavigationHeader() {
             </li>
           ))}
         </ul>
-      </div>
+      {/* </div> */}
     </nav>
   );
 }

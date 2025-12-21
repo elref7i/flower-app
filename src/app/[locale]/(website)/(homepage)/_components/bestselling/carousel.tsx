@@ -16,26 +16,43 @@ interface CarouselBestSellingProps {
 export default function CarouselBestSelling({ products }: CarouselBestSellingProps) {
   return (
     <Carousel
+      className="relative w-full max-w-6xl mx-auto px-2 pt-0 h-full"
       opts={{
         align: "start",
       }}
-      className="w-full"
     >
-      <CarouselContent>
-        {products.map((product) => (
-          <CarouselItem key={product._id} className="md:basis-1/2 lg:basis-1/3">
-            <div>
-              <Card className="p-0">
-                <CardContent className="flex aspect-square items-center justify-center rounded-lg relative ">
-                  <ProductItem product={product} key={product._id} />
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
+      <CarouselContent className="flex gap-8 py-4">
+        {products &&
+          products.map((product: Product) => (
+            <CarouselItem
+              key={product._id}
+              className="md:basis-1/2 lg:basis-[360px]"
+            >
+              <ProductItem product={product} />
+            </CarouselItem>
+          ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+
+      {/* Previous Button */}
+      <CarouselPrevious
+        className="
+          absolute left-3 top-1/2 -translate-x-1/2 -translate-y-1/2
+          w-10 h-10 rounded-full
+          bg-maroon-600 text-white shadow-lg
+          hover:bg-maroon-700 z-20  dark:bg-maroon-600 dark:hover:bg-maroon-700
+        "
+      />
+
+      {/* Next Button */}
+      <CarouselNext
+        className="
+          absolute right-14 top-1/2 translate-x-1/2 -translate-y-1/2
+          w-10 h-10 rounded-full
+          bg-maroon-600 text-white shadow-lg
+          hover:bg-maroon-700 z-20
+          dark:bg-maroon-600 dark:hover:bg-maroon-700
+        "
+      />
     </Carousel>
   );
 }

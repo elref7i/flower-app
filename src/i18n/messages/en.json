@@ -185,6 +185,17 @@
     "related-products": "<span>Products You</span>MayLike",
     "login-error": "You Should login to add items to your cart"
   },
+  "dashboard-pages": {
+    "total-products": "Total products",
+    "total-orders": "Total Orders",
+    "total-categories": "Total Categories",
+    "total-revenue": "Total Revenue",
+    "EGP": "EGP",
+    "products": "Products",
+    "all-categories": "All Categories",
+    "error-loading-data": "Error loading data",
+    "loading": "Loading..."
+  },
   "edit-profile-successfully": "Edit Profile successfully",
   "password-changed-successfully": "Password changed successfully",
   "deleted-account": "Deleted Account",
@@ -264,5 +275,10 @@
   "become-part-ossf-our-family": "become-part-of-our-family",
   "already-have-an-account-less-than-link-greater-than-login-less-than-link-greater-than-0": "Already have an account? <Link>Login</Link>",
   "already-have-account": "Already have an account? <Link>Login</Link>",
-  "need-help": "Need help? <Link>Contact Us</Link>"
+  "need-help": "Need help? <Link>Contact Us</Link>",
+  "overview": "Overview",
+  "preview-website": "Preview Website",
+  "links": "Links",
+  "account": "Account",
+  "log-out": "Log Out"
 }

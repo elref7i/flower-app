@@ -21,8 +21,8 @@ export default function MainHeader() {
   const { data: session } = useSession();
 
   return (
-    <div className="section-padding py-4 sm:py-6">
-      <div className="content-max-width flex flex-col sm:flex-row gap-4 sm:gap-6">
+    <div className="section-padding py-4 sm:py-6 ">
+      <div className=" flex flex-col sm:flex-row gap-4 sm:gap-6 ">
         {/* Logo */}
         <Link href={"/"} className="flex-shrink-0">
           <Image

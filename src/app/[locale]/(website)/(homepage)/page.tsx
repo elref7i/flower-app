@@ -9,6 +9,7 @@ import BestSelling from "./_components/bestselling";
 import { fetchOccasions } from "@/lib/api/occasions.api";
 import { fetchPopularProducts } from "@/lib/api/products.api";
 import TestimonialSection from "./_components/testmonials/testmonial-section";
+import OccasionsSection from "@/components/features/banner/occasions-section";
 
 interface HomePageProps {
   searchParams: {
@@ -27,16 +28,19 @@ export default async function page({ searchParams }: HomePageProps) {
   return (
     <div className="min-h-screen">
       {/* Main Content */}
-      <main className="content-max-width section-padding">
+      <main className=" section-padding">
         {/* Gifts Section */}
         <section className="section-margin">
           <GiftsSection />
         </section>
 
         {/* Occasions Section */}
-        <section className="section-margin">
+
+        <OccasionsSection />
+        {/* <section className="section-margin ">
           <Occasions occasions={occasions} />
-        </section>
+        </section> */}
+
 
         {/* Service Features */}
         <section className="section-margin">

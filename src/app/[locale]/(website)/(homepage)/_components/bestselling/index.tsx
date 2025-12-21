@@ -8,10 +8,11 @@ export default async function BestSelling() {
   const products = await fetchLowStockProducts();
   // console.log(products);
 
+
   return (
-    <div className="flex flex-col md:flex-row items-start gap-6 mt-24 ">
+    <div className="flex flex-col md:flex-row items-start gap-9 py-3  h-96">
       <Description />
-      <CarouselPage products={products} />
+      <CarouselPage products={products.products} />
     </div>
   );
 }

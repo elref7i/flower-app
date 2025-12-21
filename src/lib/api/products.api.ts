@@ -40,7 +40,7 @@ export async function fetchLowStockProducts(pageParam = 1) {
     `https://flower.elevateegy.com/api/v1/products?sort=quantity&page=${pageParam}&limit=9`,
   );
 
-  const payload: APIResponse<PaginatedResponse<AllProducts>> = await response.json();
+  const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
   if ("error" in payload) throw new Error(payload.error);
 
   // console.log(payload);

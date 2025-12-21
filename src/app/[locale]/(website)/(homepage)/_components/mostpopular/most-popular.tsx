@@ -38,15 +38,13 @@ export default function MostPopular({
   };
 
   return (
-    <section className="w-full  mb-4">
-      <div className="flex justify-between items-center w-full mb-4">
-        <p className="font-bold text-4xl text-maroon-700 ">
-          <span className="pr-2 relative before:absolute before:h-[2px] before:w-[75%] before:bg-maroon-500 before:bottom-0 border-pink-600">
-            Most
-          </span>
-          <span>Popular</span>
-        </p>
+    <section className="w-full">
+      {/* Heading */}
+      <div className="flex justify-between items-center w-full mb-10">
+        {/* Title */}
+        <h3 className="relative  w-fit text-4xl font-bold text-maroon-700 before:absolute before:bottom-0 before:h-[2px] before:w-[30%] before:bg-maroon-400 before:dark:bg-softpink-600 after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-1/2 after:w-[70%] after:rounded-e-full after:bg-maroon-100 dark:text-softpink-200  after:dark:bg-zinc-700 after:rtl:right-0">Most Popular</h3>
 
+        {/* Occasions */}
         <ul className="flex space-x-5 font-medium text-base">
           {occasions.map((occasion: Occasion) => {
             const isActive = currentSelectedOccasion

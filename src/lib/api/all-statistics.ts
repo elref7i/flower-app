@@ -1,30 +1,30 @@
 import getTokenFromCookies from "../utils/get-cookies-token";
 
-// Fetch All statistics
 export async function getAllStatistics() {
   try {
-    // get user token
     const token = await getTokenFromCookies();
+    // console.log("TOKEN FROM COOKIES:", token);
+
     if (!token) throw new Error("You should signin");
 
-    // Response
     const response = await fetch(`${process.env.API}/statistics`, {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token.token}`,
+        Authorization: `Bearer ${token?.token || token}`,
         "Content-Type": "application/json",
       },
     });
 
-    if (!response.ok) throw new Error("Server Error");
+    // console.log("RESPONSE STATUS:", response.status);
+    const payload = await response.json();
+    console.log("PAYLOAD:", payload);
 
-    // payload
-    const payload: APIResponse<AllStatisticsResponse> = await response.json();
+    if (!response.ok) throw new Error("Server Error");
     if ("error" in payload) throw new Error(payload.error || "Can't fetch data");
 
     return payload;
   } catch (error) {
-    console.log(error);
+    console.log("FETCH ERROR:", error);
     return { message: error instanceof Error ? error.message : "Can't get data" };
   }
 }
