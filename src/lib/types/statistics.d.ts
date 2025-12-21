@@ -5,14 +5,6 @@ declare type OverallStats = {
   totalRevenue: number;
 };
 
-declare type Product = {
-  title: string;
-  price: number;
-  imgCover: string;
-  quantity: number;
-  sold: number;
-};
-
 declare type ProductsByCategory = {
   _id: string;
   count: number;

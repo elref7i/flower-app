@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import AddToCart from "./add-to-cart/add-to-cart";
 
-// دوال بسيطة لتحديد الأعلام
+
 const isNew = (createdAt: string) => {
   const createdDate = new Date(createdAt);
   const now = new Date();
