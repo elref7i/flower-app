@@ -20,6 +20,9 @@ export default function MostPopular({
   currentSelectedOccasion,
 }: MostPopularProps) {
   // Translation
+
+  console.log("refai", products);
+
   const t = useTranslations();
   const locale = useLocale();
   // Navigation

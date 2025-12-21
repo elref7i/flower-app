@@ -1,5 +1,4 @@
 import { ShoppingCart, Star } from "lucide-react";
-import Image from "next/image";
 import React from "react";
 import AddToCart from "./add-to-cart/add-to-cart";
 

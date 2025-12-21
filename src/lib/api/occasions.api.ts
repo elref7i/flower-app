@@ -1,3 +1,4 @@
+// Occasions
 export async function fetchOccasions() {
   try {
     const response = await fetch(`${process.env.API!}/occasions?limit=6`);

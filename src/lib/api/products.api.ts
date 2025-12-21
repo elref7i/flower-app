@@ -24,45 +24,12 @@ export async function getAllProductsByCategory(id: string) {
   }
 }
 
-// Unified function for fetching products with various filters
-export async function fetchProducts(
-  options: {
-    sort?: string;
-    limit?: number;
-    page?: number;
-    occasion?: string;
-    category?: string;
-  } = {},
-) {
-  const { sort = "sold", limit = 12, page = 1, occasion, category } = options;
-
-  try {
-    const params = new URLSearchParams({
-      sort,
-      limit: limit.toString(),
-      page: page.toString(),
-    });
-
-    if (occasion) params.append("occasion", occasion);
-    if (category) params.append("category", category);
-
-    const response = await fetch(`${process.env.API!}/products?${params}`);
-    if (!response.ok) throw new Error("Failed to fetch products");
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-    return { products: [], metadata: { currentPage: page, totalPages: 1, limit, totalItems: 0 } };
-  }
-}
-
 // Top Selling Products
 export async function fetchProductStats(pageParam = 1) {
   const response = await fetch(
     `https://flower.elevateegy.com/api/v1/products?sort=-sold&page=${pageParam}&limit=8`,
   );
-  const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
+  const payload: APIResponse<PaginatedResponse<Product>> = await response.json();
   if ("error" in payload) throw new Error(payload.error);
   return payload;
 }
@@ -75,12 +42,33 @@ export async function fetchLowStockProducts(pageParam = 1) {
 
   const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
   if ("error" in payload) throw new Error(payload.error);
-  return payload;
+
+  // console.log(payload);
+
+  return payload.products;
 }
 
+// Popular Products
 export async function fetchPopularProducts(occasionId?: string) {
-  const data = await fetchProducts({ sort: "sold", limit: 12, occasion: occasionId });
-  return data.products || [];
+  try {
+    const params = new URLSearchParams({
+      sort: "sold",
+      limit: "12",
+    });
+
+    if (occasionId) params.append("occasion", occasionId);
+
+    const response = await fetch(`${process.env.API!}/products?${params}`);
+
+    const payload: APIResponse<PaginatedResponse<AllProducts>> = await response.json();
+
+    if ("error" in payload) throw new Error(payload.error);
+
+    return payload.products;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
 
 export async function getProductReviews(productId: string) {

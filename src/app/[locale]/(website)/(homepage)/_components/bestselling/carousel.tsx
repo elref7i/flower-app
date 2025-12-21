@@ -1,6 +1,7 @@
 "use client";
 
 import ProductItem from "@/components/common/card-item";
+import { Card, CardContent } from "@/components/ui/card";
 
 import {
   Carousel,
@@ -9,8 +10,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-export default function CarouselPage({ products }: { products: Product[] }) {
+interface CarouselBestSellingProps {
+  products: Product[];
+}
+export default function CarouselBestSelling({ products }: CarouselBestSellingProps) {
   return (
     <Carousel
       className="relative w-full max-w-6xl mx-auto px-2 pt-0 h-full"
