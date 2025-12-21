@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import {
   Carousel,
   CarouselContent,
@@ -27,19 +25,14 @@ export default async function RelatedProducts() {
   const payload: APIResponse<RelatedProductsResponse> = await response.json();
   const products: Recommendation[] = payload.recommendations || [];
   return (
-    <>
+    <section className="container mt-20 mb-96 flex flex-col gap-4">
       {/* Title */}
-      <h3 className="mb-9 text-maroon-700 text-4xl font-bold flex gap-3">
-        {t.rich("related-products", {
-          span: (value) => (
-            <span className="relative w-fit block before:bg-softpink-100 before:absolute before:-bottom-1 before:rounded-e-full before:-z-10 before:h-1/2 before:w-full after:absolute after:w-2/5 after:h-[2px] after:bg-softpink-600 after:-bottom-1 after:left-0 rtl:after:right-0 rtl:before:-bottom-2 rtl:after:-bottom-2 ">
-              {value}
-            </span>
-          ),
-        })}
-      </h3>
 
-      <Carousel className="w-full box-border mx-auto">
+      <h1 className="relative  w-fit text-4xl font-bold text-maroon-700 before:absolute before:bottom-0 before:h-1 before:w-[30%] before:bg-maroon-400 before:dark:bg-softpink-600 after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-1/2 after:w-[70%] after:rounded-e-full after:bg-maroon-100 dark:text-softpink-200 after:dark:bg-zinc-700 after:rtl:right-0">
+        Related Products
+      </h1>
+
+      <Carousel className="w-full box-border mx-auto mt-0">
         <CarouselContent className="flex gap-[24px] relative">
           {products.length ? (
             products.map((product) => (
@@ -53,9 +46,9 @@ export default async function RelatedProducts() {
             </CarouselItem>
           )}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-0 bg-maroon-600 hover:bg-maroon-500 text-zinc-50" />
-        <CarouselNext className="absolute right-0 bg-maroon-600 hover:bg-maroon-500 text-zinc-50 " />
+        <CarouselPrevious className="absolute -left-4 bg-maroon-600 hover:bg-maroon-500 text-zinc-50 dark:text-zinc-700 dark:bg-softpink-300" />
+        <CarouselNext className="absolute -right-4 bg-maroon-600 hover:bg-maroon-500 text-zinc-700 dark:bg-softpink-300" />
       </Carousel>
-    </>
+    </section>
   );
 }

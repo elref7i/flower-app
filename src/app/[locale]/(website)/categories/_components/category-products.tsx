@@ -3,7 +3,8 @@ import Image from "next/image";
 import React from "react";
 import RatingStars from "./rating-star";
 import { Eye, Heart, ShoppingCart } from "lucide-react";
-
+import Link from "next/link";
+Link
 export default async function CategoryProducts({ id }: { id: string }) {
   // Variables
   const products: Product[] = await getAllProductsByCategory(id);
@@ -29,7 +30,7 @@ export default async function CategoryProducts({ id }: { id: string }) {
         const hotFlag = isHot(prod.sold);
         const outOfStockFlag = isOutOfStock(prod.quantity);
         return (
-          <div key={prod._id} className="gap-4 rounded-2xl group">
+          <Link href={`/products/${prod._id}`} key={prod._id} className="gap-4 rounded-2xl group">
             {/*product cover*/}
             <div className="rounded-xl relative ">
               {/*budges*/}
@@ -83,7 +84,7 @@ export default async function CategoryProducts({ id }: { id: string }) {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         )
       })}
     </div>

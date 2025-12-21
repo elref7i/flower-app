@@ -31,6 +31,7 @@ declare type BestSellersResponse = {
 
 declare type SuccessfullResponse<T> = {
   message: string;
+  metadata: Metadata;
 } & T;
 
 declare type ErrorResponse = {
@@ -65,3 +66,28 @@ declare type Category = {
   image: string;
   productsCount: number;
 };
+declare type Product = {
+  rateAvg: number;
+  rateCount: number;
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  imgCover: string;
+  price: number;
+  priceAfterDiscount: number;
+  quantity: number;
+  category: string;
+  occasion: string;
+  isSuperAdmin: boolean;
+  sold: number;
+  createdAt: string;
+};
+declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
+
+declare type PaginatedResponse<T> = {
+  message: string;
+  metadata: Metadata;
+} & T;
+
+declare type APIResponse<T> = SuccessfullResponse<T> | ErrorResponse;

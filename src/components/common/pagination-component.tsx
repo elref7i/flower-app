@@ -1,7 +1,6 @@
 "use client";
 
 import { ChevronFirst, ChevronLast } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 import {
   Pagination,
   PaginationContent,
@@ -11,11 +10,12 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 
 interface PaginationComponentProps {
   metaData: Metadata;
+  currentPage: number;
+  onPageChange: (newPage: number) => void;
 }
 
 function getVisiblePages(currentPage: number, totalPages: number): (number | string)[] {
@@ -37,23 +37,12 @@ function getVisiblePages(currentPage: number, totalPages: number): (number | str
   return pages;
 }
 
-export default function PaginationComponent({ metaData }: PaginationComponentProps) {
-  // Navigation
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  // Variables
-  const currentPage = Number(searchParams.get("page") || 1);
+export default function PaginationComponent({
+  metaData,
+  currentPage,
+  onPageChange,
+}: PaginationComponentProps) {
   const totalPages = metaData.totalPages;
-
-  // Functions
-  const handlePageChange = (newPage: number) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("page", newPage.toString());
-    router.push(`${pathname}?${params.toString()}`);
-  };
-
   const pagesToRender = getVisiblePages(currentPage, totalPages);
 
   return (
@@ -68,7 +57,7 @@ export default function PaginationComponent({ metaData }: PaginationComponentPro
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (currentPage !== 1) handlePageChange(1);
+                if (currentPage !== 1) onPageChange(1);
               }}
               className={cn(currentPage === 1 && "pointer-events-none opacity-50")}
             >
@@ -84,42 +73,38 @@ export default function PaginationComponent({ metaData }: PaginationComponentPro
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (currentPage > 1) handlePageChange(currentPage - 1);
+                if (currentPage > 1) onPageChange(currentPage - 1);
               }}
               className={cn(currentPage === 1 && "pointer-events-none opacity-50")}
             />
           </PaginationItem>
 
           {/* Page Numbers */}
-          {pagesToRender.map((page, index) => {
-            if (page === "...") {
-              return (
-                <PaginationItem key={`ellipsis-${index}`}>
-                  <PaginationEllipsis />
-                </PaginationItem>
-              );
-            }
-
-            return (
+          {pagesToRender.map((page, index) =>
+            page === "..." ? (
+              <PaginationItem key={`ellipsis-${index}`}>
+                <PaginationEllipsis />
+              </PaginationItem>
+            ) : (
               <PaginationItem key={page}>
                 <PaginationLink
                   href="#"
                   isActive={page === currentPage}
                   onClick={(e) => {
                     e.preventDefault();
-                    if (page !== currentPage) handlePageChange(Number(page));
+                    if (page !== currentPage) onPageChange(Number(page));
                   }}
                   className={cn(
                     page === currentPage &&
-                      "bg-primary text-white hover:bg-primary/90 hover:text-white",
-                    "transition-colors",
+                    "bg-primary text-white hover:bg-primary/90 hover:text-white",
+                    "transition-colors"
                   )}
                 >
                   {page}
                 </PaginationLink>
               </PaginationItem>
-            );
-          })}
+            )
+          )}
 
           {/* Next Page */}
           <PaginationItem>
@@ -129,7 +114,7 @@ export default function PaginationComponent({ metaData }: PaginationComponentPro
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (currentPage < totalPages) handlePageChange(currentPage + 1);
+                if (currentPage < totalPages) onPageChange(currentPage + 1);
               }}
               className={cn(currentPage === totalPages && "pointer-events-none opacity-50")}
             />
@@ -143,7 +128,7 @@ export default function PaginationComponent({ metaData }: PaginationComponentPro
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (currentPage !== totalPages) handlePageChange(totalPages);
+                if (currentPage !== totalPages) onPageChange(totalPages);
               }}
               className={cn(currentPage === totalPages && "pointer-events-none opacity-50")}
             >

@@ -13,7 +13,7 @@ export default function useFilterOccasion() {
     isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
-  } = useInfiniteQuery<APIResponse<PaginatedResponse<FetchOccasionsResponse>>>({
+  } = useInfiniteQuery<APIResponse<PaginatedResponse<Occasion>>>({
     // Query key
     queryKey: ["occasions"],
 
@@ -25,7 +25,7 @@ export default function useFilterOccasion() {
       //  if promise rejected
       if (!response.ok) throw new Error("Can't get Occasions");
 
-      const payload: APIResponse<PaginatedResponse<FetchOccasionsResponse>> = await response.json();
+      const payload: APIResponse<PaginatedResponse<Occasion>> = await response.json();
 
       //  Condition if payload  doesn't accepted
       if (payload.message !== "success") throw new Error(payload.message);
