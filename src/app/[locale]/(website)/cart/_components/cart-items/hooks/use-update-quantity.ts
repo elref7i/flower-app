@@ -21,8 +21,9 @@ export default function useUpdateQuantity({
     mutationKey: ["updateProductQuantity"],
     mutationFn: async () => {
       const response: APIResponse<CartInfo> = await updateQuantityAction(productId, optValue);
+      if ("error" in response) throw new Error(response.error || "Can't update Quantity");
       if (response.message !== "success")
-        throw new Error(response.message || response.error || "Can't update Quantity");
+        throw new Error(response.message || "Can't update Quantity");
 
       // Get item quantity form response to update optimistic value
       const item: CartItem[] = response?.cart?.cartItems.filter(

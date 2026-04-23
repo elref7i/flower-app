@@ -11,7 +11,7 @@ export default function useGetInfiniteCategories() {
     data: payload,
     fetchNextPage,
     error,
-  } = useInfiniteQuery<APIResponse<PaginatedResponse<Categories[]>>>({
+  } = useInfiniteQuery<APIResponse<PaginatedResponse<{categories: Category[]}>>>({
     // Query key
     queryKey: ["categories"],
 
@@ -23,7 +23,7 @@ export default function useGetInfiniteCategories() {
       //  if promise rejected
       if (!response.ok) throw new Error("Can't get Categories");
 
-      const payload: APIResponse<PaginatedResponse<Categories[]>> = await response.json();
+      const payload: APIResponse<PaginatedResponse<{categories: Category[]}>> = await response.json();
 
       //  Condition if payload  doesn't accepted
       if ("error" in payload) throw new Error(payload.error || "Invalid response");

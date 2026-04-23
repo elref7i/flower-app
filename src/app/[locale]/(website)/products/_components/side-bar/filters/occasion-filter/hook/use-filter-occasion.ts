@@ -13,7 +13,7 @@ export default function useFilterOccasion() {
     isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
-  } = useInfiniteQuery<APIResponse<PaginatedResponse<Occasion>>>({
+  } = useInfiniteQuery<APIResponse<PaginatedResponse<{occasions: Occasion[]}>>>({
     // Query key
     queryKey: ["occasions"],
 
@@ -25,9 +25,9 @@ export default function useFilterOccasion() {
       //  if promise rejected
       if (!response.ok) throw new Error("Can't get Occasions");
 
-      const payload: APIResponse<PaginatedResponse<Occasion>> = await response.json();
+      const payload: APIResponse<PaginatedResponse<{occasions: Occasion[]}>> = await response.json();
 
-      //  Condition if payload  doesn't accepted
+      if ("error" in payload) throw new Error(payload.error || "Can't get occasions");
       if (payload.message !== "success") throw new Error(payload.message);
       return payload;
     },
@@ -37,6 +37,7 @@ export default function useFilterOccasion() {
 
     // Pass next page number to function
     getNextPageParam: (last) => {
+      if ("error" in last) return undefined;
       if (last.metadata.currentPage === last.metadata.totalPages) return undefined;
       return last.metadata.currentPage + 1;
     },
@@ -56,7 +57,7 @@ export default function useFilterOccasion() {
 
   // Get all occasions from paginated data
   const occasions = payload?.pages.flatMap((page) => {
-    return page.occasions;
+    return "error" in page ? [] : page.occasions;
   });
 
   //  Hook to check if the user scrolled to the last element then fetch next page

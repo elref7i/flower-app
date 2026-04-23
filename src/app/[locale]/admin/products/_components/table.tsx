@@ -19,7 +19,7 @@ const formatStock = (stock: number) => {
   return stock.toLocaleString();
 };
 
-export default function TableComponent({ products }: Products) {
+export default function TableComponent({ products }: { products: Product[] }) {
   const { deleteProductMutation, isPending, isSuccess } = useDeleteProduct();
   return (
     <Table>

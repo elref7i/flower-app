@@ -15,7 +15,7 @@ export async function deleteCartItem(productId: string) {
   });
 
   const payload: APIResponse<CartInfo> = await response.json();
-  if ("error" in payload) throw new Error(payload.message || "Can't delete item");
+  if ("error" in payload) throw new Error(payload.error || "Can't delete item");
 
   revalidateTag("cartInfo");
   return payload;
