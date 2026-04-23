@@ -7,11 +7,11 @@ import { getTranslations } from "next-intl/server";
 
 export default async function Summary() {
   // Variables
-  const cartInfo = await getCartItems();
-  const cartItems = cartInfo.cart.cartItems;
+  const cartInfo = await getCartItems() as SuccessfullResponse<CartInfo>;
+  const cartItems = cartInfo.cart?.cartItems || [];
   // check has discount
   const hasDiscount = cartItems.some(
-    (item) => item.product.priceAfterDiscount < item.product.price,
+    (item: CartItem) => item.product.priceAfterDiscount !== 0 && item.product.priceAfterDiscount < item.product.price,
   );
 
   // translation
@@ -19,7 +19,7 @@ export default async function Summary() {
 
   return (
     <section>
-      <div className="bg-zinc-50 p-4">
+      <div className="bg-zinc-50 p-4 dark:bg-zinc-800">
         {/* Head */}
         <h1 className="font-semibold text-3xl mb-4">{t("summary-title")}</h1>
         {/* Component */}

@@ -11,7 +11,7 @@ export default async function SummaryWithoutDiscount() {
   const format = useFormatter();
 
   // Get cart data
-  const data = await getCartItems();
+  const data = await getCartItems() as SuccessfullResponse<CartInfo>;
 
   const cartItems = data?.cart?.cartItems || [];
 

@@ -5,10 +5,10 @@ import EmptyCart from "./_components/empty-cart/empty-cart";
 
 export default async function Layout({
   summery,
-  cart,
+  children,
 }: {
   summery: React.ReactNode;
-  cart: React.ReactNode;
+  children: React.ReactNode;
 }) {
   const token = await getTokenFromCookies();
 
@@ -20,7 +20,7 @@ export default async function Layout({
         <div>
           {/* Parallel routes  */}
           <div className="flex gap-10 mb-14">
-            <section className="flex-1">{cart}</section>
+            <section className="flex-1">{children}</section>
 
             {/* If there are items in cart will render summery route  */}
             {!!CartInfo.numOfCartItems && <section className="w-[460px]">{summery}</section>}

@@ -26,7 +26,7 @@ export default async function page() {
           <EmptyCart />
         ) : (
           <div className="flex rtl:gap-10 ltr:gap-10">
-            <CartItems />
+            <CartItems initialData={CartInfo as any} />
           </div>
         )}
       </div>

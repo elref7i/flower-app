@@ -21,23 +21,39 @@ export default function RemoveItemButton({ productId }: { productId: string }) {
       return response;
     },
 
-    // On mutate remove item from cart items
-    onMutate: () => {
-      const items: CartItem[] = queryClient.getQueryData<CartItem[]>(["cartItems"]) || [];
-      const newItems = items?.filter((el) => el.product._id != productId);
-      queryClient.setQueryData<CartItem[]>(["cartItems"], newItems);
-      return { items };
+    onMutate: async () => {
+      // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
+      await queryClient.cancelQueries({ queryKey: ["cartItems"] });
+
+      // Snapshot the previous value
+      const previousCart = queryClient.getQueryData<CartInfo>(["cartItems"]);
+
+      // Optimistically update to the new value
+      if (previousCart?.cart) {
+        queryClient.setQueryData<CartInfo>(["cartItems"], {
+          ...previousCart,
+          cart: {
+            ...previousCart.cart,
+            cartItems: previousCart.cart.cartItems.filter((el) => el.product._id !== productId),
+          },
+          numOfCartItems: (previousCart.numOfCartItems || 1) - 1,
+        });
+      }
+
+      return { previousCart };
     },
 
     onSuccess: () => {
       toast.success("Item Deleted Successfully");
+      queryClient.invalidateQueries({ queryKey: ["cartItems"] });
     },
 
     onError: (error, _, context) => {
-      // If mutation doesn't success return removed item to screen
-      if (context?.items) queryClient.setQueryData<CartItem[]>(["cartItems"], context.items);
+      // If mutation fails, use the context returned from onMutate to roll back
+      if (context?.previousCart) {
+        queryClient.setQueryData(["cartItems"], context.previousCart);
+      }
       toast.error(error.message);
-      return error;
     },
   });
   const t = useTranslations("cart");
