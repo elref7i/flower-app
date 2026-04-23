@@ -13,7 +13,7 @@ export default function useCategoryFilter() {
     data: payload,
     fetchNextPage,
     error,
-  } = useInfiniteQuery<APIResponse<PaginatedResponse<Categories>>>({
+  } = useInfiniteQuery<APIResponse<PaginatedResponse<{categories: Category[]}>>>({
     // Query key
     queryKey: ["categories"],
 
@@ -39,6 +39,7 @@ export default function useCategoryFilter() {
 
     // Pass next page number to function
     getNextPageParam: (lastPage) => {
+      if ("error" in lastPage) return undefined;
       if (lastPage.metadata.currentPage === lastPage.metadata.totalPages) return undefined;
       return lastPage.metadata.currentPage + 1;
     },
@@ -74,7 +75,7 @@ export default function useCategoryFilter() {
 
   // Get all categories from paginated data
   const categories = payload?.pages.flatMap((page) => {
-    return page.categories;
+    return "error" in page ? [] : page.categories;
   });
 
   return {

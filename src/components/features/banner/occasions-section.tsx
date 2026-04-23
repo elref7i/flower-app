@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import left from "@assets/imgs/image 5.png"
 import middle from "@assets/imgs/image 6.png"
 import right from "@assets/imgs/image 7.png"

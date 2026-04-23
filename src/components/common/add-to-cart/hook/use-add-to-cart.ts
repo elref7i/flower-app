@@ -14,6 +14,7 @@ export default function useAddToCart() {
     // Add to cart mutation
     mutationFn: async ({ product, quantity }: { product: string; quantity: number }) => {
       const payload = await addToCart({ product, quantity });
+      if ("error" in payload) throw new Error(payload.error || "Can't add to cart");
       if (payload.message !== "success") throw new Error(payload.message);
 
       return payload;

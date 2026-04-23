@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   try {
-    const response: CartInfo = await getCartItems();
+    const response: any = await getCartItems();
     if (response.message !== "success") throw new Error(response.message || "Can't get items");
     return NextResponse.json(response);
   } catch (error) {

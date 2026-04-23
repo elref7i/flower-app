@@ -71,7 +71,7 @@ export default function ProductGrid() {
     return (
         <>
             <div className="grid grid-cols-3 gap-4">
-                {products.map(prod => {
+                {products.map((prod: Product) => {
                     // Flags
                     const newFlag = isNew(prod.createdAt);
                     const hotFlag = isHot(prod.sold);

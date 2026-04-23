@@ -2,7 +2,7 @@ export async function getAllProducts() {
   try {
     const response = await fetch(`${process.env.API!}/products`);
 
-    const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
+    const payload: APIResponse<PaginatedResponse<{products: Product[]}>> = await response.json();
 
     if ("error" in payload) throw new Error(payload.error);
 
@@ -112,7 +112,7 @@ export async function fetchProductStats(pageParam = 1) {
   const response = await fetch(
     `https://flower.elevateegy.com/api/v1/products?sort=-sold&page=${pageParam}&limit=8`,
   );
-  const payload: APIResponse<PaginatedResponse<Product>> = await response.json();
+  const payload: APIResponse<PaginatedResponse<{products: Product[]}>> = await response.json();
   if ("error" in payload) throw new Error(payload.error);
   return payload;
 }

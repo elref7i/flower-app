@@ -8,6 +8,7 @@ import { MoveLeft, MoveRight } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { buttonVariants } from "@/components/ui/button";
 import { getLocale, getTranslations } from "next-intl/server";
+import Summary from "@/components/features/summary/page";
 
 // Cart page
 export default async function page() {
@@ -25,8 +26,13 @@ export default async function page() {
         {CartInfo.numOfCartItems === 0 ? (
           <EmptyCart />
         ) : (
-          <div className="flex rtl:gap-10 ltr:gap-10">
-            <CartItems initialData={CartInfo as any} />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div className="lg:col-span-2">
+              <CartItems initialData={CartInfo as any} />
+            </div>
+            <div className="lg:col-span-1">
+              <Summary />
+            </div>
           </div>
         )}
       </div>

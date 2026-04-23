@@ -132,7 +132,7 @@ export default function DropZoneImage({ photo }: DropZoneImageProps) {
               {/* Avatar + DropZone هنا */}
 
               {form.formState.errors.photo && (
-                <p className="text-red-500 text-sm mt-2">{form.formState.errors.photo.message}</p>
+                <p className="text-red-500 text-sm mt-2">{form.formState.errors.photo.message as string}</p>
               )}
 
               {/* Button */}

@@ -18,7 +18,7 @@ export async function addToCart({ product, quantity }: { product: string; quanti
     body: JSON.stringify({ product, quantity }),
   });
   const payload: APIResponse<CartInfo> = await response.json();
-  if (payload.message === "success") {
+  if (!("error" in payload) && payload.message === "success") {
     revalidateTag("cartInfo");
   }
   return payload;

@@ -22,7 +22,7 @@ export default async function RelatedProducts() {
     },
   });
 
-  const payload: APIResponse<RelatedProductsResponse> = await response.json();
+  const payload = await response.json() as SuccessfullResponse<RelatedProductsResponse>;
   const products: Recommendation[] = payload.recommendations || [];
   return (
     <section className="container mt-20 mb-96 flex flex-col gap-4">
@@ -37,7 +37,7 @@ export default async function RelatedProducts() {
           {products.length ? (
             products.map((product) => (
               <CarouselItem key={product._id} className="basis-[304px] ">
-                <ProductItem product={product} />
+                <ProductItem product={product as any} />
               </CarouselItem>
             ))
           ) : (

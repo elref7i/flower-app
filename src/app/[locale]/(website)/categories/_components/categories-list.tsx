@@ -12,7 +12,7 @@ export default async function CategoriesList({
 }) {
   // Variables
   const search = searchParams.search?.toLowerCase() || "";
-  const response = await getCategories();
+  const response: any = await getCategories();
   const filtered = response.categories.filter((cat: Category) =>
     cat.name.toLowerCase().includes(search),
   );

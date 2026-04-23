@@ -14,8 +14,8 @@ import { cn } from "@/lib/utils/cn";
 
 interface PaginationComponentProps {
   metaData: Metadata;
-  currentPage: number;
-  onPageChange: (newPage: number) => void;
+  currentPage?: number;
+  onPageChange?: (newPage: number) => void;
 }
 
 function getVisiblePages(currentPage: number, totalPages: number): (number | string)[] {
@@ -39,7 +39,7 @@ function getVisiblePages(currentPage: number, totalPages: number): (number | str
 
 export default function PaginationComponent({
   metaData,
-  currentPage,
+  currentPage = 1,
   onPageChange,
 }: PaginationComponentProps) {
   const totalPages = metaData.totalPages;
@@ -57,7 +57,7 @@ export default function PaginationComponent({
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (currentPage !== 1) onPageChange(1);
+                if (currentPage !== 1 && onPageChange) onPageChange(1);
               }}
               className={cn(currentPage === 1 && "pointer-events-none opacity-50")}
             >
@@ -73,7 +73,7 @@ export default function PaginationComponent({
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (currentPage > 1) onPageChange(currentPage - 1);
+                if (currentPage > 1 && onPageChange) onPageChange(currentPage - 1);
               }}
               className={cn(currentPage === 1 && "pointer-events-none opacity-50")}
             />
@@ -92,7 +92,7 @@ export default function PaginationComponent({
                   isActive={page === currentPage}
                   onClick={(e) => {
                     e.preventDefault();
-                    if (page !== currentPage) onPageChange(Number(page));
+                    if (page !== currentPage && onPageChange) onPageChange(Number(page));
                   }}
                   className={cn(
                     page === currentPage &&
@@ -114,7 +114,7 @@ export default function PaginationComponent({
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (currentPage < totalPages) onPageChange(currentPage + 1);
+                if (currentPage < totalPages && onPageChange) onPageChange(currentPage + 1);
               }}
               className={cn(currentPage === totalPages && "pointer-events-none opacity-50")}
             />
@@ -128,7 +128,7 @@ export default function PaginationComponent({
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                if (currentPage !== totalPages) onPageChange(totalPages);
+                if (currentPage !== totalPages && onPageChange) onPageChange(totalPages);
               }}
               className={cn(currentPage === totalPages && "pointer-events-none opacity-50")}
             >
