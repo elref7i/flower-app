@@ -9,7 +9,7 @@ import { getTranslations, getFormatter } from "next-intl/server";
 
 export default async function SummaryWithDiscount() {
   // Get cart data
-  const data = await getCartItems();
+  const data = await getCartItems() as SuccessfullResponse<CartInfo>;
 
   const cartItems = data?.cart?.cartItems || [];
 
@@ -46,7 +46,7 @@ export default async function SummaryWithDiscount() {
       </div>
 
       {/* subtotal */}
-      <div className="text-zinc-800 w-full flex justify-between py-3">
+      <div className="text-zinc-800 w-full flex justify-between py-3 dark:text-zinc-100">
         <span className="text-lg font-medium ">{t("sub-total")}</span>
         <span className="font-semibold text-xl">
           {format.number(totalPriceAfterDiscount, {
@@ -59,7 +59,7 @@ export default async function SummaryWithDiscount() {
 
       {/* discount */}
       <div className="relative w-full flex justify-center items-center ">
-        <span className="relative z-10 bg-zinc-50 px-3 text-black text-lg font-semibold">
+        <span className="relative z-10 bg-zinc-50 dark:bg-zinc-800 px-3 text-black dark:text-white text-lg font-semibold">
           {t.rich("discount", {
             percentage: discountPercentage,
             strong: (chunks) => <span className="font-bold text-primary">{chunks}</span>,
@@ -69,7 +69,7 @@ export default async function SummaryWithDiscount() {
       </div>
 
       {/* total */}
-      <div className="text-zinc-800 font-bold text-2xl flex justify-between py-3">
+      <div className="text-zinc-800 font-bold text-2xl flex justify-between py-3 dark:text-zinc-100">
         <span>{t("total")}</span>
         <span>
           {format.number(totalPrice, {

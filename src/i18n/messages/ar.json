@@ -275,5 +275,9 @@
   "preview-website": "معاينة الموقع",
   "links": "الروابط",
   "account": "الحساب",
-  "log-out": "تسجيل الخروج"
+  "log-out": "تسجيل الخروج",
+  "summary-title": "ملخص",
+  "apply-coupon": "تطبيق",
+  "sub-total": "المجموع الفرعي",
+  "total": "المجموع"
 }

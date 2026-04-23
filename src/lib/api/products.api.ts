@@ -120,22 +120,21 @@ export async function fetchProductStats(pageParam = 1) {
 // Low Stock Products
 export async function fetchLowStockProducts(pageParam = 1) {
   const response = await fetch(
-    `https://flower.elevateegy.com/api/v1/products?sort=quantity&page=${pageParam}&limit=9`,
+    `https://flower.elevateegy.com/api/v1/products?page=${pageParam}&limit=9`,
   );
 
-  const payload: APIResponse<PaginatedResponse<Product[]>> = await response.json();
+  const payload: APIResponse<PaginatedResponse<{products: Product[]}>> = await response.json();
   if ("error" in payload) throw new Error(payload.error);
 
   // console.log(payload);
 
-  return payload.products;
+  return payload;
 }
 
 // Popular Products
 export async function fetchPopularProducts(occasionId?: string) {
   try {
     const params = new URLSearchParams({
-      sort: "sold",
       limit: "12",
     });
 

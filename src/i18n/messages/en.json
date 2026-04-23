@@ -280,5 +280,10 @@
   "preview-website": "Preview Website",
   "links": "Links",
   "account": "Account",
-  "log-out": "Log Out"
+  "log-out": "Log Out",
+  "summary-title": "Summary",
+  "apply-coupon": "Apply ",
+  "no-coupons": "No coupons applied",
+  "sub-total": "Subtotal",
+  "total": "Total"
 }
